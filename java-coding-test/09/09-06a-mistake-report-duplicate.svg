@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 724" width="760" height="724" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 9-6a. 예제로 실수 잡기 — 신고 결과 받기 예제 2 를 맞는 코드와 틀린 코드에 넣으면 결과가 어디서 갈라지나</title>
+  <defs>
+    <marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker>
+  </defs>
+  <rect width="760" height="724" fill="#ffffff"/>
+  <text x="24" y="40" font-size="22" font-weight="700" fill="#0f172a">예제로 실수 잡기 ① — 같은 입력을 맞는 코드와</text>
+  <text x="24" y="70" font-size="22" font-weight="700" fill="#0f172a">틀린 코드에 넣으면 결과가 어디서 갈라지나</text>
+  <text x="24" y="104" font-size="16" fill="#475569">초록 = 맞는 코드의 진행과 결과, 빨강 = 실수한 코드의 진행과</text>
+  <text x="24" y="128" font-size="16" fill="#475569">결과, 회색 = 공통 입력</text>
+
+  <circle cx="38" cy="170" r="13" fill="#1d4ed8"/><text x="38" y="176" font-size="16" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+  <text x="60" y="176" font-size="17" font-weight="700" fill="#0f172a">신고 결과 받기 예제 2 — id_list [con, ryan],</text>
+  <text x="60" y="200" font-size="17" font-weight="700" fill="#0f172a">report 는 "ryan con" 4줄, k = 3</text>
+
+  <rect x="24" y="222" width="712" height="104" rx="10" fill="#f8fafc" stroke="#334155" stroke-width="1.4"/>
+  <text x="44" y="250" font-size="17" font-weight="700" fill="#334155">공통 입력</text>
+  <g font-size="16" fill="#0f172a" font-family="Consolas, monospace">
+    <text x="44" y="282">1  ryan con</text>
+    <text x="44" y="308">2  ryan con</text>
+    <text x="220" y="282">3  ryan con</text>
+    <text x="220" y="308">4  ryan con</text>
+  </g>
+  <text x="440" y="282" font-size="16" fill="#475569">ryan 한 사람이 con 을</text>
+  <text x="440" y="308" font-size="16" fill="#475569">네 번 신고했다</text>
+
+  <polyline points="38,326 38,580 54,580" fill="none" stroke="#334155" stroke-width="1.8" marker-end="url(#g)"/>
+  <line x1="38" y1="420" x2="54" y2="420" stroke="#334155" stroke-width="1.8" marker-end="url(#g)"/>
+
+  <rect x="58" y="344" width="678" height="152" rx="10" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+  <text x="76" y="372" font-size="17" font-weight="700" fill="#047857">풀이 A — 피신고자별 Set 에 넣는다</text>
+  <g font-size="16" fill="#334155">
+    <text x="76" y="400">add 결과: 1줄 true, 2, 3, 4줄 false</text>
+    <text x="76" y="426">→ con 의 Set = { ryan }, 크기 1</text>
+    <text x="76" y="452">1 &lt; 3 이라 con 은 정지가 아니다 → 메일 없음</text>
+    <text x="76" y="478">→ <tspan font-weight="700" fill="#047857">[0, 0] (기대 출력과 같다)</tspan></text>
+  </g>
+
+  <rect x="58" y="516" width="678" height="128" rx="10" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+  <text x="76" y="544" font-size="17" font-weight="700" fill="#b91c1c">실수 — 줄마다 cnt[피신고자]++ 로 센다</text>
+  <g font-size="16" fill="#334155">
+    <text x="76" y="572">cnt[con] = 1 → 2 → 3 → 4. 4 ≥ 3 이라 con 이 정지된다</text>
+    <text x="76" y="598">정지된 con 을 신고한 줄이 4개라 mail[ryan] 이 4번 오른다</text>
+    <text x="76" y="624">→ <tspan font-weight="700" fill="#b91c1c">[0, 4] (틀림)</tspan></text>
+  </g>
+
+  <text x="24" y="676" font-size="16" fill="#334155">예제 1 에는 같은 신고가 두 번 나오지 않는다. 그래서 이 실수를 해도</text>
+  <text x="24" y="700" font-size="16" fill="#334155">예제 1 은 [2, 1, 1, 0] 으로 통과하고, 예제 2 에서야 틀린다.</text>
+</svg>

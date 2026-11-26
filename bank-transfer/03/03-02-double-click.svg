@@ -1,0 +1,73 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 896" width="760" height="896" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>출금 버튼을 두 번 눌렀을 때: 키가 없으면 2건이 저장되고, 같은 키를 다시 보내면 1건만 남는다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="896" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">출금 버튼을 두 번 눌렀을 때: 키가 없으면 2건이</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">저장되고, 같은 키를 다시 보내면 1건만 남는다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">예를 들어 꾸민 장면이다 (시각은 설명용). 왼쪽 빨강 = 사고가 나는</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">길, 오른쪽 초록 = 이 단계가 만든 길. 같은 높이의 상자가 같은 순간이다</text>
+<rect x="20" y="140" width="352" height="738" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="34" y="168" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">A. 키 없이 받으면</text>
+<text x="34" y="191" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">(버린 방식)</text>
+<rect x="34" y="210" width="324" height="88" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="46" y="236" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① 10:00:00</text>
+<text x="46" y="259" font-size="16" fill="#0f172a" xml:space="preserve">사용자가 5만 원</text>
+<text x="46" y="282" font-size="16" fill="#0f172a" xml:space="preserve">출금 버튼을 누른다</text>
+<line x1="196" y1="298" x2="196" y2="320" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="34" y="320" width="324" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="46" y="346" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② 서버가 이체 1번 저장</text>
+<text x="46" y="369" font-size="16" fill="#0f172a" xml:space="preserve">응답이 네트워크에서</text>
+<text x="46" y="392" font-size="16" fill="#0f172a" xml:space="preserve">늦어 화면이 멈춘다</text>
+<line x1="196" y1="408" x2="196" y2="430" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="34" y="430" width="324" height="88" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="46" y="456" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ 10:00:05</text>
+<text x="46" y="479" font-size="16" fill="#0f172a" xml:space="preserve">사용자가 같은 버튼을</text>
+<text x="46" y="502" font-size="16" fill="#0f172a" xml:space="preserve">다시 누른다</text>
+<line x1="196" y1="518" x2="196" y2="540" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="34" y="540" width="324" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="46" y="566" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ 서버는 처음 보는</text>
+<text x="46" y="589" font-size="16" fill="#0f172a" xml:space="preserve">요청으로 알고</text>
+<text x="46" y="612" font-size="16" fill="#0f172a" xml:space="preserve">이체 2번을 저장한다</text>
+<line x1="196" y1="628" x2="196" y2="650" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="34" y="650" width="324" height="88" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="46" y="676" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">결과: 출금 2건</text>
+<text x="46" y="699" font-size="16" fill="#0f172a" xml:space="preserve">5만 원이 두 번</text>
+<text x="46" y="722" font-size="16" fill="#0f172a" xml:space="preserve">나간다 (10만 원)</text>
+<text x="34" y="770" font-size="16" fill="#b91c1c" xml:space="preserve">서버가 키를 모르면 "같은 요청을</text>
+<text x="34" y="793" font-size="16" fill="#b91c1c" xml:space="preserve">또 보냈다" 와 "5만 원을 한 번 더</text>
+<text x="34" y="816" font-size="16" fill="#b91c1c" xml:space="preserve">보내고 싶다" 를 구분할 수 없다</text>
+<text x="34" y="839" font-size="16" fill="#7f1d1d" xml:space="preserve">본문이 같으면 중복으로 보는 방법은</text>
+<text x="34" y="862" font-size="16" fill="#7f1d1d" xml:space="preserve">일부러 두 번 보내는 정상 출금까지 막는다</text>
+<rect x="388" y="140" width="352" height="738" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="402" y="168" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">B. 같은 Idempotency-Key 를</text>
+<text x="402" y="191" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">다시 보내면 (이 단계)</text>
+<rect x="402" y="210" width="324" height="88" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="414" y="236" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① 10:00:00</text>
+<text x="414" y="259" font-size="16" fill="#0f172a" xml:space="preserve">앱이 키 K 를 만들어</text>
+<text x="414" y="282" font-size="16" fill="#0f172a" xml:space="preserve">요청에 붙인다</text>
+<line x1="564" y1="298" x2="564" y2="320" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="402" y="320" width="324" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="414" y="346" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② 서버가 이체 1번 저장</text>
+<text x="414" y="369" font-size="16" fill="#0f172a" xml:space="preserve">(키 K 와 함께)</text>
+<text x="414" y="392" font-size="16" fill="#0f172a" xml:space="preserve">응답이 늦어 화면 멈춤</text>
+<line x1="564" y1="408" x2="564" y2="430" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="402" y="430" width="324" height="88" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="414" y="456" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ 10:00:05</text>
+<text x="414" y="479" font-size="16" fill="#0f172a" xml:space="preserve">다시 누르면 앱이</text>
+<text x="414" y="502" font-size="16" fill="#0f172a" xml:space="preserve">같은 키 K 로 보낸다</text>
+<line x1="564" y1="518" x2="564" y2="540" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="402" y="540" width="324" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="414" y="566" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ 서버: K 는 이미 있고</text>
+<text x="414" y="589" font-size="16" fill="#0f172a" xml:space="preserve">내용도 같다 → 새로</text>
+<text x="414" y="612" font-size="16" fill="#0f172a" xml:space="preserve">저장하지 않는다</text>
+<line x1="564" y1="628" x2="564" y2="650" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="402" y="650" width="324" height="88" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="414" y="676" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">결과: 출금 1건</text>
+<text x="414" y="699" font-size="16" fill="#0f172a" xml:space="preserve">200 과 함께</text>
+<text x="414" y="722" font-size="16" fill="#0f172a" xml:space="preserve">이체 1번 id 를 돌려준다</text>
+<text x="402" y="770" font-size="16" fill="#047857" xml:space="preserve">재시도 때 같은 키를 다시 쓰는 것은</text>
+<text x="402" y="793" font-size="16" fill="#047857" xml:space="preserve">앱의 몫이고, 같은 키를 한 건으로</text>
+<text x="402" y="816" font-size="16" fill="#047857" xml:space="preserve">묶는 것은 서버(DB UNIQUE)의 몫이다</text>
+<text x="402" y="839" font-size="16" fill="#065f46" xml:space="preserve">같은 키로 금액을 바꿔 보내면</text>
+<text x="402" y="862" font-size="16" fill="#065f46" xml:space="preserve">422 IDEMPOTENCY_KEY_REUSED 로 거절</text>
+</svg>

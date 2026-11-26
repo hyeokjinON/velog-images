@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 604" width="760" height="604" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>요청 · 응답 예시 1) 2): 같은 키로 처음 보내면 202, 같은 본문으로 다시 보내면 200 과 같은 id</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="604" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">요청 · 응답 예시 1) 2): 처음 보내면 202, 같은 키 ·</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">같은 본문으로 다시 보내면 200 과 같은 id</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">실제 실행 화면이 아니다. 저장소의 http/transfer.http 요청을</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">P3-1 시점 모양으로 옮겨 적고, 응답은 코드가 정한 모양을 줄여 적었다</text>
+<rect x="20" y="134" width="720" height="450" rx="10" fill="#0f172a"/>
+<rect x="20" y="134" width="720" height="34" rx="10" fill="#1e293b"/>
+<rect x="20" y="158" width="720" height="10" fill="#1e293b"/>
+<circle cx="42" cy="151" r="6" fill="#f87171"/>
+<circle cx="62" cy="151" r="6" fill="#fbbf24"/>
+<circle cx="82" cy="151" r="6" fill="#34d399"/>
+<text x="400" y="157" font-size="16" fill="#94a3b8" text-anchor="middle" xml:space="preserve">transfer.http — 요청 · 응답 예시 (1/2)</text>
+<text x="40" y="200" font-size="16" fill="#94a3b8" font-family="Consolas, D2Coding, monospace" xml:space="preserve">### 1) 처음 보내는 출금</text>
+<text x="40" y="225" font-size="16" fill="#93c5fd" font-family="Consolas, D2Coding, monospace" xml:space="preserve">POST /api/v1/transfers</text>
+<text x="40" y="250" font-size="16" fill="#93c5fd" font-family="Consolas, D2Coding, monospace" xml:space="preserve">Content-Type: application/json</text>
+<text x="40" y="275" font-size="16" fill="#93c5fd" font-family="Consolas, D2Coding, monospace" xml:space="preserve">Idempotency-Key: fixed-key-001</text>
+<text x="40" y="300" font-size="16" fill="#93c5fd" font-family="Consolas, D2Coding, monospace" xml:space="preserve">{"bankCode":"090","accountNo":"1002123456789",</text>
+<text x="40" y="325" font-size="16" fill="#93c5fd" font-family="Consolas, D2Coding, monospace" xml:space="preserve"> "amount":10000,"memo":"멱등확인"}</text>
+<text x="40" y="350" font-size="16" fill="#86efac" font-family="Consolas, D2Coding, monospace" xml:space="preserve">← HTTP/1.1 202 Accepted</text>
+<text x="40" y="375" font-size="16" fill="#86efac" font-family="Consolas, D2Coding, monospace" xml:space="preserve">   Location: /api/v1/transfers/7d0c…</text>
+<text x="40" y="400" font-size="16" fill="#e2e8f0" font-family="Consolas, D2Coding, monospace" xml:space="preserve">   {"id":"7d0c…","status":"RECEIVED","amount":10000, … }</text>
+<text x="40" y="437" font-size="16" fill="#94a3b8" font-family="Consolas, D2Coding, monospace" xml:space="preserve">### 2) 응답을 못 받았다고 보고 같은 키 · 같은 본문으로 한 번 더</text>
+<text x="40" y="462" font-size="16" fill="#93c5fd" font-family="Consolas, D2Coding, monospace" xml:space="preserve">POST /api/v1/transfers</text>
+<text x="40" y="487" font-size="16" fill="#93c5fd" font-family="Consolas, D2Coding, monospace" xml:space="preserve">Idempotency-Key: fixed-key-001   (본문 1) 과 같음)</text>
+<text x="40" y="512" font-size="16" fill="#86efac" font-family="Consolas, D2Coding, monospace" xml:space="preserve">← HTTP/1.1 200 OK</text>
+<text x="40" y="537" font-size="16" fill="#e2e8f0" font-family="Consolas, D2Coding, monospace" xml:space="preserve">   {"id":"7d0c…","status":"RECEIVED", … }</text>
+<text x="40" y="562" font-size="16" fill="#fdba74" font-family="Consolas, D2Coding, monospace" xml:space="preserve">   ↑ id 가 1) 과 같다. 새 이체를 만들지 않았다</text>
+</svg>

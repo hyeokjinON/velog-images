@@ -1,0 +1,85 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 712" width="760" height="712" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>요청마다 transfer 와 outbox_event 에 생기는 행 ③ ④: 아웃박스 저장이 실패하면 이체 행도 함께 롤백되고, 다음 글에서 published_at 이 채워진다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="712" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">요청마다 transfer 와 outbox_event 에 생기는 행 ③ ④:</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">실패하면 함께 롤백, 발행 뒤 published_at 기록</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">값은 설명용 예시다 (id 는 줄여 씀). 초록 행 = 새로 생긴 행,</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">회색 행 = 그대로, 빨강 줄 = 롤백되어 남지 않은 행</text>
+<rect x="20" y="140" width="720" height="272" rx="8" fill="#ffffff" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="36" y="166" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ 다른 요청에서 outbox 저장이 실패 (테스트: 깨진 JSON)</text>
+<text x="36" y="190" font-size="16" fill="#b91c1c" xml:space="preserve">transfer 행도 함께 롤백된다</text>
+<text x="36" y="257" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">transfer</text>
+<rect x="186" y="206" width="400" height="30" fill="#e2e8f0" stroke="#334155" stroke-width="1"/>
+<text x="192" y="227" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">id</text>
+<text x="270" y="227" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">idempotency_key</text>
+<text x="420" y="227" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">amount</text>
+<text x="496" y="227" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">status</text>
+<rect x="186" y="236" width="400" height="30" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"/>
+<text x="192" y="257" font-size="15" fill="#475569" font-family="Consolas, D2Coding, monospace" xml:space="preserve">7d0c…</text>
+<text x="270" y="257" font-size="15" fill="#475569" font-family="Consolas, D2Coding, monospace" xml:space="preserve">fixed-key-001</text>
+<text x="420" y="257" font-size="15" fill="#475569" font-family="Consolas, D2Coding, monospace" xml:space="preserve">10000</text>
+<text x="496" y="257" font-size="15" fill="#475569" font-family="Consolas, D2Coding, monospace" xml:space="preserve">RECEIVED</text>
+<rect x="186" y="266" width="400" height="30" fill="#fef2f2" stroke="#94a3b8" stroke-width="1"/>
+<text x="192" y="287" font-size="15" fill="#b91c1c" font-family="Consolas, D2Coding, monospace" xml:space="preserve">8a1e…</text>
+<text x="270" y="287" font-size="15" fill="#b91c1c" font-family="Consolas, D2Coding, monospace" xml:space="preserve">other-key-002</text>
+<text x="420" y="287" font-size="15" fill="#b91c1c" font-family="Consolas, D2Coding, monospace" xml:space="preserve">30000</text>
+<text x="496" y="287" font-size="15" fill="#b91c1c" font-family="Consolas, D2Coding, monospace" xml:space="preserve">RECEIVED</text>
+<line x1="190" y1="281" x2="582" y2="281" stroke="#b91c1c" stroke-width="1.8"/>
+<line x1="264" y1="206" x2="264" y2="296" stroke="#94a3b8" stroke-width="1"/>
+<line x1="414" y1="206" x2="414" y2="296" stroke="#94a3b8" stroke-width="1"/>
+<line x1="490" y1="206" x2="490" y2="296" stroke="#94a3b8" stroke-width="1"/>
+<text x="36" y="357" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">outbox_event</text>
+<rect x="186" y="306" width="452" height="30" fill="#e2e8f0" stroke="#334155" stroke-width="1"/>
+<text x="192" y="327" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">id</text>
+<text x="236" y="327" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">aggregate_id</text>
+<text x="356" y="327" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">event_type</text>
+<text x="520" y="327" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">published_at</text>
+<rect x="186" y="336" width="452" height="30" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"/>
+<text x="192" y="357" font-size="15" fill="#475569" font-family="Consolas, D2Coding, monospace" xml:space="preserve">1</text>
+<text x="236" y="357" font-size="15" fill="#475569" font-family="Consolas, D2Coding, monospace" xml:space="preserve">7d0c…</text>
+<text x="356" y="357" font-size="15" fill="#475569" font-family="Consolas, D2Coding, monospace" xml:space="preserve">TransferRequested</text>
+<text x="520" y="357" font-size="15" fill="#475569" font-family="Consolas, D2Coding, monospace" xml:space="preserve">NULL</text>
+<rect x="186" y="366" width="452" height="30" fill="#fef2f2" stroke="#94a3b8" stroke-width="1"/>
+<text x="192" y="387" font-size="15" fill="#b91c1c" font-family="Consolas, D2Coding, monospace" xml:space="preserve">2</text>
+<text x="236" y="387" font-size="15" fill="#b91c1c" font-family="Consolas, D2Coding, monospace" xml:space="preserve">8a1e…</text>
+<text x="356" y="387" font-size="15" fill="#b91c1c" font-family="Consolas, D2Coding, monospace" xml:space="preserve">TransferRequested</text>
+<text x="520" y="387" font-size="15" fill="#b91c1c" font-family="Consolas, D2Coding, monospace" xml:space="preserve">NULL</text>
+<line x1="190" y1="381" x2="634" y2="381" stroke="#b91c1c" stroke-width="1.8"/>
+<line x1="230" y1="306" x2="230" y2="396" stroke="#94a3b8" stroke-width="1"/>
+<line x1="350" y1="306" x2="350" y2="396" stroke="#94a3b8" stroke-width="1"/>
+<line x1="514" y1="306" x2="514" y2="396" stroke="#94a3b8" stroke-width="1"/>
+<rect x="20" y="426" width="720" height="212" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="36" y="452" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ 다음 글 (P3-2): 퍼블리셔가 Kafka 로 보낸 뒤</text>
+<text x="36" y="476" font-size="16" fill="#64748b" xml:space="preserve">published_at 에 시각이 적힌다</text>
+<text x="36" y="528" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">transfer</text>
+<rect x="186" y="492" width="400" height="30" fill="#e2e8f0" stroke="#334155" stroke-width="1"/>
+<text x="192" y="513" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">id</text>
+<text x="270" y="513" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">idempotency_key</text>
+<text x="420" y="513" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">amount</text>
+<text x="496" y="513" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">status</text>
+<rect x="186" y="522" width="400" height="30" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"/>
+<text x="192" y="543" font-size="15" fill="#475569" font-family="Consolas, D2Coding, monospace" xml:space="preserve">7d0c…</text>
+<text x="270" y="543" font-size="15" fill="#475569" font-family="Consolas, D2Coding, monospace" xml:space="preserve">fixed-key-001</text>
+<text x="420" y="543" font-size="15" fill="#475569" font-family="Consolas, D2Coding, monospace" xml:space="preserve">10000</text>
+<text x="496" y="543" font-size="15" fill="#475569" font-family="Consolas, D2Coding, monospace" xml:space="preserve">RECEIVED</text>
+<line x1="264" y1="492" x2="264" y2="552" stroke="#94a3b8" stroke-width="1"/>
+<line x1="414" y1="492" x2="414" y2="552" stroke="#94a3b8" stroke-width="1"/>
+<line x1="490" y1="492" x2="490" y2="552" stroke="#94a3b8" stroke-width="1"/>
+<text x="36" y="598" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">outbox_event</text>
+<rect x="186" y="562" width="452" height="30" fill="#e2e8f0" stroke="#334155" stroke-width="1"/>
+<text x="192" y="583" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">id</text>
+<text x="236" y="583" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">aggregate_id</text>
+<text x="356" y="583" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">event_type</text>
+<text x="520" y="583" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">published_at</text>
+<rect x="186" y="592" width="452" height="30" fill="#ecfdf5" stroke="#94a3b8" stroke-width="1"/>
+<text x="192" y="613" font-size="15" fill="#065f46" font-family="Consolas, D2Coding, monospace" xml:space="preserve">1</text>
+<text x="236" y="613" font-size="15" fill="#065f46" font-family="Consolas, D2Coding, monospace" xml:space="preserve">7d0c…</text>
+<text x="356" y="613" font-size="15" fill="#065f46" font-family="Consolas, D2Coding, monospace" xml:space="preserve">TransferRequested</text>
+<text x="520" y="613" font-size="15" fill="#065f46" font-family="Consolas, D2Coding, monospace" xml:space="preserve">10:00:00.5</text>
+<line x1="230" y1="562" x2="230" y2="622" stroke="#94a3b8" stroke-width="1"/>
+<line x1="350" y1="562" x2="350" y2="622" stroke="#94a3b8" stroke-width="1"/>
+<line x1="514" y1="562" x2="514" y2="622" stroke="#94a3b8" stroke-width="1"/>
+<text x="20" y="668" font-size="16" fill="#64748b" xml:space="preserve">③ 은 JpaTransferStoreTest "아웃박스 저장이 실패하면 이체도</text>
+<text x="20" y="691" font-size="16" fill="#64748b" xml:space="preserve">저장되지 않는다" 가 확인한다. ④ 의 시각은 예시다</text>
+</svg>

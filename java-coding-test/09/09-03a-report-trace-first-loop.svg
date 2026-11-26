@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 792" width="760" height="792" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 9-3a. 신고 결과 받기 예제 1 — 첫 번째 반복문에서 report 한 줄마다 reporters 맵이 어떻게 자라나</title>
+  <rect width="760" height="792" fill="#ffffff"/>
+  <text x="24" y="40" font-size="22" font-weight="700" fill="#0f172a">신고 결과 받기 예제 1 — report 한 줄마다</text>
+  <text x="24" y="70" font-size="22" font-weight="700" fill="#0f172a">reporters 맵이 어떻게 자라나</text>
+  <text x="24" y="104" font-size="16" fill="#475569">초록 굵은 글자 = 그 줄에서 새로 들어간 값, 회색 = 이전 줄에서</text>
+  <text x="24" y="128" font-size="16" fill="#475569">이미 있던 값, "—" = 아직 그 키가 맵에 없음</text>
+
+  <text x="24" y="166" font-size="17" font-weight="700" fill="#1d4ed8">① 첫 번째 반복문 — report 를 한 줄씩 읽어</text>
+  <text x="24" y="192" font-size="16" fill="#1d4ed8" font-family="Consolas, monospace">reporters.computeIfAbsent(p[1], …).add(p[0])</text>
+
+  <!-- header -->
+  <rect x="24" y="208" width="712" height="64" fill="#eff6ff" stroke="#bfdbfe"/>
+  <g font-size="16" font-weight="700" fill="#1e3a8a">
+    <text x="66" y="234">읽은 줄</text>
+    <text x="230" y="234">코드가 하는 일 (add 의 반환값)</text>
+    <text x="66" y="260">키 frodo</text>
+    <text x="290" y="260">키 neo</text>
+    <text x="510" y="260">키 muzi</text>
+  </g>
+
+  <g font-size="16" fill="#334155">
+    <!-- row 1 : 272..360 -->
+    <circle cx="44" cy="296" r="12" fill="#1d4ed8"/><text x="44" y="302" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+    <text x="66" y="302" font-family="Consolas, monospace" font-weight="700" fill="#0f172a">muzi frodo</text>
+    <text x="230" y="302">frodo 키가 없어 빈 Set 을 만들고 muzi 를 넣는다 (true)</text>
+    <text x="66" y="336">{ <tspan fill="#047857" font-weight="700">muzi</tspan> }</text>
+    <text x="290" y="336" fill="#94a3b8">—</text>
+    <text x="510" y="336" fill="#94a3b8">—</text>
+    <line x1="24" y1="360" x2="736" y2="360" stroke="#e2e8f0"/>
+
+    <!-- row 2 : 360..448 -->
+    <circle cx="44" cy="384" r="12" fill="#1d4ed8"/><text x="44" y="390" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+    <text x="66" y="390" font-family="Consolas, monospace" font-weight="700" fill="#0f172a">apeach frodo</text>
+    <text x="230" y="390">frodo 키가 이미 있어 그 Set 에 apeach 를 넣는다 (true)</text>
+    <text x="66" y="424"><tspan fill="#94a3b8">{ muzi, </tspan><tspan fill="#047857" font-weight="700">apeach</tspan><tspan fill="#94a3b8"> }</tspan></text>
+    <text x="290" y="424" fill="#94a3b8">—</text>
+    <text x="510" y="424" fill="#94a3b8">—</text>
+    <line x1="24" y1="448" x2="736" y2="448" stroke="#e2e8f0"/>
+
+    <!-- row 3 : 448..536 -->
+    <circle cx="44" cy="472" r="12" fill="#1d4ed8"/><text x="44" y="478" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+    <text x="66" y="478" font-family="Consolas, monospace" font-weight="700" fill="#0f172a">frodo neo</text>
+    <text x="230" y="478">neo 키가 없어 빈 Set 을 만들고 frodo 를 넣는다 (true)</text>
+    <text x="66" y="512" fill="#94a3b8">{ muzi, apeach }</text>
+    <text x="290" y="512">{ <tspan fill="#047857" font-weight="700">frodo</tspan> }</text>
+    <text x="510" y="512" fill="#94a3b8">—</text>
+    <line x1="24" y1="536" x2="736" y2="536" stroke="#e2e8f0"/>
+
+    <!-- row 4 : 536..624 -->
+    <circle cx="44" cy="560" r="12" fill="#1d4ed8"/><text x="44" y="566" font-weight="700" fill="#fff" text-anchor="middle">4</text>
+    <text x="66" y="566" font-family="Consolas, monospace" font-weight="700" fill="#0f172a">muzi neo</text>
+    <text x="230" y="566">neo 키가 이미 있어 그 Set 에 muzi 를 넣는다 (true)</text>
+    <text x="66" y="600" fill="#94a3b8">{ muzi, apeach }</text>
+    <text x="290" y="600"><tspan fill="#94a3b8">{ frodo, </tspan><tspan fill="#047857" font-weight="700">muzi</tspan><tspan fill="#94a3b8"> }</tspan></text>
+    <text x="510" y="600" fill="#94a3b8">—</text>
+    <line x1="24" y1="624" x2="736" y2="624" stroke="#e2e8f0"/>
+
+    <!-- row 5 : 624..712 -->
+    <circle cx="44" cy="648" r="12" fill="#1d4ed8"/><text x="44" y="654" font-weight="700" fill="#fff" text-anchor="middle">5</text>
+    <text x="66" y="654" font-family="Consolas, monospace" font-weight="700" fill="#0f172a">apeach muzi</text>
+    <text x="230" y="654">muzi 키가 없어 빈 Set 을 만들고 apeach 를 넣는다 (true)</text>
+    <text x="66" y="688" fill="#94a3b8">{ muzi, apeach }</text>
+    <text x="290" y="688" fill="#94a3b8">{ frodo, muzi }</text>
+    <text x="510" y="688">{ <tspan fill="#047857" font-weight="700">apeach</tspan> }</text>
+  </g>
+
+  <!-- total -->
+  <rect x="24" y="712" width="712" height="60" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="44" y="738" font-size="16" font-weight="700" fill="#0f172a">5줄을 읽은 뒤 Set 크기</text>
+  <g font-size="17" font-weight="700" fill="#0f172a">
+    <text x="66" y="762">frodo 2명</text>
+    <text x="290" y="762">neo 2명</text>
+    <text x="510" y="762">muzi 1명</text>
+  </g>
+</svg>

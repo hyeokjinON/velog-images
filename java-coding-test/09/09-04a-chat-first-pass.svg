@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 744" width="760" height="744" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 9-4a. 오픈채팅방 두 번 훑기 — 1차에서 uid 별 마지막 닉네임을 확정한다</title>
+  <defs>
+    <marker id="g" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker>
+  </defs>
+  <rect width="760" height="744" fill="#ffffff"/>
+  <text x="24" y="40" font-size="22" font-weight="700" fill="#0f172a">오픈채팅방 두 번 훑기 ① — 1차에서 uid 별</text>
+  <text x="24" y="70" font-size="22" font-weight="700" fill="#0f172a">마지막 닉네임을 확정한다</text>
+  <text x="24" y="104" font-size="16" fill="#475569">같은 기록 5줄을 두 번 읽는다. 초록 = 맵에 닉네임을 쓰는 줄,</text>
+  <text x="24" y="128" font-size="16" fill="#475569">회색 = 맵을 바꾸지 않는 줄, 파랑 = 맵에서 닉네임을 꺼내 읽는 곳</text>
+
+  <circle cx="38" cy="170" r="13" fill="#047857"/><text x="38" y="176" font-size="16" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+  <text x="60" y="176" font-size="17" font-weight="700" fill="#047857">1차 훑기 — Enter, Change 는 nick.put(uid, 닉네임)으로</text>
+  <text x="60" y="200" font-size="17" font-weight="700" fill="#047857">덮어쓰고, Enter, Leave 는 메시지 개수만 센다</text>
+
+  <g font-size="16" fill="#475569">
+    <text x="44" y="238">읽은 줄</text>
+    <text x="250" y="238">nick 맵에 쓰는 값</text>
+    <text x="440" y="238">msgCount</text>
+  </g>
+
+  <g font-size="16">
+    <rect x="24" y="250" width="712" height="48" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.4"/>
+    <text x="44" y="280" font-family="Consolas, monospace" fill="#0f172a">Enter uid1234 Muzi</text>
+    <text x="250" y="280" fill="#047857" font-weight="700">uid1234 ← Muzi</text>
+    <text x="440" y="280" fill="#475569">msgCount 1</text>
+
+    <rect x="24" y="308" width="712" height="48" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.4"/>
+    <text x="44" y="338" font-family="Consolas, monospace" fill="#0f172a">Enter uid4567 Prodo</text>
+    <text x="250" y="338" fill="#047857" font-weight="700">uid4567 ← Prodo</text>
+    <text x="440" y="338" fill="#475569">msgCount 2</text>
+
+    <rect x="24" y="366" width="712" height="48" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.4"/>
+    <text x="44" y="396" font-family="Consolas, monospace" fill="#0f172a">Leave uid1234</text>
+    <text x="250" y="396" fill="#334155">맵은 그대로 둔다</text>
+    <text x="440" y="396" fill="#475569">msgCount 3</text>
+
+    <rect x="24" y="424" width="712" height="48" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.4"/>
+    <text x="44" y="454" font-family="Consolas, monospace" fill="#0f172a">Enter uid1234 Prodo</text>
+    <text x="250" y="454" fill="#047857" font-weight="700">uid1234 ← Prodo</text>
+    <text x="440" y="454" fill="#475569">Muzi 를 덮어씀, msgCount 4</text>
+
+    <rect x="24" y="482" width="712" height="48" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.4"/>
+    <text x="44" y="512" font-family="Consolas, monospace" fill="#0f172a">Change uid4567 Ryan</text>
+    <text x="250" y="512" fill="#047857" font-weight="700">uid4567 ← Ryan</text>
+    <text x="440" y="512" fill="#475569">Prodo 를 덮어씀, 4 그대로</text>
+  </g>
+
+  <line x1="380" y1="536" x2="380" y2="590" stroke="#334155" stroke-width="2" marker-end="url(#g)"/>
+  <text x="396" y="568" font-size="16" fill="#334155">5줄을 끝까지 읽은 뒤</text>
+
+  <rect x="24" y="596" width="712" height="124" rx="10" fill="#eff6ff" stroke="#1d4ed8" stroke-width="2"/>
+  <circle cx="50" cy="622" r="13" fill="#1d4ed8"/><text x="50" y="628" font-size="16" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+  <text x="380" y="629" font-size="18" font-weight="700" fill="#1d4ed8" text-anchor="middle">1차가 끝난 뒤 확정된 nick 맵</text>
+  <text x="380" y="663" font-size="18" fill="#0f172a" text-anchor="middle" font-family="Consolas, monospace">{ uid1234=Prodo, uid4567=Ryan }</text>
+  <text x="380" y="697" font-size="16" fill="#334155" text-anchor="middle">msgCount = 4 이므로 answer = new String[4] 로 답 배열을 만든다</text>
+</svg>

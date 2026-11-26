@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 668" width="760" height="668" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 9-5b. 오픈채팅방 예제 — 그 시점 닉네임으로 바로 출력한 메시지와 2차에서 마지막 닉네임으로 만든 메시지</title>
+  <rect width="760" height="668" fill="#ffffff"/>
+  <text x="24" y="40" font-size="22" font-weight="700" fill="#0f172a">오픈채팅방 예제 — 그 시점 닉네임으로 바로 출력한</text>
+  <text x="24" y="70" font-size="22" font-weight="700" fill="#0f172a">메시지와 2차에서 만든 메시지</text>
+  <text x="24" y="104" font-size="16" fill="#475569">빨강 = 그 시점 닉네임으로 바로 출력하면 정답과 달라지는 줄,</text>
+  <text x="24" y="128" font-size="16" fill="#475569">초록 = 2차에서 마지막 닉네임으로 만든 메시지(정답)</text>
+
+  <rect x="24" y="148" width="712" height="64" fill="#eff6ff" stroke="#bfdbfe"/>
+  <g font-size="16" font-weight="700">
+    <text x="36" y="174" fill="#1e3a8a">단계와 읽은 줄</text>
+    <text x="270" y="174" fill="#b91c1c">이 줄에서 바로 출력하면</text>
+    <text x="270" y="198" fill="#b91c1c" font-weight="400">(틀린 방법: 그 시점 닉네임)</text>
+    <text x="510" y="174" fill="#047857">2차에서 만든 메시지</text>
+    <text x="510" y="198" fill="#047857" font-weight="400">(정답: 마지막 닉네임)</text>
+  </g>
+
+  <g font-size="16" fill="#334155">
+    <circle cx="44" cy="232" r="12" fill="#047857"/><text x="44" y="238" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+    <text x="64" y="238" font-family="Consolas, monospace" fill="#0f172a">Enter uid1234 Muzi</text>
+    <text x="270" y="238" fill="#b91c1c" font-weight="700">Muzi님이 들어왔습니다.</text>
+    <text x="510" y="238" fill="#047857">Prodo님이 들어왔습니다.</text>
+    <line x1="24" y1="258" x2="736" y2="258" stroke="#e2e8f0"/>
+
+    <circle cx="44" cy="282" r="12" fill="#047857"/><text x="44" y="288" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+    <text x="64" y="288" font-family="Consolas, monospace" fill="#0f172a">Enter uid4567 Prodo</text>
+    <text x="270" y="288" fill="#b91c1c" font-weight="700">Prodo님이 들어왔습니다.</text>
+    <text x="510" y="288" fill="#047857">Ryan님이 들어왔습니다.</text>
+    <line x1="24" y1="308" x2="736" y2="308" stroke="#e2e8f0"/>
+
+    <circle cx="44" cy="332" r="12" fill="#94a3b8"/><text x="44" y="338" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+    <text x="64" y="338" font-family="Consolas, monospace" fill="#0f172a">Leave uid1234</text>
+    <text x="270" y="338" fill="#b91c1c" font-weight="700">Muzi님이 나갔습니다.</text>
+    <text x="510" y="338" fill="#047857">Prodo님이 나갔습니다.</text>
+    <line x1="24" y1="358" x2="736" y2="358" stroke="#e2e8f0"/>
+
+    <circle cx="44" cy="382" r="12" fill="#047857"/><text x="44" y="388" font-weight="700" fill="#fff" text-anchor="middle">4</text>
+    <text x="64" y="388" font-family="Consolas, monospace" fill="#0f172a">Enter uid1234 Prodo</text>
+    <text x="270" y="388">Prodo님이 들어왔습니다.</text>
+    <text x="510" y="388" fill="#047857">Prodo님이 들어왔습니다.</text>
+    <line x1="24" y1="408" x2="736" y2="408" stroke="#e2e8f0"/>
+
+    <circle cx="44" cy="432" r="12" fill="#047857"/><text x="44" y="438" font-weight="700" fill="#fff" text-anchor="middle">5</text>
+    <text x="64" y="438" font-family="Consolas, monospace" fill="#0f172a">Change uid4567 Ryan</text>
+    <text x="270" y="438" fill="#475569">메시지 없음</text>
+    <text x="510" y="438" fill="#475569">메시지 없음</text>
+    <line x1="24" y1="458" x2="736" y2="458" stroke="#cbd5e1"/>
+  </g>
+
+  <rect x="24" y="484" width="712" height="164" rx="10" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.4"/>
+  <text x="44" y="514" font-size="17" font-weight="700" fill="#b91c1c">한 번만 훑으며 바로 출력하면 4줄 중 3줄이 틀린다</text>
+  <g font-size="16" fill="#334155">
+    <text x="44" y="544">1, 2, 3번 줄을 출력하는 순간에는 4, 5번 줄의 이름 변경을</text>
+    <text x="44" y="570">아직 읽지 않았다. 그래서 Muzi, Prodo, Muzi 가 그대로 남는다.</text>
+    <text x="44" y="596">고치려면 이름이 바뀔 때마다 지난 메시지를 다시 훑어야 하고,</text>
+    <text x="44" y="622">그것이 3-2절의 O(n²) 순진한 방법이다.</text>
+  </g>
+</svg>

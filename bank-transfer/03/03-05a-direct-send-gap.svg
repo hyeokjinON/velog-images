@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 560" width="760" height="560" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>버린 방식: 이체 저장 직후 Kafka 로 바로 보내면 이체는 있는데 처리 신호가 없는 틈이 생긴다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="560" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">버린 방식: 이체 저장 직후 Kafka 로 바로 보내면</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">이체는 있는데 처리 신호가 없는 틈이 생긴다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">빨강 = 틈이 생기는 곳. 이 방식은 버렸고,</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">채택한 방식은 그림 3-5b 에 있다</text>
+<rect x="20" y="140" width="720" height="400" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="36" y="168" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">A. 버린 방식: DB 저장 → 바로 Kafka 발행</text>
+<rect x="44" y="186" width="300" height="50" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="56" y="217" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① 이체 INSERT + 커밋</text>
+<rect x="416" y="186" width="300" height="50" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="428" y="217" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② Kafka send</text>
+<line x1="344" y1="211" x2="416" y2="211" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="44" y="260" width="672" height="92" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="56" y="286" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">②가 실패하거나 ①② 사이에 서버가 죽으면</text>
+<text x="56" y="309" font-size="16" fill="#0f172a" xml:space="preserve">이체는 RECEIVED 로 저장됐는데 "처리하라" 신호가 없다</text>
+<text x="56" y="332" font-size="16" fill="#0f172a" xml:space="preserve">→ 사용자는 202 를 받았지만 출금은 영원히 처리되지 않는다</text>
+<rect x="44" y="368" width="672" height="92" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="56" y="394" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">반대로 ② 먼저 보내고 ① 이 롤백되면</text>
+<text x="56" y="417" font-size="16" fill="#0f172a" xml:space="preserve">없는 이체를 컨슈머가 처리한다 (은행에 돈이 나간다)</text>
+<text x="56" y="440" font-size="16" fill="#0f172a" xml:space="preserve">DB 와 Kafka 는 서로 다른 자원이라 한 번에 묶을 수 없다</text>
+<text x="44" y="496" font-size="16" fill="#7f1d1d" xml:space="preserve">Kafka + DB 를 같이 묶는 분산 트랜잭션은</text>
+<text x="44" y="519" font-size="16" fill="#7f1d1d" xml:space="preserve">설명 · 운영 비용이 커서 버렸다</text>
+</svg>

@@ -1,0 +1,69 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 668" width="760" height="668" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 9-5a. 오픈채팅방 예제 — 1차 훑기에서 nick 맵이 줄마다 어떻게 덮어써지나</title>
+  <rect width="760" height="668" fill="#ffffff"/>
+  <text x="24" y="40" font-size="22" font-weight="700" fill="#0f172a">오픈채팅방 예제 — 1차 훑기에서 nick 맵이</text>
+  <text x="24" y="70" font-size="22" font-weight="700" fill="#0f172a">줄마다 어떻게 덮어써지나</text>
+  <text x="24" y="104" font-size="16" fill="#475569">초록 굵은 글자 = 그 줄에서 새로 쓴 값,</text>
+  <text x="24" y="128" font-size="16" fill="#475569">취소선 = 덮어써져 사라진 값</text>
+
+  <rect x="24" y="148" width="712" height="64" fill="#eff6ff" stroke="#bfdbfe"/>
+  <g font-size="16" font-weight="700" fill="#1e3a8a">
+    <text x="36" y="174">단계와 읽은 줄</text>
+    <text x="262" y="174">nick[uid1234]</text>
+    <text x="392" y="174">nick[uid4567]</text>
+    <text x="522" y="174">put 반환값</text>
+    <text x="522" y="198" font-weight="400">(이전 닉네임)</text>
+    <text x="644" y="174">msgCount</text>
+  </g>
+
+  <g font-size="16" fill="#334155">
+    <circle cx="44" cy="232" r="12" fill="#047857"/><text x="44" y="238" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+    <text x="64" y="238" font-family="Consolas, monospace" fill="#0f172a">Enter uid1234 Muzi</text>
+    <text x="262" y="238" fill="#047857" font-weight="700">Muzi</text>
+    <text x="392" y="238" fill="#94a3b8">—</text>
+    <text x="522" y="238">null</text>
+    <text x="644" y="238">1</text>
+    <line x1="24" y1="258" x2="736" y2="258" stroke="#e2e8f0"/>
+
+    <circle cx="44" cy="282" r="12" fill="#047857"/><text x="44" y="288" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+    <text x="64" y="288" font-family="Consolas, monospace" fill="#0f172a">Enter uid4567 Prodo</text>
+    <text x="262" y="288" fill="#94a3b8">Muzi</text>
+    <text x="392" y="288" fill="#047857" font-weight="700">Prodo</text>
+    <text x="522" y="288">null</text>
+    <text x="644" y="288">2</text>
+    <line x1="24" y1="308" x2="736" y2="308" stroke="#e2e8f0"/>
+
+    <circle cx="44" cy="332" r="12" fill="#94a3b8"/><text x="44" y="338" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+    <text x="64" y="338" font-family="Consolas, monospace" fill="#0f172a">Leave uid1234</text>
+    <text x="262" y="338" fill="#94a3b8">Muzi</text>
+    <text x="392" y="338" fill="#94a3b8">Prodo</text>
+    <text x="522" y="338" fill="#94a3b8">put 안 함</text>
+    <text x="644" y="338">3</text>
+    <line x1="24" y1="358" x2="736" y2="358" stroke="#e2e8f0"/>
+
+    <circle cx="44" cy="382" r="12" fill="#047857"/><text x="44" y="388" font-weight="700" fill="#fff" text-anchor="middle">4</text>
+    <text x="64" y="388" font-family="Consolas, monospace" fill="#0f172a">Enter uid1234 Prodo</text>
+    <text x="262" y="388"><tspan fill="#94a3b8" text-decoration="line-through">Muzi</tspan><tspan fill="#047857" font-weight="700"> Prodo</tspan></text>
+    <text x="392" y="388" fill="#94a3b8">Prodo</text>
+    <text x="522" y="388">"Muzi"</text>
+    <text x="644" y="388">4</text>
+    <line x1="24" y1="408" x2="736" y2="408" stroke="#e2e8f0"/>
+
+    <circle cx="44" cy="432" r="12" fill="#047857"/><text x="44" y="438" font-weight="700" fill="#fff" text-anchor="middle">5</text>
+    <text x="64" y="438" font-family="Consolas, monospace" fill="#0f172a">Change uid4567 Ryan</text>
+    <text x="262" y="438" fill="#94a3b8">Prodo</text>
+    <text x="392" y="438"><tspan fill="#94a3b8" text-decoration="line-through">Prodo</tspan><tspan fill="#047857" font-weight="700"> Ryan</tspan></text>
+    <text x="522" y="438">"Prodo"</text>
+    <text x="644" y="438">4 (그대로)</text>
+    <line x1="24" y1="458" x2="736" y2="458" stroke="#cbd5e1"/>
+  </g>
+
+  <rect x="24" y="484" width="712" height="164" rx="10" fill="#ecfdf5" stroke="#047857" stroke-width="1.4"/>
+  <text x="44" y="514" font-size="17" font-weight="700" fill="#047857">1차가 끝난 맵 = { uid1234=Prodo, uid4567=Ryan }</text>
+  <g font-size="16" fill="#334155">
+    <text x="44" y="544">uid1234 는 4번 줄에서 Muzi 가 Prodo 로 바뀌었고,</text>
+    <text x="44" y="570">uid4567 은 5번 줄에서 Prodo 가 Ryan 으로 바뀌었다.</text>
+    <text x="44" y="596">2차는 이 맵만 읽으므로 4개 메시지가 모두 마지막 닉네임으로</text>
+    <text x="44" y="622">나온다. 예제의 기대 출력 4줄과 같다.</text>
+  </g>
+</svg>

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 652" width="760" height="652" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>요청 · 응답 예시 3) ~ 5): 금액만 바꾸면 422, 키가 없으면 400, 1원인증을 하지 않은 계좌면 422</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="652" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">요청 · 응답 예시 3) ~ 5): 금액만 바꾸면 422,</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">키가 없으면 400, 인증하지 않은 계좌면 422</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">실제 실행 화면이 아니다. 저장소의 http/transfer.http 요청을</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">P3-1 시점 모양으로 옮겨 적고, 응답은 코드가 정한 모양을 줄여 적었다</text>
+<rect x="20" y="134" width="720" height="498" rx="10" fill="#0f172a"/>
+<rect x="20" y="134" width="720" height="34" rx="10" fill="#1e293b"/>
+<rect x="20" y="158" width="720" height="10" fill="#1e293b"/>
+<circle cx="42" cy="151" r="6" fill="#f87171"/>
+<circle cx="62" cy="151" r="6" fill="#fbbf24"/>
+<circle cx="82" cy="151" r="6" fill="#34d399"/>
+<text x="400" y="157" font-size="16" fill="#94a3b8" text-anchor="middle" xml:space="preserve">transfer.http — 요청 · 응답 예시 (2/2)</text>
+<text x="40" y="200" font-size="16" fill="#94a3b8" font-family="Consolas, D2Coding, monospace" xml:space="preserve">### 3) 같은 키에 금액만 20000 으로 바꿈</text>
+<text x="40" y="225" font-size="16" fill="#93c5fd" font-family="Consolas, D2Coding, monospace" xml:space="preserve">POST /api/v1/transfers</text>
+<text x="40" y="250" font-size="16" fill="#93c5fd" font-family="Consolas, D2Coding, monospace" xml:space="preserve">Idempotency-Key: fixed-key-001   amount: 20000</text>
+<text x="40" y="275" font-size="16" fill="#fca5a5" font-family="Consolas, D2Coding, monospace" xml:space="preserve">← HTTP/1.1 422</text>
+<text x="40" y="300" font-size="16" fill="#fca5a5" font-family="Consolas, D2Coding, monospace" xml:space="preserve">   Content-Type: application/problem+json</text>
+<text x="40" y="325" font-size="16" fill="#e2e8f0" font-family="Consolas, D2Coding, monospace" xml:space="preserve">   {"status":422,"code":"IDEMPOTENCY_KEY_REUSED", … }</text>
+<text x="40" y="350" font-size="16" fill="#fdba74" font-family="Consolas, D2Coding, monospace" xml:space="preserve">   ↑ 저장된 request_hash 와 이번 해시가 다르다.</text>
+<text x="40" y="375" font-size="16" fill="#fdba74" font-family="Consolas, D2Coding, monospace" xml:space="preserve">     기존 건을 돌려주지 않는다</text>
+<text x="40" y="412" font-size="16" fill="#94a3b8" font-family="Consolas, D2Coding, monospace" xml:space="preserve">### 4) Idempotency-Key 헤더 없이</text>
+<text x="40" y="437" font-size="16" fill="#fca5a5" font-family="Consolas, D2Coding, monospace" xml:space="preserve">← HTTP/1.1 400</text>
+<text x="40" y="462" font-size="16" fill="#e2e8f0" font-family="Consolas, D2Coding, monospace" xml:space="preserve">   {"status":400,"code":"IDEMPOTENCY_KEY_REQUIRED", … }</text>
+<text x="40" y="499" font-size="16" fill="#94a3b8" font-family="Consolas, D2Coding, monospace" xml:space="preserve">### 5) 1원인증을 하지 않은 계좌 1101234567890</text>
+<text x="40" y="524" font-size="16" fill="#fca5a5" font-family="Consolas, D2Coding, monospace" xml:space="preserve">← HTTP/1.1 422</text>
+<text x="40" y="549" font-size="16" fill="#e2e8f0" font-family="Consolas, D2Coding, monospace" xml:space="preserve">   {"status":422,"code":"ACCOUNT_NOT_VERIFIED", … }</text>
+<text x="40" y="586" font-size="16" fill="#94a3b8" font-family="Consolas, D2Coding, monospace" xml:space="preserve">-- 다섯 번 보낸 뒤 DB: transfer 1행,</text>
+<text x="40" y="611" font-size="16" fill="#94a3b8" font-family="Consolas, D2Coding, monospace" xml:space="preserve">--   outbox_event 1행 (published_at = NULL)</text>
+</svg>

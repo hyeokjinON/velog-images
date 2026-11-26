@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 684" width="760" height="684" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>같은 키 요청 2건이 동시에 왔을 때 ① ~ ④: 두 번째 INSERT 는 첫 요청이 커밋할 때까지 기다린다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="684" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">같은 키 요청 2건이 동시에 왔을 때 ① ~ ④:</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">B 의 INSERT 는 A 가 커밋할 때까지 기다린다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">위에서 아래로 시간이 흐른다. K = 같은 Idempotency-Key.</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">파랑 = 조회, 초록 = 이긴 쪽, 주황 = 기다림</text>
+<rect x="15" y="140" width="220" height="60" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="125" y="165" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">요청 A 처리 스레드</text>
+<text x="125" y="189" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">(먼저 INSERT 한 쪽)</text>
+<line x1="125" y1="200" x2="125" y2="572" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 4"/>
+<rect x="270" y="140" width="220" height="60" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="380" y="165" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">MySQL</text>
+<text x="380" y="189" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">transfer · outbox_event</text>
+<line x1="380" y1="200" x2="380" y2="650" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 4"/>
+<rect x="525" y="140" width="220" height="60" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="635" y="165" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">요청 B 처리 스레드</text>
+<text x="635" y="189" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">(진 쪽)</text>
+<line x1="635" y1="200" x2="635" y2="650" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 4"/>
+<line x1="129" y1="268" x2="376" y2="268" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<text x="252.5" y="236" font-size="16" fill="#1d4ed8" text-anchor="middle" xml:space="preserve">SELECT … WHERE key = K</text>
+<text x="252.5" y="259" font-size="16" fill="#1d4ed8" text-anchor="middle" xml:space="preserve">→ 없음</text>
+<circle cx="105" cy="268" r="13" fill="#1d4ed8"/><text x="105" y="274" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">①</text>
+<line x1="631" y1="268" x2="384" y2="268" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<text x="507.5" y="236" font-size="16" fill="#1d4ed8" text-anchor="middle" xml:space="preserve">SELECT … WHERE key = K</text>
+<text x="507.5" y="259" font-size="16" fill="#1d4ed8" text-anchor="middle" xml:space="preserve">→ 없음</text>
+<circle cx="655" cy="268" r="13" fill="#1d4ed8"/><text x="655" y="274" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">①</text>
+<rect x="190" y="282" width="380" height="26" fill="#ffffff"/>
+<text x="380" y="301" font-size="16" fill="#1d4ed8" text-anchor="middle" xml:space="preserve">둘 다 "없음" 을 본다. 아직 아무도 커밋하지 않았다</text>
+<line x1="129" y1="380" x2="376" y2="380" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<text x="252.5" y="348" font-size="16" fill="#047857" text-anchor="middle" xml:space="preserve">INSERT transfer(K)</text>
+<text x="252.5" y="371" font-size="16" fill="#047857" text-anchor="middle" xml:space="preserve">+ INSERT outbox_event</text>
+<circle cx="105" cy="380" r="13" fill="#047857"/><text x="105" y="386" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">②</text>
+<text x="252.5" y="404" font-size="16" fill="#047857" font-weight="700" text-anchor="middle" xml:space="preserve">K 값에 잠금이 걸린다</text>
+<line x1="631" y1="456" x2="384" y2="456" stroke="#c2410c" stroke-width="2.2" marker-end="url(#mo)"/>
+<text x="507.5" y="447" font-size="16" fill="#c2410c" text-anchor="middle" xml:space="preserve">INSERT transfer(K)</text>
+<circle cx="655" cy="456" r="13" fill="#c2410c"/><text x="655" y="462" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">③</text>
+<rect x="627" y="462" width="16" height="200" fill="#fdba74" stroke="#c2410c" stroke-width="1.4"/>
+<text x="507" y="496" font-size="16" fill="#c2410c" font-weight="700" text-anchor="middle" xml:space="preserve">A 가 끝날 때까지</text>
+<text x="507" y="519" font-size="16" fill="#c2410c" font-weight="700" text-anchor="middle" xml:space="preserve">INSERT 가 기다린다</text>
+<line x1="129" y1="548" x2="376" y2="548" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<text x="252.5" y="539" font-size="16" fill="#047857" text-anchor="middle" xml:space="preserve">COMMIT</text>
+<circle cx="105" cy="548" r="13" fill="#047857"/><text x="105" y="554" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">④</text>
+<rect x="15" y="572" width="220" height="64" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="27" y="598" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">A 응답: 202 Accepted</text>
+<text x="27" y="621" font-size="16" fill="#0f172a" xml:space="preserve">새 이체 id = 7d0c…</text>
+<text x="507" y="600" font-size="16" fill="#64748b" text-anchor="middle" xml:space="preserve">B 는 아직 기다린다.</text>
+<text x="507" y="623" font-size="16" fill="#64748b" text-anchor="middle" xml:space="preserve">이어지는 일은 그림 3-4b</text>
+</svg>

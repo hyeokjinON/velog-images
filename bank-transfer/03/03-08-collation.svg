@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 680" width="760" height="680" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>대소문자만 다른 두 키: 기본 정렬 규칙(utf8mb4_0900_ai_ci)은 같은 키로, ascii_bin 은 다른 키로 본다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="680" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">대소문자만 다른 두 키: 기본 정렬 규칙은</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">같은 키로, ascii_bin 은 다른 키로 본다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">예를 들어 클라이언트 X 와 Y 가 우연히 대소문자만 다른 키를 썼다.</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">왼쪽 빨강 = 최종 리뷰 전의 동작, 오른쪽 초록 = 고친 뒤</text>
+<rect x="20" y="140" width="352" height="520" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="34" y="168" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">고치기 전:</text>
+<text x="34" y="191" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">utf8mb4_0900_ai_ci</text>
+<text x="34" y="214" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">(MySQL 8 기본)</text>
+<text x="34" y="240" font-size="16" fill="#b91c1c" xml:space="preserve">ai = 악센트 무시, ci = 대소문자 무시</text>
+<rect x="34" y="258" width="324" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="46" y="284" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① X: 키 "Order-1" 로 5만 원</text>
+<text x="46" y="307" font-size="16" fill="#0f172a" xml:space="preserve">→ 202, 이체 X 저장</text>
+<line x1="196" y1="322" x2="196" y2="340" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="34" y="340" width="324" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="46" y="366" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② Y: 키 "order-1" 로 5만 원</text>
+<text x="46" y="389" font-size="16" fill="#0f172a" xml:space="preserve">먼저 조회 WHERE key = 'order-1'</text>
+<line x1="196" y1="404" x2="196" y2="422" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="34" y="422" width="324" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="46" y="448" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ 비교할 때 대소문자를 무시하므로</text>
+<text x="46" y="471" font-size="16" fill="#0f172a" xml:space="preserve">'Order-1' 행이 걸린다 (같은 키로 봄)</text>
+<line x1="196" y1="486" x2="196" y2="506" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<rect x="34" y="506" width="324" height="134" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="46" y="532" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">결과: Y 는 200 + X 의 이체를 받는다</text>
+<text x="46" y="555" font-size="16" fill="#0f172a" xml:space="preserve">Y 는 "접수됐다" 고 믿지만</text>
+<text x="46" y="578" font-size="16" fill="#0f172a" xml:space="preserve">Y 의 출금은 없다</text>
+<text x="46" y="601" font-size="16" fill="#0f172a" xml:space="preserve">(계좌 · 금액 · 적요까지 같을 때.</text>
+<text x="46" y="624" font-size="16" fill="#0f172a" xml:space="preserve">다르면 422)</text>
+<rect x="388" y="140" width="352" height="520" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="402" y="168" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">고친 뒤:</text>
+<text x="402" y="191" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">CHARACTER SET ascii</text>
+<text x="402" y="214" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">COLLATE ascii_bin</text>
+<text x="402" y="240" font-size="16" fill="#047857" xml:space="preserve">bin = 바이트 값 그대로 비교</text>
+<rect x="402" y="258" width="324" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="414" y="284" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① X: 키 "Order-1" 로 5만 원</text>
+<text x="414" y="307" font-size="16" fill="#0f172a" xml:space="preserve">→ 202, 이체 X 저장</text>
+<line x1="564" y1="322" x2="564" y2="340" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="402" y="340" width="324" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="414" y="366" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② Y: 키 "order-1" 로 5만 원</text>
+<text x="414" y="389" font-size="16" fill="#0f172a" xml:space="preserve">먼저 조회 WHERE key = 'order-1'</text>
+<line x1="564" y1="404" x2="564" y2="422" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="402" y="422" width="324" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="414" y="448" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ 'O' 는 0x4F, 'o' 는 0x6F 라 다르다</text>
+<text x="414" y="471" font-size="16" fill="#0f172a" xml:space="preserve">→ 걸리는 행이 없다 (다른 키)</text>
+<line x1="564" y1="486" x2="564" y2="506" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="402" y="506" width="324" height="134" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="414" y="532" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">결과: Y 도 202 + 새 이체 Y</text>
+<text x="414" y="555" font-size="16" fill="#0f172a" xml:space="preserve">테스트: 대소문자만 다른 두 키</text>
+<text x="414" y="578" font-size="16" fill="#0f172a" xml:space="preserve">→ 이체 2건</text>
+<text x="414" y="601" font-size="16" fill="#0f172a" xml:space="preserve">컬럼 정렬 규칙이 ascii_bin 인지도</text>
+<text x="414" y="624" font-size="16" fill="#0f172a" xml:space="preserve">테스트한다</text>
+</svg>

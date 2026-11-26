@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 790" width="760" height="790" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>같은 키 요청 2건이 동시에 왔을 때 ⑤ ~ ⑦: 두 번째 요청은 중복 오류를 받고, 새 트랜잭션에서 다시 읽어 200 을 돌려준다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="790" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">같은 키 요청 2건이 동시에 왔을 때 ⑤ ~ ⑦: B 는</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">중복 오류를 받고, 다시 읽어 200 을 돌려준다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">그림 3-4a 의 ④ (A 커밋) 바로 뒤부터다. 위에서 아래로 시간이 흐른다.</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">파랑 = 조회, 초록 = A 가 커밋한 행, 빨강 = 중복 오류, 주황 = B 의 처리</text>
+<rect x="15" y="140" width="220" height="60" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="125" y="165" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">요청 A 처리 스레드</text>
+<text x="125" y="189" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">(먼저 INSERT 한 쪽)</text>
+<line x1="125" y1="200" x2="125" y2="214" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 4"/>
+<rect x="270" y="140" width="220" height="60" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="380" y="165" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">MySQL</text>
+<text x="380" y="189" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">transfer · outbox_event</text>
+<line x1="380" y1="200" x2="380" y2="560" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 4"/>
+<rect x="525" y="140" width="220" height="60" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="635" y="165" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">요청 B 처리 스레드</text>
+<text x="635" y="189" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">(진 쪽)</text>
+<line x1="635" y1="200" x2="635" y2="560" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 4"/>
+<text x="125" y="246" font-size="16" fill="#64748b" text-anchor="middle" xml:space="preserve">④ 에서 커밋하고</text>
+<text x="125" y="269" font-size="16" fill="#64748b" text-anchor="middle" xml:space="preserve">202 응답을 마쳤다</text>
+<rect x="627" y="200" width="16" height="104" fill="#fdba74" stroke="#c2410c" stroke-width="1.4"/>
+<line x1="384" y1="304" x2="623" y2="304" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<text x="503.5" y="272" font-size="16" fill="#b91c1c" text-anchor="middle" xml:space="preserve">Duplicate entry 'K' for key</text>
+<text x="503.5" y="295" font-size="16" fill="#b91c1c" text-anchor="middle" xml:space="preserve">uk_transfer_idempotency</text>
+<circle cx="356" cy="304" r="13" fill="#b91c1c"/><text x="356" y="310" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">⑤</text>
+<text x="507" y="330" font-size="16" fill="#b91c1c" font-weight="700" text-anchor="middle" xml:space="preserve">B 의 트랜잭션 롤백</text>
+<text x="507" y="353" font-size="16" fill="#b91c1c" text-anchor="middle" xml:space="preserve">(B 의 outbox 행도 없다)</text>
+<line x1="631" y1="432" x2="384" y2="432" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<text x="507.5" y="400" font-size="16" fill="#1d4ed8" text-anchor="middle" xml:space="preserve">새 트랜잭션:</text>
+<text x="507.5" y="423" font-size="16" fill="#1d4ed8" text-anchor="middle" xml:space="preserve">SELECT … WHERE key = K</text>
+<circle cx="655" cy="432" r="13" fill="#1d4ed8"/><text x="655" y="438" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">⑥</text>
+<line x1="384" y1="472" x2="631" y2="472" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<text x="507.5" y="496" font-size="16" fill="#047857" text-anchor="middle" xml:space="preserve">A 가 커밋한 행</text>
+<text x="507.5" y="519" font-size="16" fill="#047857" text-anchor="middle" xml:space="preserve">(id 7d0c…, request_hash)</text>
+<rect x="270" y="560" width="470" height="92" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="282" y="586" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑦ request_hash 비교</text>
+<text x="282" y="609" font-size="16" fill="#0f172a" xml:space="preserve">같음 → 200 OK + A 와 같은 id 7d0c…</text>
+<text x="282" y="632" font-size="16" fill="#0f172a" xml:space="preserve">다름 → 422 IDEMPOTENCY_KEY_REUSED</text>
+<rect x="20" y="676" width="720" height="92" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="702" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">테스트로 확인한 것 (TransferApiTest, 같은 키 동시 10건)</text>
+<text x="32" y="725" font-size="16" fill="#0f172a" xml:space="preserve">응답은 202 한 건과 200 아홉 건이고 id 는 모두 같다.</text>
+<text x="32" y="748" font-size="16" fill="#0f172a" xml:space="preserve">DB 에는 transfer 1행, outbox_event 1행만 남는다.</text>
+</svg>
