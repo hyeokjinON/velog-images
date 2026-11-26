@@ -1,0 +1,83 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 720" width="760" height="720" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 1-4. 정렬 + 투포인터로 합이 10 인 두 수 찾기 — 포인터를 세 번 보고 찾는다</title>
+  <rect width="760" height="720" fill="#ffffff"/>
+  <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="context-stroke"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker></defs>
+  <text x="24" y="40" font-size="22" fill="#0f172a" font-weight="700">정렬 + 투포인터로 합이 10 인 두 수 찾기 —</text>
+  <text x="24" y="70" font-size="20" fill="#0f172a" font-weight="700">포인터를 세 번 보고 찾는다</text>
+  <text x="24" y="104" font-size="16" fill="#475569">입력 {1, 5, 3, 3, 7, -1} 을 정렬한 배열. 파랑 = 왼쪽 포인터 l,</text>
+  <text x="24" y="128" font-size="16" fill="#475569">빨강 = 오른쪽 포인터 r, 회색 = 버린 칸</text>
+  <rect x="24" y="150" width="712" height="156" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="50" cy="178" r="13" fill="#1d4ed8"/>
+  <text x="50" y="184" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle">1</text>
+  <text x="74" y="184" font-size="17" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">반복 1: -1 + 7 = 6 &lt; 10 → 합을 키우려고 l++</text>
+  <text x="180.0" y="216" font-size="16" fill="#475569" font-family="Consolas, D2Coding, monospace" text-anchor="middle">0</text>
+  <rect x="140" y="224" width="80" height="42" rx="3" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.5"/>
+  <text x="180.0" y="251.0" font-size="17" fill="#1d4ed8" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">-1</text>
+  <text x="260.0" y="216" font-size="16" fill="#475569" font-family="Consolas, D2Coding, monospace" text-anchor="middle">1</text>
+  <rect x="220" y="224" width="80" height="42" rx="3" fill="#ffffff" stroke="#334155" stroke-width="1.5"/>
+  <text x="260.0" y="251.0" font-size="17" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">1</text>
+  <text x="340.0" y="216" font-size="16" fill="#475569" font-family="Consolas, D2Coding, monospace" text-anchor="middle">2</text>
+  <rect x="300" y="224" width="80" height="42" rx="3" fill="#ffffff" stroke="#334155" stroke-width="1.5"/>
+  <text x="340.0" y="251.0" font-size="17" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">3</text>
+  <text x="420.0" y="216" font-size="16" fill="#475569" font-family="Consolas, D2Coding, monospace" text-anchor="middle">3</text>
+  <rect x="380" y="224" width="80" height="42" rx="3" fill="#ffffff" stroke="#334155" stroke-width="1.5"/>
+  <text x="420.0" y="251.0" font-size="17" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">3</text>
+  <text x="500.0" y="216" font-size="16" fill="#475569" font-family="Consolas, D2Coding, monospace" text-anchor="middle">4</text>
+  <rect x="460" y="224" width="80" height="42" rx="3" fill="#ffffff" stroke="#334155" stroke-width="1.5"/>
+  <text x="500.0" y="251.0" font-size="17" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">5</text>
+  <text x="580.0" y="216" font-size="16" fill="#475569" font-family="Consolas, D2Coding, monospace" text-anchor="middle">5</text>
+  <rect x="540" y="224" width="80" height="42" rx="3" fill="#fee2e2" stroke="#b91c1c" stroke-width="1.5"/>
+  <text x="580.0" y="251.0" font-size="17" fill="#b91c1c" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">7</text>
+  <text x="180.0" y="290" font-size="17" fill="#1d4ed8" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">▲ l</text>
+  <text x="580.0" y="290" font-size="17" fill="#b91c1c" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">▲ r</text>
+  <rect x="24" y="318" width="712" height="156" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="50" cy="346" r="13" fill="#1d4ed8"/>
+  <text x="50" y="352" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle">2</text>
+  <text x="74" y="352" font-size="17" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">반복 2: 1 + 7 = 8 &lt; 10 → 다시 l++</text>
+  <text x="180.0" y="384" font-size="16" fill="#475569" font-family="Consolas, D2Coding, monospace" text-anchor="middle">0</text>
+  <rect x="140" y="392" width="80" height="42" rx="3" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="180.0" y="419.0" font-size="17" fill="#94a3b8" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">-1</text>
+  <text x="260.0" y="384" font-size="16" fill="#475569" font-family="Consolas, D2Coding, monospace" text-anchor="middle">1</text>
+  <rect x="220" y="392" width="80" height="42" rx="3" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.5"/>
+  <text x="260.0" y="419.0" font-size="17" fill="#1d4ed8" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">1</text>
+  <text x="340.0" y="384" font-size="16" fill="#475569" font-family="Consolas, D2Coding, monospace" text-anchor="middle">2</text>
+  <rect x="300" y="392" width="80" height="42" rx="3" fill="#ffffff" stroke="#334155" stroke-width="1.5"/>
+  <text x="340.0" y="419.0" font-size="17" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">3</text>
+  <text x="420.0" y="384" font-size="16" fill="#475569" font-family="Consolas, D2Coding, monospace" text-anchor="middle">3</text>
+  <rect x="380" y="392" width="80" height="42" rx="3" fill="#ffffff" stroke="#334155" stroke-width="1.5"/>
+  <text x="420.0" y="419.0" font-size="17" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">3</text>
+  <text x="500.0" y="384" font-size="16" fill="#475569" font-family="Consolas, D2Coding, monospace" text-anchor="middle">4</text>
+  <rect x="460" y="392" width="80" height="42" rx="3" fill="#ffffff" stroke="#334155" stroke-width="1.5"/>
+  <text x="500.0" y="419.0" font-size="17" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">5</text>
+  <text x="580.0" y="384" font-size="16" fill="#475569" font-family="Consolas, D2Coding, monospace" text-anchor="middle">5</text>
+  <rect x="540" y="392" width="80" height="42" rx="3" fill="#fee2e2" stroke="#b91c1c" stroke-width="1.5"/>
+  <text x="580.0" y="419.0" font-size="17" fill="#b91c1c" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">7</text>
+  <text x="260.0" y="458" font-size="17" fill="#1d4ed8" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">▲ l</text>
+  <text x="580.0" y="458" font-size="17" fill="#b91c1c" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">▲ r</text>
+  <rect x="24" y="486" width="712" height="156" rx="6" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="50" cy="514" r="13" fill="#1d4ed8"/>
+  <text x="50" y="520" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle">3</text>
+  <text x="74" y="520" font-size="17" fill="#047857" font-weight="700" font-family="Consolas, D2Coding, monospace">반복 3: 3 + 7 = 10 == 10 → true 반환</text>
+  <text x="180.0" y="552" font-size="16" fill="#475569" font-family="Consolas, D2Coding, monospace" text-anchor="middle">0</text>
+  <rect x="140" y="560" width="80" height="42" rx="3" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="180.0" y="587.0" font-size="17" fill="#94a3b8" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">-1</text>
+  <text x="260.0" y="552" font-size="16" fill="#475569" font-family="Consolas, D2Coding, monospace" text-anchor="middle">1</text>
+  <rect x="220" y="560" width="80" height="42" rx="3" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="260.0" y="587.0" font-size="17" fill="#94a3b8" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">1</text>
+  <text x="340.0" y="552" font-size="16" fill="#475569" font-family="Consolas, D2Coding, monospace" text-anchor="middle">2</text>
+  <rect x="300" y="560" width="80" height="42" rx="3" fill="#dbeafe" stroke="#1d4ed8" stroke-width="1.5"/>
+  <text x="340.0" y="587.0" font-size="17" fill="#1d4ed8" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">3</text>
+  <text x="420.0" y="552" font-size="16" fill="#475569" font-family="Consolas, D2Coding, monospace" text-anchor="middle">3</text>
+  <rect x="380" y="560" width="80" height="42" rx="3" fill="#ffffff" stroke="#334155" stroke-width="1.5"/>
+  <text x="420.0" y="587.0" font-size="17" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">3</text>
+  <text x="500.0" y="552" font-size="16" fill="#475569" font-family="Consolas, D2Coding, monospace" text-anchor="middle">4</text>
+  <rect x="460" y="560" width="80" height="42" rx="3" fill="#ffffff" stroke="#334155" stroke-width="1.5"/>
+  <text x="500.0" y="587.0" font-size="17" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">5</text>
+  <text x="580.0" y="552" font-size="16" fill="#475569" font-family="Consolas, D2Coding, monospace" text-anchor="middle">5</text>
+  <rect x="540" y="560" width="80" height="42" rx="3" fill="#fee2e2" stroke="#b91c1c" stroke-width="1.5"/>
+  <text x="580.0" y="587.0" font-size="17" fill="#b91c1c" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">7</text>
+  <text x="340.0" y="626" font-size="17" fill="#1d4ed8" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">▲ l</text>
+  <text x="580.0" y="626" font-size="17" fill="#b91c1c" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">▲ r</text>
+  <text x="48" y="674" font-size="16" fill="#334155">합이 없으면 l 과 r 이 만날 때까지 움직인다. 두 포인터가 움직인 횟수의 합은</text>
+  <text x="48" y="698" font-size="16" fill="#334155">n 을 넘지 않아서 반복은 O(n), 정렬까지 더하면 O(n log n) 이다.</text>
+</svg>

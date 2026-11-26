@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 700" width="760" height="700" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 1-2. 제한사항의 n 으로 허용 복잡도와 떠올릴 알고리즘 고르기</title>
+  <rect width="760" height="700" fill="#ffffff"/>
+  <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="context-stroke"/></marker><marker id="ab" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="ag" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="ak" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker></defs>
+  <text x="24" y="40" font-size="22" fill="#0f172a" font-weight="700">제한사항의 n 으로 허용 복잡도와</text>
+  <text x="24" y="70" font-size="20" fill="#0f172a" font-weight="700">떠올릴 알고리즘 고르기</text>
+  <text x="24" y="104" font-size="16" fill="#475569">기준: 1초 ≈ 1억 번. "대입 결과" 는 n 의 최댓값을 복잡도에 넣은 값이다.</text>
+  <rect x="24" y="150" width="140" height="40" rx="0" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="36" y="176" font-size="16" fill="#0f172a" font-weight="700">n 의 최댓값</text>
+  <rect x="164" y="150" width="210" height="40" rx="0" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="176" y="176" font-size="16" fill="#0f172a" font-weight="700">허용 복잡도</text>
+  <rect x="374" y="150" width="110" height="40" rx="0" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="386" y="176" font-size="16" fill="#0f172a" font-weight="700">대입 결과</text>
+  <rect x="484" y="150" width="252" height="40" rx="0" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="496" y="176" font-size="16" fill="#0f172a" font-weight="700">떠올릴 알고리즘</text>
+  <rect x="24" y="190" width="140" height="54" rx="0" fill="#fef3c7" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="164" y="190" width="210" height="54" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="374" y="190" width="110" height="54" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="484" y="190" width="252" height="54" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="36" y="223" font-size="16" fill="#0f172a" font-weight="700">n ≤ 10</text>
+  <text x="176" y="223" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">O(n!)</text>
+  <text x="386" y="223" font-size="16" fill="#334155">363만</text>
+  <text x="496" y="223" font-size="16" fill="#334155">순열 완전탐색</text>
+  <rect x="24" y="244" width="140" height="54" rx="0" fill="#fef3c7" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="164" y="244" width="210" height="54" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="374" y="244" width="110" height="54" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="484" y="244" width="252" height="54" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="36" y="277" font-size="16" fill="#0f172a" font-weight="700">n ≤ 20</text>
+  <text x="176" y="277" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">O(2ⁿ)</text>
+  <text x="386" y="277" font-size="16" fill="#334155">105만</text>
+  <text x="496" y="277" font-size="16" fill="#334155">부분집합, 비트마스크</text>
+  <rect x="24" y="298" width="140" height="54" rx="0" fill="#fef3c7" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="164" y="298" width="210" height="54" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="374" y="298" width="110" height="54" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="484" y="298" width="252" height="54" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="36" y="331" font-size="16" fill="#0f172a" font-weight="700">n ≤ 500</text>
+  <text x="176" y="331" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">O(n³)</text>
+  <text x="386" y="331" font-size="16" fill="#334155">1.25억</text>
+  <text x="496" y="331" font-size="16" fill="#334155">플로이드-워셜</text>
+  <rect x="24" y="352" width="140" height="54" rx="0" fill="#fef3c7" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="164" y="352" width="210" height="54" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="374" y="352" width="110" height="54" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="484" y="352" width="252" height="54" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="36" y="385" font-size="16" fill="#0f172a" font-weight="700">n ≤ 5,000</text>
+  <text x="176" y="385" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">O(n²)</text>
+  <text x="386" y="385" font-size="16" fill="#334155">2,500만</text>
+  <text x="496" y="385" font-size="16" fill="#334155">2중 for, 2차원 DP</text>
+  <rect x="24" y="406" width="140" height="54" rx="0" fill="#dcfce7" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="164" y="406" width="210" height="54" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="374" y="406" width="110" height="54" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="484" y="406" width="252" height="54" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="36" y="439" font-size="16" fill="#0f172a" font-weight="700">n ≤ 1,000,000</text>
+  <text x="176" y="439" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">O(n log n)</text>
+  <text x="386" y="439" font-size="16" fill="#334155">2,000만</text>
+  <text x="496" y="439" font-size="16" fill="#334155">정렬, 이분탐색, 우선순위 큐</text>
+  <rect x="24" y="460" width="140" height="54" rx="0" fill="#dcfce7" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="164" y="460" width="210" height="54" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="374" y="460" width="110" height="54" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="484" y="460" width="252" height="54" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="36" y="493" font-size="16" fill="#0f172a" font-weight="700">n ≤ 10⁸</text>
+  <text x="176" y="493" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">O(n)</text>
+  <text x="386" y="493" font-size="16" fill="#334155">1억</text>
+  <text x="496" y="493" font-size="16" fill="#334155">투포인터, 누적합, 해시</text>
+  <rect x="24" y="514" width="140" height="54" rx="0" fill="#dcfce7" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="164" y="514" width="210" height="54" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="374" y="514" width="110" height="54" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="484" y="514" width="252" height="54" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="36" y="547" font-size="16" fill="#0f172a" font-weight="700">n ≥ 10⁹</text>
+  <text x="176" y="547" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">O(√n), O(log n), O(1)</text>
+  <text x="386" y="547" font-size="16" fill="#334155">3만, 60</text>
+  <text x="496" y="547" font-size="16" fill="#334155">약수, 소수 판별, 공식</text>
+  <rect x="22" y="406" width="716" height="54" rx="0" fill="none" stroke="#1d4ed8" stroke-width="3"/>
+  <text x="36" y="602" font-size="16" fill="#b45309" font-weight="700">노랑 줄: n 이 작아서 모두 해 보는 방법도 통과한다.</text>
+  <text x="36" y="628" font-size="16" fill="#047857" font-weight="700">초록 줄: n 이 커서 버리거나 미리 계산하는 방법만 통과한다.</text>
+  <text x="36" y="654" font-size="16" fill="#1d4ed8" font-weight="700">파란 테두리 예: "배열 길이 ≤ 100,000" 이면 이 줄을 쓴다.</text>
+  <text x="36" y="680" font-size="16" fill="#475569">(10⁹ 줄의 대입 결과는 √10⁹ ≈ 3만, log₂10¹⁸ ≈ 60 이다)</text>
+</svg>
