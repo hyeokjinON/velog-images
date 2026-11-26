@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 890" width="760" height="890" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>채택한 방식: 충돌하면 출금 행까지 롤백하고 잠깐 쉰 뒤 새 트랜잭션에서 다시 읽어 version 8 로 이긴다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="890" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">채택한 방식: 충돌하면 롤백하고</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">새 트랜잭션에서 처음부터 다시</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">위에서 아래로 시간이 흐른다. 같은 사용자의 잔고 행 하나.</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">파랑 = 읽기, 초록 = 성공, 빨강 = 충돌, 주황 = 대기</text>
+<rect x="15" y="146" width="220" height="60" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="125" y="171" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">요청 A</text>
+<text x="125" y="195" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">(한 번 진 뒤 이김)</text>
+<line x1="125" y1="206" x2="125" y2="770" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 4"/>
+<rect x="270" y="146" width="220" height="60" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="380" y="171" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">MySQL</text>
+<text x="380" y="195" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">wallet (load-hot)</text>
+<line x1="380" y1="206" x2="380" y2="770" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 4"/>
+<rect x="525" y="146" width="220" height="60" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="635" y="171" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">요청 B</text>
+<text x="635" y="195" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">(먼저 이김)</text>
+<line x1="635" y1="206" x2="635" y2="770" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 4"/>
+<line x1="129" y1="270" x2="376" y2="270" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<text x="252.5" y="261" font-size="16" fill="#1d4ed8" text-anchor="middle" xml:space="preserve">→ 7</text>
+<text x="252.5" y="238" font-size="16" fill="#1d4ed8" text-anchor="middle" xml:space="preserve">SELECT … version</text>
+<circle cx="105" cy="270" r="13" fill="#1d4ed8"/><text x="105" y="276" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">①</text>
+<line x1="631" y1="350" x2="384" y2="350" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<text x="507.5" y="341" font-size="16" fill="#047857" text-anchor="middle" xml:space="preserve">COMMIT</text>
+<text x="507.5" y="318" font-size="16" fill="#047857" text-anchor="middle" xml:space="preserve">UPDATE … version = 8</text>
+<circle cx="655" cy="350" r="13" fill="#047857"/><text x="655" y="356" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">②</text>
+<line x1="129" y1="430" x2="376" y2="430" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<text x="252.5" y="421" font-size="16" fill="#b91c1c" text-anchor="middle" xml:space="preserve">version = 7 → 0건</text>
+<text x="252.5" y="398" font-size="16" fill="#b91c1c" text-anchor="middle" xml:space="preserve">UPDATE … WHERE</text>
+<circle cx="105" cy="430" r="13" fill="#b91c1c"/><text x="105" y="436" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">③</text>
+<rect x="15" y="450" width="230" height="88" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="27" y="476" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ VersionConflict</text>
+<text x="27" y="499" font-size="16" fill="#0f172a" xml:space="preserve">롤백 (출금 행도 취소)</text>
+<text x="27" y="522" font-size="16" fill="#0f172a" xml:space="preserve">10 ~ 50ms 쉰다</text>
+<rect x="255.36" y="481" width="249.28" height="26" fill="#ffffff"/>
+<text x="380" y="500" font-size="16" fill="#c2410c" text-anchor="middle" xml:space="preserve">around 가 예외를 잡는다 (바깥)</text>
+<line x1="129" y1="620" x2="376" y2="620" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<text x="252.5" y="611" font-size="16" fill="#1d4ed8" text-anchor="middle" xml:space="preserve">→ version 8</text>
+<text x="252.5" y="588" font-size="16" fill="#1d4ed8" text-anchor="middle" xml:space="preserve">새 BEGIN, SELECT</text>
+<circle cx="105" cy="620" r="13" fill="#1d4ed8"/><text x="105" y="626" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">⑤</text>
+<line x1="129" y1="700" x2="376" y2="700" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<text x="252.5" y="691" font-size="16" fill="#047857" text-anchor="middle" xml:space="preserve">version = 8 → 1건</text>
+<text x="252.5" y="668" font-size="16" fill="#047857" text-anchor="middle" xml:space="preserve">UPDATE … WHERE</text>
+<circle cx="105" cy="700" r="13" fill="#047857"/><text x="105" y="706" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">⑥</text>
+<rect x="15" y="716" width="230" height="42" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="27" y="743" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">A: COMMIT → 202</text>
+<rect x="20" y="782" width="720" height="64" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="808" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">새 트랜잭션은 새 스냅샷을 만든다 → 최신 version 이 보인다</text>
+<text x="32" y="831" font-size="16" fill="#0f172a" xml:space="preserve">5번 다 지면 409 CONCURRENT_UPDATE + Retry-After: 1</text>
+<text x="20" y="874" font-size="16" fill="#64748b" xml:space="preserve">근거: OptimisticWalletDebit.around · withdraw (P4-2)</text>
+</svg>

@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 770" width="760" height="770" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>접수 한 건에서 락을 쥐는 구간: 조건부는 UPDATE 부터 커밋까지, 비관적은 FOR UPDATE 부터 커밋까지, Redis 는 커넥션 획득부터 커밋 뒤 해제까지</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="770" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">접수 한 건에서 다음 요청을 막는 구간:</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">전략마다 길이가 다르다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">위에서 아래로 한 건이 지나가는 단계. 막대 = 다음 요청이 기다리는 구간</text>
+<text x="32" y="160" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">단계</text>
+<text x="420" y="152" font-size="16" fill="#047857" font-weight="700" text-anchor="middle" xml:space="preserve">조건부</text>
+<text x="420" y="175" font-size="15" fill="#64748b" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">conditional</text>
+<text x="540" y="152" font-size="16" fill="#1d4ed8" font-weight="700" text-anchor="middle" xml:space="preserve">비관적</text>
+<text x="540" y="175" font-size="15" fill="#64748b" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">pessimistic</text>
+<text x="665" y="152" font-size="16" fill="#c2410c" font-weight="700" text-anchor="middle" xml:space="preserve">Redis</text>
+<text x="665" y="175" font-size="15" fill="#64748b" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">redis</text>
+<rect x="20" y="190" width="720" height="46" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+<text x="32" y="219" font-size="16" fill="#0f172a" xml:space="preserve">Redis 락 획득 (redis 만)</text>
+<rect x="20" y="236" width="720" height="46" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+<text x="32" y="265" font-size="16" fill="#0f172a" xml:space="preserve">커넥션 획득 · BEGIN</text>
+<rect x="20" y="282" width="720" height="46" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+<text x="32" y="311" font-size="16" fill="#0f172a" xml:space="preserve">출금 INSERT</text>
+<rect x="20" y="328" width="720" height="46" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+<text x="32" y="357" font-size="16" fill="#0f172a" xml:space="preserve">SELECT … FOR UPDATE (비관적 만)</text>
+<rect x="20" y="374" width="720" height="46" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+<text x="32" y="403" font-size="16" fill="#0f172a" xml:space="preserve">잔고 UPDATE (차감)</text>
+<rect x="20" y="420" width="720" height="46" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+<text x="32" y="449" font-size="16" fill="#0f172a" xml:space="preserve">원장 INSERT (WITHDRAW)</text>
+<rect x="20" y="466" width="720" height="46" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+<text x="32" y="495" font-size="16" fill="#0f172a" xml:space="preserve">아웃박스 INSERT</text>
+<rect x="20" y="512" width="720" height="46" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+<text x="32" y="541" font-size="16" fill="#0f172a" xml:space="preserve">COMMIT</text>
+<rect x="20" y="558" width="720" height="46" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+<text x="32" y="587" font-size="16" fill="#0f172a" xml:space="preserve">Redis 락 해제 (redis 만)</text>
+<text x="420" y="219" font-size="16" fill="#94a3b8" text-anchor="middle" xml:space="preserve">—</text>
+<text x="420" y="357" font-size="16" fill="#94a3b8" text-anchor="middle" xml:space="preserve">—</text>
+<text x="420" y="587" font-size="16" fill="#94a3b8" text-anchor="middle" xml:space="preserve">—</text>
+<text x="540" y="219" font-size="16" fill="#94a3b8" text-anchor="middle" xml:space="preserve">—</text>
+<text x="540" y="587" font-size="16" fill="#94a3b8" text-anchor="middle" xml:space="preserve">—</text>
+<text x="665" y="357" font-size="16" fill="#94a3b8" text-anchor="middle" xml:space="preserve">—</text>
+<rect x="398" y="380" width="44" height="172" rx="6" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+<rect x="518" y="334" width="44" height="218" rx="6" fill="#eff6ff" stroke="#1d4ed8" stroke-width="2"/>
+<rect x="643" y="196" width="44" height="402" rx="6" fill="#fff7ed" stroke="#c2410c" stroke-width="2"/>
+<rect x="657" y="384" width="16" height="164" fill="#047857" opacity="0.55"/>
+<line x1="20" y1="618" x2="740" y2="618" stroke="#334155" stroke-width="1.5"/>
+<text x="32" y="650" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">한 건이 쥐는 시간</text>
+<text x="420" y="650" font-size="16" fill="#047857" font-weight="700" text-anchor="middle" xml:space="preserve">9.5ms</text>
+<text x="540" y="650" font-size="16" fill="#1d4ed8" font-weight="700" text-anchor="middle" xml:space="preserve">10.1ms</text>
+<text x="665" y="650" font-size="16" fill="#c2410c" font-weight="700" text-anchor="middle" xml:space="preserve">12.4ms</text>
+<text x="32" y="682" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">초당 접수 (핫스팟)</text>
+<text x="420" y="682" font-size="16" fill="#047857" font-weight="700" text-anchor="middle" xml:space="preserve">105.7</text>
+<text x="540" y="682" font-size="16" fill="#1d4ed8" font-weight="700" text-anchor="middle" xml:space="preserve">98.9</text>
+<text x="665" y="682" font-size="16" fill="#c2410c" font-weight="700" text-anchor="middle" xml:space="preserve">80.6</text>
+<text x="20" y="724" font-size="16" fill="#64748b" xml:space="preserve">한 건이 쥐는 시간 = 1초 ÷ 초당 접수. Redis 막대 안의 초록 줄 = DB 행 락</text>
+<text x="20" y="748" font-size="16" fill="#64748b" xml:space="preserve">낙관적은 락 없이 읽고, 충돌하면 처음부터 다시 한다 (그림 8-4b)</text>
+</svg>

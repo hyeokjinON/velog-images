@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 724" width="760" height="724" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 8-5. 양방향 BFS — 작은 쪽을 한 층씩 넓히다가 반대편 층과 만나는 순간</title>
+  <rect width="760" height="724" fill="#ffffff"/>
+  <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker></defs>
+  <text x="24" y="40" font-size="21" fill="#0f172a" font-weight="700">양방향 BFS — 작은 쪽을 한 층씩 넓히다가</text>
+  <text x="24" y="70" font-size="21" fill="#0f172a" font-weight="700">반대편 층과 만나는 순간</text>
+  <text x="24" y="102" font-size="16" fill="#475569">hit → cog, words [hot, dot, dog, lot, log, cog] 로 실행 (JDK 21)</text>
+  <text x="24" y="126" font-size="16" fill="#475569">front = 이번에 넓힐 쪽, back = 반대편 층</text>
+  <rect x="24" y="162" width="712" height="40" rx="0" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+  <text x="40" y="188" font-size="16" fill="#1e3a8a" font-weight="700">step</text>
+  <text x="110" y="188" font-size="16" fill="#1e3a8a" font-weight="700">front (넓힐 쪽)</text>
+  <text x="300" y="188" font-size="16" fill="#1e3a8a" font-weight="700">back</text>
+  <text x="450" y="188" font-size="16" fill="#1e3a8a" font-weight="700">넓힌 결과</text>
+  <rect x="24" y="202" width="712" height="52" rx="0" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <circle cx="56" cy="228" r="13" fill="#1e3a8a"/>
+  <text x="56" y="234" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle">1</text>
+  <text x="110" y="234" font-size="17" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">{hit}</text>
+  <text x="300" y="234" font-size="17" fill="#334155" font-family="Consolas, D2Coding, monospace">{cog}</text>
+  <text x="450" y="234" font-size="17" fill="#334155">→ {hot}</text>
+  <rect x="24" y="254" width="712" height="52" rx="0" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <circle cx="56" cy="280" r="13" fill="#1e3a8a"/>
+  <text x="56" y="286" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle">2</text>
+  <text x="110" y="286" font-size="17" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">{hot}</text>
+  <text x="300" y="286" font-size="17" fill="#334155" font-family="Consolas, D2Coding, monospace">{cog}</text>
+  <text x="450" y="286" font-size="17" fill="#334155">→ {dot, lot}</text>
+  <rect x="24" y="306" width="712" height="76" rx="0" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <circle cx="56" cy="332" r="13" fill="#1e3a8a"/>
+  <text x="56" y="338" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle">3</text>
+  <text x="110" y="338" font-size="17" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">{cog}</text>
+  <text x="300" y="338" font-size="17" fill="#334155" font-family="Consolas, D2Coding, monospace">{dot, lot}</text>
+  <text x="450" y="338" font-size="17" fill="#334155">→ {dog, log}</text>
+  <text x="110" y="368" font-size="16" fill="#c2410c" font-weight="700">front 2개 &gt; back 1개라 둘을 바꿨다</text>
+  <rect x="24" y="382" width="712" height="76" rx="0" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <circle cx="56" cy="408" r="13" fill="#1e3a8a"/>
+  <text x="56" y="414" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle">4</text>
+  <text x="110" y="414" font-size="17" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">{dog, log}</text>
+  <text x="300" y="414" font-size="17" fill="#334155" font-family="Consolas, D2Coding, monospace">{dot, lot}</text>
+  <text x="450" y="414" font-size="17" fill="#047857" font-weight="700">log → lot 가 back 에!</text>
+  <text x="110" y="444" font-size="16" fill="#047857" font-weight="700">크기가 같아 그대로. return 4</text>
+  <text x="24" y="494" font-size="17" fill="#0f172a" font-weight="700">만난 경로</text>
+  <rect x="116.0" y="520.0" width="88" height="40" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+  <text x="160" y="546" font-size="18" fill="#475569" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">hit</text>
+  <line x1="206" y1="540" x2="240" y2="540" stroke="#334155" stroke-width="2" marker-end="url(#ah)"/>
+  <rect x="244.0" y="520.0" width="88" height="40" rx="8" fill="#eff6ff" stroke="#1e3a8a" stroke-width="2"/>
+  <text x="288" y="546" font-size="18" fill="#1e3a8a" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">hot</text>
+  <line x1="334" y1="540" x2="368" y2="540" stroke="#334155" stroke-width="2" marker-end="url(#ah)"/>
+  <rect x="372.0" y="520.0" width="88" height="40" rx="8" fill="#eff6ff" stroke="#1e3a8a" stroke-width="2"/>
+  <text x="416" y="546" font-size="18" fill="#1e3a8a" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">lot</text>
+  <line x1="462" y1="540" x2="496" y2="540" stroke="#334155" stroke-width="2" marker-end="url(#ah)"/>
+  <rect x="500.0" y="520.0" width="88" height="40" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="544" y="546" font-size="18" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">log</text>
+  <line x1="590" y1="540" x2="624" y2="540" stroke="#334155" stroke-width="2" marker-end="url(#ah)"/>
+  <rect x="628.0" y="520.0" width="88" height="40" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="672" y="546" font-size="18" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">cog</text>
+  <text x="160" y="586" font-size="16" fill="#475569">파랑 = hit 쪽에서 넓힌 층, 초록 = cog 쪽에서 넓힌 층. 간선 4개 = 답 4</text>
+  <rect x="24" y="604" width="712" height="100" rx="8" fill="#eff6ff" stroke="#1e3a8a" stroke-width="1"/>
+  <text x="44" y="634" font-size="17" fill="#1e3a8a" font-weight="700">한 층에 이웃이 b 개씩 늘고 최소 거리가 d 일 때 (b = 10, d = 6)</text>
+  <text x="44" y="660" font-size="16" fill="#334155">한쪽 BFS 는 약 b^d = 1,000,000 개, 양방향은 약 2 · b^(d/2) = 2,000 개를 본다.</text>
+  <text x="44" y="686" font-size="16" fill="#334155">조건: target 이 정해져 있고, 간선을 거꾸로도 갈 수 있어야 한다.</text>
+</svg>

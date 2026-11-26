@@ -1,0 +1,132 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 744" width="760" height="744" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 8-7. 단어 변환 예제 1 — 큐에서 하나 꺼낼 때마다 dist 배열과 큐가 어떻게 바뀌나</title>
+  <rect width="760" height="744" fill="#ffffff"/>
+  <text x="24" y="40" font-size="21" fill="#0f172a" font-weight="700">단어 변환 예제 1 — 큐에서 하나 꺼낼 때마다</text>
+  <text x="24" y="70" font-size="21" fill="#0f172a" font-weight="700">dist 배열과 큐가 어떻게 바뀌나</text>
+  <text x="24" y="102" font-size="16" fill="#475569">dist[i] = words[i] 까지 바꾼 횟수 (0 = 아직 안 넣음). 초록 = 이번에 정해진 칸,</text>
+  <text x="24" y="126" font-size="16" fill="#475569">큐에는 words 의 인덱스가 들어 있다 (왼쪽이 맨 앞)</text>
+  <rect x="24" y="162" width="712" height="60" rx="0" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+  <text x="40" y="198" font-size="16" fill="#1e3a8a" font-weight="700">꺼낸 단어</text>
+  <text x="222" y="186" font-size="16" fill="#1e3a8a" font-weight="700" text-anchor="middle">0</text>
+  <text x="222" y="210" font-size="16" fill="#1e3a8a" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">hot</text>
+  <text x="278" y="186" font-size="16" fill="#1e3a8a" font-weight="700" text-anchor="middle">1</text>
+  <text x="278" y="210" font-size="16" fill="#1e3a8a" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">dot</text>
+  <text x="334" y="186" font-size="16" fill="#1e3a8a" font-weight="700" text-anchor="middle">2</text>
+  <text x="334" y="210" font-size="16" fill="#1e3a8a" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">dog</text>
+  <text x="390" y="186" font-size="16" fill="#1e3a8a" font-weight="700" text-anchor="middle">3</text>
+  <text x="390" y="210" font-size="16" fill="#1e3a8a" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">lot</text>
+  <text x="446" y="186" font-size="16" fill="#1e3a8a" font-weight="700" text-anchor="middle">4</text>
+  <text x="446" y="210" font-size="16" fill="#1e3a8a" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">log</text>
+  <text x="502" y="186" font-size="16" fill="#1e3a8a" font-weight="700" text-anchor="middle">5</text>
+  <text x="502" y="210" font-size="16" fill="#1e3a8a" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">cog</text>
+  <text x="548" y="198" font-size="16" fill="#1e3a8a" font-weight="700">큐 (꺼낸 뒤)</text>
+  <rect x="24" y="222" width="712" height="56" rx="0" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="40" y="256" font-size="17" fill="#0f172a" font-weight="700">시작</text>
+  <rect x="199" y="230" width="50" height="40" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="224.0" y="256.0" font-size="17" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">1</text>
+  <rect x="255" y="230" width="50" height="40" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="280.0" y="256.0" font-size="17" fill="#94a3b8" text-anchor="middle" font-family="Consolas, D2Coding, monospace">0</text>
+  <rect x="311" y="230" width="50" height="40" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="336.0" y="256.0" font-size="17" fill="#94a3b8" text-anchor="middle" font-family="Consolas, D2Coding, monospace">0</text>
+  <rect x="367" y="230" width="50" height="40" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="392.0" y="256.0" font-size="17" fill="#94a3b8" text-anchor="middle" font-family="Consolas, D2Coding, monospace">0</text>
+  <rect x="423" y="230" width="50" height="40" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="448.0" y="256.0" font-size="17" fill="#94a3b8" text-anchor="middle" font-family="Consolas, D2Coding, monospace">0</text>
+  <rect x="479" y="230" width="50" height="40" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="504.0" y="256.0" font-size="17" fill="#94a3b8" text-anchor="middle" font-family="Consolas, D2Coding, monospace">0</text>
+  <text x="548" y="256" font-size="17" fill="#334155" font-family="Consolas, D2Coding, monospace">[0]</text>
+  <rect x="24" y="278" width="712" height="56" rx="0" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="40" y="312" font-size="17" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">0 hot</text>
+  <rect x="199" y="286" width="50" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="224.0" y="312.0" font-size="17" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">1</text>
+  <rect x="255" y="286" width="50" height="40" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="280.0" y="312.0" font-size="17" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">2</text>
+  <rect x="311" y="286" width="50" height="40" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="336.0" y="312.0" font-size="17" fill="#94a3b8" text-anchor="middle" font-family="Consolas, D2Coding, monospace">0</text>
+  <rect x="367" y="286" width="50" height="40" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="392.0" y="312.0" font-size="17" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">2</text>
+  <rect x="423" y="286" width="50" height="40" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="448.0" y="312.0" font-size="17" fill="#94a3b8" text-anchor="middle" font-family="Consolas, D2Coding, monospace">0</text>
+  <rect x="479" y="286" width="50" height="40" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="504.0" y="312.0" font-size="17" fill="#94a3b8" text-anchor="middle" font-family="Consolas, D2Coding, monospace">0</text>
+  <text x="548" y="312" font-size="17" fill="#334155" font-family="Consolas, D2Coding, monospace">[1, 3]</text>
+  <rect x="24" y="334" width="712" height="56" rx="0" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="40" y="368" font-size="17" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">1 dot</text>
+  <rect x="199" y="342" width="50" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="224.0" y="368.0" font-size="17" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">1</text>
+  <rect x="255" y="342" width="50" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="280.0" y="368.0" font-size="17" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">2</text>
+  <rect x="311" y="342" width="50" height="40" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="336.0" y="368.0" font-size="17" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">3</text>
+  <rect x="367" y="342" width="50" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="392.0" y="368.0" font-size="17" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">2</text>
+  <rect x="423" y="342" width="50" height="40" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="448.0" y="368.0" font-size="17" fill="#94a3b8" text-anchor="middle" font-family="Consolas, D2Coding, monospace">0</text>
+  <rect x="479" y="342" width="50" height="40" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="504.0" y="368.0" font-size="17" fill="#94a3b8" text-anchor="middle" font-family="Consolas, D2Coding, monospace">0</text>
+  <text x="548" y="368" font-size="17" fill="#334155" font-family="Consolas, D2Coding, monospace">[3, 2]</text>
+  <rect x="24" y="390" width="712" height="56" rx="0" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="40" y="424" font-size="17" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">3 lot</text>
+  <rect x="199" y="398" width="50" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="224.0" y="424.0" font-size="17" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">1</text>
+  <rect x="255" y="398" width="50" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="280.0" y="424.0" font-size="17" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">2</text>
+  <rect x="311" y="398" width="50" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="336.0" y="424.0" font-size="17" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">3</text>
+  <rect x="367" y="398" width="50" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="392.0" y="424.0" font-size="17" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">2</text>
+  <rect x="423" y="398" width="50" height="40" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="448.0" y="424.0" font-size="17" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">3</text>
+  <rect x="479" y="398" width="50" height="40" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="504.0" y="424.0" font-size="17" fill="#94a3b8" text-anchor="middle" font-family="Consolas, D2Coding, monospace">0</text>
+  <text x="548" y="424" font-size="17" fill="#334155" font-family="Consolas, D2Coding, monospace">[2, 4]</text>
+  <rect x="24" y="446" width="712" height="56" rx="0" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="40" y="480" font-size="17" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">2 dog</text>
+  <rect x="199" y="454" width="50" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="224.0" y="480.0" font-size="17" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">1</text>
+  <rect x="255" y="454" width="50" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="280.0" y="480.0" font-size="17" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">2</text>
+  <rect x="311" y="454" width="50" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="336.0" y="480.0" font-size="17" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">3</text>
+  <rect x="367" y="454" width="50" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="392.0" y="480.0" font-size="17" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">2</text>
+  <rect x="423" y="454" width="50" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="448.0" y="480.0" font-size="17" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">3</text>
+  <rect x="479" y="454" width="50" height="40" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="504.0" y="480.0" font-size="17" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">4</text>
+  <text x="548" y="480" font-size="17" fill="#334155" font-family="Consolas, D2Coding, monospace">[4, 5]</text>
+  <rect x="24" y="502" width="712" height="56" rx="0" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="40" y="536" font-size="17" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">4 log</text>
+  <rect x="199" y="510" width="50" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="224.0" y="536.0" font-size="17" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">1</text>
+  <rect x="255" y="510" width="50" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="280.0" y="536.0" font-size="17" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">2</text>
+  <rect x="311" y="510" width="50" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="336.0" y="536.0" font-size="17" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">3</text>
+  <rect x="367" y="510" width="50" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="392.0" y="536.0" font-size="17" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">2</text>
+  <rect x="423" y="510" width="50" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="448.0" y="536.0" font-size="17" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">3</text>
+  <rect x="479" y="510" width="50" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="504.0" y="536.0" font-size="17" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">4</text>
+  <text x="548" y="536" font-size="17" fill="#334155" font-family="Consolas, D2Coding, monospace">[5]</text>
+  <rect x="24" y="558" width="712" height="56" rx="0" fill="#ffffff" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="40" y="592" font-size="17" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">5 cog</text>
+  <rect x="199" y="566" width="50" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="224.0" y="592.0" font-size="17" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">1</text>
+  <rect x="255" y="566" width="50" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="280.0" y="592.0" font-size="17" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">2</text>
+  <rect x="311" y="566" width="50" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="336.0" y="592.0" font-size="17" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">3</text>
+  <rect x="367" y="566" width="50" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="392.0" y="592.0" font-size="17" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">2</text>
+  <rect x="423" y="566" width="50" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="448.0" y="592.0" font-size="17" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">3</text>
+  <rect x="479" y="566" width="50" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="504.0" y="592.0" font-size="17" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">4</text>
+  <text x="548" y="592" font-size="17" fill="#047857" font-weight="700" font-family="Consolas, D2Coding, monospace">target</text>
+  <rect x="24" y="630" width="712" height="100" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1"/>
+  <text x="44" y="660" font-size="17" fill="#047857" font-weight="700">시작: begin(hit) 과 한 글자 차이인 hot 만 dist 1 로 넣고 시작한다.</text>
+  <text x="44" y="686" font-size="16" fill="#334155">log 를 꺼낼 때 이웃 cog 는 이미 dist 4 라 다시 넣지 않는다 (넣을 때 방문 표시).</text>
+  <text x="44" y="712" font-size="16" fill="#334155">cog 를 꺼내면 dist[5] = 4 를 돌려준다. 기대 출력 4 와 같다.</text>
+</svg>

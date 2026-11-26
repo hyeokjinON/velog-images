@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 622" width="760" height="622" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>대사 잡 ④ ~ ⑥ 단계와 손 확인 때의 값, 그리고 실패했을 때 일어나는 일</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="622" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">대사 잡 ④ ~ ⑥: 남은 은행 줄과 원장을 보고</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">요약을 알린다. 실패하면 멈춘 곳부터</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">초록 = 청크 단계, 회색 = 태스크릿, 주황 = 실패했을 때</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">파랑 글씨 = 손 확인(10-30) 때의 값</text>
+<rect x="20" y="148" width="720" height="90" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="174" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ matchBankLines · 청크 100 · READ COMMITTED</text>
+<text x="32" y="197" font-size="16" fill="#0f172a" xml:space="preserve">③ 이 다루지 않은 파일 줄 → 우리에게 없는 번호</text>
+<text x="32" y="220" font-size="16" fill="#1d4ed8" font-weight="700" xml:space="preserve">남은 출금 줄 없음 → 이슈 0</text>
+<line x1="380" y1="238" x2="380" y2="260" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="262" width="720" height="90" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="288" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑤ checkLedger · 태스크릿</text>
+<text x="32" y="311" font-size="16" fill="#0f172a" xml:space="preserve">지갑 잔고가 원장 합과 같은지 본다</text>
+<text x="32" y="334" font-size="16" fill="#1d4ed8" font-weight="700" xml:space="preserve">user-1 잔고 97,000 = 100,000 − 3,000</text>
+<line x1="380" y1="352" x2="380" y2="374" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="376" width="720" height="90" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="402" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑥ report · 태스크릿</text>
+<text x="32" y="425" font-size="16" fill="#0f172a" xml:space="preserve">요약을 알림으로 보낸다 (실패해도 대사는 그대로)</text>
+<text x="32" y="448" font-size="16" fill="#1d4ed8" font-weight="700" xml:space="preserve">일치 1 · 자동 완료 1 · 불일치 0 → INFO 로그</text>
+<line x1="380" y1="466" x2="380" y2="488" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="490" width="720" height="112" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="32" y="516" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">실패하면</text>
+<text x="32" y="539" font-size="16" fill="#0f172a" xml:space="preserve">파일이 없으면 FILE_NOT_READY, 다음 정각에 멈춘 단계부터</text>
+<text x="32" y="562" font-size="16" fill="#0f172a" xml:space="preserve">청크 안에서 예외 → 그 청크의 확정 · 환불 · 이슈를 함께 롤백</text>
+<text x="32" y="585" font-size="16" fill="#0f172a" xml:space="preserve">06시 회차까지 못 끝내면 "대사 미완료" 긴급 알림</text>
+</svg>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 647" width="760" height="647" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>읽은 뒤 다시 보내진 출금 ①: 상태만 보는 조건이면 환불하고, 은행은 새 전문을 처리해 이중 지급이 된다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="647" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">읽은 뒤 다시 보내진 출금 ① 상태만 보는 조건:</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">환불하고, 은행은 새 전문을 처리한다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">D = 10-30, 대사는 10-31 01:00 에 돈다. 시각은 예시. 빨강 = 사고</text>
+<rect x="60" y="125" width="680" height="90" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="72" y="151" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">대사 ③ 이 출금 X 를 읽는다</text>
+<text x="72" y="174" font-size="16" fill="#0f172a" xml:space="preserve">상태 SENDING, sending_at 10-30, 10-30 파일에 줄 없음</text>
+<text x="72" y="197" font-size="16" fill="#0f172a" xml:space="preserve">→ 판정 AUTO_FAIL (은행이 처리 안 함)</text>
+<circle cx="34" cy="147" r="13" fill="#1d4ed8"/><text x="34" y="153" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">①</text>
+<line x1="400" y1="215" x2="400" y2="237" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="60" y="239" width="680" height="90" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="72" y="265" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">그 사이 X 가 다시 보내진다</text>
+<text x="72" y="288" font-size="16" fill="#0f172a" xml:space="preserve">"연결 없음" → RECEIVED → 재발행 → 다시 SENDING</text>
+<text x="72" y="311" font-size="16" fill="#0f172a" xml:space="preserve">sending_at = 10-31 01:00 (지금), 은행이 새 전문을 받는다</text>
+<circle cx="34" cy="261" r="13" fill="#c2410c"/><text x="34" y="267" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">②</text>
+<line x1="400" y1="329" x2="400" y2="351" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="60" y="353" width="680" height="90" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="72" y="379" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">UPDATE transfer SET status = 'FAILED' …</text>
+<text x="72" y="402" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">WHERE id = X AND status = 'SENDING'</text>
+<text x="72" y="425" font-size="16" fill="#0f172a" xml:space="preserve">→ 다시 SENDING 이라 조건을 통과한다 (1건)</text>
+<circle cx="34" cy="375" r="13" fill="#b91c1c"/><text x="34" y="381" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">③</text>
+<line x1="400" y1="443" x2="400" y2="465" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="60" y="467" width="680" height="66" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="72" y="493" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">E002 로 확정하고 사용자 지갑에 환불한다</text>
+<text x="72" y="516" font-size="16" fill="#0f172a" xml:space="preserve">우리 기록: FAILED E002, 돈이 안 나간 출금</text>
+<circle cx="34" cy="489" r="13" fill="#b91c1c"/><text x="34" y="495" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">④</text>
+<line x1="400" y1="533" x2="400" y2="555" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="60" y="557" width="680" height="66" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="72" y="583" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">은행이 새 전문을 처리해 돈이 나간다</text>
+<text x="72" y="606" font-size="16" fill="#0f172a" xml:space="preserve">환불과 출금이 둘 다 일어났다 = 이중 지급</text>
+<circle cx="34" cy="579" r="13" fill="#b91c1c"/><text x="34" y="585" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">⑤</text>
+</svg>

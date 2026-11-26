@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 499" width="760" height="499" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>③ 의 다시 읽기: REPEATABLE READ 는 청크 첫 읽기의 옛 상태를, READ COMMITTED 는 커밋된 새 상태를 본다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="499" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">③ 의 "다시 읽기": REPEATABLE READ 는 옛 상태를,</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">READ COMMITTED 는 바뀐 상태를 본다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">출금 X = 2,000원, 은행 파일에 같은 줄 1개. 위에서 아래로 시간이 흐른다</text>
+<rect x="20" y="125" width="720" height="112" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="151" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">공통: ③ 청크 트랜잭션 안에서</text>
+<text x="32" y="174" font-size="16" fill="#0f172a" xml:space="preserve">1. 리더가 X 를 읽는다: UNKNOWN → 판정 AUTO_COMPLETE</text>
+<text x="32" y="197" font-size="16" fill="#0f172a" xml:space="preserve">2. 그 사이 정리 작업이 결과조회로 X 를 COMPLETED 로 커밋</text>
+<text x="32" y="220" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">3. UPDATE … WHERE status = 'UNKNOWN' → 0건</text>
+<line x1="195" y1="237" x2="195" y2="275" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<line x1="565" y1="237" x2="565" y2="275" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="20" y="277" width="350" height="160" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="303" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">REPEATABLE READ (MySQL 기본)</text>
+<text x="32" y="326" font-size="16" fill="#0f172a" xml:space="preserve">다시 읽기 → UNKNOWN</text>
+<text x="32" y="349" font-size="16" fill="#0f172a" xml:space="preserve">(청크 첫 읽기의 스냅숏)</text>
+<text x="32" y="372" font-size="16" fill="#0f172a" xml:space="preserve">다시 판정 → 같은 UPDATE 0건</text>
+<text x="32" y="395" font-size="16" fill="#0f172a" xml:space="preserve">두 번 더 해도 UNKNOWN</text>
+<text x="32" y="418" font-size="16" fill="#b91c1c" font-weight="700" xml:space="preserve">3번 뒤 포기 → 단계 실패</text>
+<rect x="390" y="277" width="350" height="160" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="402" y="303" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">READ COMMITTED (③ ④ 설정)</text>
+<text x="402" y="326" font-size="16" fill="#0f172a" xml:space="preserve">다시 읽기 → COMPLETED</text>
+<text x="402" y="349" font-size="16" fill="#0f172a" xml:space="preserve">(다른 트랜잭션이 커밋한 값)</text>
+<text x="402" y="372" font-size="16" fill="#0f172a" xml:space="preserve">다시 판정 → MATCHED</text>
+<text x="402" y="395" font-size="16" fill="#0f172a" xml:space="preserve">확정할 것이 없다</text>
+<text x="402" y="418" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">이슈 없이 다음 출금으로</text>
+<text x="20" y="471" font-size="16" fill="#64748b" xml:space="preserve">근거: StatementSettlerIsolationTest 가 두 격리 수준을 나란히 돌린다.</text>
+</svg>

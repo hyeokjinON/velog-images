@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 816" width="760" height="816" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 8-8. 단어 변환 DFS 백트래킹 — 16번의 호출과 가지치기</title>
+  <rect width="760" height="816" fill="#ffffff"/>
+  <text x="24" y="40" font-size="21" fill="#0f172a" font-weight="700">단어 변환 DFS 백트래킹 — 16번의 호출과 가지치기</text>
+  <text x="24" y="72" font-size="16" fill="#475569">예제 1 (hit → cog). 한 줄 = dfs 호출 한 번, 들여쓰기 = depth</text>
+  <text x="24" y="96" font-size="16" fill="#475569">초록 = target 도착(best 갱신), 회색 = depth ≥ best 라 바로 return</text>
+  <text x="60" y="158" font-size="16" fill="#475569" text-anchor="end">#1</text>
+  <text x="92" y="158" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">hit (d=0)</text>
+  <line x1="102" y1="165" x2="102" y2="186" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="102" y1="186" x2="140" y2="186" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="60" y="192" font-size="16" fill="#475569" text-anchor="end">#2</text>
+  <text x="144" y="192" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">hot (d=1)</text>
+  <line x1="154" y1="199" x2="154" y2="220" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="154" y1="220" x2="192" y2="220" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="60" y="226" font-size="16" fill="#475569" text-anchor="end">#3</text>
+  <text x="196" y="226" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">dot (d=2)</text>
+  <line x1="206" y1="233" x2="206" y2="254" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="206" y1="254" x2="244" y2="254" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="60" y="260" font-size="16" fill="#475569" text-anchor="end">#4</text>
+  <text x="248" y="260" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">dog (d=3)</text>
+  <line x1="258" y1="267" x2="258" y2="288" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="258" y1="288" x2="296" y2="288" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="60" y="294" font-size="16" fill="#475569" text-anchor="end">#5</text>
+  <text x="300" y="294" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">log (d=4)</text>
+  <line x1="310" y1="301" x2="310" y2="322" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="310" y1="322" x2="348" y2="322" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="60" y="328" font-size="16" fill="#475569" text-anchor="end">#6</text>
+  <text x="352" y="328" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">lot (d=5)</text>
+  <text x="452" y="328" font-size="16" fill="#0f172a">갈 곳 없음 (이웃 모두 사용 중)</text>
+  <line x1="310" y1="301" x2="310" y2="356" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="310" y1="356" x2="348" y2="356" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="60" y="362" font-size="16" fill="#475569" text-anchor="end">#7</text>
+  <text x="352" y="362" font-size="16" fill="#047857" font-weight="700" font-family="Consolas, D2Coding, monospace">cog (d=5)</text>
+  <text x="452" y="362" font-size="16" fill="#047857" font-weight="700">target, best = 5</text>
+  <line x1="258" y1="267" x2="258" y2="390" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="258" y1="390" x2="296" y2="390" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="60" y="396" font-size="16" fill="#475569" text-anchor="end">#8</text>
+  <text x="300" y="396" font-size="16" fill="#047857" font-weight="700" font-family="Consolas, D2Coding, monospace">cog (d=4)</text>
+  <text x="400" y="396" font-size="16" fill="#047857" font-weight="700">target, best = 4</text>
+  <line x1="206" y1="233" x2="206" y2="424" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="206" y1="424" x2="244" y2="424" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="60" y="430" font-size="16" fill="#475569" text-anchor="end">#9</text>
+  <text x="248" y="430" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">lot (d=3)</text>
+  <line x1="258" y1="437" x2="258" y2="458" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="258" y1="458" x2="296" y2="458" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="60" y="464" font-size="16" fill="#475569" text-anchor="end">#10</text>
+  <text x="300" y="464" font-size="16" fill="#94a3b8" font-weight="700" font-family="Consolas, D2Coding, monospace">log (d=4)</text>
+  <text x="400" y="464" font-size="16" fill="#94a3b8">가지치기</text>
+  <line x1="154" y1="199" x2="154" y2="492" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="154" y1="492" x2="192" y2="492" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="60" y="498" font-size="16" fill="#475569" text-anchor="end">#11</text>
+  <text x="196" y="498" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">lot (d=2)</text>
+  <line x1="206" y1="505" x2="206" y2="526" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="206" y1="526" x2="244" y2="526" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="60" y="532" font-size="16" fill="#475569" text-anchor="end">#12</text>
+  <text x="248" y="532" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">dot (d=3)</text>
+  <line x1="258" y1="539" x2="258" y2="560" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="258" y1="560" x2="296" y2="560" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="60" y="566" font-size="16" fill="#475569" text-anchor="end">#13</text>
+  <text x="300" y="566" font-size="16" fill="#94a3b8" font-weight="700" font-family="Consolas, D2Coding, monospace">dog (d=4)</text>
+  <text x="400" y="566" font-size="16" fill="#94a3b8">가지치기</text>
+  <line x1="206" y1="505" x2="206" y2="594" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="206" y1="594" x2="244" y2="594" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="60" y="600" font-size="16" fill="#475569" text-anchor="end">#14</text>
+  <text x="248" y="600" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">log (d=3)</text>
+  <line x1="258" y1="607" x2="258" y2="628" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="258" y1="628" x2="296" y2="628" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="60" y="634" font-size="16" fill="#475569" text-anchor="end">#15</text>
+  <text x="300" y="634" font-size="16" fill="#94a3b8" font-weight="700" font-family="Consolas, D2Coding, monospace">dog (d=4)</text>
+  <text x="400" y="634" font-size="16" fill="#94a3b8">가지치기</text>
+  <line x1="258" y1="607" x2="258" y2="662" stroke="#94a3b8" stroke-width="1.5"/>
+  <line x1="258" y1="662" x2="296" y2="662" stroke="#94a3b8" stroke-width="1.5"/>
+  <text x="60" y="668" font-size="16" fill="#475569" text-anchor="end">#16</text>
+  <text x="300" y="668" font-size="16" fill="#94a3b8" font-weight="700" font-family="Consolas, D2Coding, monospace">cog (d=4)</text>
+  <text x="400" y="668" font-size="16" fill="#94a3b8">가지치기</text>
+  <rect x="24" y="696" width="712" height="100" rx="8" fill="#eff6ff" stroke="#1e3a8a" stroke-width="1"/>
+  <text x="44" y="726" font-size="17" fill="#1e3a8a" font-weight="700">#7 에서 처음 찾은 답은 5 였고, #8 에서 4 로 줄었다. 먼저 찾은 답이</text>
+  <text x="44" y="752" font-size="16" fill="#334155">최소라는 보장이 없어서 다른 가지도 끝까지 봐야 한다.</text>
+  <text x="44" y="778" font-size="16" fill="#334155">BFS 는 같은 예제에서 단어 6개를 한 번씩만 꺼낸다 (그림 8-7).</text>
+</svg>

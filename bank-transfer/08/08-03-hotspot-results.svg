@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 620" width="760" height="620" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>핫스팟 결과: 초당 접수(202)는 조건부 105.7, 비관적 98.9, Redis 80.6, 낙관적 44.7 이고, 낙관적 응답의 77% 는 409 다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="620" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">핫스팟 결과: 초당 접수(202) 중앙값과</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">낙관적 락의 응답 구성</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">한 사용자에게 50 VU, 측정 60초, 3회 중앙값</text>
+<text x="20" y="152" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">① 초당 접수 (202/s)</text>
+<text x="20" y="194" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">conditional</text>
+<rect x="160" y="170" width="400.0" height="34" rx="4" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="572.0" y="194" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">105.7 (기준)</text>
+<text x="20" y="246" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">pessimistic</text>
+<rect x="160" y="222" width="374.3" height="34" rx="4" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="546.2667928098392" y="246" font-size="16" fill="#1d4ed8" font-weight="700" xml:space="preserve">98.9 (−6%)</text>
+<text x="20" y="298" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">redis</text>
+<rect x="160" y="274" width="305.0" height="34" rx="4" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="477.0141911069063" y="298" font-size="16" fill="#c2410c" font-weight="700" xml:space="preserve">80.6 (−24%)</text>
+<text x="20" y="350" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">optimistic</text>
+<rect x="160" y="326" width="169.2" height="34" rx="4" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="341.15799432355726" y="350" font-size="16" fill="#b91c1c" font-weight="700" xml:space="preserve">44.7 (−58%)</text>
+<text x="20" y="410" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">② 낙관적 락의 응답 60초 (202 + 409 = 11,892건)</text>
+<rect x="20" y="428" width="162.2" height="44" fill="#047857"/>
+<rect x="182.2" y="428" width="557.8" height="44" fill="#b91c1c"/>
+<text x="101.09989909182644" y="456" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">202 · 23%</text>
+<text x="461.09989909182644" y="456" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">409 · 77%</text>
+<text x="20" y="500" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">202 2,679건</text>
+<text x="740" y="500" font-size="16" fill="#b91c1c" font-weight="700" text-anchor="end" xml:space="preserve">409 9,213건</text>
+<text x="20" y="540" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">응답 전체는 초당 198.2건으로 가장 많다 → 비교는 접수로 한다</text>
+<text x="20" y="584" font-size="16" fill="#64748b" xml:space="preserve">근거: docs/perf/p4-2-lock-comparison.md §3 (2026-10-27 측정)</text>
+</svg>

@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 706" width="760" height="706" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 8-9. 문자열 압축 aabbaccc — 단위 1 은 7자, 단위 2, 3, 4 는 줄지 않아 8자</title>
+  <rect width="760" height="706" fill="#ffffff"/>
+  <text x="24" y="40" font-size="21" fill="#0f172a" font-weight="700">문자열 압축 aabbaccc — 단위 1 은 7자,</text>
+  <text x="24" y="70" font-size="21" fill="#0f172a" font-weight="700">단위 2, 3, 4 는 줄지 않아 8자</text>
+  <text x="24" y="102" font-size="16" fill="#475569">같은 조각이 연속하면 묶는다. 초록 = 묶여서 줄어든 묶음</text>
+  <text x="24" y="160" font-size="17" fill="#1e3a8a" font-weight="700">① unit = 1 — 한 글자씩 자른다</text>
+  <text x="98.0" y="186" font-size="15" fill="#475569" text-anchor="middle" font-family="Consolas, D2Coding, monospace">0</text>
+  <text x="154.0" y="186" font-size="15" fill="#475569" text-anchor="middle" font-family="Consolas, D2Coding, monospace">1</text>
+  <text x="210.0" y="186" font-size="15" fill="#475569" text-anchor="middle" font-family="Consolas, D2Coding, monospace">2</text>
+  <text x="266.0" y="186" font-size="15" fill="#475569" text-anchor="middle" font-family="Consolas, D2Coding, monospace">3</text>
+  <text x="322.0" y="186" font-size="15" fill="#475569" text-anchor="middle" font-family="Consolas, D2Coding, monospace">4</text>
+  <text x="378.0" y="186" font-size="15" fill="#475569" text-anchor="middle" font-family="Consolas, D2Coding, monospace">5</text>
+  <text x="434.0" y="186" font-size="15" fill="#475569" text-anchor="middle" font-family="Consolas, D2Coding, monospace">6</text>
+  <text x="490.0" y="186" font-size="15" fill="#475569" text-anchor="middle" font-family="Consolas, D2Coding, monospace">7</text>
+  <rect x="72" y="194" width="52" height="44" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="98.0" y="222.0" font-size="18" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">a</text>
+  <rect x="128" y="194" width="52" height="44" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="154.0" y="222.0" font-size="18" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">a</text>
+  <line x1="74" y1="248" x2="178" y2="248" stroke="#047857" stroke-width="3"/>
+  <text x="126.0" y="276" font-size="18" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">2a</text>
+  <text x="126.0" y="300" font-size="16" fill="#475569" text-anchor="middle">2자</text>
+  <rect x="184" y="194" width="52" height="44" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="210.0" y="222.0" font-size="18" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">b</text>
+  <rect x="240" y="194" width="52" height="44" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="266.0" y="222.0" font-size="18" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">b</text>
+  <line x1="186" y1="248" x2="290" y2="248" stroke="#047857" stroke-width="3"/>
+  <text x="238.0" y="276" font-size="18" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">2b</text>
+  <text x="238.0" y="300" font-size="16" fill="#475569" text-anchor="middle">2자</text>
+  <rect x="296" y="194" width="52" height="44" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="322.0" y="222.0" font-size="18" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">a</text>
+  <line x1="298" y1="248" x2="346" y2="248" stroke="#94a3b8" stroke-width="3"/>
+  <text x="322.0" y="276" font-size="18" fill="#334155" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">a</text>
+  <text x="322.0" y="300" font-size="16" fill="#475569" text-anchor="middle">1자</text>
+  <rect x="352" y="194" width="52" height="44" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="378.0" y="222.0" font-size="18" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">c</text>
+  <rect x="408" y="194" width="52" height="44" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="434.0" y="222.0" font-size="18" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">c</text>
+  <rect x="464" y="194" width="52" height="44" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="490.0" y="222.0" font-size="18" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">c</text>
+  <line x1="354" y1="248" x2="514" y2="248" stroke="#047857" stroke-width="3"/>
+  <text x="434.0" y="276" font-size="18" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">3c</text>
+  <text x="434.0" y="300" font-size="16" fill="#475569" text-anchor="middle">2자</text>
+  <text x="534" y="276" font-size="18" fill="#047857" font-weight="700">= 7자</text>
+  <text x="44" y="334" font-size="16" fill="#334155">i = 8 에서 cur 가 빈 문자열 "" 이 되어 prev(c) 와 달라지므로,</text>
+  <text x="44" y="358" font-size="16" fill="#334155">마지막 묶음 3c 는 반복문 안에서 더해진다 (len 5 → 7).</text>
+  <text x="24" y="410" font-size="17" fill="#1e3a8a" font-weight="700">② unit = 2, 3, 4 — 연속으로 같은 조각이 없다</text>
+  <text x="44" y="460" font-size="17" fill="#0f172a" font-weight="700">unit 2</text>
+  <rect x="140" y="436" width="80" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="180.0" y="462.0" font-size="17" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">aa</text>
+  <rect x="230" y="436" width="80" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="270.0" y="462.0" font-size="17" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">bb</text>
+  <rect x="320" y="436" width="80" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="360.0" y="462.0" font-size="17" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">ac</text>
+  <rect x="410" y="436" width="80" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="450.0" y="462.0" font-size="17" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">cc</text>
+  <text x="560" y="460" font-size="17" fill="#334155" font-weight="700">8자</text>
+  <text x="44" y="516" font-size="17" fill="#0f172a" font-weight="700">unit 3</text>
+  <rect x="140" y="492" width="108" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="194.0" y="518.0" font-size="17" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">aab</text>
+  <rect x="258" y="492" width="108" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="312.0" y="518.0" font-size="17" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">bac</text>
+  <rect x="376" y="492" width="80" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="416.0" y="518.0" font-size="17" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">cc</text>
+  <text x="560" y="516" font-size="17" fill="#334155" font-weight="700">8자</text>
+  <text x="44" y="572" font-size="17" fill="#0f172a" font-weight="700">unit 4</text>
+  <rect x="140" y="548" width="136" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="208.0" y="574.0" font-size="17" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">aabb</text>
+  <rect x="286" y="548" width="136" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="354.0" y="574.0" font-size="17" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">accc</text>
+  <text x="560" y="572" font-size="17" fill="#334155" font-weight="700">8자</text>
+  <rect x="24" y="612" width="712" height="74" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1"/>
+  <text x="44" y="642" font-size="17" fill="#047857" font-weight="700">best = min(원래 8, 7, 8, 8, 8) = 7. 기대 출력 7 과 같다.</text>
+  <text x="44" y="668" font-size="16" fill="#334155">unit 은 길이의 절반(4)까지만 본다. 더 길면 두 조각이 연속할 수 없다.</text>
+</svg>

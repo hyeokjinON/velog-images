@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 816" width="760" height="816" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 8-2. 층 단위 BFS — size 를 루프 전에 고정할 때와 조건에 q.size() 를 쓸 때</title>
+  <rect width="760" height="816" fill="#ffffff"/>
+  <text x="24" y="40" font-size="21" fill="#0f172a" font-weight="700">층 단위 BFS — size 를 루프 전에 고정할 때와</text>
+  <text x="24" y="70" font-size="21" fill="#0f172a" font-weight="700">조건에 q.size() 를 쓸 때</text>
+  <text x="24" y="102" font-size="16" fill="#475569">begin aaa, target cba, words [caa, aba, cba, cac]. 정답 2</text>
+  <text x="24" y="126" font-size="16" fill="#475569">칸 색 = 그 단어의 실제 거리: 회색 0, 파랑 1, 초록 2</text>
+  <rect x="24" y="164" width="712" height="232" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="44" y="196" font-size="17" fill="#047857" font-weight="700">① int size = q.size(); 를 루프 전에 (2-3절 코드)</text>
+  <text x="44" y="222" font-size="16" fill="#475569">한 층에서 꺼내는 수가 층 시작 때 큐 크기로 고정된다</text>
+  <text x="44" y="266" font-size="17" fill="#0f172a" font-weight="700">step 0</text>
+  <rect x="140" y="242" width="76" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="178.0" y="268.0" font-size="17" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">aaa</text>
+  <text x="402" y="266" font-size="16" fill="#334155">size 1 → 1개 꺼냄</text>
+  <text x="44" y="316" font-size="17" fill="#0f172a" font-weight="700">step 1</text>
+  <rect x="140" y="292" width="76" height="40" rx="0" fill="#eff6ff" stroke="#1e3a8a" stroke-width="2"/>
+  <text x="178.0" y="318.0" font-size="17" fill="#1e3a8a" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">caa</text>
+  <rect x="224" y="292" width="76" height="40" rx="0" fill="#eff6ff" stroke="#1e3a8a" stroke-width="2"/>
+  <text x="262.0" y="318.0" font-size="17" fill="#1e3a8a" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">aba</text>
+  <text x="402" y="316" font-size="16" fill="#334155">size 2 → 2개 꺼냄</text>
+  <text x="44" y="366" font-size="17" fill="#0f172a" font-weight="700">step 2</text>
+  <rect x="140" y="342" width="76" height="40" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="178.0" y="368.0" font-size="17" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">cba</text>
+  <text x="402" y="366" font-size="16" fill="#047857" font-weight="700">cba = target → 2</text>
+  <rect x="24" y="416" width="712" height="262" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="44" y="448" font-size="17" fill="#b91c1c" font-weight="700">② for (s = 0; s &lt; q.size(); s++) — 함정</text>
+  <text x="44" y="474" font-size="16" fill="#475569">꺼내는 동안 넣은 다음 층 때문에 q.size() 가 계속 바뀐다</text>
+  <text x="44" y="518" font-size="17" fill="#0f172a" font-weight="700">step 0</text>
+  <rect x="140" y="494" width="76" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="178.0" y="520.0" font-size="17" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">aaa</text>
+  <rect x="224" y="494" width="76" height="40" rx="0" fill="#fef2f2" stroke="#b91c1c" stroke-width="2"/>
+  <text x="262.0" y="520.0" font-size="17" fill="#b91c1c" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">caa</text>
+  <rect x="308" y="494" width="76" height="40" rx="0" fill="#fef2f2" stroke="#b91c1c" stroke-width="2"/>
+  <text x="346.0" y="520.0" font-size="17" fill="#b91c1c" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">aba</text>
+  <text x="402" y="518" font-size="16" fill="#b91c1c" font-weight="700">3개 꺼냄</text>
+  <text x="140" y="564" font-size="16" fill="#334155">s=0: aaa → q.size() 2,  s=1: caa → 3,  s=2: aba → 2</text>
+  <text x="44" y="606" font-size="17" fill="#0f172a" font-weight="700">step 1</text>
+  <rect x="140" y="582" width="76" height="40" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="178.0" y="608.0" font-size="17" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">cba</text>
+  <text x="402" y="606" font-size="16" fill="#b91c1c" font-weight="700">cba = target → 1 (틀림)</text>
+  <text x="140" y="654" font-size="16" fill="#b91c1c">거리 1 인 caa, aba 가 0층에서 같이 꺼내졌다.</text>
+  <rect x="24" y="696" width="712" height="100" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1"/>
+  <text x="44" y="726" font-size="17" fill="#b91c1c" font-weight="700">층이 섞이면 step 이 실제 거리보다 작게 나온다.</text>
+  <text x="44" y="752" font-size="16" fill="#334155">hit → cog 예제에서는 우연히 4 로 맞지만, 이 입력에서는 1 이 나온다.</text>
+  <text x="44" y="778" font-size="16" fill="#334155">루프 전에 int size = q.size(); 로 받아 두면 층이 섞이지 않는다.</text>
+</svg>

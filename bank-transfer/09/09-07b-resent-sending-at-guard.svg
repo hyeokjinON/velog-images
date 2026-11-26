@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 603" width="760" height="603" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>읽은 뒤 다시 보내진 출금 ②: 같은 UPDATE 에 sending_at 범위 조건을 넣으면 0건이 되어 환불하지 않는다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="603" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">읽은 뒤 다시 보내진 출금 ② sending_at 조건:</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">0건이 되어 환불하지 않는다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">①② 는 그림 9-7a 와 같다. 초록 = 실제 구현</text>
+<rect x="60" y="125" width="680" height="90" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="72" y="151" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">①② 는 그림 9-7a 와 같다</text>
+<text x="72" y="174" font-size="16" fill="#0f172a" xml:space="preserve">X 를 AUTO_FAIL 로 판정한 뒤 X 가 다시 보내져</text>
+<text x="72" y="197" font-size="16" fill="#0f172a" xml:space="preserve">sending_at 이 10-31 01:00 이 됐다</text>
+<circle cx="34" cy="147" r="13" fill="#1d4ed8"/><text x="34" y="153" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">②</text>
+<line x1="400" y1="215" x2="400" y2="237" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="60" y="239" width="680" height="136" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="72" y="265" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">UPDATE transfer SET status = 'FAILED' …</text>
+<text x="72" y="288" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">WHERE id = X AND status = 'SENDING'</text>
+<text x="72" y="311" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">  AND sending_at &gt;= '10-30 00:00'</text>
+<text x="72" y="334" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">  AND sending_at &lt;  '10-31 00:00'</text>
+<text x="72" y="357" font-size="16" fill="#0f172a" xml:space="preserve">→ sending_at 이 범위 밖이라 0건</text>
+<circle cx="34" cy="261" r="13" fill="#047857"/><text x="34" y="267" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">③</text>
+<line x1="400" y1="375" x2="400" y2="397" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="60" y="399" width="680" height="90" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="72" y="425" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">0건이면 다시 읽어 다시 판정한다</text>
+<text x="72" y="448" font-size="16" fill="#0f172a" xml:space="preserve">sending_at 이 10-30 밖 → RESENT_LATER</text>
+<text x="72" y="471" font-size="16" fill="#0f172a" xml:space="preserve">확정도 이슈도 없이 넘긴다</text>
+<circle cx="34" cy="421" r="13" fill="#047857"/><text x="34" y="427" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">④</text>
+<line x1="400" y1="489" x2="400" y2="511" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="60" y="513" width="680" height="66" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="72" y="539" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">환불하지 않는다</text>
+<text x="72" y="562" font-size="16" fill="#0f172a" xml:space="preserve">X 는 지금 은행이 처리 중인 출금으로 남고, 다음 날짜 대사가 맡는다</text>
+<circle cx="34" cy="535" r="13" fill="#047857"/><text x="34" y="541" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">⑤</text>
+</svg>

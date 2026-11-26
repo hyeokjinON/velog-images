@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 746" width="760" height="746" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>대사 파일 RECON_20261030.dat 의 모양: 헤더, 상세, 트레일러 모든 줄이 59바이트다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="746" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">대사 파일 RECON_20261030.dat 의 모양:</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">헤더 · 상세 · 트레일러, 모든 줄이 59바이트</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">거래번호와 처리 시각은 예시 값이다. 1원인증 줄(V…)은 뺐다.</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">줄 끝의 남는 자리는 공백으로 채운다.</text>
+<rect x="20" y="148" width="720" height="150" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="36" y="176" font-size="16" fill="#475569" font-weight="700" xml:space="preserve">줄  내용 (고정폭, 한 글자 = 1바이트)</text>
+<text x="40" y="206" font-size="15" fill="#475569" font-family="Consolas, D2Coding, monospace" xml:space="preserve">1</text>
+<text x="76" y="206" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">H20261030090</text>
+<text x="174.964" y="206" font-size="15" fill="#64748b" xml:space="preserve">  … 공백 47칸</text>
+<rect x="76.0" y="217" width="8.2" height="20" fill="#e2e8f0"/>
+<rect x="84.2" y="217" width="164.9" height="20" fill="#dbeafe"/>
+<rect x="249.2" y="217" width="24.7" height="20" fill="#fde68a"/>
+<rect x="273.9" y="217" width="132.0" height="20" fill="#d1fae5"/>
+<rect x="405.9" y="217" width="107.2" height="20" fill="#fed7aa"/>
+<rect x="513.1" y="217" width="49.5" height="20" fill="#e9d5ff"/>
+<text x="40" y="232" font-size="15" fill="#475569" font-family="Consolas, D2Coding, monospace" xml:space="preserve">2</text>
+<text x="76" y="232" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">DT261030A7K2M9Q4X1B8C0901002123456789   0000000001000100512</text>
+<rect x="76.0" y="243" width="8.2" height="20" fill="#e2e8f0"/>
+<rect x="84.2" y="243" width="164.9" height="20" fill="#dbeafe"/>
+<rect x="249.2" y="243" width="24.7" height="20" fill="#fde68a"/>
+<rect x="273.9" y="243" width="132.0" height="20" fill="#d1fae5"/>
+<rect x="405.9" y="243" width="107.2" height="20" fill="#fed7aa"/>
+<rect x="513.1" y="243" width="49.5" height="20" fill="#e9d5ff"/>
+<text x="40" y="258" font-size="15" fill="#475569" font-family="Consolas, D2Coding, monospace" xml:space="preserve">3</text>
+<text x="76" y="258" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">DT261030P3D6F0H5J2L7N0909990000000002   0000000002000100630</text>
+<text x="40" y="284" font-size="15" fill="#475569" font-family="Consolas, D2Coding, monospace" xml:space="preserve">4</text>
+<text x="76" y="284" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">T000000002000000000000003000</text>
+<text x="306.916" y="284" font-size="15" fill="#64748b" xml:space="preserve">  … 공백 31칸</text>
+<text x="20" y="338" font-size="18" fill="#0f172a" font-weight="700" xml:space="preserve">2번 줄(상세 D)을 필드로 나누면</text>
+<text x="60" y="372" font-size="16" fill="#475569" font-weight="700" xml:space="preserve">필드</text>
+<text x="300" y="372" font-size="16" fill="#475569" font-weight="700" xml:space="preserve">바이트</text>
+<text x="380" y="372" font-size="16" fill="#475569" font-weight="700" xml:space="preserve">이 줄의 값</text>
+<rect x="24" y="387" width="24" height="22" rx="3" fill="#e2e8f0" stroke="#94a3b8"/>
+<text x="60" y="404" font-size="16" fill="#0f172a" xml:space="preserve">구분</text>
+<text x="330" y="404" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">1</text>
+<text x="380" y="404" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">D</text>
+<rect x="24" y="419" width="24" height="22" rx="3" fill="#dbeafe" stroke="#94a3b8"/>
+<text x="60" y="436" font-size="16" fill="#0f172a" xml:space="preserve">이용기관 거래번호</text>
+<text x="330" y="436" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">20</text>
+<text x="380" y="436" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">T261030A7K2M9Q4X1B8C</text>
+<rect x="24" y="451" width="24" height="22" rx="3" fill="#fde68a" stroke="#94a3b8"/>
+<text x="60" y="468" font-size="16" fill="#0f172a" xml:space="preserve">은행코드</text>
+<text x="330" y="468" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">3</text>
+<text x="380" y="468" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">090</text>
+<rect x="24" y="483" width="24" height="22" rx="3" fill="#d1fae5" stroke="#94a3b8"/>
+<text x="60" y="500" font-size="16" fill="#0f172a" xml:space="preserve">계좌번호 (왼쪽 정렬)</text>
+<text x="330" y="500" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">16</text>
+<text x="380" y="500" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">1002123456789 + 공백 3</text>
+<rect x="24" y="515" width="24" height="22" rx="3" fill="#fed7aa" stroke="#94a3b8"/>
+<text x="60" y="532" font-size="16" fill="#0f172a" xml:space="preserve">금액 (오른쪽 정렬, 0 채움)</text>
+<text x="330" y="532" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">13</text>
+<text x="380" y="532" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">0000000001000 = 1,000원</text>
+<rect x="24" y="547" width="24" height="22" rx="3" fill="#e9d5ff" stroke="#94a3b8"/>
+<text x="60" y="564" font-size="16" fill="#0f172a" xml:space="preserve">처리 시각 HHmmss</text>
+<text x="330" y="564" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">6</text>
+<text x="380" y="564" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">100512 = 10:05:12</text>
+<line x1="20" y1="576" x2="740" y2="576" stroke="#cbd5e1"/>
+<text x="60" y="598" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">합계</text>
+<text x="330" y="598" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">59</text>
+<rect x="20" y="636" width="720" height="90" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="662" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">헤더와 트레일러도 59바이트로 맞춘다</text>
+<text x="32" y="685" font-size="16" fill="#0f172a" xml:space="preserve">헤더 H: 구분 1 + 처리일 8 + 은행코드 3 = 12바이트</text>
+<text x="32" y="708" font-size="16" fill="#0f172a" xml:space="preserve">트레일러 T: 구분 1 + 건수 9 + 금액 합계 18 = 28바이트</text>
+</svg>

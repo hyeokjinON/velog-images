@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 695" width="760" height="695" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>자정 전후: 점검 시간 23:50 ~ 00:10 이 10-30 에 보낸 출금과 10-30 파일을 같은 범위로 맞춘다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="695" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">자정 전후: 점검 시간 23:50 ~ 00:10 이</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">"10-30 에 보낸 출금" 과 "10-30 파일" 을 맞춘다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">시각은 모두 KST. 빨강 = 어긋나는 경우, 초록 = 점검 시간이 있을 때</text>
+<rect x="20" y="125" width="720" height="252" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="36" y="155" font-size="16" fill="#b91c1c" font-weight="700" xml:space="preserve">A. 점검 시간이 없으면</text>
+<line x1="50" y1="235" x2="720" y2="235" stroke="#334155" stroke-width="2" marker-end="url(#ms)"/>
+<line x1="120" y1="227" x2="120" y2="243" stroke="#334155" stroke-width="2"/>
+<text x="120" y="265" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">23:59:55</text>
+<line x1="380" y1="227" x2="380" y2="243" stroke="#334155" stroke-width="2"/>
+<text x="380" y="265" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">00:00:00</text>
+<line x1="640" y1="227" x2="640" y2="243" stroke="#334155" stroke-width="2"/>
+<text x="640" y="265" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">00:00:05</text>
+<line x1="380" y1="173" x2="380" y2="235" stroke="#b91c1c" stroke-width="2" stroke-dasharray="5 4"/>
+<text x="388" y="187" font-size="16" fill="#b91c1c" xml:space="preserve">날짜가 바뀐다</text>
+<circle cx="276" cy="235" r="8" fill="#b91c1c"/>
+<text x="276" y="217" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">① 우리가 Z 를 보낸다</text>
+<circle cx="536" cy="235" r="8" fill="#b91c1c"/>
+<text x="536" y="217" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">② 은행이 Z 를 처리</text>
+<text x="36" y="299" font-size="16" fill="#0f172a" xml:space="preserve">우리 기록: sending_at 23:59:58 → 10-30 대사 대상</text>
+<text x="36" y="323" font-size="16" fill="#0f172a" xml:space="preserve">은행 기록: 처리 00:00:03 → 10-31 파일의 줄</text>
+<text x="36" y="347" font-size="16" fill="#b91c1c" font-weight="700" xml:space="preserve">→ 10-30 대사에서 Z 는 "은행에 없음" 으로 잡힌다</text>
+<rect x="20" y="401" width="720" height="274" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="36" y="431" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">B. 점검 시간 23:50 ~ 00:10 이 있으면</text>
+<rect x="240" y="489" width="320" height="44" fill="#ffedd5" stroke="#c2410c" stroke-width="1.4"/>
+<text x="400" y="479" font-size="16" fill="#c2410c" font-weight="700" text-anchor="middle" xml:space="preserve">점검: 은행에 아무것도 보내지 않는다</text>
+<line x1="50" y1="511" x2="720" y2="511" stroke="#334155" stroke-width="2" marker-end="url(#ms)"/>
+<line x1="80" y1="503" x2="80" y2="519" stroke="#334155" stroke-width="2"/>
+<text x="80" y="553" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">23:40</text>
+<line x1="240" y1="503" x2="240" y2="519" stroke="#334155" stroke-width="2"/>
+<text x="240" y="553" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">23:50</text>
+<line x1="400" y1="503" x2="400" y2="519" stroke="#334155" stroke-width="2"/>
+<text x="400" y="553" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">00:00</text>
+<line x1="560" y1="503" x2="560" y2="519" stroke="#334155" stroke-width="2"/>
+<text x="560" y="553" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">00:10</text>
+<circle cx="480" cy="511" r="8" fill="#334155"/>
+<text x="480" y="553" font-size="15" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">00:05 파일</text>
+<text x="36" y="587" font-size="16" fill="#0f172a" xml:space="preserve">23:50 부터 출금 접수는 503, 컨슈머의 송신도 보류한다</text>
+<text x="36" y="611" font-size="16" fill="#0f172a" xml:space="preserve">00:05 은행이 10-30 파일을 만든다. 더 늘 기록이 없다</text>
+<text x="36" y="635" font-size="16" fill="#0f172a" xml:space="preserve">00:10 뒤에 보내는 출금은 sending_at 이 10-31 이다</text>
+<text x="36" y="659" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">→ 10-30 에 보낸 출금 = 10-30 파일의 줄</text>
+</svg>

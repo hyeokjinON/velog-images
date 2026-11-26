@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 730" width="760" height="730" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>핫스팟과 분산: 50 VU 가 한 사용자의 잔고 한 행에 몰리면 줄을 서고, 500명에게 흩어지면 거의 겹치지 않는다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="730" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">핫스팟과 분산: 50 VU 가 한 행에 몰리는가,</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">500행에 흩어지는가</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">k6 50 VU, 닫힌 모델, 1원 출금. 주황 = 행 락을 기다리는 요청</text>
+<text x="20" y="152" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">A. 핫스팟 — 모두 X-User-Id: load-hot</text>
+<rect x="20" y="170" width="170" height="150" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="230" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">k6 가상 사용자</text>
+<text x="32" y="253" font-size="16" fill="#0f172a" xml:space="preserve">50명</text>
+<text x="32" y="276" font-size="16" fill="#0f172a" xml:space="preserve">(VU 1 ~ 50)</text>
+<line x1="190" y1="245" x2="466" y2="245" stroke="#c2410c" stroke-width="2.2" marker-end="url(#mo)"/>
+<rect x="222" y="230" width="28" height="30" rx="4" fill="#fdba74" stroke="#c2410c" stroke-width="1.4"/>
+<rect x="260" y="230" width="28" height="30" rx="4" fill="#fdba74" stroke="#c2410c" stroke-width="1.4"/>
+<rect x="298" y="230" width="28" height="30" rx="4" fill="#fdba74" stroke="#c2410c" stroke-width="1.4"/>
+<rect x="336" y="230" width="28" height="30" rx="4" fill="#fdba74" stroke="#c2410c" stroke-width="1.4"/>
+<rect x="374" y="230" width="28" height="30" rx="4" fill="#fdba74" stroke="#c2410c" stroke-width="1.4"/>
+<rect x="412" y="230" width="28" height="30" rx="4" fill="#fdba74" stroke="#c2410c" stroke-width="1.4"/>
+<text x="328" y="214" font-size="16" fill="#c2410c" font-weight="700" text-anchor="middle" xml:space="preserve">기다리는 요청들</text>
+<text x="328" y="290" font-size="16" fill="#c2410c" text-anchor="middle" xml:space="preserve">한 번에 한 요청만</text>
+<text x="328" y="313" font-size="16" fill="#c2410c" text-anchor="middle" xml:space="preserve">행을 쥔다</text>
+<rect x="470" y="170" width="270" height="150" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="482" y="204" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">wallet 1행</text>
+<text x="482" y="232" font-size="16" fill="#0f172a" xml:space="preserve">user_id = load-hot</text>
+<text x="482" y="260" font-size="16" fill="#0f172a" xml:space="preserve">balance 10억</text>
+<text x="482" y="288" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">행 락: 지금 쥔 요청 1개</text>
+<text x="20" y="356" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">초당 접수 44.7 ~ 105.7 — 락 방식마다 크게 다르다</text>
+<line x1="20" y1="380" x2="740" y2="380" stroke="#cbd5e1" stroke-width="1.5"/>
+<text x="20" y="416" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">B. 분산 — load-u001 ~ load-u500 무작위</text>
+<rect x="20" y="434" width="170" height="150" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="494" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">k6 가상 사용자</text>
+<text x="32" y="517" font-size="16" fill="#0f172a" xml:space="preserve">50명</text>
+<text x="32" y="540" font-size="16" fill="#0f172a" xml:space="preserve">(VU 1 ~ 50)</text>
+<rect x="470" y="434" width="82" height="30" rx="4" fill="#ecfdf5" stroke="#047857" stroke-width="1.4"/>
+<text x="511" y="455" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">u001</text>
+<rect x="562" y="434" width="82" height="30" rx="4" fill="#ecfdf5" stroke="#047857" stroke-width="1.4"/>
+<text x="603" y="455" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">u002</text>
+<rect x="654" y="434" width="82" height="30" rx="4" fill="#ecfdf5" stroke="#047857" stroke-width="1.4"/>
+<text x="695" y="455" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">u003</text>
+<rect x="470" y="472" width="82" height="30" rx="4" fill="#ecfdf5" stroke="#047857" stroke-width="1.4"/>
+<text x="511" y="493" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">u004</text>
+<rect x="562" y="472" width="82" height="30" rx="4" fill="#ecfdf5" stroke="#047857" stroke-width="1.4"/>
+<text x="603" y="493" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">u005</text>
+<rect x="654" y="472" width="82" height="30" rx="4" fill="#ecfdf5" stroke="#047857" stroke-width="1.4"/>
+<text x="695" y="493" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">u006</text>
+<text x="511" y="532" font-size="16" fill="#64748b" font-weight="700" text-anchor="middle" xml:space="preserve">…</text>
+<text x="603" y="532" font-size="16" fill="#64748b" font-weight="700" text-anchor="middle" xml:space="preserve">…</text>
+<text x="695" y="532" font-size="16" fill="#64748b" font-weight="700" text-anchor="middle" xml:space="preserve">…</text>
+<rect x="470" y="548" width="82" height="30" rx="4" fill="#ecfdf5" stroke="#047857" stroke-width="1.4"/>
+<text x="511" y="569" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">u498</text>
+<rect x="562" y="548" width="82" height="30" rx="4" fill="#ecfdf5" stroke="#047857" stroke-width="1.4"/>
+<text x="603" y="569" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">u499</text>
+<rect x="654" y="548" width="82" height="30" rx="4" fill="#ecfdf5" stroke="#047857" stroke-width="1.4"/>
+<text x="695" y="569" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">u500</text>
+<line x1="190" y1="509" x2="466" y2="449" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<line x1="190" y1="509" x2="466" y2="487" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<line x1="190" y1="509" x2="466" y2="563" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<text x="20" y="614" font-size="16" fill="#0f172a" xml:space="preserve">50명이 wallet 500행에 흩어진다 → 같은 행에서 기다릴 일이 거의 없다</text>
+<text x="20" y="646" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">초당 624 ~ 668 — 네 전략이 회차 편차(최대 9%) 안</text>
+<text x="20" y="690" font-size="16" fill="#64748b" xml:space="preserve">근거: load/hotspot.js · load/spread.js, docs/perf/p4-2-lock-comparison.md</text>
+</svg>

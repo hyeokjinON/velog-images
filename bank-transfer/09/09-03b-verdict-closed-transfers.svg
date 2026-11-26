@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 815" width="760" height="815" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>판정표 ②: 이미 확정된 출금과 우리에게 없는 줄은 고치지 않고 recon_issue 에 남긴다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="815" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">판정표 ② 이미 확정된 출금과 우리에게 없는 줄:</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">고치지 않고 recon_issue 에 남긴다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">초록 = 맞음(할 일 없음), 주황 = 이슈를 남기고 알린다</text>
+<text x="20" y="123" font-size="16" fill="#475569" font-weight="700" xml:space="preserve">은행 파일에서 찾은 줄</text>
+<text x="282" y="123" font-size="16" fill="#475569" font-weight="700" xml:space="preserve">판정 → 하는 일</text>
+<rect x="20" y="137" width="720" height="36" rx="6" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="34" y="161" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">우리 상태 COMPLETED (완료로 확정)</text>
+<rect x="20" y="183" width="250" height="66" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="222" font-size="16" fill="#0f172a" xml:space="preserve">줄 1개, 금액 · 계좌 같음</text>
+<rect x="280" y="183" width="460" height="66" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="292" y="209" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">MATCHED</text>
+<text x="292" y="232" font-size="16" fill="#0f172a" xml:space="preserve">맞음, 할 일 없음</text>
+<rect x="20" y="259" width="250" height="66" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="298" font-size="16" fill="#0f172a" xml:space="preserve">줄 없음</text>
+<rect x="280" y="259" width="460" height="66" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="292" y="285" font-size="16" fill="#c2410c" font-weight="700" xml:space="preserve">COMPLETED_NOT_AT_BANK</text>
+<text x="292" y="308" font-size="16" fill="#0f172a" xml:space="preserve">이슈 + 알림</text>
+<rect x="20" y="341" width="720" height="36" rx="6" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="34" y="365" font-size="16" fill="#c2410c" font-weight="700" xml:space="preserve">우리 상태 FAILED (실패로 확정, 환불함)</text>
+<rect x="20" y="387" width="250" height="66" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="426" font-size="16" fill="#0f172a" xml:space="preserve">줄 없음</text>
+<rect x="280" y="387" width="460" height="66" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="292" y="413" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">MATCHED</text>
+<text x="292" y="436" font-size="16" fill="#0f172a" xml:space="preserve">맞음, 할 일 없음</text>
+<rect x="20" y="463" width="250" height="66" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="502" font-size="16" fill="#0f172a" xml:space="preserve">줄 1개, 금액 · 계좌 같음</text>
+<rect x="280" y="463" width="460" height="66" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="292" y="489" font-size="16" fill="#c2410c" font-weight="700" xml:space="preserve">REFUNDED_BUT_PAID</text>
+<text x="292" y="512" font-size="16" fill="#0f172a" xml:space="preserve">환불한 돈이 실제로 나갔다, 이슈 + 알림</text>
+<rect x="20" y="545" width="720" height="36" rx="6" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="34" y="569" font-size="16" fill="#334155" font-weight="700" xml:space="preserve">우리 출금이 없는 경우 (④ · ⑤ 단계)</text>
+<rect x="20" y="591" width="250" height="66" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="630" font-size="16" fill="#0f172a" xml:space="preserve">파일에만 있는 거래번호</text>
+<rect x="280" y="591" width="460" height="66" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="292" y="617" font-size="16" fill="#c2410c" font-weight="700" xml:space="preserve">UNKNOWN_REFERENCE</text>
+<text x="292" y="640" font-size="16" fill="#0f172a" xml:space="preserve">이슈 + 알림 (1원인증 V 줄은 제외)</text>
+<rect x="20" y="667" width="250" height="66" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="706" font-size="16" fill="#0f172a" xml:space="preserve">잔고 ≠ 원장 합인 지갑</text>
+<rect x="280" y="667" width="460" height="66" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="292" y="693" font-size="16" fill="#c2410c" font-weight="700" xml:space="preserve">BALANCE_LEDGER_MISMATCH</text>
+<text x="292" y="716" font-size="16" fill="#0f172a" xml:space="preserve">지갑마다 이슈 + 알림</text>
+<text x="20" y="763" font-size="16" fill="#64748b" xml:space="preserve">두 상태 모두 금액 · 계좌가 다르면 AMOUNT_OR_ACCOUNT_MISMATCH,</text>
+<text x="20" y="787" font-size="16" fill="#64748b" xml:space="preserve">줄이 2개 이상이면 PAID_TWICE (긴급) 다.</text>
+</svg>

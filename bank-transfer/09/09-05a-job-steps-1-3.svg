@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 510" width="760" height="510" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>대사 잡 ① ~ ③ 단계와 손 확인(10-30) 때의 값: 파일 검증, 적재, 우리 출금 기준 판정</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="510" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">대사 잡 ① ~ ③: 파일을 믿을 수 있는지 보고,</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">표로 옮긴 뒤 우리 출금마다 판정한다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">초록 = 청크 단계(줄을 묶어 읽고 쓰고 커밋), 회색 = 태스크릿</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">파랑 글씨 = 손 확인(10-30, 출금 1,000원 · 2,000원) 때의 값</text>
+<rect x="20" y="148" width="720" height="90" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="174" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① validateFile · 태스크릿</text>
+<text x="32" y="197" font-size="16" fill="#0f172a" xml:space="preserve">헤더 날짜 = 대사일, 트레일러 건수 · 합계 = 상세</text>
+<text x="32" y="220" font-size="16" fill="#1d4ed8" font-weight="700" xml:space="preserve">헤더 20261030, 건수 · 합계가 상세와 같다 → 통과</text>
+<line x1="380" y1="238" x2="380" y2="260" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="262" width="720" height="90" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="288" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② loadStatement · 청크 500</text>
+<text x="32" y="311" font-size="16" fill="#0f172a" xml:space="preserve">파일 줄 → bank_statement_line, 겹친 줄은 무시</text>
+<text x="32" y="334" font-size="16" fill="#1d4ed8" font-weight="700" xml:space="preserve">출금 줄 2행 적재 (1원인증 V 줄이 있으면 함께)</text>
+<line x1="380" y1="352" x2="380" y2="374" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="376" width="720" height="90" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="402" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ matchTransfers · 청크 100 · READ COMMITTED</text>
+<text x="32" y="425" font-size="16" fill="#0f172a" xml:space="preserve">sending_at 이 10-30 인 출금마다 판정하고 확정</text>
+<text x="32" y="448" font-size="16" fill="#1d4ed8" font-weight="700" xml:space="preserve">1,000원 MATCHED, 2,000원 UNKNOWN → COMPLETED</text>
+</svg>

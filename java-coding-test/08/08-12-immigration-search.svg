@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 836" width="760" height="836" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 8-12. 입국심사 예제 — 시간 범위 [lo, hi] 를 반씩 줄여 28 분을 찾는다</title>
+  <rect width="760" height="836" fill="#ffffff"/>
+  <text x="24" y="40" font-size="21" fill="#0f172a" font-weight="700">입국심사 예제 — 시간 범위 [lo, hi] 를</text>
+  <text x="24" y="70" font-size="21" fill="#0f172a" font-weight="700">반씩 줄여 28 분을 찾는다</text>
+  <text x="24" y="102" font-size="16" fill="#475569">n = 6, times [7, 10]. 처리 인원 = mid / 7 + mid / 10.</text>
+  <text x="24" y="126" font-size="16" fill="#475569">초록 = 6명 이상 처리(hi = mid), 빨강 = 부족(lo = mid + 1)</text>
+  <line x1="60.0" y1="178" x2="711.0" y2="178" stroke="#94a3b8" stroke-width="1"/>
+  <line x1="75.5" y1="172" x2="75.5" y2="184" stroke="#94a3b8" stroke-width="1"/>
+  <text x="75.5" y="204" font-size="15" fill="#475569" text-anchor="middle" font-family="Consolas, D2Coding, monospace">1</text>
+  <line x1="215.0" y1="172" x2="215.0" y2="184" stroke="#94a3b8" stroke-width="1"/>
+  <text x="215.0" y="204" font-size="15" fill="#475569" text-anchor="middle" font-family="Consolas, D2Coding, monospace">10</text>
+  <line x1="370.0" y1="172" x2="370.0" y2="184" stroke="#94a3b8" stroke-width="1"/>
+  <text x="370.0" y="204" font-size="15" fill="#475569" text-anchor="middle" font-family="Consolas, D2Coding, monospace">20</text>
+  <line x1="494.0" y1="172" x2="494.0" y2="184" stroke="#94a3b8" stroke-width="1"/>
+  <text x="494.0" y="204" font-size="15" fill="#475569" text-anchor="middle" font-family="Consolas, D2Coding, monospace">28</text>
+  <line x1="525.0" y1="172" x2="525.0" y2="184" stroke="#94a3b8" stroke-width="1"/>
+  <text x="525.0" y="204" font-size="15" fill="#475569" text-anchor="middle" font-family="Consolas, D2Coding, monospace">30</text>
+  <line x1="711.0" y1="172" x2="711.0" y2="184" stroke="#94a3b8" stroke-width="1"/>
+  <text x="711.0" y="204" font-size="15" fill="#475569" text-anchor="middle" font-family="Consolas, D2Coding, monospace">42</text>
+  <text x="24" y="238" font-size="16" fill="#0f172a">시작: lo = 1, hi = 7 × 6 = 42</text>
+  <rect x="75.5" y="248" width="635.5" height="18" rx="3" fill="#eff6ff" stroke="#1e3a8a" stroke-width="1"/>
+  <text x="24" y="304" font-size="16" fill="#b91c1c" font-weight="700">mid 21: 3 + 2 = 5명 &lt; 6 → lo = 22</text>
+  <rect x="75.5" y="314" width="635.5" height="18" rx="3" fill="#eff6ff" stroke="#1e3a8a" stroke-width="1"/>
+  <circle cx="385.5" cy="323" r="7" fill="#b91c1c"/>
+  <text x="24" y="370" font-size="16" fill="#047857" font-weight="700">mid 32: 4 + 3 = 7명 ≥ 6 → hi = 32</text>
+  <rect x="401.0" y="380" width="310.0" height="18" rx="3" fill="#eff6ff" stroke="#1e3a8a" stroke-width="1"/>
+  <circle cx="556.0" cy="389" r="7" fill="#047857"/>
+  <text x="24" y="436" font-size="16" fill="#b91c1c" font-weight="700">mid 27: 3 + 2 = 5명 &lt; 6 → lo = 28</text>
+  <rect x="401.0" y="446" width="155.0" height="18" rx="3" fill="#eff6ff" stroke="#1e3a8a" stroke-width="1"/>
+  <circle cx="478.5" cy="455" r="7" fill="#b91c1c"/>
+  <text x="24" y="502" font-size="16" fill="#047857" font-weight="700">mid 30: 4 + 3 = 7명 ≥ 6 → hi = 30</text>
+  <rect x="494.0" y="512" width="62.0" height="18" rx="3" fill="#eff6ff" stroke="#1e3a8a" stroke-width="1"/>
+  <circle cx="525.0" cy="521" r="7" fill="#047857"/>
+  <text x="24" y="568" font-size="16" fill="#047857" font-weight="700">mid 29: 4 + 2 = 6명 ≥ 6 → hi = 29</text>
+  <rect x="494.0" y="578" width="31.0" height="18" rx="3" fill="#eff6ff" stroke="#1e3a8a" stroke-width="1"/>
+  <circle cx="509.5" cy="587" r="7" fill="#047857"/>
+  <text x="24" y="634" font-size="16" fill="#047857" font-weight="700">mid 28: 4 + 2 = 6명 ≥ 6 → hi = 28</text>
+  <rect x="494.0" y="644" width="15.5" height="18" rx="3" fill="#eff6ff" stroke="#1e3a8a" stroke-width="1"/>
+  <circle cx="494.0" cy="653" r="7" fill="#047857"/>
+  <text x="24" y="698" font-size="17" fill="#047857" font-weight="700">lo = hi = 28 이 되어 반복이 끝난다. return 28 (기대 출력 28)</text>
+  <rect x="24" y="716" width="712" height="100" rx="8" fill="#eff6ff" stroke="#1e3a8a" stroke-width="1"/>
+  <text x="44" y="746" font-size="17" fill="#1e3a8a" font-weight="700">파란 막대 = 그 줄을 시작할 때의 [lo, hi], 동그라미 = mid.</text>
+  <text x="44" y="772" font-size="16" fill="#334155">6번 반복으로 42 개 후보를 1 개로 줄였다. n 과 시간이 10억이어도</text>
+  <text x="44" y="798" font-size="16" fill="#334155">후보 10¹⁸ 개를 59번 반복으로 줄인다 (직접 실행해 센 횟수).</text>
+</svg>

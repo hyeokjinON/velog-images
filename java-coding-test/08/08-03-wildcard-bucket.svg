@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 780" width="760" height="780" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 8-3. 와일드카드 버킷 — 한 자리를 * 로 가린 키로 단어를 미리 묶고, 이웃은 키 3개로 찾는다</title>
+  <rect width="760" height="780" fill="#ffffff"/>
+  <text x="24" y="40" font-size="21" fill="#0f172a" font-weight="700">와일드카드 버킷 — 한 자리를 * 로 가린 키로</text>
+  <text x="24" y="70" font-size="21" fill="#0f172a" font-weight="700">단어를 미리 묶고, 이웃은 키 3개로 찾는다</text>
+  <text x="24" y="102" font-size="16" fill="#475569">words [hot, dot, dog, lot, log, cog] 로 실행한 결과 (JDK 21)</text>
+  <text x="24" y="158" font-size="17" fill="#1e3a8a" font-weight="700">① 단어마다 키 3개를 만든다 (단어 길이 L = 3)</text>
+  <text x="44" y="192" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">hot  →  *ot  h*t  ho*</text>
+  <text x="400" y="192" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">dot  →  *ot  d*t  do*</text>
+  <text x="44" y="226" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">dog  →  *og  d*g  do*</text>
+  <text x="400" y="226" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">lot  →  *ot  l*t  lo*</text>
+  <text x="44" y="260" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">log  →  *og  l*g  lo*</text>
+  <text x="400" y="260" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">cog  →  *og  c*g  co*</text>
+  <text x="24" y="306" font-size="17" fill="#1e3a8a" font-weight="700">② 버킷 = 키 → 그 키를 가진 단어들 (키 12개)</text>
+  <rect x="24" y="322" width="344" height="36" rx="6" fill="#ecfdf5" stroke="#047857" stroke-width="1.5"/>
+  <text x="40" y="346" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">*og</text>
+  <text x="104" y="346" font-size="16" fill="#047857" font-weight="700" font-family="Consolas, D2Coding, monospace">→  [dog, log, cog]</text>
+  <rect x="24" y="366" width="344" height="36" rx="6" fill="#ecfdf5" stroke="#047857" stroke-width="1.5"/>
+  <text x="40" y="390" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">*ot</text>
+  <text x="104" y="390" font-size="16" fill="#047857" font-weight="700" font-family="Consolas, D2Coding, monospace">→  [hot, dot, lot]</text>
+  <rect x="24" y="410" width="344" height="36" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="40" y="434" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">c*g</text>
+  <text x="104" y="434" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">→  [cog]</text>
+  <rect x="24" y="454" width="344" height="36" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="40" y="478" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">co*</text>
+  <text x="104" y="478" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">→  [cog]</text>
+  <rect x="24" y="498" width="344" height="36" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="40" y="522" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">d*g</text>
+  <text x="104" y="522" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">→  [dog]</text>
+  <rect x="24" y="542" width="344" height="36" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="40" y="566" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">d*t</text>
+  <text x="104" y="566" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">→  [dot]</text>
+  <rect x="384" y="322" width="344" height="36" rx="6" fill="#ecfdf5" stroke="#047857" stroke-width="1.5"/>
+  <text x="400" y="346" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">do*</text>
+  <text x="464" y="346" font-size="16" fill="#047857" font-weight="700" font-family="Consolas, D2Coding, monospace">→  [dot, dog]</text>
+  <rect x="384" y="366" width="344" height="36" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="400" y="390" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">h*t</text>
+  <text x="464" y="390" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">→  [hot]</text>
+  <rect x="384" y="410" width="344" height="36" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="400" y="434" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">ho*</text>
+  <text x="464" y="434" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">→  [hot]</text>
+  <rect x="384" y="454" width="344" height="36" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="400" y="478" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">l*g</text>
+  <text x="464" y="478" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">→  [log]</text>
+  <rect x="384" y="498" width="344" height="36" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="400" y="522" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">l*t</text>
+  <text x="464" y="522" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">→  [lot]</text>
+  <rect x="384" y="542" width="344" height="36" rx="6" fill="#ecfdf5" stroke="#047857" stroke-width="1.5"/>
+  <text x="400" y="566" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">lo*</text>
+  <text x="464" y="566" font-size="16" fill="#047857" font-weight="700" font-family="Consolas, D2Coding, monospace">→  [lot, log]</text>
+  <text x="24" y="602" font-size="16" fill="#475569">초록 = 단어가 2개 이상 든 키. 같은 키에 든 단어끼리는 서로 한 글자 차이다.</text>
+  <text x="24" y="628" font-size="17" fill="#1e3a8a" font-weight="700">③ BFS 에서 hot 의 이웃 찾기 — hot 의 키 3개만 본다</text>
+  <text x="44" y="662" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">*ot → [hot, dot, lot]</text>
+  <text x="280" y="662" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">h*t → [hot]</text>
+  <text x="516" y="662" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">ho* → [hot]</text>
+  <rect x="24" y="680" width="712" height="74" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1"/>
+  <text x="44" y="710" font-size="17" fill="#047857" font-weight="700">자기 자신 hot 을 빼면 이웃은 dot, lot 두 개다.</text>
+  <text x="44" y="736" font-size="16" fill="#334155">모든 단어(6개)와 비교하지 않고, 키 3개와 그 안의 단어만 본다.</text>
+</svg>
