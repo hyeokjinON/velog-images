@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 1146" width="760" height="1146" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>출금 한 건이 지나는 구간 7개: 손으로 이은 곳은 ② outbox.publish 와 ⑦ bank.request, 나머지 다섯은 자동</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="1146" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">출금 한 건 = trace 하나 = 구간 7개</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">(2026-11-19 kind 에서 만든 출금 1건, 끝까지 304ms)</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">파랑 = 프레임워크가 자동으로 만든 구간, 주황 = 코드로 직접 연 구간</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">회색 점선 상자 = 그 구간이 실행되는 스레드 · 프로세스</text>
+<rect x="20" y="146" width="720" height="110" rx="10" fill="none" stroke="#cbd5e1" stroke-width="1.4" stroke-dasharray="4 4"/>
+<text x="30" y="168" font-size="16" fill="#475569" font-weight="700" xml:space="preserve">api · HTTP 요청 스레드</text>
+<rect x="150" y="180" width="560" height="64" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="162" y="206" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① http post /api/v1/transfers  38.5ms</text>
+<text x="162" y="229" font-size="16" fill="#0f172a" xml:space="preserve">SERVER, 자동. 출금 행 + 아웃박스 행 저장 후 202</text>
+<circle cx="124" cy="212.0" r="13" fill="#1d4ed8"/><text x="124" y="218.0" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">1</text>
+<text x="164" y="292" font-size="16" fill="#c2410c" font-weight="700" xml:space="preserve">DB 의 outbox_event.trace_parent 에 이름표를 적어 둔다</text>
+<text x="164" y="316" font-size="16" fill="#64748b" xml:space="preserve">빈칸 약 198ms: 발행기가 0.5초 주기로 행을 꺼낼 때까지 대기</text>
+<line x1="124" y1="226.0" x2="124" y2="340" stroke="#94a3b8" stroke-width="2.2" stroke-dasharray="6 5"/>
+<rect x="20" y="340" width="720" height="204" rx="10" fill="none" stroke="#cbd5e1" stroke-width="1.4" stroke-dasharray="4 4"/>
+<text x="30" y="362" font-size="16" fill="#475569" font-weight="700" xml:space="preserve">api · 발행기 스레드 (0.5초마다)</text>
+<rect x="150" y="374" width="560" height="64" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="162" y="400" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② outbox.publish  3.34ms</text>
+<text x="162" y="423" font-size="16" fill="#0f172a" xml:space="preserve">직접 연 구간. 부모 = 행에 적힌 trace_parent</text>
+<circle cx="124" cy="406.0" r="13" fill="#c2410c"/><text x="124" y="412.0" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">2</text>
+<line x1="430.0" y1="438" x2="430.0" y2="466" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="150" y="468" width="560" height="64" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="162" y="494" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ transfer.requested send  7.72ms</text>
+<text x="162" y="517" font-size="16" fill="#0f172a" xml:space="preserve">PRODUCER, 자동. Kafka 헤더에 traceparent</text>
+<circle cx="124" cy="500.0" r="13" fill="#1d4ed8"/><text x="124" y="506.0" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">3</text>
+<line x1="430.0" y1="532" x2="430.0" y2="592" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="560" width="720" height="204" rx="10" fill="none" stroke="#cbd5e1" stroke-width="1.4" stroke-dasharray="4 4"/>
+<text x="30" y="582" font-size="16" fill="#475569" font-weight="700" xml:space="preserve">api · Kafka 컨슈머 스레드 (다른 Pod 일 수 있음)</text>
+<rect x="150" y="594" width="560" height="64" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="162" y="620" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ transfer.requested process  57.65ms</text>
+<text x="162" y="643" font-size="16" fill="#0f172a" xml:space="preserve">CONSUMER, 자동. 헤더에서 이름표를 꺼낸다</text>
+<circle cx="124" cy="626.0" r="13" fill="#1d4ed8"/><text x="124" y="632.0" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">4</text>
+<line x1="430.0" y1="658" x2="430.0" y2="686" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="150" y="688" width="560" height="64" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="162" y="714" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑤ http post  20.25ms</text>
+<text x="162" y="737" font-size="16" fill="#0f172a" xml:space="preserve">CLIENT, 자동. HTTP 헤더에 traceparent</text>
+<circle cx="124" cy="720.0" r="13" fill="#1d4ed8"/><text x="124" y="726.0" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">5</text>
+<line x1="430.0" y1="752" x2="430.0" y2="812" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="780" width="720" height="204" rx="10" fill="none" stroke="#cbd5e1" stroke-width="1.4" stroke-dasharray="4 4"/>
+<text x="30" y="802" font-size="16" fill="#475569" font-weight="700" xml:space="preserve">bank-gateway 프로세스</text>
+<rect x="150" y="814" width="560" height="64" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="162" y="840" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑥ http post /internal/v1/bank/transfers  7.48ms</text>
+<text x="162" y="863" font-size="16" fill="#0f172a" xml:space="preserve">SERVER, 자동. 다른 프로세스지만 같은 trace</text>
+<circle cx="124" cy="846.0" r="13" fill="#1d4ed8"/><text x="124" y="852.0" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">6</text>
+<line x1="430.0" y1="878" x2="430.0" y2="906" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="150" y="908" width="560" height="64" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="162" y="934" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑦ bank.request  2.91ms</text>
+<text x="162" y="957" font-size="16" fill="#0f172a" xml:space="preserve">직접 연 구간. 결과 ok, 전문번호를 속성으로</text>
+<circle cx="124" cy="940.0" r="13" fill="#c2410c"/><text x="124" y="946.0" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">7</text>
+<line x1="430.0" y1="972" x2="430.0" y2="1004" stroke="#94a3b8" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#mx)"/>
+<rect x="150" y="1006" width="560" height="64" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="162" y="1032" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">모의 은행 (TCP 고정 길이 전문)</text>
+<text x="162" y="1055" font-size="16" fill="#0f172a" xml:space="preserve">전문에 이름표를 싣지 않는다. trace 는 ⑦ 에서 끝</text>
+<text x="20" y="1094" font-size="16" fill="#64748b" xml:space="preserve">구간 옆 숫자는 그 구간의 길이다. ① 이 끝나고 ② 가 시작하기까지의</text>
+<text x="20" y="1118" font-size="16" fill="#64748b" xml:space="preserve">빈칸이 304ms 중 가장 크다. 은행 호출 ⑦ 은 2.91ms 다.</text>
+</svg>

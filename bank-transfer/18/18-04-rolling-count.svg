@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 844" width="760" height="844" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>롤링 중 Pod 세는 법: 같은 리비전끼리만 세면 두 번째 새 Pod 는 반드시 다른 워커로 가고, 옛 Pod 까지 세면 둘이 한 워커에 남을 수 있다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="844" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">롤링 중 Pod 세는 법 (maxSurge 1, 워커 2개)</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">N2 를 어디에 놓을 수 있나</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">O = 옛 리비전 Pod, N = 새 리비전 Pod</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">단계: N1 배치 → O1 내림 → N2 배치 → O2 내림</text>
+<rect x="20" y="152" width="720" height="262" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="36" y="184" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">A. 같은 리비전끼리만 센다 (matchLabelKeys, 이번 설정)</text>
+<rect x="36" y="200" width="332" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="48" y="226" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">worker (O1 은 내림)</text>
+<rect x="48" y="240" width="308" height="36" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="60" y="264" font-size="16" fill="#0f172a" xml:space="preserve">N1</text>
+<rect x="384" y="200" width="332" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="396" y="226" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">worker2</text>
+<rect x="396" y="240" width="308" height="36" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="408" y="264" font-size="16" fill="#0f172a" xml:space="preserve">O2 (세지 않음)</text>
+<text x="36" y="322" font-size="16" fill="#0f172a" xml:space="preserve">N2 를 놓을 때 세는 것: worker 1개, worker2 0개</text>
+<text x="36" y="350" font-size="16" fill="#0f172a" xml:space="preserve">worker 에 놓으면 2 − 0 = 2 → 금지</text>
+<text x="36" y="378" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">worker2 에 놓으면 1 − 0 = 1 → 허용 → 항상 나뉜다</text>
+<rect x="20" y="434" width="720" height="262" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="36" y="466" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">B. 옛 Pod 까지 센다 (matchLabelKeys 없음)</text>
+<rect x="36" y="482" width="332" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="48" y="508" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">worker (O1 은 내림)</text>
+<rect x="48" y="522" width="308" height="36" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="60" y="546" font-size="16" fill="#0f172a" xml:space="preserve">N1</text>
+<rect x="384" y="482" width="332" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="396" y="508" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">worker2</text>
+<rect x="396" y="522" width="308" height="36" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="408" y="546" font-size="16" fill="#0f172a" xml:space="preserve">O2</text>
+<text x="36" y="604" font-size="16" fill="#0f172a" xml:space="preserve">N2 를 놓을 때 세는 것: worker 1개, worker2 1개</text>
+<text x="36" y="632" font-size="16" fill="#0f172a" xml:space="preserve">worker 에 놓아도 2 − 1 = 1 → 허용</text>
+<text x="36" y="660" font-size="16" fill="#b91c1c" font-weight="700" xml:space="preserve">O2 가 내려가면 N1 · N2 가 worker 에 남을 수 있다</text>
+<rect x="20" y="716" width="720" height="72" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="36" y="746" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">필수 pod anti-affinity 는 옛 Pod 까지 센다</text>
+<text x="36" y="772" font-size="16" fill="#0f172a" xml:space="preserve">두 워커가 모두 차 있으면 N1 을 놓을 곳이 없어 롤링이 멈춘다</text>
+<text x="20" y="812" font-size="16" fill="#64748b" xml:space="preserve">B 는 계산으로 본 경우이고 실험은 하지 않았다. S1 롤링은 A 로 끝났다.</text>
+</svg>

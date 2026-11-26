@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 691" width="760" height="691" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>빈 정리 작업 거르기: 옛 판정은 아무것도 거르지 않았고, parentId 만 고치면 자식이 고아가 되며, 새 판정은 items 까지 본다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="691" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">"할 일 없던 정리 작업 root 는 보내지 않는다"</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">판정 세 가지를 실행 두 종류에 대 보면</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">가 = 할 일이 없던 실행 (버려야 한다)</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">나 = 건수는 모두 0 이지만 결과조회 구간을 연 실행 (남겨야 한다)</text>
+<text x="20" y="142" font-size="16" fill="#475569" xml:space="preserve">초록 = 맞게 판정, 빨강 = 틀리게 판정</text>
+<rect x="20" y="171" width="300" height="44" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="199" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">판정</text>
+<rect x="330" y="171" width="200" height="44" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="342" y="199" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">가. 빈 실행</text>
+<rect x="540" y="171" width="200" height="44" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="552" y="199" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">나. 자식 있음</text>
+<rect x="20" y="223" width="300" height="92" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="249" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① 옛 판정</text>
+<text x="32" y="272" font-size="16" fill="#0f172a" xml:space="preserve">parentId 가 "" 일 때만 root</text>
+<text x="32" y="295" font-size="16" fill="#b91c1c" xml:space="preserve">실제 값 "0000…" 을 못 알아봄</text>
+<rect x="330" y="223" width="200" height="92" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="342" y="249" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">보냄 (틀림)</text>
+<text x="342" y="272" font-size="16" fill="#0f172a" xml:space="preserve">하루 수만 개</text>
+<rect x="540" y="223" width="200" height="92" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="552" y="249" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">보냄 (맞음)</text>
+<text x="552" y="272" font-size="16" fill="#0f172a" xml:space="preserve">우연히 맞음</text>
+<rect x="20" y="323" width="300" height="92" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="349" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② parentId 만 고침</text>
+<text x="32" y="372" font-size="16" fill="#0f172a" xml:space="preserve">root 이고 건수 모두 0 이면 버림</text>
+<text x="32" y="395" font-size="16" fill="#b91c1c" xml:space="preserve">items 를 안 봄</text>
+<rect x="330" y="323" width="200" height="92" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="342" y="349" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">버림 (맞음)</text>
+<rect x="540" y="323" width="200" height="92" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="552" y="349" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">버림 (틀림)</text>
+<text x="552" y="372" font-size="16" fill="#0f172a" xml:space="preserve">자식만 고아로 남음</text>
+<rect x="20" y="423" width="300" height="92" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="449" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ 새 판정 (머지된 것)</text>
+<text x="32" y="472" font-size="16" fill="#0f172a" xml:space="preserve">root 이고 건수 · items 모두 0</text>
+<text x="32" y="495" font-size="16" fill="#0f172a" xml:space="preserve">일 때만 버림</text>
+<rect x="330" y="423" width="200" height="92" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="342" y="449" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">버림 (맞음)</text>
+<rect x="540" y="423" width="200" height="92" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="552" y="449" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">보냄 (맞음)</text>
+<text x="552" y="472" font-size="16" fill="#0f172a" xml:space="preserve">items = 1 이상</text>
+<rect x="20" y="529" width="720" height="92" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="555" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ 테스트를 고친 방법</text>
+<text x="32" y="578" font-size="16" fill="#0f172a" xml:space="preserve">가짜 구간 대신 실제 OTel SDK 가 만든 root 두 개로 판정한다</text>
+<text x="32" y="601" font-size="16" fill="#0f172a" xml:space="preserve">옛 판정을 넣으면 이 테스트가 실패하는 것까지 확인했다</text>
+<text x="20" y="639" font-size="16" fill="#64748b" xml:space="preserve">나 의 예: 은행이 끊겨 결과조회를 "지금은 물어볼 수 없음" 으로 멈춘 실행,</text>
+<text x="20" y="663" font-size="16" fill="#64748b" xml:space="preserve">다른 Pod 가 같은 출금의 상태 전이를 먼저 가져간 실행.</text>
+</svg>

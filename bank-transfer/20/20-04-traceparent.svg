@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 1011" width="760" height="1011" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>traceparent 한 줄 55자의 네 칸과, 이 값이 실려 가는 곳 다섯 군데</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="1011" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">traceparent 한 줄(55자)의 네 칸과</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">이 값이 실려 가는 곳</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">실제 출금 1건의 접수 구간 값이다 (W3C Trace Context 형식)</text>
+<rect x="20" y="127" width="720" height="52" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="380" y="160" font-size="18" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">00-df670d159eb0fcfd7cb3b5804f6897f4-22447d38a9032bb2-03</text>
+<text x="380" y="205" font-size="16" fill="#64748b" text-anchor="middle" xml:space="preserve">= 2 + 1 + 32 + 1 + 16 + 1 + 2 = 55자 → 열을 VARCHAR(55) 로</text>
+<rect x="20" y="225" width="720" height="66" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="251" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">① 00</text>
+<text x="32" y="274" font-size="16" fill="#0f172a" xml:space="preserve">버전. 지금은 00 하나뿐이다</text>
+<rect x="20" y="301" width="720" height="66" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="327" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">② df670d15…6897f4 (32자)</text>
+<text x="32" y="350" font-size="16" fill="#0f172a" xml:space="preserve">trace id. 출금 한 건 동안 바뀌지 않는다</text>
+<rect x="20" y="377" width="720" height="66" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="403" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">③ 22447d38a9032bb2 (16자)</text>
+<text x="32" y="426" font-size="16" fill="#0f172a" xml:space="preserve">부모 span id. 받는 쪽이 이걸 부모로 연다</text>
+<rect x="20" y="453" width="720" height="66" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="479" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">④ 03</text>
+<text x="32" y="502" font-size="16" fill="#0f172a" xml:space="preserve">깃발. 끝 비트 1 = 기록 대상 (샘플링 0 이면 02)</text>
+<text x="20" y="557" font-size="18" fill="#0f172a" font-weight="700" xml:space="preserve">이 한 줄이 실려 가는 곳</text>
+<rect x="20" y="571" width="720" height="66" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="32" y="597" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑤ DB 열 outbox_event.trace_parent</text>
+<text x="32" y="620" font-size="16" fill="#0f172a" xml:space="preserve">손: 접수 → 발행기 (OutboxTracing)</text>
+<rect x="20" y="647" width="720" height="66" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="673" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑥ Kafka 레코드 헤더 traceparent</text>
+<text x="32" y="696" font-size="16" fill="#0f172a" xml:space="preserve">자동: 재시도 토픽 · DLT 에도 따라간다</text>
+<rect x="20" y="723" width="720" height="66" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="749" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑦ HTTP 요청 헤더 traceparent</text>
+<text x="32" y="772" font-size="16" fill="#0f172a" xml:space="preserve">자동: api 컨슈머 → bank-gateway</text>
+<rect x="20" y="799" width="720" height="66" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="825" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑧ 로그 줄 [traceId-spanId]</text>
+<text x="32" y="848" font-size="16" fill="#0f172a" xml:space="preserve">자동: Boot 기본 로그 패턴</text>
+<rect x="20" y="875" width="720" height="66" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="901" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑨ 은행 TCP 전문 (싣지 않음)</text>
+<text x="32" y="924" font-size="16" fill="#0f172a" xml:space="preserve">자리가 없다. 거래번호로 은행과 맞춘다</text>
+<text x="20" y="959" font-size="16" fill="#64748b" xml:space="preserve">④ 가 01 이 아니라 03 인 것은 OTel 1.62 가 random trace id 비트를</text>
+<text x="20" y="983" font-size="16" fill="#64748b" xml:space="preserve">같이 켜서다. 문자열 "-01" 로 비교하는 코드는 깨진다.</text>
+</svg>

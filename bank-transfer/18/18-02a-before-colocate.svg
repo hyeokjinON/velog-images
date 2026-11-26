@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 899" width="760" height="899" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>되도록 나누는 규칙: 워커가 빠진 동안 대체 Pod 가 남은 워커로 가 두 대가 몰리고, 그 워커가 죽자 새 리더까지 353.4초</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="899" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">되도록 나누는 규칙 (ScheduleAnyway, 지난 단계):</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">두 대가 몰린 채 남고, 새 리더까지 353.4초</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">위에서 아래로 시간이 흐른다. 빨강 = 사라진 Pod</text>
+<circle cx="33" cy="127" r="13" fill="#b91c1c"/><text x="33" y="133" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">1</text>
+<text x="54" y="133" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">worker2 가 빠짐 → 대체 Pod 가 worker 로</text>
+<rect x="20" y="149" width="350" height="132" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="175" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">worker</text>
+<rect x="32" y="189" width="326" height="36" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="44" y="213" font-size="16" fill="#0f172a" xml:space="preserve">리더</text>
+<rect x="32" y="233" width="326" height="36" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="44" y="257" font-size="16" fill="#0f172a" xml:space="preserve">대체 Pod (대기)</text>
+<rect x="390" y="149" width="350" height="132" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="402" y="175" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">worker2 (빠짐)</text>
+<text x="402" y="213" font-size="16" fill="#64748b" xml:space="preserve">게이트웨이 없음</text>
+<circle cx="33" cy="319" r="13" fill="#b91c1c"/><text x="33" y="325" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">2</text>
+<text x="54" y="325" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">worker2 복귀 → 아무것도 옮기지 않는다</text>
+<rect x="20" y="341" width="350" height="132" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="367" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">worker</text>
+<rect x="32" y="381" width="326" height="36" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="44" y="405" font-size="16" fill="#0f172a" xml:space="preserve">리더</text>
+<rect x="32" y="425" width="326" height="36" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="44" y="449" font-size="16" fill="#0f172a" xml:space="preserve">대기</text>
+<rect x="390" y="341" width="350" height="132" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="402" y="367" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">worker2</text>
+<text x="402" y="405" font-size="16" fill="#64748b" xml:space="preserve">게이트웨이 없음</text>
+<circle cx="33" cy="511" r="13" fill="#b91c1c"/><text x="33" y="517" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">3</text>
+<text x="54" y="517" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">worker 강제 종료 → 두 대가 함께 사라짐</text>
+<rect x="20" y="533" width="350" height="132" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="32" y="559" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">worker (응답 없음)</text>
+<rect x="32" y="573" width="326" height="36" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="44" y="597" font-size="16" fill="#0f172a" xml:space="preserve">리더 (사라짐)</text>
+<rect x="32" y="617" width="326" height="36" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="44" y="641" font-size="16" fill="#0f172a" xml:space="preserve">대기 (사라짐)</text>
+<rect x="390" y="533" width="350" height="132" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="402" y="559" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">worker2</text>
+<text x="402" y="597" font-size="16" fill="#64748b" xml:space="preserve">게이트웨이 없음</text>
+<circle cx="33" cy="703" r="13" fill="#b91c1c"/><text x="33" y="709" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">4</text>
+<text x="54" y="709" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">새 리더까지 걸린 시간 (worker 종료부터)</text>
+<rect x="20.0" y="739" width="94.4" height="34" fill="#f87171"/>
+<text x="67.22222222222223" y="762" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">감지 약 50초</text>
+<rect x="114.4" y="739" width="566.7" height="34" fill="#b91c1c"/>
+<text x="397.77777777777777" y="762" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">축출 대기 300초</text>
+<rect x="681.1" y="739" width="6.4" height="34" fill="#7f1d1d"/>
+<text x="687.5333333333333" y="799" font-size="16" fill="#b91c1c" font-weight="700" text-anchor="end" xml:space="preserve">353.4초 새 리더</text>
+<text x="20" y="841" font-size="16" fill="#64748b" xml:space="preserve">실측은 합계 353.4초. 나누기는 감지 약 50초 + 축출 대기 300초</text>
+<text x="20" y="865" font-size="16" fill="#64748b" xml:space="preserve">(기본 tolerationSeconds) + 새 Pod 시작 · Lease 획득 몇 초.</text>
+</svg>

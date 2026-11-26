@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 686" width="760" height="686" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>은행이 끊기고 알림이 도착하기까지: 수집 5초 + 평가 5초 + for 30초 + 묶기 10초 = 계산 50초, 실측 49초</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="686" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">은행이 끊기고 알림이 오기까지 = 약 50초</text>
+<text x="20" y="68" font-size="16" fill="#475569" xml:space="preserve">초 = 은행을 끊은 순간부터의 최대 시간 (계산값)</text>
+<text x="20" y="91" font-size="16" fill="#475569" xml:space="preserve">실측: 은행 끊김 49 · 50초 (M2 · M4), 리더 없음 47초 (M3)</text>
+<circle cx="34" cy="154" r="13" fill="#334155"/><text x="34" y="160" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">①</text>
+<rect x="60" y="120" width="560" height="68" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="72" y="146" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">모의 은행을 0대로 줄인다</text>
+<text x="72" y="169" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">gateway_bank_connected 1 → 0</text>
+<text x="690" y="161" font-size="18" fill="#334155" font-weight="700" text-anchor="middle" xml:space="preserve">0초</text>
+<circle cx="34" cy="236" r="13" fill="#1d4ed8"/><text x="34" y="242" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">②</text>
+<rect x="60" y="202" width="560" height="68" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="72" y="228" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">Prometheus 가 다음 수집에서 0 을 읽는다</text>
+<text x="72" y="251" font-size="16" fill="#0f172a" xml:space="preserve">수집 간격 5초 안 어딘가</text>
+<text x="690" y="243" font-size="18" fill="#1d4ed8" font-weight="700" text-anchor="middle" xml:space="preserve">+5초</text>
+<circle cx="34" cy="318" r="13" fill="#c2410c"/><text x="34" y="324" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">③</text>
+<rect x="60" y="284" width="560" height="68" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="72" y="310" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">규칙 평가: 조건 참 → pending (노랑)</text>
+<text x="72" y="333" font-size="16" fill="#0f172a" xml:space="preserve">아직 아무에게도 가지 않는다</text>
+<text x="690" y="325" font-size="18" fill="#c2410c" font-weight="700" text-anchor="middle" xml:space="preserve">+5초</text>
+<circle cx="34" cy="400" r="13" fill="#c2410c"/><text x="34" y="406" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">④</text>
+<rect x="60" y="366" width="560" height="68" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="72" y="392" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">for: 30s 내내 참 → firing (빨강)</text>
+<text x="72" y="415" font-size="16" fill="#0f172a" xml:space="preserve">20초만 끊겼다 돌아오면 여기서 끝난다</text>
+<text x="690" y="407" font-size="18" fill="#c2410c" font-weight="700" text-anchor="middle" xml:space="preserve">+30초</text>
+<circle cx="34" cy="482" r="13" fill="#b91c1c"/><text x="34" y="488" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">⑤</text>
+<rect x="60" y="448" width="560" height="68" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="72" y="474" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">Alertmanager: 같은 이름을 10초 모아 보낸다</text>
+<text x="72" y="497" font-size="16" fill="#0f172a" xml:space="preserve">group_wait 10s → 웹훅</text>
+<text x="690" y="489" font-size="18" fill="#b91c1c" font-weight="700" text-anchor="middle" xml:space="preserve">+10초</text>
+<circle cx="34" cy="564" r="13" fill="#b91c1c"/><text x="34" y="570" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">⑥</text>
+<rect x="60" y="530" width="560" height="68" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="72" y="556" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">alert-sink 로그에 알림 도착</text>
+<text x="72" y="579" font-size="16" fill="#0f172a" xml:space="preserve">실측 49초 (M2 bank-2), 해제 169초</text>
+<text x="690" y="571" font-size="18" fill="#b91c1c" font-weight="700" text-anchor="middle" xml:space="preserve">= 50초</text>
+<text x="20" y="634" font-size="16" fill="#64748b" xml:space="preserve">50초 중 30초는 순간 흔들림을 거르려고 일부러 기다리는 시간이다.</text>
+<text x="20" y="658" font-size="16" fill="#64748b" xml:space="preserve">for 를 줄이면 빨라지지만 1 ~ 2초 흔들림에도 사람이 깬다.</text>
+</svg>

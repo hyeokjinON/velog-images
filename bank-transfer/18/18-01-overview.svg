@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 752" width="760" height="752" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>필수 분산 한 장으로 보기: 워커가 빠지면 대체 게이트웨이는 Pending 으로 기다리고, 워커가 돌아오면 그 워커에 뜬다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="752" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">필수 분산 한 장으로 보기:</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">대체 게이트웨이는 남은 워커로 가지 않고 기다린다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">초록 = 리더, 회색 = 대기, 주황 점선 = 노드 없이 기다리는 Pod</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">회색 점선 상자 = 빠진 워커 (drain 또는 장애)</text>
+<circle cx="33" cy="150" r="13" fill="#334155"/><text x="33" y="156" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">1</text>
+<text x="54" y="156" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">평소: 두 워커에 하나씩</text>
+<rect x="20" y="172" width="350" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="198" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">worker</text>
+<rect x="32" y="212" width="326" height="36" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="44" y="236" font-size="16" fill="#0f172a" xml:space="preserve">A 리더 (은행 연결)</text>
+<rect x="390" y="172" width="350" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="402" y="198" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">worker2</text>
+<rect x="402" y="212" width="326" height="36" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="414" y="236" font-size="16" fill="#0f172a" xml:space="preserve">B 대기 (Lease 노림)</text>
+<circle cx="33" cy="298" r="13" fill="#c2410c"/><text x="33" y="304" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">2</text>
+<text x="54" y="304" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">worker2 가 빠짐 → 대체 Pod C 생성</text>
+<rect x="20" y="320" width="350" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="346" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">worker</text>
+<rect x="32" y="360" width="326" height="36" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="44" y="384" font-size="16" fill="#0f172a" xml:space="preserve">A 리더</text>
+<rect x="390" y="320" width="350" height="88" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="402" y="346" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">worker2 (빠짐)</text>
+<text x="402" y="384" font-size="16" fill="#64748b" xml:space="preserve">게이트웨이 없음</text>
+<rect x="20" y="422" width="720" height="72" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="32" y="450" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">대체 Pod C: Pending (NODE &lt;none&gt;)</text>
+<text x="32" y="476" font-size="16" fill="#0f172a" xml:space="preserve">worker 에 놓으면 한 노드에 2대 → 규칙이 금지</text>
+<circle cx="33" cy="532" r="13" fill="#047857"/><text x="33" y="538" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">3</text>
+<text x="54" y="538" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">worker2 복귀 → C 가 그곳에 뜬다</text>
+<rect x="20" y="554" width="350" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="580" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">worker</text>
+<rect x="32" y="594" width="326" height="36" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="44" y="618" font-size="16" fill="#0f172a" xml:space="preserve">A 리더</text>
+<rect x="390" y="554" width="350" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="402" y="580" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">worker2</text>
+<rect x="402" y="594" width="326" height="36" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="414" y="618" font-size="16" fill="#0f172a" xml:space="preserve">C 대기</text>
+<text x="20" y="670" font-size="16" fill="#64748b" xml:space="preserve">규칙: whenUnsatisfiable DoNotSchedule,</text>
+<text x="20" y="694" font-size="16" fill="#64748b" xml:space="preserve">nodeTaintsPolicy Ignore, matchLabelKeys [pod-template-hash].</text>
+<text x="20" y="718" font-size="16" fill="#64748b" xml:space="preserve">실험에서 ② 의 기다림은 42 ~ 72초, 그동안 출금은 A 한 대로 모두 완료.</text>
+</svg>

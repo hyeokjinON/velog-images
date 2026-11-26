@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 733" width="760" height="733" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>Pending 사유 한 줄을 노드별로 나누면: 남은 워커는 분산 규칙, 제어 노드는 taint, 빠진 워커는 drain 이면 unschedulable 이고 장애면 taint</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="733" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">Pending 사유 한 줄을 노드별로 나누면</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">0/3 nodes are available: …</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">노드마다 거절 이유가 하나씩 붙고, 같은 이유끼리 묶어 센다</text>
+<rect x="20" y="129" width="720" height="138" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="36" y="159" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">worker (남은 워커, 리더가 있음)</text>
+<text x="36" y="187" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">didn't match pod topology</text>
+<text x="36" y="213" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">  spread constraints</text>
+<text x="36" y="239" font-size="16" fill="#475569" xml:space="preserve">이미 게이트웨이가 있어 분산 규칙이 막음 (의도)</text>
+<rect x="20" y="283" width="720" height="112" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="36" y="313" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">control-plane (제어 노드)</text>
+<text x="36" y="341" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">had untolerated taint(s)</text>
+<text x="36" y="367" font-size="16" fill="#475569" xml:space="preserve">앱 Pod 를 받지 않는 taint</text>
+<rect x="20" y="411" width="720" height="112" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="36" y="441" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">worker2 — drain 으로 빠졌을 때 (머지 전 직접 확인)</text>
+<text x="36" y="469" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">were unschedulable</text>
+<text x="36" y="495" font-size="16" fill="#475569" xml:space="preserve">cordon 표시 → 1 node(s) were unschedulable</text>
+<rect x="20" y="539" width="720" height="112" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="36" y="569" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">worker2 — 장애로 빠졌을 때 (S3)</text>
+<text x="36" y="597" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">had untolerated taint(s)</text>
+<text x="36" y="623" font-size="16" fill="#475569" xml:space="preserve">unreachable taint → 제어 노드와 묶여 2 node(s)</text>
+<text x="20" y="677" font-size="16" fill="#64748b" xml:space="preserve">drain: 1 spread + 1 taint + 1 unschedulable</text>
+<text x="20" y="701" font-size="16" fill="#64748b" xml:space="preserve">장애: 1 spread + 2 taint</text>
+</svg>

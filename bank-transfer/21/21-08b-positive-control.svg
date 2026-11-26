@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 610" width="760" height="610" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>고친 뒤: JSON 이스케이프도 경계로 치고, 금지 패턴 검사에는 원본에서 걸리는지 보는 양성 대조를 붙였다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="610" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">고친 뒤: 이스케이프도 경계로,</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">0 을 믿기 전에 양성 대조</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">초록 = 고친 곳. 같은 예시 줄을 다시 넣는다</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">결과는 같은 식을 Python 으로 돌려 확인한 값</text>
+<circle cx="34" cy="180" r="13" fill="#047857"/><text x="34" y="186" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">①</text>
+<rect x="60" y="150" width="680" height="92" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="72" y="176" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① 앞 경계에 JSON 이스케이프를 더한다</text>
+<text x="72" y="199" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">\n \r \t \b \f 와 \uXXXX</text>
+<text x="72" y="222" font-size="16" fill="#0f172a" xml:space="preserve">가리기 식과 금지 패턴 식 둘 다</text>
+<line x1="400" y1="242" x2="400" y2="266" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<circle cx="34" cy="298" r="13" fill="#047857"/><text x="34" y="304" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">②</text>
+<rect x="60" y="268" width="680" height="68" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="72" y="294" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② 같은 줄을 가린 결과</text>
+<text x="72" y="317" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">"message":"rows:\n*********6789"</text>
+<line x1="400" y1="336" x2="400" y2="360" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<circle cx="34" cy="392" r="13" fill="#047857"/><text x="34" y="398" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">③</text>
+<rect x="60" y="362" width="680" height="68" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="72" y="388" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ 양성 대조: 원본 표본에 금지 패턴을 돌린다</text>
+<text x="72" y="411" font-size="16" fill="#0f172a" xml:space="preserve">1줄 이상 걸려야 검사기가 살아 있다</text>
+<line x1="400" y1="430" x2="400" y2="454" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<circle cx="34" cy="486" r="13" fill="#047857"/><text x="34" y="492" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">④</text>
+<rect x="60" y="456" width="680" height="68" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="72" y="482" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ 그 다음에 가린 결과에서 0줄인지 센다</text>
+<text x="72" y="505" font-size="16" fill="#0f172a" xml:space="preserve">③ 이 0 이면 검사기 고장이므로 실패</text>
+<text x="20" y="558" font-size="16" fill="#64748b" xml:space="preserve">CI 표본에 줄바꿈 · 탭 · 유니코드 이스케이프 뒤 계좌 줄을</text>
+<text x="20" y="582" font-size="16" fill="#64748b" xml:space="preserve">넣어 같은 구멍이 다시 생기면 CI 가 깨진다.</text>
+</svg>

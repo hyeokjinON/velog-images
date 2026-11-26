@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 706" width="760" height="706" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>민감 정보는 앱에서 빼고, 수집기에서 가리고, Loki 에서 0건을 센다. 한 겹만이었으면 샜던 경우 셋</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="706" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">민감 정보 두 겹 + 0건 증명</text>
+<text x="20" y="68" font-size="16" fill="#475569" xml:space="preserve">초록 = 막는 겹, 빨강 = 한 겹만 있었으면 샌 경우</text>
+<text x="20" y="91" font-size="16" fill="#475569" xml:space="preserve">세 경우 모두 테스트가 아니라 리뷰가 찾았다</text>
+<circle cx="34" cy="152" r="13" fill="#047857"/><text x="34" y="158" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">①</text>
+<rect x="60" y="122" width="680" height="92" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="72" y="148" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① 앱에서 빼기</text>
+<text x="72" y="171" font-size="16" fill="#0f172a" xml:space="preserve">로그 · 예외 메시지에서 사용자 id · 멱등키 · 금액</text>
+<text x="72" y="194" font-size="16" fill="#0f172a" xml:space="preserve">예외 생성자가 값을 아예 받지 못하게 바꿨다</text>
+<line x1="400" y1="214" x2="400" y2="238" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<circle cx="34" cy="270" r="13" fill="#047857"/><text x="34" y="276" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">②</text>
+<rect x="60" y="240" width="680" height="92" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="72" y="266" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② 수집기(Alloy)에서 가리기</text>
+<text x="72" y="289" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">계좌 → *********6789, BT1234 → BT****</text>
+<text x="72" y="312" font-size="16" fill="#0f172a" xml:space="preserve">10000원 → ***원. trace_id 는 가리기 전에 꺼낸다</text>
+<line x1="400" y1="332" x2="400" y2="356" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<circle cx="34" cy="388" r="13" fill="#047857"/><text x="34" y="394" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">③</text>
+<rect x="60" y="358" width="680" height="68" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="72" y="384" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ Loki 에서 금지 패턴 0건 세기</text>
+<text x="72" y="407" font-size="16" fill="#0f172a" xml:space="preserve">같은 식이 원본에서는 0 보다 큰지(양성 대조)도</text>
+<rect x="20" y="454" width="720" height="68" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="480" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">가. '원' 이 없는 금액 (알림 로그의 amount=)</text>
+<text x="32" y="503" font-size="16" fill="#0f172a" xml:space="preserve">② ③ 이 못 본다 → ① 에서 막았다</text>
+<rect x="20" y="536" width="720" height="68" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="562" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">나. JSON 줄바꿈 바로 뒤 계좌</text>
+<text x="32" y="585" font-size="16" fill="#0f172a" xml:space="preserve">② 와 ③ 이 같은 경계 식이라 같이 놓쳤다 → 헛 0</text>
+<rect x="20" y="618" width="720" height="68" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="644" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">다. 16자리 계좌 (가리기는 14자리까지였다)</text>
+<text x="32" y="667" font-size="16" fill="#0f172a" xml:space="preserve">규칙을 시스템이 받는 입력 범위(10 ~ 16)로 넓혔다</text>
+</svg>

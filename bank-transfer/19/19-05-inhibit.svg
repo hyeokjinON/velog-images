@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 624" width="760" height="624" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>게이트웨이를 0대로 줄이면 Prometheus 에서는 두 알림이 다 울리지만, Alertmanager 가 은행 끊김을 억제해 받는 곳에는 리더 없음 하나만 간다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="624" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">원인 하나 · 알림 하나: 억제(inhibit)</text>
+<text x="20" y="68" font-size="16" fill="#475569" xml:space="preserve">실험 M3 (게이트웨이 0대 60초)</text>
+<text x="20" y="91" font-size="16" fill="#475569" xml:space="preserve">빨강 = 사람에게 간 알림, 회색 = 억제된 알림</text>
+<rect x="20" y="120" width="720" height="68" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="146" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① 게이트웨이 Pod 가 0대가 된다</text>
+<text x="32" y="169" font-size="16" fill="#0f172a" xml:space="preserve">리더 지표도 은행 연결 지표도 아예 사라진다</text>
+<line x1="380" y1="188" x2="380" y2="220" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="222" width="720" height="92" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="248" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② Prometheus: 두 규칙이 다 참 (or vector(0) 덕분)</text>
+<text x="32" y="271" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">GatewayNoLeader   firing</text>
+<text x="32" y="294" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">BankDisconnected  firing</text>
+<line x1="380" y1="314" x2="380" y2="346" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<rect x="20" y="348" width="720" height="92" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="32" y="374" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ Alertmanager inhibit_rules</text>
+<text x="32" y="397" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">source: GatewayNoLeader</text>
+<text x="32" y="420" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">target: BankDisconnected → suppressed</text>
+<line x1="200" y1="440" x2="200" y2="472" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<line x1="560" y1="440" x2="560" y2="472" stroke="#94a3b8" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#mx)"/>
+<rect x="20" y="474" width="350" height="68" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="500" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ 받는 곳에 도착</text>
+<text x="32" y="523" font-size="16" fill="#0f172a" xml:space="preserve">GatewayNoLeader 47초</text>
+<rect x="390" y="474" width="350" height="68" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="402" y="500" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">보내지 않음</text>
+<text x="402" y="523" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">BankDisconnected</text>
+<text x="20" y="572" font-size="16" fill="#64748b" xml:space="preserve">리더가 없으면 은행 회선도 당연히 없다. 사람이 할 일은 게이트웨이 복구 하나다.</text>
+<text x="20" y="596" font-size="16" fill="#64748b" xml:space="preserve">그래서 Prometheus 화면에는 둘 다 보이고, 받는 쪽에는 하나만 온다.</text>
+</svg>

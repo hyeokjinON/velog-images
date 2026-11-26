@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 885" width="760" height="885" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>아웃박스에서 trace 가 끊기는 이유와 trace_parent 열로 잇는 방법</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="885" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">아웃박스를 건너는 곳에서 trace 가 끊기는 이유와,</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">trace_parent 열로 다시 잇는 방법</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">빨강 = 끊긴 경우, 초록 = 이은 경우, 주황 = 코드로 직접 한 일</text>
+<text x="20" y="143" font-size="18" fill="#b91c1c" font-weight="700" xml:space="preserve">A. 자동 계측만 둘 때: 출금 한 건이 trace 두 조각</text>
+<rect x="20" y="159" width="345" height="96" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="185" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">HTTP 스레드 (trace A)</text>
+<text x="32" y="208" font-size="16" fill="#0f172a" xml:space="preserve">접수 구간이 열려 있다</text>
+<text x="32" y="231" font-size="16" fill="#0f172a" xml:space="preserve">문맥은 이 스레드의 ThreadLocal</text>
+<rect x="395" y="159" width="345" height="96" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="407" y="185" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">발행기 스레드 (trace B)</text>
+<text x="407" y="208" font-size="16" fill="#0f172a" xml:space="preserve">0.5초 뒤 행을 꺼낸다</text>
+<text x="407" y="231" font-size="16" fill="#0f172a" xml:space="preserve">문맥이 없어 새 trace 를 연다</text>
+<line x1="365" y1="207" x2="393" y2="207" stroke="#b91c1c" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#mr)"/>
+<text x="20" y="281" font-size="16" fill="#64748b" xml:space="preserve">DB 행에는 이름표가 없다 → 접수와 Kafka 이후가 따로 검색된다</text>
+<text x="20" y="329" font-size="18" fill="#047857" font-weight="700" xml:space="preserve">B. 이 단계에서 만든 방법: 행에 이름표를 같이 저장</text>
+<rect x="60" y="347" width="680" height="70" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="72" y="373" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① 접수 트랜잭션 안 (HTTP 스레드)</text>
+<text x="72" y="396" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">currentTraceParent() → 지금 구간의 traceparent 55자</text>
+<circle cx="34" cy="382" r="13" fill="#c2410c"/><text x="34" y="388" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">1</text>
+<line x1="400" y1="417" x2="400" y2="443" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="60" y="445" width="680" height="70" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="72" y="471" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② outbox_event 행 INSERT (출금 행과 같은 커밋)</text>
+<text x="72" y="494" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">trace_parent = 00-df670d15…-22447d38…-03</text>
+<circle cx="34" cy="480" r="13" fill="#334155"/><text x="34" y="486" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">2</text>
+<line x1="400" y1="515" x2="400" y2="541" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="60" y="543" width="680" height="70" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="72" y="569" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ 발행기가 행을 SELECT (약 0.2초 뒤, 다른 스레드)</text>
+<text x="72" y="592" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">SELECT … trace_parent FROM outbox_event</text>
+<circle cx="34" cy="578" r="13" fill="#334155"/><text x="34" y="584" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">3</text>
+<line x1="400" y1="613" x2="400" y2="639" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="60" y="641" width="680" height="70" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="72" y="667" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ 행마다 outbox.publish 를 열고, 그 안에서 kafka.send</text>
+<text x="72" y="690" font-size="16" fill="#0f172a" xml:space="preserve">부모 = 저장값. 보내고 나면 구간을 닫는다</text>
+<circle cx="34" cy="676" r="13" fill="#c2410c"/><text x="34" y="682" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">4</text>
+<line x1="400" y1="711" x2="400" y2="737" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="60" y="739" width="680" height="70" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="72" y="765" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑤ 접수 · 발행 · Kafka · 게이트웨이가 trace 하나</text>
+<text x="72" y="788" font-size="16" fill="#0f172a" xml:space="preserve">값이 NULL 이거나 형식이 틀리면 새 trace, 보내기는 그대로</text>
+<circle cx="34" cy="774" r="13" fill="#047857"/><text x="34" y="780" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">5</text>
+<text x="20" y="833" font-size="16" fill="#64748b" xml:space="preserve">④ 에서 행마다 구간을 닫으므로, 다음 행이 앞 행의 trace 에 섞이지 않는다.</text>
+<text x="20" y="857" font-size="16" fill="#64748b" xml:space="preserve">열은 V7 마이그레이션이 추가한 VARCHAR(55) NULL 이다.</text>
+</svg>

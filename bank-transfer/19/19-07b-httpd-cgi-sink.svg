@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 580" width="760" height="580" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>고친 수신기: busybox httpd 가 연결마다 CGI 프로세스를 띄워 본문을 CONTENT_LENGTH 만큼 다 읽고 로그에 쓴 뒤 200 을 답한다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="580" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">고친 수신기(httpd + CGI): 다 읽고 나서 200</text>
+<text x="20" y="68" font-size="16" fill="#475569" xml:space="preserve">초록 = 본문을 읽은 뒤에야 성공을 답한다</text>
+<text x="20" y="91" font-size="16" fill="#475569" xml:space="preserve">확인: 시험 알림 5개를 2 ~ 3초 간격 → 5/5 도착</text>
+<circle cx="34" cy="154" r="13" fill="#1d4ed8"/><text x="34" y="160" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">①</text>
+<rect x="60" y="120" width="680" height="68" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="72" y="146" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">Alertmanager 가 알림을 POST 한다</text>
+<text x="72" y="169" font-size="16" fill="#0f172a" xml:space="preserve">언제 오든 httpd 가 기다리고 있다</text>
+<circle cx="34" cy="236" r="13" fill="#047857"/><text x="34" y="242" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">②</text>
+<rect x="60" y="202" width="680" height="68" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="72" y="228" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">httpd 가 이 연결만 맡을 CGI 프로세스를 띄운다</text>
+<text x="72" y="251" font-size="16" fill="#0f172a" xml:space="preserve">동시에 두 개가 와도 프로세스가 따로 뜬다</text>
+<circle cx="34" cy="318" r="13" fill="#047857"/><text x="34" y="324" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">③</text>
+<rect x="60" y="284" width="680" height="68" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="72" y="310" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">sink.sh: 본문을 CONTENT_LENGTH 바이트만큼 읽는다</text>
+<text x="72" y="333" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">head -c "$CONTENT_LENGTH"</text>
+<circle cx="34" cy="400" r="13" fill="#047857"/><text x="34" y="406" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">④</text>
+<rect x="60" y="366" width="680" height="68" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="72" y="392" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">본문 한 줄을 한 번에 로그(stderr)로 쓴다</text>
+<text x="72" y="415" font-size="16" fill="#0f172a" xml:space="preserve">다른 알림 본문과 섞이지 않는다</text>
+<circle cx="34" cy="482" r="13" fill="#047857"/><text x="34" y="488" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">⑤</text>
+<rect x="60" y="448" width="680" height="68" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="72" y="474" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">그다음에 200 을 답한다</text>
+<text x="72" y="497" font-size="16" fill="#0f172a" xml:space="preserve">이번의 성공은 진짜 받은 뒤의 성공이다</text>
+<text x="20" y="552" font-size="16" fill="#64748b" xml:space="preserve">고친 뒤 은행 끊기 실험(bank-2)을 다시 돌려 49초에 도착, 해제도 받았다.</text>
+</svg>

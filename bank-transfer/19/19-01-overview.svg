@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 826" width="760" height="826" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>앱이 숫자를 내고, Prometheus 가 5초마다 Pod 에서 직접 가져가 규칙을 계산하고, 할 일이 있을 때만 Alertmanager 가 알린다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="826" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">관측 한 장으로 보기:</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">숫자를 내고, 모으고, 할 일이 있을 때만 알린다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">파랑 = Prometheus 가 가져가는 길(pull), 빨강 = 알림이 가는 길</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">초록 = 화면(질의만), 회색 점선 = 밖에서는 막힌 길</text>
+<rect x="20" y="148" width="720" height="92" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="174" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① 앱 Pod: api 2대 · 게이트웨이 2대 (namespace bank-transfer)</text>
+<text x="32" y="197" font-size="16" fill="#0f172a" xml:space="preserve">Micrometer 가 /actuator/prometheus 에 숫자를 글자로 낸다</text>
+<text x="32" y="220" font-size="16" fill="#0f172a" xml:space="preserve">사건 = Counter · Timer, 상태 = 10초마다 DB 를 센 Gauge</text>
+<line x1="380" y1="286" x2="380" y2="242" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<text x="394" y="270" font-size="16" fill="#1d4ed8" font-weight="700" xml:space="preserve">② 5초마다 Pod 를 하나씩 직접 긁는다</text>
+<rect x="20" y="286" width="720" height="92" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="312" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ Prometheus (namespace monitoring)</text>
+<text x="32" y="335" font-size="16" fill="#0f172a" xml:space="preserve">수집 5초 · 규칙 11개를 5초마다 평가 · 2일 보관</text>
+<text x="32" y="358" font-size="16" fill="#0f172a" xml:space="preserve">조건이 for 동안 계속 참이면 firing → Alertmanager</text>
+<line x1="200" y1="378" x2="200" y2="422" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<line x1="560" y1="424" x2="560" y2="380" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<text x="214" y="408" font-size="16" fill="#b91c1c" font-weight="700" xml:space="preserve">firing</text>
+<text x="574" y="408" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">PromQL 질의</text>
+<rect x="20" y="424" width="350" height="114" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="450" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ Alertmanager</text>
+<text x="32" y="473" font-size="16" fill="#0f172a" xml:space="preserve">같은 이름끼리 묶고 10초 대기</text>
+<text x="32" y="496" font-size="16" fill="#0f172a" xml:space="preserve">리더 없음이면 은행 끊김 억제</text>
+<text x="32" y="519" font-size="16" fill="#0f172a" xml:space="preserve">해제(resolved)도 보낸다</text>
+<rect x="390" y="424" width="350" height="114" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="402" y="450" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑥ Grafana 대시보드 2장</text>
+<text x="402" y="473" font-size="16" fill="#0f172a" xml:space="preserve">① 출금 흐름</text>
+<text x="402" y="496" font-size="16" fill="#0f172a" xml:space="preserve">② 게이트웨이 · 은행 · JVM</text>
+<text x="402" y="519" font-size="16" fill="#0f172a" xml:space="preserve">저장은 안 하고 그리기만</text>
+<line x1="200" y1="538" x2="200" y2="576" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<rect x="20" y="578" width="350" height="92" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="604" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑤ alert-sink (받는 곳 대역)</text>
+<text x="32" y="627" font-size="16" fill="#0f172a" xml:space="preserve">받은 알림 JSON 을 로그로</text>
+<text x="32" y="650" font-size="16" fill="#0f172a" xml:space="preserve">운영이면 Slack 같은 자리</text>
+<rect x="390" y="578" width="350" height="92" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="402" y="604" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑦ 내 PC 브라우저</text>
+<text x="402" y="627" font-size="16" fill="#0f172a" xml:space="preserve">port-forward 로만 연다</text>
+<text x="402" y="650" font-size="16" fill="#0f172a" xml:space="preserve">3000(Grafana) · 9090</text>
+<line x1="565" y1="578" x2="565" y2="540" stroke="#94a3b8" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#mx)"/>
+<rect x="20" y="700" width="720" height="68" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="32" y="726" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑧ 외부 입구 Envoy: 허용 목록만 넘긴다</text>
+<text x="32" y="749" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">/actuator/prometheus 를 밖에서 부르면 404</text>
+<text x="20" y="798" font-size="16" fill="#64748b" xml:space="preserve">지표는 추세와 장애 신호다. 돈이 정확히 얼마 나갔는지는 DB 가 정답이다.</text>
+</svg>

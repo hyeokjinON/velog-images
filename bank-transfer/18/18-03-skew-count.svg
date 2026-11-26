@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 800" width="760" height="800" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>빠진 워커를 칸으로 세면 남은 워커에 두 번째를 놓을 때 차이가 2라 금지되고, 칸에서 빼면 차이가 1이라 허용되어 몰린다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="800" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">빠진 워커를 칸으로 세느냐에 따라</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">대체 Pod 가 갈 곳이 달라진다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">차이 = 놓은 뒤 그 칸의 개수 − 지금 가장 적은 칸의 개수</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">차이가 maxSkew(1)를 넘는 노드는 후보에서 지운다</text>
+<rect x="20" y="152" width="720" height="300" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="36" y="184" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">nodeTaintsPolicy: Ignore (이번 설정)</text>
+<rect x="36" y="204" width="332" height="96" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="48" y="232" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">worker: 1개</text>
+<rect x="48" y="248" width="200" height="36" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="60" y="272" font-size="16" fill="#0f172a" xml:space="preserve">리더 A</text>
+<rect x="384" y="204" width="332" height="96" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="396" y="232" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">worker2 (cordon): 0개</text>
+<text x="396" y="270" font-size="16" fill="#64748b" xml:space="preserve">0개인 칸으로 남는다</text>
+<text x="36" y="340" font-size="17" fill="#047857" font-weight="700" xml:space="preserve">worker 에 놓으면 2 − 0 = 2 &gt; 1 → 금지</text>
+<text x="36" y="372" font-size="16" fill="#0f172a" xml:space="preserve">worker2 는 cordon → 후보 0개 → Pending</text>
+<text x="36" y="404" font-size="16" fill="#64748b" xml:space="preserve">제어 노드는 nodeAffinityPolicy Honor 로 칸에서 제외</text>
+<rect x="20" y="476" width="720" height="300" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="36" y="508" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">nodeTaintsPolicy: Honor (바꾸면)</text>
+<rect x="36" y="528" width="332" height="96" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="48" y="556" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">worker: 1개</text>
+<rect x="48" y="572" width="200" height="36" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="60" y="596" font-size="16" fill="#0f172a" xml:space="preserve">리더 A</text>
+<rect x="384" y="528" width="332" height="96" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="396" y="556" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">worker2: 칸에서 빠짐</text>
+<text x="396" y="594" font-size="16" fill="#64748b" xml:space="preserve">계산에 없음</text>
+<text x="36" y="664" font-size="17" fill="#b91c1c" font-weight="700" xml:space="preserve">worker 에 놓으면 2 − 1 = 1 ≤ 1 → 허용</text>
+<text x="36" y="696" font-size="16" fill="#0f172a" xml:space="preserve">대체 Pod 가 worker 로 → 두 대가 몰림</text>
+<text x="36" y="728" font-size="16" fill="#64748b" xml:space="preserve">제어 노드는 nodeAffinityPolicy Honor 로 칸에서 제외</text>
+</svg>

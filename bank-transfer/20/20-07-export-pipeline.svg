@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 854" width="760" height="854" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>끝난 구간이 Tempo 에 닿기까지: 대기열, 5초 묶음, 거르기, 예외 내용 지우기, OTLP HTTP</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="854" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">끝난 구간이 Tempo 에 닿기까지</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">(api · 게이트웨이 같은 공용 모듈)</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">회색 = 구간이 가는 길, 빨강 = 버리는 것, 주황 = 지우는 것</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">초록 = 도착. 요청 스레드는 ① 에서 손을 뗀다</text>
+<rect x="60" y="148" width="680" height="64" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="72" y="174" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① span.end(): 대기열에 넣고 바로 돌아간다</text>
+<text x="72" y="197" font-size="16" fill="#0f172a" xml:space="preserve">요청 스레드는 Tempo 를 기다리지 않는다</text>
+<circle cx="34" cy="180" r="13" fill="#334155"/><text x="34" y="186" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">1</text>
+<line x1="400" y1="212" x2="400" y2="236" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="60" y="238" width="680" height="64" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="72" y="264" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② 묶음 처리기 (BatchSpanProcessor)</text>
+<text x="72" y="287" font-size="16" fill="#0f172a" xml:space="preserve">5초마다 모아 보냄. 대기열 2048, 넘치면 버림</text>
+<circle cx="34" cy="270" r="13" fill="#334155"/><text x="34" y="276" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">2</text>
+<line x1="400" y1="302" x2="400" y2="326" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="60" y="328" width="680" height="64" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="72" y="354" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ 거르기 (SpanExportingPredicate)</text>
+<text x="72" y="377" font-size="16" fill="#0f172a" xml:space="preserve">/actuator 구간, 할 일 없던 정리 작업 root 를 버림</text>
+<circle cx="34" cy="360" r="13" fill="#b91c1c"/><text x="34" y="366" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">3</text>
+<line x1="400" y1="392" x2="400" y2="416" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="60" y="418" width="680" height="64" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="72" y="444" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ 예외 내용 지우기 (ScrubbingSpanExporter)</text>
+<text x="72" y="467" font-size="16" fill="#0f172a" xml:space="preserve">예외는 exception.type 만, 상태 설명은 빈 값</text>
+<circle cx="34" cy="450" r="13" fill="#c2410c"/><text x="34" y="456" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">4</text>
+<line x1="400" y1="482" x2="400" y2="506" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="60" y="508" width="680" height="64" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="72" y="534" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑤ OTLP HTTP 로 보내기 (포트 4318)</text>
+<text x="72" y="557" font-size="16" fill="#0f172a" xml:space="preserve">주소는 kind 설정에만. 없으면 보내지 않는다</text>
+<circle cx="34" cy="540" r="13" fill="#334155"/><text x="34" y="546" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">5</text>
+<line x1="400" y1="572" x2="400" y2="596" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="60" y="598" width="680" height="64" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="72" y="624" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑥ Grafana Tempo 2.10</text>
+<text x="72" y="647" font-size="16" fill="#0f172a" xml:space="preserve">검색에 보이기까지 약 8 ~ 20초</text>
+<circle cx="34" cy="630" r="13" fill="#047857"/><text x="34" y="636" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">6</text>
+<rect x="20" y="692" width="720" height="92" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="718" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">Tempo 를 0대로 60초 꺼 본 실험</text>
+<text x="32" y="741" font-size="16" fill="#0f172a" xml:space="preserve">돈 · 접수 p95 · 처리량은 켬 회차와 같았다</text>
+<text x="32" y="764" font-size="16" fill="#0f172a" xml:space="preserve">남은 흔적은 보내기 실패 로그 12줄</text>
+<text x="20" y="802" font-size="16" fill="#64748b" xml:space="preserve">③ 에서 버려도 지표(Prometheus)는 그대로 남는다.</text>
+<text x="20" y="826" font-size="16" fill="#64748b" xml:space="preserve">④ 는 구간 속성은 건드리지 않는다. 속성은 붙이는 코드가 책임진다.</text>
+</svg>

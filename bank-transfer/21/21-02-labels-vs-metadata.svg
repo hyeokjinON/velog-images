@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 668" width="760" height="668" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>라벨은 색인이라 값 종류가 적어야 한다: trace_id 를 라벨로 하면 출금마다 스트림이 하나씩 생긴다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="668" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">라벨과 구조화 메타데이터:</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">trace_id 는 왜 라벨이 아닌가</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">초록 = 고른 방식, 빨강 = 버린 방식</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">스트림 = 라벨 값 조합이 같은 줄들의 묶음</text>
+<rect x="20" y="150" width="720" height="140" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="176" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">고른 방식: 라벨 셋</text>
+<text x="32" y="199" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">{namespace, app, container}</text>
+<text x="32" y="222" font-size="16" fill="#0f172a" xml:space="preserve">app 값은 api · bank-gateway · mock-bank ·</text>
+<text x="32" y="245" font-size="16" fill="#0f172a" xml:space="preserve">kafka · mysql · redis 정도 → 스트림이 몇 개뿐</text>
+<text x="32" y="268" font-size="16" fill="#0f172a" xml:space="preserve">출금이 늘어도 스트림 수는 그대로다</text>
+<rect x="20" y="310" width="720" height="116" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="336" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">버린 방식: trace_id 도 라벨로</text>
+<text x="32" y="359" font-size="16" fill="#0f172a" xml:space="preserve">출금 한 건마다 새 trace_id → 새 스트림</text>
+<text x="32" y="382" font-size="16" fill="#0f172a" xml:space="preserve">출금 20건/s 면 1분에 스트림 약 1,200개 (계산)</text>
+<text x="32" y="405" font-size="16" fill="#0f172a" xml:space="preserve">덩어리가 잘게 쪼개져 저장과 질의가 느려진다</text>
+<rect x="20" y="446" width="720" height="140" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="472" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">그래서: pod · node · level · trace_id 는 메타데이터</text>
+<text x="32" y="495" font-size="16" fill="#0f172a" xml:space="preserve">줄마다 붙지만 색인하지 않는 이름-값</text>
+<text x="32" y="518" font-size="16" fill="#0f172a" xml:space="preserve">중괄호 안이 아니라 파이프 뒤에서 거른다</text>
+<text x="32" y="541" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">{namespace="bank-transfer"} | trace_id="a168…"</text>
+<text x="32" y="564" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">{…} | level="ERROR"</text>
+<text x="20" y="616" font-size="16" fill="#64748b" xml:space="preserve">Loki 3.7 이 스스로 만드는 service_name 라벨도 꺼서,</text>
+<text x="20" y="640" font-size="16" fill="#64748b" xml:space="preserve">스모크가 라벨이 정확히 셋인지 매번 확인한다.</text>
+</svg>

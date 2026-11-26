@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 558" width="760" height="558" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>Loki 를 60초 껐을 때 기록된 543줄 유실은, 실험 도구가 밀린 줄이 다 도착하기 전에 센 값이었다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="558" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">'543줄 유실' 은 유실이 아니었다</text>
+<text x="20" y="68" font-size="16" fill="#475569" xml:space="preserve">주황 = 실험 도구가 기록한 값, 초록 = 다시 센 값</text>
+<text x="20" y="91" font-size="16" fill="#475569" xml:space="preserve">실험 L4 (lokizero-1), api 1대의 줄 수</text>
+<circle cx="34" cy="152" r="13" fill="#334155"/><text x="34" y="158" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">①</text>
+<rect x="60" y="122" width="680" height="68" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="72" y="148" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① Loki 를 60초 동안 0대로 만든다</text>
+<text x="72" y="171" font-size="16" fill="#0f172a" xml:space="preserve">그동안 api 는 813줄을 썼다. 출금은 그대로</text>
+<line x1="400" y1="190" x2="400" y2="214" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<circle cx="34" cy="246" r="13" fill="#047857"/><text x="34" y="252" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">②</text>
+<rect x="60" y="216" width="680" height="68" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="72" y="242" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② Loki 가 돌아오면 Alloy 가 밀린 줄을 다시 보낸다</text>
+<text x="72" y="265" font-size="16" fill="#0f172a" xml:space="preserve">보내는 방식(재시도 · 역압)은 추정</text>
+<line x1="400" y1="284" x2="400" y2="308" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<circle cx="34" cy="340" r="13" fill="#c2410c"/><text x="34" y="346" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">③</text>
+<rect x="60" y="310" width="680" height="68" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="72" y="336" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ 도구의 기다림이 끝난 순간 Loki 에 270줄</text>
+<text x="72" y="359" font-size="16" fill="#0f172a" xml:space="preserve">813 − 270 = 543 → 'lost_lines 543' 으로 기록</text>
+<line x1="400" y1="378" x2="400" y2="402" stroke="#c2410c" stroke-width="2.2" marker-end="url(#mo)"/>
+<circle cx="34" cy="434" r="13" fill="#047857"/><text x="34" y="440" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">④</text>
+<rect x="60" y="404" width="680" height="68" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="72" y="430" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ 약 19분 뒤 같은 구간을 다시 센다</text>
+<text x="72" y="453" font-size="16" fill="#0f172a" xml:space="preserve">830줄 ≥ 813줄 → 잃은 줄 0</text>
+<text x="20" y="506" font-size="16" fill="#64748b" xml:space="preserve">830 − 813 = 17 은 구간 경계 반올림이나 다시 보내기</text>
+<text x="20" y="530" font-size="16" fill="#64748b" xml:space="preserve">중복으로 추정한다. 측정 문서에는 두 숫자를 다 남겼다.</text>
+</svg>

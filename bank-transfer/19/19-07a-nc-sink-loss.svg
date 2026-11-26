@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 604" width="760" height="604" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>처음 수신기: sleep 1 이 루프 시작 때 흘러서, 1초 넘어 온 알림은 200 만 받고 본문은 읽히지 않았다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="604" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">처음 수신기(nc 반복)가 알림을 잃은 순서</text>
+<text x="20" y="68" font-size="16" fill="#475569" xml:space="preserve">시각은 루프가 시작된 순간부터 (1.8초는 설명용 예)</text>
+<text x="20" y="91" font-size="16" fill="#475569" xml:space="preserve">빨강 = 잃은 지점, 회색 = 수신기 안</text>
+<circle cx="34" cy="154" r="13" fill="#334155"/><text x="34" y="160" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">①</text>
+<rect x="60" y="120" width="580" height="68" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="72" y="146" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">루프 시작: printf 가 200 응답을 파이프에 쓴다</text>
+<text x="72" y="169" font-size="16" fill="#0f172a" xml:space="preserve">그리고 sleep 1 이 바로 흐르기 시작한다</text>
+<text x="695" y="161" font-size="18" fill="#334155" font-weight="700" text-anchor="middle" xml:space="preserve">0초</text>
+<circle cx="34" cy="236" r="13" fill="#334155"/><text x="34" y="242" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">②</text>
+<rect x="60" y="202" width="580" height="68" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="72" y="228" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">sleep 이 끝나 nc 의 입력이 끝난다(EOF)</text>
+<text x="72" y="251" font-size="16" fill="#0f172a" xml:space="preserve">아직 아무 연결도 오지 않았다</text>
+<text x="695" y="243" font-size="18" fill="#334155" font-weight="700" text-anchor="middle" xml:space="preserve">1초</text>
+<circle cx="34" cy="318" r="13" fill="#1d4ed8"/><text x="34" y="324" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">③</text>
+<rect x="60" y="284" width="580" height="68" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="72" y="310" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">Alertmanager 가 알림을 POST 한다</text>
+<text x="72" y="333" font-size="16" fill="#0f172a" xml:space="preserve">nc 가 연결을 받는다</text>
+<text x="695" y="325" font-size="18" fill="#1d4ed8" font-weight="700" text-anchor="middle" xml:space="preserve">1.8초</text>
+<circle cx="34" cy="400" r="13" fill="#b91c1c"/><text x="34" y="406" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">④</text>
+<rect x="60" y="366" width="580" height="68" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="72" y="392" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">nc 는 응답 200 만 쓰고 바로 끝난다</text>
+<text x="72" y="415" font-size="16" fill="#0f172a" xml:space="preserve">요청 본문을 읽기 전이라 로그에는 빈 줄</text>
+<circle cx="34" cy="482" r="13" fill="#b91c1c"/><text x="34" y="488" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">⑤</text>
+<rect x="60" y="448" width="580" height="68" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="72" y="474" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">Alertmanager: 200 을 받았으니 성공</text>
+<text x="72" y="497" font-size="16" fill="#0f172a" xml:space="preserve">다시 보내지 않는다 → 조용한 유실</text>
+<text x="20" y="552" font-size="16" fill="#64748b" xml:space="preserve">1초 안에 온 연결은 본문까지 읽혀서 문제가 안 보였다.</text>
+<text x="20" y="576" font-size="16" fill="#64748b" xml:space="preserve">거부였다면 재시도라도 했을 것이다. "받았다" 는 거짓 성공이 더 나쁘다.</text>
+</svg>

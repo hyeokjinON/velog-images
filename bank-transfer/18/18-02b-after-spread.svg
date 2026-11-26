@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 841" width="760" height="841" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>반드시 나누는 규칙: 같은 순서에서 대체 Pod 는 Pending 으로 기다렸다가 원래 워커로 돌아가고, 리더 워커가 죽어도 14.4초에 이어받는다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="841" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">반드시 나누는 규칙 (DoNotSchedule, 이번 단계):</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">같은 순서에서 새 리더까지 14.4초</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">실험 S3 → S4 (worker2 = 대기 워커, worker = 리더 워커)</text>
+<circle cx="33" cy="127" r="13" fill="#c2410c"/><text x="33" y="133" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">1</text>
+<text x="54" y="133" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">worker2 강제 종료 → 대체 Pod 는 Pending (70.5초)</text>
+<rect x="20" y="149" width="350" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="175" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">worker</text>
+<rect x="32" y="189" width="326" height="36" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="44" y="213" font-size="16" fill="#0f172a" xml:space="preserve">리더</text>
+<rect x="390" y="149" width="350" height="88" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="402" y="175" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">worker2 (응답 없음)</text>
+<text x="402" y="213" font-size="16" fill="#64748b" xml:space="preserve">게이트웨이 없음</text>
+<rect x="20" y="249" width="720" height="44" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="32" y="277" font-size="16" fill="#0f172a" xml:space="preserve">대체 Pod: Pending, 리더는 그대로 (은행 세션 안 끊김)</text>
+<circle cx="33" cy="331" r="13" fill="#047857"/><text x="33" y="337" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">2</text>
+<text x="54" y="337" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">worker2 복귀 → 대체 Pod 가 worker2 에</text>
+<rect x="20" y="353" width="350" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="379" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">worker</text>
+<rect x="32" y="393" width="326" height="36" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="44" y="417" font-size="16" fill="#0f172a" xml:space="preserve">리더</text>
+<rect x="390" y="353" width="350" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="402" y="379" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">worker2</text>
+<rect x="402" y="393" width="326" height="36" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="414" y="417" font-size="16" fill="#0f172a" xml:space="preserve">대기</text>
+<circle cx="33" cy="479" r="13" fill="#047857"/><text x="33" y="485" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">3</text>
+<text x="54" y="485" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">이어서 worker 강제 종료 (S4)</text>
+<rect x="20" y="501" width="350" height="88" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="32" y="527" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">worker (응답 없음)</text>
+<rect x="32" y="541" width="326" height="36" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="44" y="565" font-size="16" fill="#0f172a" xml:space="preserve">리더 (사라짐)</text>
+<rect x="390" y="501" width="350" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="402" y="527" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">worker2</text>
+<rect x="402" y="541" width="326" height="36" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="414" y="565" font-size="16" fill="#0f172a" xml:space="preserve">대기 → 리더</text>
+<circle cx="33" cy="627" r="13" fill="#047857"/><text x="33" y="633" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">4</text>
+<text x="54" y="633" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">새 리더까지 걸린 시간 (같은 순서 비교)</text>
+<text x="20" y="671" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">지난 단계 (두 대가 한 워커)</text>
+<rect x="20" y="683" width="640.0" height="30" rx="4" fill="#b91c1c"/>
+<text x="650.0" y="705" font-size="16" fill="#ffffff" font-weight="700" text-anchor="end" xml:space="preserve">353.4초</text>
+<text x="20" y="737" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">이번 단계 (워커마다 하나)</text>
+<rect x="20" y="749" width="26.1" height="30" rx="4" fill="#047857"/>
+<text x="56.07809847198642" y="771" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">14.4초</text>
+<text x="20" y="803" font-size="16" fill="#64748b" xml:space="preserve">Lease 유효 15초가 지나 대기가 이어받았다</text>
+</svg>

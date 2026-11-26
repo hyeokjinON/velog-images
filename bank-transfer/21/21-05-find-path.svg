@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 764" width="760" height="764" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>출금 id 에서 trace_id, 거래번호를 거쳐 모의 은행 통장 줄까지 값 하나씩 들고 건너간다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="764" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">출금 한 건을 세 서비스의 로그로 따라가기:</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">값 하나를 들고 다음 질의로</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">파랑 = 사람이 넣는 질의, 초록 = 찾은 줄과 다음 열쇠</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">값은 2026-11-20 08:41 kind 에 만든 출금 한 건</text>
+<circle cx="34" cy="180" r="13" fill="#1d4ed8"/><text x="34" y="186" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">①</text>
+<rect x="60" y="150" width="680" height="68" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="72" y="176" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① 출금 id 로 api 줄 찾기</text>
+<text x="72" y="199" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">{app="api"} |= "35d34800-…"</text>
+<line x1="400" y1="218" x2="400" y2="240" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<circle cx="34" cy="272" r="13" fill="#047857"/><text x="34" y="278" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">②</text>
+<rect x="60" y="242" width="680" height="68" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="72" y="268" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">api: transfer 35d34800-… processed: COMPLETED</text>
+<text x="72" y="291" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">열쇠 → trace_id = a168c85d…</text>
+<line x1="400" y1="310" x2="400" y2="332" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<circle cx="34" cy="364" r="13" fill="#1d4ed8"/><text x="34" y="370" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">③</text>
+<rect x="60" y="334" width="680" height="68" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="72" y="360" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ 같은 trace_id 로 두 서비스</text>
+<text x="72" y="383" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">{namespace="bank-transfer"} | trace_id="a168…"</text>
+<line x1="400" y1="402" x2="400" y2="424" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<circle cx="34" cy="456" r="13" fill="#047857"/><text x="34" y="462" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">④</text>
+<rect x="60" y="426" width="680" height="68" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="72" y="452" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">게이트웨이: bank call … outcome=ok ms=15</text>
+<text x="72" y="475" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">열쇠 → reference = T2611209JI3RC1CYTNWV</text>
+<line x1="400" y1="494" x2="400" y2="516" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<circle cx="34" cy="548" r="13" fill="#1d4ed8"/><text x="34" y="554" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">⑤</text>
+<rect x="60" y="518" width="680" height="68" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="72" y="544" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑤ 거래번호로 모의 은행 줄</text>
+<text x="72" y="567" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">{app="mock-bank"} |= "T2611209JI3RC1CYTNWV"</text>
+<line x1="400" y1="586" x2="400" y2="608" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<circle cx="34" cy="640" r="13" fill="#047857"/><text x="34" y="646" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">⑥</text>
+<rect x="60" y="610" width="680" height="68" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="72" y="636" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">모의 은행: [통장] *********6789 입금 ***원</text>
+<text x="72" y="659" font-size="16" fill="#0f172a" xml:space="preserve">계좌와 금액은 가려진 채로 보인다</text>
+<text x="20" y="712" font-size="16" fill="#64748b" xml:space="preserve">모의 은행은 추적하지 않아 trace_id 가 없다.</text>
+<text x="20" y="736" font-size="16" fill="#64748b" xml:space="preserve">그래서 게이트웨이 줄의 거래번호로 한 번 더 건너간다.</text>
+</svg>

@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 978" width="760" height="978" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>은행이 끊겼을 때: 재시도 토픽은 처음 trace 에 붙고, 몇 분 뒤 정리 작업의 재발행은 새 trace 이며, 둘은 transfer.id 로 함께 찾는다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="978" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">은행이 끊겼을 때 재시도는 같은 trace,</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">정리 작업의 재발행은 새 trace</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">파랑 = trace A (처음 접수), 보라 = trace B (정리 작업)</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">빨강 = 은행에 보내지 못함(not_sent), 초록 = 성공</text>
+<rect x="20" y="148" width="720" height="402" rx="10" fill="none" stroke="#cbd5e1" stroke-width="1.4" stroke-dasharray="4 4"/>
+<text x="30" y="170" font-size="16" fill="#475569" font-weight="700" xml:space="preserve">trace A: root = http post /api/v1/transfers</text>
+<rect x="60" y="182" width="680" height="60" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="72" y="206" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① 접수 → outbox.publish → send</text>
+<text x="72" y="228" font-size="16" fill="#0f172a" xml:space="preserve">정상. 여기까지는 그림 20-1 과 같다</text>
+<rect x="60" y="256" width="680" height="60" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="72" y="280" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② process → bank.request not_sent</text>
+<text x="72" y="302" font-size="16" fill="#0f172a" xml:space="preserve">사유 disconnected: 은행에 가지 않았다</text>
+<rect x="60" y="330" width="680" height="60" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="72" y="354" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ retry-0 process (5초 뒤)</text>
+<text x="72" y="376" font-size="16" fill="#0f172a" xml:space="preserve">재시도 발행도 헤더를 그대로 싣는다</text>
+<rect x="60" y="404" width="680" height="60" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="72" y="428" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ retry-1 (30초 뒤) → retry-2 (60초 뒤)</text>
+<text x="72" y="450" font-size="16" fill="#0f172a" xml:space="preserve">그 사이 은행이 돌아오면 ok</text>
+<rect x="60" y="478" width="680" height="60" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="72" y="502" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑤ 끝까지 끊겨 있으면 DLT 로</text>
+<text x="72" y="524" font-size="16" fill="#0f172a" xml:space="preserve">여기까지가 모두 trace A 의 자식</text>
+<text x="60" y="570" font-size="16" fill="#64748b" xml:space="preserve">마지막 변화 뒤 5분: 10초마다 도는 정리 작업이 다시 보낸다</text>
+<rect x="20" y="586" width="720" height="254" rx="10" fill="none" stroke="#cbd5e1" stroke-width="1.4" stroke-dasharray="4 4"/>
+<text x="30" y="608" font-size="16" fill="#475569" font-weight="700" xml:space="preserve">trace B: root = transfer.reconcile (부모 없음)</text>
+<rect x="60" y="620" width="680" height="60" rx="8" fill="#f5f3ff" stroke="#6d28d9" stroke-width="1.6"/>
+<text x="72" y="644" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑥ transfer.reconcile (새 root)</text>
+<text x="72" y="666" font-size="16" fill="#0f172a" xml:space="preserve">한 번에 최대 100건, 구간 최대 701개</text>
+<rect x="60" y="694" width="680" height="60" rx="8" fill="#f5f3ff" stroke="#6d28d9" stroke-width="1.6"/>
+<text x="72" y="718" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑦ transfer.republish (건마다)</text>
+<text x="72" y="740" font-size="16" fill="#0f172a" xml:space="preserve">새 아웃박스 행에 이 구간의 이름표를 쓴다</text>
+<rect x="60" y="768" width="680" height="60" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="72" y="792" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑧ outbox.publish → … → bank.request ok</text>
+<text x="72" y="814" font-size="16" fill="#0f172a" xml:space="preserve">재발행 뒤 구간은 모두 trace B 의 자식</text>
+<rect x="20" y="866" width="720" height="66" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="892" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">⑨ { span.transfer.id = "&lt;출금 id&gt;" }</text>
+<text x="32" y="915" font-size="16" fill="#0f172a" xml:space="preserve">출금 id 한 번 검색으로 trace A 와 B 가 함께 나온다</text>
+<text x="20" y="950" font-size="16" fill="#64748b" xml:space="preserve">재시도 간격 5초 · 30초 · 60초는 P3 에서 정한 재시도 토픽 설정이다.</text>
+</svg>
