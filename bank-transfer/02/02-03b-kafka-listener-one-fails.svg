@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 640" width="760" height="640" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>리스너가 하나뿐이면: 처음 접속은 되는데 보내기는 시간 초과로 끝난다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="640" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">리스너가 하나뿐이면: 처음 접속은 되는데</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">보내기는 시간 초과로 끝난다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">advertised 주소를 kafka:29092 하나만 둔 경우 (버린 설정).</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">빨강 = 실패하는 곳. 위에서 아래로 시간 순서다</text>
+<rect x="20" y="160" width="720" height="64" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="186" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① 내 PC 앱이 localhost:9092 로 처음 접속</text>
+<text x="32" y="209" font-size="16" fill="#0f172a" xml:space="preserve">포트 매핑으로 브로커에 닿는다. 여기까지는 성공</text>
+<line x1="380" y1="224" x2="380" y2="246" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="246" width="720" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="272" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② 브로커의 답: "앞으로 kafka:29092 로 와"</text>
+<text x="32" y="295" font-size="16" fill="#0f172a" xml:space="preserve">컨테이너 안에서만 통하는 이름을 PC 에 알려 준다</text>
+<line x1="380" y1="310" x2="380" y2="332" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="332" width="720" height="64" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="358" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ PC 가 kafka 라는 이름을 찾는다</text>
+<text x="32" y="381" font-size="16" fill="#0f172a" xml:space="preserve">PC 에는 그런 이름이 없다 (UnknownHostException)</text>
+<line x1="380" y1="396" x2="380" y2="418" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="418" width="720" height="64" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="444" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ 메시지 보내기가 기다리다 시간 초과로 끝난다</text>
+<text x="32" y="467" font-size="16" fill="#0f172a" xml:space="preserve">접속은 됐으니 원인이 리스너라고 떠올리기 어렵다</text>
+<line x1="380" y1="482" x2="380" y2="516" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="20" y="518" width="720" height="64" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="544" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">해결: 들어오는 곳마다 리스너를 따로 둔다 (그림 2-3a)</text>
+<text x="32" y="567" font-size="16" fill="#0f172a" xml:space="preserve">PC 용 EXTERNAL → localhost:9092, 컨테이너용 INTERNAL → kafka:29092</text>
+<text x="20" y="620" font-size="16" fill="#64748b" xml:space="preserve">근거: infra/docker-compose.yml, ADR-0003 결정 3</text>
+</svg>

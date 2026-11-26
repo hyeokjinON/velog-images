@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 700" width="760" height="700" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 3-5b. 신규 아이디 추천에서 놓치기 쉬운 두 경우 — 15자로 자른 뒤 끝에 생긴 점(예제 5), 다 지워져 빈 문자열이 된 경우(예제 3)</title>
+  <rect width="760" height="700" fill="#ffffff"/>
+  <text x="24" y="40" font-size="22" font-weight="700" fill="#0f172a">신규 아이디 추천에서 놓치기 쉬운 두 경우</text>
+  <text x="24" y="74" font-size="16" fill="#475569">위: 15자로 자르면 끝에 점이 새로 생긴다 (예제 5).</text>
+  <text x="24" y="98" font-size="16" fill="#475569">아래: 다 지워져 빈 문자열이 되면 5단계와 7단계가 일한다 (예제 3).</text>
+
+  <!-- panel 1 -->
+  <circle cx="44" cy="140" r="12" fill="#1d4ed8"/><text x="44" y="146" font-size="16" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+  <text x="66" y="146" font-size="17" font-weight="700" fill="#0f172a">예제 5 "abcdefghijklmn.p" — 1~5단계를 지나도 16자 그대로</text>
+  <g font-family="Consolas, monospace" font-size="16" fill="#64748b" text-anchor="middle">
+    <text x="62" y="176">1</text><text x="104" y="176">2</text><text x="146" y="176">3</text><text x="188" y="176">4</text><text x="230" y="176">5</text><text x="272" y="176">6</text><text x="314" y="176">7</text><text x="356" y="176">8</text><text x="398" y="176">9</text><text x="440" y="176">10</text><text x="482" y="176">11</text><text x="524" y="176">12</text><text x="566" y="176">13</text><text x="608" y="176">14</text><text x="650" y="176">15</text><text x="692" y="176">16</text>
+  </g>
+  <g stroke="#047857" fill="#ecfdf5">
+    <rect x="41" y="184" width="42" height="40"/><rect x="83" y="184" width="42" height="40"/><rect x="125" y="184" width="42" height="40"/><rect x="167" y="184" width="42" height="40"/><rect x="209" y="184" width="42" height="40"/><rect x="251" y="184" width="42" height="40"/><rect x="293" y="184" width="42" height="40"/><rect x="335" y="184" width="42" height="40"/><rect x="377" y="184" width="42" height="40"/><rect x="419" y="184" width="42" height="40"/><rect x="461" y="184" width="42" height="40"/><rect x="503" y="184" width="42" height="40"/><rect x="545" y="184" width="42" height="40"/><rect x="587" y="184" width="42" height="40"/>
+  </g>
+  <rect x="629" y="184" width="42" height="40" fill="#fef2f2" stroke="#b91c1c" stroke-width="2"/>
+  <rect x="671" y="184" width="42" height="40" fill="#f1f5f9" stroke="#94a3b8" stroke-dasharray="4 3"/>
+  <g font-family="Consolas, monospace" font-size="18" fill="#0f172a" text-anchor="middle">
+    <text x="62" y="210">a</text><text x="104" y="210">b</text><text x="146" y="210">c</text><text x="188" y="210">d</text><text x="230" y="210">e</text><text x="272" y="210">f</text><text x="314" y="210">g</text><text x="356" y="210">h</text><text x="398" y="210">i</text><text x="440" y="210">j</text><text x="482" y="210">k</text><text x="524" y="210">l</text><text x="566" y="210">m</text><text x="608" y="210">n</text><text x="650" y="210" fill="#b91c1c" font-weight="700">.</text><text x="692" y="210" fill="#94a3b8">p</text>
+  </g>
+  <line x1="671" y1="176" x2="671" y2="236" stroke="#c2410c" stroke-width="3"/>
+  <text x="560" y="256" font-size="16" fill="#c2410c">6단계가 자르는 곳 ↑</text>
+
+  <g font-size="16" fill="#334155">
+    <text x="66" y="290">6단계 앞부분: 16자 ≥ 16 이라 앞 15자만 남긴다 → "abcdefghijklmn."</text>
+    <text x="66" y="316">이때 4단계에서 없던 점이 끝에 새로 온다 (빨강 칸).</text>
+    <text x="66" y="342">6단계 뒷부분: 끝의 점을 한 번 더 지운다 → "abcdefghijklmn" (14자)</text>
+    <text x="66" y="368" fill="#b91c1c">뒷부분을 빼먹으면 점으로 끝나는 틀린 아이디 15자를 돌려준다.</text>
+  </g>
+
+  <line x1="24" y1="394" x2="736" y2="394" stroke="#e2e8f0"/>
+
+  <!-- panel 2 -->
+  <circle cx="44" cy="430" r="12" fill="#1d4ed8"/><text x="44" y="436" font-size="16" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+  <text x="66" y="436" font-size="17" font-weight="700" fill="#0f172a">예제 3 "=.=" — 지울 것을 다 지우면 빈 문자열</text>
+
+  <g font-size="16">
+    <rect x="66" y="456" width="140" height="44" rx="6" fill="#f8fafc" stroke="#334155"/>
+    <text x="136" y="484" text-anchor="middle" font-family="Consolas, monospace" font-size="17">"=.="</text>
+    <text x="216" y="484" fill="#334155">→</text>
+    <rect x="240" y="456" width="100" height="44" rx="6" fill="#fff7ed" stroke="#c2410c"/>
+    <text x="290" y="484" text-anchor="middle" font-family="Consolas, monospace" font-size="17">"."</text>
+    <text x="350" y="484" fill="#334155">→</text>
+    <rect x="374" y="456" width="100" height="44" rx="6" fill="#fef2f2" stroke="#b91c1c"/>
+    <text x="424" y="484" text-anchor="middle" font-family="Consolas, monospace" font-size="17">""</text>
+    <text x="484" y="484" fill="#334155">→</text>
+    <rect x="508" y="456" width="90" height="44" rx="6" fill="#ecfdf5" stroke="#047857"/>
+    <text x="553" y="484" text-anchor="middle" font-family="Consolas, monospace" font-size="17">"a"</text>
+    <text x="608" y="484" fill="#334155">→</text>
+    <rect x="632" y="456" width="104" height="44" rx="6" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+    <text x="684" y="484" text-anchor="middle" font-family="Consolas, monospace" font-size="17" font-weight="700">"aaa"</text>
+    <g fill="#475569" text-anchor="middle">
+      <text x="136" y="524">입력</text><text x="290" y="524">2단계 뒤</text><text x="424" y="524">4단계 뒤</text><text x="553" y="524">5단계</text><text x="684" y="524">7단계</text>
+    </g>
+  </g>
+  <g font-size="16" fill="#334155">
+    <text x="66" y="566">2단계에서 = 두 개가 지워지고, 4단계에서 남은 점 하나는 맨 앞이자 맨 끝이라 지워진다.</text>
+    <text x="66" y="592">5단계가 빈 문자열을 "a" 로 바꾸고, 7단계가 마지막 글자 a 를</text>
+    <text x="66" y="618">두 번 붙여 3자를 만든다. 반복은 "a" → "aa" → "aaa" 두 번이다.</text>
+  </g>
+  <rect x="24" y="640" width="712" height="44" rx="6" fill="#ecfdf5" stroke="#047857"/>
+  <text x="44" y="668" font-size="16" font-weight="700" fill="#047857">두 예제 모두 풀이 A 와 풀이 B 의 출력이 기대 출력과 같았다.</text>
+</svg>

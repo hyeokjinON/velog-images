@@ -1,0 +1,84 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 822" width="760" height="822" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 2-6. 폰켓몬 예 1, 2, 3 — Set 에 남은 종류 수와 고를 수 있는 마리 수 N/2 중 작은 쪽이 답이다</title>
+  <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker></defs>
+  <rect width="760" height="822" fill="#ffffff"/>
+  <text x="24" y="40" font-size="22" fill="#0f172a" font-weight="700">폰켓몬 예 1, 2, 3</text>
+  <text x="24" y="70" font-size="20" fill="#0f172a" font-weight="700">종류 수와 N/2 중 작은 쪽이 답이다</text>
+  <text x="24" y="104" font-size="16" fill="#475569">회색 칸 = 이미 Set 에 있어 add 가 false 인 원소</text>
+  <text x="24" y="128" font-size="16" fill="#475569">막대 한 칸 = 1. 초록 막대가 답(작은 쪽)이다.</text>
+  <rect x="24" y="158" width="712" height="204" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="44" y="190" font-size="17" fill="#0f172a" font-weight="700">예 1</text>
+  <rect x="130" y="168" width="48" height="36" rx="5" fill="#ffffff" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="154" y="192" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">3</text>
+  <rect x="186" y="168" width="48" height="36" rx="5" fill="#ffffff" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="210" y="192" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">1</text>
+  <rect x="242" y="168" width="48" height="36" rx="5" fill="#ffffff" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="266" y="192" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">2</text>
+  <rect x="298" y="168" width="48" height="36" rx="5" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="322" y="192" font-size="16" fill="#94a3b8" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">3</text>
+  <text x="480" y="192" font-size="16" fill="#1d4ed8" font-weight="700" font-family="Consolas, monospace">Set = [1, 2, 3]</text>
+  <text x="44" y="242" font-size="16" fill="#334155">종류 수</text>
+  <rect x="200" y="222" width="60" height="28" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"/>
+  <rect x="264" y="222" width="60" height="28" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"/>
+  <rect x="328" y="222" width="60" height="28" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"/>
+  <text x="402" y="242" font-size="17" fill="#475569" font-weight="700">3</text>
+  <text x="44" y="282" font-size="16" fill="#334155">N/2 = 4/2</text>
+  <rect x="200" y="262" width="60" height="28" rx="4" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <rect x="264" y="262" width="60" height="28" rx="4" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="338" y="282" font-size="17" fill="#047857" font-weight="700">2</text>
+  <text x="44" y="334" font-size="17" fill="#0f172a" font-weight="700" font-family="Consolas, monospace">답 = min(3, 2) = 2</text>
+  <text x="360" y="334" font-size="16" fill="#475569">← 2마리밖에 못 고른다</text>
+  <rect x="24" y="376" width="712" height="204" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="44" y="408" font-size="17" fill="#0f172a" font-weight="700">예 2</text>
+  <rect x="130" y="386" width="48" height="36" rx="5" fill="#ffffff" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="154" y="410" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">3</text>
+  <rect x="186" y="386" width="48" height="36" rx="5" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="210" y="410" font-size="16" fill="#94a3b8" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">3</text>
+  <rect x="242" y="386" width="48" height="36" rx="5" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="266" y="410" font-size="16" fill="#94a3b8" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">3</text>
+  <rect x="298" y="386" width="48" height="36" rx="5" fill="#ffffff" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="322" y="410" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">2</text>
+  <rect x="354" y="386" width="48" height="36" rx="5" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="378" y="410" font-size="16" fill="#94a3b8" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">2</text>
+  <rect x="410" y="386" width="48" height="36" rx="5" fill="#ffffff" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="434" y="410" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">4</text>
+  <text x="480" y="410" font-size="16" fill="#1d4ed8" font-weight="700" font-family="Consolas, monospace">Set = [2, 3, 4]</text>
+  <text x="44" y="460" font-size="16" fill="#334155">종류 수</text>
+  <rect x="200" y="440" width="60" height="28" rx="4" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <rect x="264" y="440" width="60" height="28" rx="4" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <rect x="328" y="440" width="60" height="28" rx="4" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="402" y="460" font-size="17" fill="#047857" font-weight="700">3</text>
+  <text x="44" y="500" font-size="16" fill="#334155">N/2 = 6/2</text>
+  <rect x="200" y="480" width="60" height="28" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"/>
+  <rect x="264" y="480" width="60" height="28" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"/>
+  <rect x="328" y="480" width="60" height="28" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"/>
+  <text x="402" y="500" font-size="17" fill="#475569" font-weight="700">3</text>
+  <text x="44" y="552" font-size="17" fill="#0f172a" font-weight="700" font-family="Consolas, monospace">답 = min(3, 3) = 3</text>
+  <text x="360" y="552" font-size="16" fill="#475569">← 둘이 같다</text>
+  <rect x="24" y="594" width="712" height="204" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="44" y="626" font-size="17" fill="#0f172a" font-weight="700">예 3</text>
+  <rect x="130" y="604" width="48" height="36" rx="5" fill="#ffffff" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="154" y="628" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">3</text>
+  <rect x="186" y="604" width="48" height="36" rx="5" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="210" y="628" font-size="16" fill="#94a3b8" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">3</text>
+  <rect x="242" y="604" width="48" height="36" rx="5" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="266" y="628" font-size="16" fill="#94a3b8" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">3</text>
+  <rect x="298" y="604" width="48" height="36" rx="5" fill="#ffffff" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="322" y="628" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">2</text>
+  <rect x="354" y="604" width="48" height="36" rx="5" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="378" y="628" font-size="16" fill="#94a3b8" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">2</text>
+  <rect x="410" y="604" width="48" height="36" rx="5" fill="#e2e8f0" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="434" y="628" font-size="16" fill="#94a3b8" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">2</text>
+  <text x="480" y="628" font-size="16" fill="#1d4ed8" font-weight="700" font-family="Consolas, monospace">Set = [2, 3]</text>
+  <text x="44" y="678" font-size="16" fill="#334155">종류 수</text>
+  <rect x="200" y="658" width="60" height="28" rx="4" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <rect x="264" y="658" width="60" height="28" rx="4" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="338" y="678" font-size="17" fill="#047857" font-weight="700">2</text>
+  <text x="44" y="718" font-size="16" fill="#334155">N/2 = 6/2</text>
+  <rect x="200" y="698" width="60" height="28" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"/>
+  <rect x="264" y="698" width="60" height="28" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"/>
+  <rect x="328" y="698" width="60" height="28" rx="4" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"/>
+  <text x="402" y="718" font-size="17" fill="#475569" font-weight="700">3</text>
+  <text x="44" y="770" font-size="17" fill="#0f172a" font-weight="700" font-family="Consolas, monospace">답 = min(2, 3) = 2</text>
+  <text x="360" y="770" font-size="16" fill="#475569">← 종류가 2개뿐이다</text>
+</svg>

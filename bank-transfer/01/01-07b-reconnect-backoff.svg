@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 620" width="760" height="620" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>재접속 간격: 1초에서 두 배씩 늘려 30초에서 멈춘다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="620" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">재접속 간격: 1초에서 두 배씩 늘려 30초에서 멈춘다</text>
+<text x="20" y="68" font-size="16" fill="#475569" xml:space="preserve">막대 길이 = 다음 시도까지 기다리는 초.</text>
+<text x="20" y="91" font-size="16" fill="#475569" xml:space="preserve">접속에 성공하면 다시 1초부터 센다</text>
+<text x="20" y="164" font-size="16" fill="#475569" xml:space="preserve">1번째</text>
+<rect x="110" y="144" width="18" height="28" rx="4" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.4"/>
+<text x="138" y="164" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">1초</text>
+<text x="20" y="210" font-size="16" fill="#475569" xml:space="preserve">2번째</text>
+<rect x="110" y="190" width="36" height="28" rx="4" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.4"/>
+<text x="156" y="210" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">2초</text>
+<text x="20" y="256" font-size="16" fill="#475569" xml:space="preserve">3번째</text>
+<rect x="110" y="236" width="72" height="28" rx="4" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.4"/>
+<text x="192" y="256" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">4초</text>
+<text x="20" y="302" font-size="16" fill="#475569" xml:space="preserve">4번째</text>
+<rect x="110" y="282" width="144" height="28" rx="4" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.4"/>
+<text x="264" y="302" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">8초</text>
+<text x="20" y="348" font-size="16" fill="#475569" xml:space="preserve">5번째</text>
+<rect x="110" y="328" width="288" height="28" rx="4" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.4"/>
+<text x="408" y="348" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">16초</text>
+<text x="20" y="394" font-size="16" fill="#475569" xml:space="preserve">6번째</text>
+<rect x="110" y="374" width="540" height="28" rx="4" fill="#fff7ed" stroke="#c2410c" stroke-width="1.4"/>
+<text x="660" y="394" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">30초</text>
+<text x="20" y="440" font-size="16" fill="#475569" xml:space="preserve">7번째</text>
+<rect x="110" y="420" width="540" height="28" rx="4" fill="#fff7ed" stroke="#c2410c" stroke-width="1.4"/>
+<text x="660" y="440" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">30초</text>
+<text x="20" y="488" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">delay = minDelay × 2^attempt, 최대 maxDelay(30초)</text>
+<text x="20" y="514" font-size="16" fill="#475569" xml:space="preserve">attempt 는 coerceAtMost(10) 로 막아 시프트가 넘치지 않게 한다</text>
+<text x="20" y="548" font-size="16" fill="#0f172a" xml:space="preserve">은행이 1시간 점검이면: 3초 고정은 1,200번, 이 방식은 약 124번 시도</text>
+<text x="20" y="582" font-size="16" fill="#64748b" xml:space="preserve">(계산, 연결 시도에 걸리는 시간은 뺐다) 근거: BankGatewayClient.scheduleReconnect</text>
+</svg>

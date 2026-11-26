@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 732" width="760" height="732" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 2-7b. 전화번호 목록 — 사전순으로 정렬하면 접두어를 가진 번호가 그 접두어 바로 뒤에 붙어서, 이웃끼리만 비교해도 된다</title>
+  <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker></defs>
+  <rect width="760" height="732" fill="#ffffff"/>
+  <text x="24" y="40" font-size="22" fill="#0f172a" font-weight="700">전화번호 목록 — 정렬 풀이</text>
+  <text x="24" y="70" font-size="20" fill="#0f172a" font-weight="700">접두어를 가진 번호는 그 접두어 바로 뒤에 붙는다</text>
+  <text x="24" y="104" font-size="16" fill="#475569">사전순 = 첫 글자부터 한 글자씩 비교하는 순서 (숫자 크기 순이 아님)</text>
+  <circle cx="38" cy="148" r="13" fill="#1d4ed8"/>
+  <text x="38" y="154" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle">1</text>
+  <text x="60" y="154" font-size="17" fill="#0f172a" font-weight="700">예 1 — 정렬 전과 후</text>
+  <text x="44" y="200" font-size="16" fill="#0f172a" font-weight="700">정렬 전</text>
+  <rect x="150" y="170" width="54.400000000000006" height="44" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="177.2" y="199" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">119</text>
+  <rect x="218.4" y="170" width="98.4" height="44" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="267.6" y="199" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">97674223</text>
+  <rect x="330.8" y="170" width="116.0" height="44" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="388.8" y="199" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">1195524421</text>
+  <text x="44" y="258" font-size="16" fill="#0f172a" font-weight="700">정렬 후</text>
+  <rect x="150" y="228" width="54.400000000000006" height="44" rx="6" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="177.2" y="257" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">119</text>
+  <rect x="218.4" y="228" width="116.0" height="44" rx="6" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="276.4" y="257" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">1195524421</text>
+  <rect x="348.4" y="228" width="98.4" height="44" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="397.59999999999997" y="257" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">97674223</text>
+  <text x="44" y="306" font-size="16" fill="#047857" font-weight="700" font-family="Consolas, monospace">i = 0: "1195524421".startsWith("119") = true → false</text>
+  <circle cx="38" cy="344" r="13" fill="#1d4ed8"/>
+  <text x="38" y="350" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle">2</text>
+  <text x="60" y="350" font-size="17" fill="#0f172a" font-weight="700">예 3 — 정렬하면 "12" 로 시작하는 번호가 연달아 온다</text>
+  <rect x="150" y="366" width="150" height="40" rx="6" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="225" y="393" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">12</text>
+  <text x="130" y="393" font-size="16" fill="#475569" text-anchor="end">0</text>
+  <rect x="150" y="414" width="150" height="40" rx="6" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="225" y="441" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">123</text>
+  <text x="130" y="441" font-size="16" fill="#475569" text-anchor="end">1</text>
+  <rect x="150" y="462" width="150" height="40" rx="6" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="225" y="489" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">1235</text>
+  <text x="130" y="489" font-size="16" fill="#475569" text-anchor="end">2</text>
+  <rect x="150" y="510" width="150" height="40" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="225" y="537" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">567</text>
+  <text x="130" y="537" font-size="16" fill="#475569" text-anchor="end">3</text>
+  <rect x="150" y="558" width="150" height="40" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="225" y="585" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">88</text>
+  <text x="130" y="585" font-size="16" fill="#475569" text-anchor="end">4</text>
+  <line x1="318" y1="370" x2="318" y2="498" stroke="#047857" stroke-width="3"/>
+  <text x="334" y="392" font-size="16" fill="#047857" font-weight="700">"12" 로 시작하는 번호는</text>
+  <text x="334" y="416" font-size="16" fill="#047857" font-weight="700">모두 "12" 바로 뒤에 붙어 있다</text>
+  <text x="334" y="536" font-size="16" fill="#475569">"12" 로 시작하지 않는 567 이 나오면</text>
+  <text x="334" y="560" font-size="16" fill="#475569">그 뒤에는 "12" 로 시작하는 번호가 없다</text>
+  <rect x="24" y="616" width="712" height="96" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="44" y="648" font-size="16" fill="#334155">그래서 X 가 누군가의 접두어라면 정렬 후 X 의</text>
+  <text x="44" y="674" font-size="16" fill="#334155">바로 다음 번호도 X 로 시작한다. 이웃 비교 n − 1 번이면 충분하다.</text>
+  <text x="44" y="700" font-size="16" fill="#334155">예 3 은 i = 0 에서 "123".startsWith("12") 로 끝난다.</text>
+</svg>

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 700" width="760" height="700" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>Git Bash 가 /opt 인자를 Windows 경로로 바꿔 컨테이너 안 명령을 찾지 못했다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="700" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">Git Bash 가 /opt/... 인자를 Windows 경로로 바꿔</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">컨테이너 안 명령을 찾지 못했다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">둘 다 Git Bash 에서 verify.sh 의 Kafka 단계를 실행한 것이다.</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">왼쪽 빨강 = 고치기 전, 오른쪽 초록 = 변환을 끈 뒤</text>
+<rect x="34" y="236" width="324" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="46" y="262" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① 스크립트가 쓴 인자</text>
+<text x="46" y="285" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">/opt/kafka/bin/</text>
+<text x="46" y="308" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">kafka-topics.sh</text>
+<line x1="196" y1="324" x2="196" y2="346" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="34" y="346" width="324" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="46" y="372" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② Git Bash 가 바꿔 넘김</text>
+<text x="46" y="395" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">C:/Program Files/Git/</text>
+<text x="46" y="418" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">opt/kafka/bin/...</text>
+<line x1="196" y1="434" x2="196" y2="456" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="34" y="456" width="324" height="88" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="46" y="482" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ 컨테이너(리눅스) 안에</text>
+<text x="46" y="505" font-size="16" fill="#0f172a" xml:space="preserve">그런 경로가 없다</text>
+<text x="46" y="528" font-size="16" fill="#0f172a" xml:space="preserve">→ 종료 코드 127</text>
+<text x="34" y="580" font-size="16" fill="#b91c1c" xml:space="preserve">MySQL 단계는 / 로 시작하는</text>
+<text x="34" y="603" font-size="16" fill="#b91c1c" xml:space="preserve">인자가 없어서 통과했다</text>
+<rect x="20" y="160" width="352" height="476" rx="8" fill="none" stroke="#b91c1c" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="34" y="188" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">A. 고치기 전</text>
+<text x="34" y="211" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">(경로 변환이 켜져 있음)</text>
+<rect x="402" y="236" width="324" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="414" y="262" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① 스크립트가 쓴 인자</text>
+<text x="414" y="285" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">/opt/kafka/bin/</text>
+<text x="414" y="308" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">kafka-topics.sh</text>
+<line x1="564" y1="324" x2="564" y2="346" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="402" y="346" width="324" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="414" y="372" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② 바꾸지 않고</text>
+<text x="414" y="395" font-size="16" fill="#0f172a" xml:space="preserve">그대로 docker.exe 에</text>
+<text x="414" y="418" font-size="16" fill="#0f172a" xml:space="preserve">넘긴다</text>
+<line x1="564" y1="434" x2="564" y2="456" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="402" y="456" width="324" height="88" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="414" y="482" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ 컨테이너 안에서 실행</text>
+<text x="414" y="505" font-size="16" fill="#0f172a" xml:space="preserve">토픽 생성 · 보내기 · 읽기</text>
+<text x="414" y="528" font-size="16" fill="#0f172a" xml:space="preserve">→ "모두 정상입니다."</text>
+<text x="402" y="580" font-size="16" fill="#047857" xml:space="preserve">리눅스 · macOS · CI 에는</text>
+<text x="402" y="603" font-size="16" fill="#047857" xml:space="preserve">영향이 없다</text>
+<rect x="388" y="160" width="352" height="476" rx="8" fill="none" stroke="#047857" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="402" y="188" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">B. 고친 뒤</text>
+<text x="402" y="211" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">MSYS_NO_PATHCONV=1</text>
+<text x="20" y="670" font-size="16" fill="#64748b" xml:space="preserve">근거: infra/verify.sh 맨 위, infra/README.md "자주 막히는 곳"</text>
+</svg>

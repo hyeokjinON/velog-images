@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 860" width="760" height="860" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>1원인증 ⑧ ~ ⑬: 1원 이체가 성공한 뒤에만 해시를 저장하고 201 을 돌려준다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="860" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">1원인증 ⑧ ~ ⑬: 1원 이체가 성공한 뒤에만</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">해시를 저장하고 201 을 돌려준다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">위에서 아래로 시간이 흐른다. 코드 6542 는 예시.</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">파랑 = 요청, 초록 = 응답</text>
+<rect x="10" y="140" width="170" height="60" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="95" y="165" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">사용자 · Tomcat</text>
+<text x="95" y="189" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">요청 스레드</text>
+<line x1="95" y1="200" x2="95" y2="720" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 4"/>
+<rect x="200" y="140" width="170" height="60" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="285" y="165" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">1원인증 서비스</text>
+<text x="285" y="189" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">+ 어댑터</text>
+<line x1="285" y1="200" x2="285" y2="720" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 4"/>
+<rect x="390" y="140" width="170" height="60" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="475" y="165" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">게이트웨이</text>
+<text x="475" y="189" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">Netty 루프 1개</text>
+<line x1="475" y1="200" x2="475" y2="720" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 4"/>
+<rect x="580" y="140" width="170" height="60" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="665" y="165" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">모의 은행</text>
+<text x="665" y="189" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">Netty 서버</text>
+<line x1="665" y1="200" x2="665" y2="720" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 4"/>
+<line x1="289" y1="270" x2="471" y2="270" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<text x="380.0" y="238" font-size="16" fill="#1d4ed8" text-anchor="middle" xml:space="preserve">transfer(1원,</text>
+<text x="380.0" y="261" font-size="16" fill="#1d4ed8" text-anchor="middle" xml:space="preserve">적요 BT6542)</text>
+<circle cx="263" cy="270" r="13" fill="#1d4ed8"/><text x="263" y="276" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">⑧</text>
+<line x1="479" y1="350" x2="661" y2="350" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<text x="570.0" y="341" font-size="16" fill="#1d4ed8" text-anchor="middle" xml:space="preserve">0200 TRF #8</text>
+<circle cx="453" cy="350" r="13" fill="#1d4ed8"/><text x="453" y="356" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">⑨</text>
+<rect x="580" y="368" width="160" height="88" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="592" y="394" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑩ 통장 입금</text>
+<text x="592" y="417" font-size="16" fill="#0f172a" xml:space="preserve">1원, 적요</text>
+<text x="592" y="440" font-size="16" fill="#0f172a" xml:space="preserve">BT6542</text>
+<line x1="661" y1="510" x2="479" y2="510" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<text x="570.0" y="478" font-size="16" fill="#047857" text-anchor="middle" xml:space="preserve">0210 TRF #8</text>
+<text x="570.0" y="501" font-size="16" fill="#047857" text-anchor="middle" xml:space="preserve">응답코드 0000</text>
+<circle cx="687" cy="510" r="13" fill="#047857"/><text x="687" y="516" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">⑪</text>
+<line x1="471" y1="590" x2="289" y2="590" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<text x="380.0" y="558" font-size="16" fill="#047857" text-anchor="middle" xml:space="preserve">future 완료</text>
+<text x="380.0" y="581" font-size="16" fill="#047857" text-anchor="middle" xml:space="preserve">→ thenApply</text>
+<circle cx="497" cy="590" r="13" fill="#047857"/><text x="497" y="596" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">⑫</text>
+<line x1="281" y1="690" x2="99" y2="690" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<text x="190.0" y="658" font-size="16" fill="#047857" text-anchor="middle" xml:space="preserve">해시 저장(SENT) 뒤</text>
+<text x="190.0" y="681" font-size="16" fill="#047857" text-anchor="middle" xml:space="preserve">201, 코드 없음</text>
+<circle cx="307" cy="690" r="13" fill="#047857"/><text x="307" y="696" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">⑬</text>
+<rect x="20" y="740" width="720" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="766" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">1원 이체가 실패하면 thenApply 의 저장도 실행되지 않는다.</text>
+<text x="32" y="789" font-size="16" fill="#0f172a" xml:space="preserve">그래서 "1원은 안 나갔는데 인증 건만 있는" 상태는 없다.</text>
+<text x="32" y="812" font-size="16" fill="#0f172a" xml:space="preserve">반대로 1원 응답이 3초를 넘기면 1원은 나갔는데 건은 없을 수 있다</text>
+</svg>

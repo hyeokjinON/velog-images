@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 680" width="760" height="680" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>회선 확인: 30초 동안 쓴 게 없으면 폴링을 보내고, 90초 동안 받은 게 없으면 끊는다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="680" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">회선 확인: 30초 동안 쓴 게 없으면 폴링을 보내고,</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">90초 동안 받은 게 없으면 끊는다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">IdleStateHandler(reader 90초, writer 30초). 시간은 마지막으로</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">쓰거나 받은 때부터 센다</text>
+<text x="20" y="176" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① 정상 회선</text>
+<line x1="80" y1="290" x2="680" y2="290" stroke="#334155" stroke-width="2"/>
+<line x1="80.0" y1="284" x2="80.0" y2="296" stroke="#334155" stroke-width="2"/>
+<text x="80.0" y="316" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">0초</text>
+<line x1="280.0" y1="284" x2="280.0" y2="296" stroke="#334155" stroke-width="2"/>
+<text x="280.0" y="316" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">30초</text>
+<line x1="480.0" y1="284" x2="480.0" y2="296" stroke="#334155" stroke-width="2"/>
+<text x="480.0" y="316" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">60초</text>
+<line x1="680.0" y1="284" x2="680.0" y2="296" stroke="#334155" stroke-width="2"/>
+<text x="680.0" y="316" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">90초</text>
+<line x1="280.0" y1="282" x2="280.0" y2="236" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="280.0" y="204" font-size="16" fill="#047857" text-anchor="middle" xml:space="preserve">0800 PLL 보냄</text>
+<text x="280.0" y="226" font-size="16" fill="#1d4ed8" text-anchor="middle" xml:space="preserve">0810 PLL 받음</text>
+<line x1="480.0" y1="282" x2="480.0" y2="236" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="480.0" y="204" font-size="16" fill="#047857" text-anchor="middle" xml:space="preserve">0800 PLL 보냄</text>
+<text x="480.0" y="226" font-size="16" fill="#1d4ed8" text-anchor="middle" xml:space="preserve">0810 PLL 받음</text>
+<text x="20" y="350" font-size="16" fill="#0f172a" xml:space="preserve">받을 때마다 읽기 시간이 0 으로 돌아가 90초에 닿지 않는다 → 연결 유지</text>
+<text x="20" y="404" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② 조용히 죽은 회선 (중간 장비가 연결을 버린 경우 등)</text>
+<line x1="80" y1="518" x2="680" y2="518" stroke="#334155" stroke-width="2"/>
+<line x1="80.0" y1="512" x2="80.0" y2="524" stroke="#334155" stroke-width="2"/>
+<text x="80.0" y="544" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">0초</text>
+<line x1="280.0" y1="512" x2="280.0" y2="524" stroke="#334155" stroke-width="2"/>
+<text x="280.0" y="544" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">30초</text>
+<line x1="480.0" y1="512" x2="480.0" y2="524" stroke="#334155" stroke-width="2"/>
+<text x="480.0" y="544" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">60초</text>
+<line x1="680.0" y1="512" x2="680.0" y2="524" stroke="#334155" stroke-width="2"/>
+<text x="680.0" y="544" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">90초</text>
+<line x1="280.0" y1="510" x2="280.0" y2="464" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="280.0" y="432" font-size="16" fill="#047857" text-anchor="middle" xml:space="preserve">PLL 보냄</text>
+<text x="280.0" y="454" font-size="16" fill="#64748b" text-anchor="middle" xml:space="preserve">응답 없음</text>
+<line x1="480.0" y1="510" x2="480.0" y2="464" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="480.0" y="432" font-size="16" fill="#047857" text-anchor="middle" xml:space="preserve">PLL 보냄</text>
+<text x="480.0" y="454" font-size="16" fill="#64748b" text-anchor="middle" xml:space="preserve">응답 없음</text>
+<line x1="680.0" y1="510" x2="680.0" y2="464" stroke="#94a3b8" stroke-width="1.4"/>
+<text x="680.0" y="432" font-size="16" fill="#b91c1c" font-weight="700" text-anchor="middle" xml:space="preserve">READER_IDLE</text>
+<text x="680.0" y="454" font-size="16" fill="#b91c1c" font-weight="700" text-anchor="middle" xml:space="preserve">ctx.close()</text>
+<rect x="20" y="568" width="720" height="64" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="594" font-size="16" fill="#0f172a" xml:space="preserve">끊은 뒤: channelInactive 가 대기 중인 요청을 모두 실패로 끝내고</text>
+<text x="32" y="617" font-size="16" fill="#0f172a" xml:space="preserve">재접속을 예약한다 (1초 뒤 첫 시도, 그림 1-7b)</text>
+<text x="20" y="660" font-size="16" fill="#64748b" xml:space="preserve">근거: docs/protocol.md §6, BankGatewayClient.userEventTriggered</text>
+</svg>

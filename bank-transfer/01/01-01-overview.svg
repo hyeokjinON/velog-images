@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 1150" width="760" height="1150" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>1원인증 요청 한 장: 예금주를 묻고 1원을 보내며, 코드는 통장 적요로만 간다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="1150" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">1원인증 요청 한 장: 예금주를 묻고 1원을 보내며,</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">코드는 응답이 아니라 통장 적요로만 간다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">파랑 = 요청 · 응답, 초록 = 정상 흐름, 빨강 = 멈추는 곳.</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">번호 순서대로 읽는다</text>
+<rect x="20" y="146" width="720" height="64" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="172" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">사용자 앱</text>
+<text x="32" y="195" font-size="16" fill="#0f172a" xml:space="preserve">은행코드 090, 계좌 1002123456789, 이름 홍길동을 입력</text>
+<line x1="280" y1="210" x2="280" y2="256" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<circle cx="256" cy="233" r="13" fill="#1d4ed8"/><text x="256" y="239" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">①</text>
+<text x="300" y="239" font-size="16" fill="#1d4ed8" xml:space="preserve">POST /api/v1/account-verifications</text>
+<rect x="20" y="256" width="720" height="424" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="36" y="284" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">apps/api — 한 배포 단위 (Spring Boot)</text>
+<rect x="40" y="300" width="440" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="52" y="326" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② 컨트롤러</text>
+<text x="52" y="349" font-size="16" fill="#0f172a" xml:space="preserve">future 를 돌려주고 Tomcat 스레드를 반납</text>
+<rect x="40" y="384" width="440" height="64" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="52" y="410" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ AccountVerificationService</text>
+<text x="52" y="433" font-size="16" fill="#0f172a" xml:space="preserve">도메인. 은행은 BankPort 로만 부른다</text>
+<rect x="40" y="468" width="440" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="52" y="494" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ BankGatewayAdapter</text>
+<text x="52" y="517" font-size="16" fill="#0f172a" xml:space="preserve">BankPort 구현. 은행 응답을 예금주명으로</text>
+<rect x="40" y="552" width="440" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="52" y="578" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑤ BankGatewayClient (Netty)</text>
+<text x="52" y="601" font-size="16" fill="#0f172a" xml:space="preserve">전문번호 → future 를 pending 에 걸고</text>
+<text x="52" y="624" font-size="16" fill="#0f172a" xml:space="preserve">전문을 보낸다. 응답은 3초까지 기다린다</text>
+<line x1="260" y1="364" x2="260" y2="384" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<line x1="260" y1="448" x2="260" y2="468" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<line x1="260" y1="532" x2="260" y2="552" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="500" y="384" width="224" height="110" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="512" y="410" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">멈추는 곳 1</text>
+<text x="512" y="433" font-size="16" fill="#0f172a" xml:space="preserve">계좌 없음 → 404</text>
+<text x="512" y="456" font-size="16" fill="#0f172a" xml:space="preserve">이름 다름 → 422</text>
+<text x="512" y="479" font-size="16" fill="#0f172a" xml:space="preserve">1원은 보내지 않는다</text>
+<rect x="500" y="552" width="224" height="110" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="512" y="578" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">멈추는 곳 2</text>
+<text x="512" y="601" font-size="16" fill="#0f172a" xml:space="preserve">3초 안에 응답 없음</text>
+<text x="512" y="624" font-size="16" fill="#0f172a" xml:space="preserve">→ 504 BANK_TIMEOUT</text>
+<text x="512" y="647" font-size="16" fill="#0f172a" xml:space="preserve">(처리 여부 모름)</text>
+<line x1="480" y1="416" x2="500" y2="416" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<line x1="480" y1="596" x2="500" y2="596" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<line x1="230" y1="680" x2="230" y2="740" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<line x1="300" y1="740" x2="300" y2="680" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<circle cx="206" cy="710" r="13" fill="#047857"/><text x="206" y="716" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">⑥</text>
+<text x="320" y="716" font-size="16" fill="#0f172a" xml:space="preserve">TCP: 길이 4바이트 + 고정길이 전문 (EUC-KR)</text>
+<rect x="20" y="740" width="720" height="112" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="766" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑥ 모의 은행 (apps/mock-bank, Netty 서버)</text>
+<text x="32" y="789" font-size="16" fill="#0f172a" xml:space="preserve">0200 NAM 성명조회 → 0210 응답: 예금주 홍길동</text>
+<text x="32" y="812" font-size="16" fill="#0f172a" xml:space="preserve">0200 TRF 1원 이체 → 통장에 입금, 적요 BT6542</text>
+<text x="32" y="835" font-size="16" fill="#0f172a" xml:space="preserve">→ 0210 응답, 응답코드 0000</text>
+<line x1="380" y1="852" x2="380" y2="890" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="20" y="890" width="720" height="64" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="916" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑦ 1원 이체가 성공한 뒤에만 저장하고 201 SENT</text>
+<text x="32" y="939" font-size="16" fill="#0f172a" xml:space="preserve">응답 본문에 코드는 없다 (DB 에는 해시만)</text>
+<line x1="380" y1="954" x2="380" y2="980" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<rect x="20" y="980" width="720" height="88" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="1006" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑧ 사용자가 통장 거래내역에서 적요 BT6542 를 본다</text>
+<text x="32" y="1029" font-size="16" fill="#0f172a" xml:space="preserve">6542 입력 → POST …/{id}/confirm</text>
+<text x="32" y="1052" font-size="16" fill="#0f172a" xml:space="preserve">→ 200 VERIFIED (틀리면 400, 5번 틀리면 잠금)</text>
+<text x="20" y="1100" font-size="16" fill="#64748b" xml:space="preserve">근거: bank-transfer P0 ~ P2 (2026-10-01) — AccountVerificationService,</text>
+<text x="20" y="1124" font-size="16" fill="#64748b" xml:space="preserve">BankGatewayClient, MockBankServer, ADR-0001 · 0002</text>
+</svg>

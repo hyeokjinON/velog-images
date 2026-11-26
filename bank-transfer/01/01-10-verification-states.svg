@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 700" width="760" height="700" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>인증 건의 상태: SENT 에서 시작해 코드가 맞으면 VERIFIED, 5번 틀리면 LOCKED, 5분이 지나면 EXPIRED</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="700" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">인증 건의 상태: SENT 에서 시작해 코드가 맞으면</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">VERIFIED, 5번 틀리면 LOCKED, 5분 지나면 EXPIRED</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">확인(confirm) 한 번마다 저장소의 원자적 update 안에서 판정한다.</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">괄호 안은 HTTP 응답</text>
+<rect x="250" y="160" width="260" height="88" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="262" y="186" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">SENT</text>
+<text x="262" y="209" font-size="16" fill="#0f172a" xml:space="preserve">1원을 보냈다</text>
+<text x="262" y="232" font-size="16" fill="#0f172a" xml:space="preserve">failedAttempts 0 ~ 4</text>
+<polyline points="510,184 580,184 580,226 512,226" fill="none" stroke="#c2410c" stroke-width="2.2" marker-end="url(#mo)"/>
+<text x="592" y="190" font-size="16" fill="#c2410c" font-weight="700" xml:space="preserve">틀리면 +1</text>
+<text x="592" y="213" font-size="16" fill="#c2410c" xml:space="preserve">(400, 남은</text>
+<text x="592" y="236" font-size="16" fill="#c2410c" xml:space="preserve">횟수를 알려 줌)</text>
+<rect x="20" y="360" width="226" height="88" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="386" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">VERIFIED</text>
+<text x="32" y="409" font-size="16" fill="#0f172a" xml:space="preserve">5분 안에 코드가 맞음</text>
+<text x="32" y="432" font-size="16" fill="#0f172a" xml:space="preserve">(200)</text>
+<polyline points="380,248 380,300 133,300 133,360" fill="none" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="267" y="360" width="226" height="88" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="279" y="386" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">LOCKED</text>
+<text x="279" y="409" font-size="16" fill="#0f172a" xml:space="preserve">5번째 틀림</text>
+<text x="279" y="432" font-size="16" fill="#0f172a" xml:space="preserve">(423)</text>
+<polyline points="380,248 380,300 380,300 380,360" fill="none" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<rect x="514" y="360" width="226" height="88" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="526" y="386" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">EXPIRED</text>
+<text x="526" y="409" font-size="16" fill="#0f172a" xml:space="preserve">5분 지난 뒤 확인</text>
+<text x="526" y="432" font-size="16" fill="#0f172a" xml:space="preserve">(410)</text>
+<polyline points="380,248 380,300 627,300 627,360" fill="none" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="490" width="720" height="120" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="516" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">예: 통장 적요가 BT6542 인 사용자</text>
+<text x="32" y="539" font-size="16" fill="#0f172a" xml:space="preserve">1) 0000 입력 → 틀림, failedAttempts 1 → 400, 남은 횟수 4</text>
+<text x="32" y="562" font-size="16" fill="#0f172a" xml:space="preserve">2) 6542 입력 → 해시가 같다 → VERIFIED → 200</text>
+<text x="32" y="585" font-size="16" fill="#0f172a" xml:space="preserve">LOCKED · EXPIRED 가 된 건은 맞는 코드를 넣어도 열리지 않는다</text>
+<text x="20" y="650" font-size="16" fill="#64748b" xml:space="preserve">근거: AccountVerificationService.confirm, ApiExceptionHandler</text>
+</svg>

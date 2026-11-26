@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 760" width="760" height="760" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>컨테이너를 지워도 데이터는 볼륨에 남는다: down 과 down -v 의 차이</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="760" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">컨테이너를 지워도 데이터는 볼륨에 남는다:</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">down 과 down -v 의 차이</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">왼쪽 = 실행한 명령, 오른쪽 = 그 뒤 mysql-data 볼륨과 infra_check</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">행의 상태. 위에서 아래로 차례대로 실행한다 (P3-0 시점)</text>
+<rect x="20" y="166" width="420" height="64" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="192" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① up -d --wait → verify.sh</text>
+<text x="32" y="215" font-size="16" fill="#0f172a" xml:space="preserve">infra_check 에 (1, '한글확인') 저장</text>
+<rect x="480" y="166" width="260" height="64" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="492" y="192" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">볼륨: 있음</text>
+<text x="492" y="215" font-size="16" fill="#0f172a" xml:space="preserve">행 1개</text>
+<line x1="440" y1="198" x2="480" y2="198" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<line x1="230" y1="230" x2="230" y2="254" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="254" width="420" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="280" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② docker compose down</text>
+<text x="32" y="303" font-size="16" fill="#0f172a" xml:space="preserve">컨테이너와 네트워크를 지운다</text>
+<rect x="480" y="254" width="260" height="64" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="492" y="280" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">볼륨: 그대로 남음</text>
+<text x="492" y="303" font-size="16" fill="#0f172a" xml:space="preserve">행 1개 (볼륨 안에)</text>
+<line x1="440" y1="286" x2="480" y2="286" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<line x1="230" y1="318" x2="230" y2="342" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="342" width="420" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="368" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ 다시 up -d --wait</text>
+<text x="32" y="391" font-size="16" fill="#0f172a" xml:space="preserve">새 컨테이너가 같은 볼륨을 붙인다</text>
+<rect x="480" y="342" width="260" height="64" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="492" y="368" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">볼륨: 같은 것</text>
+<text x="492" y="391" font-size="16" fill="#0f172a" xml:space="preserve">행 1개가 그대로 보인다</text>
+<line x1="440" y1="374" x2="480" y2="374" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<line x1="230" y1="406" x2="230" y2="430" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="430" width="420" height="64" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="456" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ docker compose down -v</text>
+<text x="32" y="479" font-size="16" fill="#0f172a" xml:space="preserve">볼륨까지 지운다</text>
+<rect x="480" y="430" width="260" height="64" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="492" y="456" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">볼륨: 삭제됨</text>
+<text x="492" y="479" font-size="16" fill="#0f172a" xml:space="preserve">행도 함께 사라진다</text>
+<line x1="440" y1="462" x2="480" y2="462" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<line x1="230" y1="494" x2="230" y2="518" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="518" width="420" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="544" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑤ 다시 up -d --wait</text>
+<text x="32" y="567" font-size="16" fill="#0f172a" xml:space="preserve">빈 볼륨을 새로 만들어 초기화한다</text>
+<rect x="480" y="518" width="260" height="64" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="492" y="544" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">볼륨: 새로 만든 빈 것</text>
+<text x="492" y="567" font-size="16" fill="#0f172a" xml:space="preserve">infra_check 행 없음</text>
+<line x1="440" y1="550" x2="480" y2="550" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<text x="20" y="620" font-size="16" fill="#0f172a" xml:space="preserve">Kafka 의 kafka-data, Redis 의 redis-data 도 똑같이 움직인다.</text>
+<text x="20" y="644" font-size="16" fill="#0f172a" xml:space="preserve">Kafka 메시지를 /tmp 가 아니라 이름 있는 볼륨에 두는 이유다.</text>
+<text x="20" y="668" font-size="16" fill="#475569" xml:space="preserve">나중 이야기: 지금 저장소의 verify.sh 는 임시 테이블을 써서</text>
+<text x="20" y="692" font-size="16" fill="#475569" xml:space="preserve">행을 남기지 않는다 (Flyway 와 부딪히지 않게 바꿨다).</text>
+<text x="20" y="730" font-size="16" fill="#64748b" xml:space="preserve">근거: infra/docker-compose.yml volumes, CHANGELOG [P3-0]</text>
+</svg>

@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 640" width="760" height="640" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>한 연결에 요청 둘을 보내고 응답이 거꾸로 와도 전문번호로 자기 응답을 찾는다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="640" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">한 연결에 요청 둘을 보내고 응답이 거꾸로 와도</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">전문번호로 자기 응답을 찾는다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">왼쪽 = 일어나는 일, 오른쪽 = pending 맵(전문번호 → future).</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">#7, #8 은 설명용 전문번호</text>
+<rect x="20" y="150" width="480" height="88" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="176" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① 사용자 1 성명조회 send()</text>
+<text x="32" y="199" font-size="16" fill="#0f172a" xml:space="preserve">pending[7] = future A</text>
+<text x="32" y="222" font-size="16" fill="#0f172a" xml:space="preserve">0200 NAM #7 을 쓰고 A 를 돌려준다</text>
+<rect x="520" y="150" width="220" height="88" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="532" y="176" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">pending</text>
+<text x="532" y="199" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">7 → A</text>
+<line x1="500" y1="194" x2="520" y2="194" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="258" width="480" height="88" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="284" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② 사용자 2 성명조회 send()</text>
+<text x="32" y="307" font-size="16" fill="#0f172a" xml:space="preserve">pending[8] = future B</text>
+<text x="32" y="330" font-size="16" fill="#0f172a" xml:space="preserve">같은 연결로 0200 NAM #8 을 쓴다</text>
+<rect x="520" y="258" width="220" height="88" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="532" y="284" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">pending</text>
+<text x="532" y="307" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">7 → A</text>
+<text x="532" y="330" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">8 → B</text>
+<line x1="500" y1="302" x2="520" y2="302" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="366" width="480" height="88" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="392" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ 0210 NAM #8 이 먼저 도착</text>
+<text x="32" y="415" font-size="16" fill="#0f172a" xml:space="preserve">channelRead0: pending[8].complete</text>
+<text x="32" y="438" font-size="16" fill="#0f172a" xml:space="preserve">handle 이 8 을 지운다 → B 만 깨어남</text>
+<rect x="520" y="366" width="220" height="88" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="532" y="392" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">pending</text>
+<text x="532" y="415" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">7 → A</text>
+<line x1="500" y1="410" x2="520" y2="410" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="474" width="480" height="88" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="500" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ 0210 NAM #7 도착</text>
+<text x="32" y="523" font-size="16" fill="#0f172a" xml:space="preserve">pending[7].complete → A 깨어남</text>
+<text x="32" y="546" font-size="16" fill="#0f172a" xml:space="preserve">handle 이 7 을 지운다</text>
+<rect x="520" y="474" width="220" height="88" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="532" y="500" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">pending</text>
+<text x="532" y="523" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">(비었다)</text>
+<line x1="500" y1="518" x2="520" y2="518" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<text x="20" y="600" font-size="16" fill="#64748b" xml:space="preserve">근거: BankGatewayClient.send / channelRead0, ADR-0002</text>
+</svg>

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 740" width="760" height="740" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 3-3b. StringBuilder 는 여유 칸이 있는 배열 하나에 이어 쓰고, 꽉 찰 때만 약 2배 큰 배열로 옮긴다</title>
+  <rect width="760" height="740" fill="#ffffff"/>
+  <text x="24" y="40" font-size="22" font-weight="700" fill="#0f172a">StringBuilder 는 여유 칸이 있는 배열에 이어 쓰고,</text>
+  <text x="24" y="70" font-size="22" font-weight="700" fill="#0f172a">꽉 찰 때만 약 2배 큰 배열로 옮긴다</text>
+  <text x="24" y="104" font-size="16" fill="#475569">length = 들어 있는 글자 수, capacity = 배열의 칸 수.</text>
+  <text x="24" y="128" font-size="16" fill="#475569">값은 JDK 21 에서 append('a') 를 10만 번 하며 출력한 것이다.</text>
+
+  <!-- step 1 -->
+  <circle cx="44" cy="166" r="12" fill="#1d4ed8"/><text x="44" y="172" font-size="16" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+  <text x="66" y="172" font-size="17" font-weight="700" fill="#0f172a">append 5번 뒤 — length 5, capacity 16</text>
+  <g font-family="Consolas, monospace" font-size="16" text-anchor="middle">
+    <rect x="66" y="188" width="40" height="36" fill="#ecfdf5" stroke="#047857"/><text x="86" y="212">a</text>
+    <rect x="106" y="188" width="40" height="36" fill="#ecfdf5" stroke="#047857"/><text x="126" y="212">a</text>
+    <rect x="146" y="188" width="40" height="36" fill="#ecfdf5" stroke="#047857"/><text x="166" y="212">a</text>
+    <rect x="186" y="188" width="40" height="36" fill="#ecfdf5" stroke="#047857"/><text x="206" y="212">a</text>
+    <rect x="226" y="188" width="40" height="36" fill="#ecfdf5" stroke="#047857"/><text x="246" y="212">a</text>
+  </g>
+  <g fill="#f8fafc" stroke="#cbd5e1">
+    <rect x="266" y="188" width="40" height="36"/><rect x="306" y="188" width="40" height="36"/>
+    <rect x="346" y="188" width="40" height="36"/><rect x="386" y="188" width="40" height="36"/>
+    <rect x="426" y="188" width="40" height="36"/><rect x="466" y="188" width="40" height="36"/>
+    <rect x="506" y="188" width="40" height="36"/><rect x="546" y="188" width="40" height="36"/>
+    <rect x="586" y="188" width="40" height="36"/><rect x="626" y="188" width="40" height="36"/>
+    <rect x="666" y="188" width="40" height="36"/>
+  </g>
+  <text x="66" y="250" font-size="16" fill="#334155">빈 칸 11개가 남아 있어서 append 는 빈 칸에 한 글자를 쓰기만 한다.</text>
+  <text x="66" y="274" font-size="16" fill="#334155">새 객체도 만들지 않고, 앞 글자도 복사하지 않는다.</text>
+
+  <line x1="24" y1="296" x2="736" y2="296" stroke="#e2e8f0"/>
+
+  <!-- step 2 -->
+  <circle cx="44" cy="330" r="12" fill="#1d4ed8"/><text x="44" y="336" font-size="16" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+  <text x="66" y="336" font-size="17" font-weight="700" fill="#0f172a">17번째 append — 16칸이 꽉 차서 34칸 배열로 옮긴다</text>
+  <text x="66" y="364" font-size="16" fill="#c2410c">이때만 들어 있던 16글자를 새 배열로 복사한다.</text>
+
+  <!-- growth table -->
+  <rect x="66" y="384" width="670" height="38" fill="#eff6ff" stroke="#bfdbfe"/>
+  <g font-size="16" font-weight="700" fill="#1e3a8a">
+    <text x="82" y="409">늘어난 차례</text>
+    <text x="250" y="409">몇 번째 append 에서</text>
+    <text x="500" y="409">capacity</text>
+  </g>
+  <g font-size="16" fill="#334155" font-family="Consolas, monospace">
+    <text x="82" y="448">1</text><text x="250" y="448">17</text><text x="500" y="448">16 → 34</text>
+    <text x="82" y="476">2</text><text x="250" y="476">35</text><text x="500" y="476">34 → 70</text>
+    <text x="82" y="504">3</text><text x="250" y="504">71</text><text x="500" y="504">70 → 142</text>
+    <text x="82" y="532">4</text><text x="250" y="532">143</text><text x="500" y="532">142 → 286</text>
+    <text x="82" y="560">…</text>
+    <text x="82" y="588">12</text><text x="250" y="588">36,863</text><text x="500" y="588">36,862 → 73,726</text>
+    <text x="82" y="616">13</text><text x="250" y="616">73,727</text><text x="500" y="616">73,726 → 147,454</text>
+  </g>
+
+  <rect x="24" y="636" width="712" height="88" rx="6" fill="#ecfdf5" stroke="#047857"/>
+  <text x="44" y="664" font-size="17" font-weight="700" fill="#047857">③ n = 100,000 번 append 하면</text>
+  <text x="44" y="692" font-size="16" fill="#334155">배열을 13번 옮기며 복사한 글자는 모두 147,412 개다.</text>
+  <text x="44" y="714" font-size="16" fill="#334155">+= 의 4,999,950,000 개(그림 3-3a)와 비교하면 약 3만 4천 분의 1이다.</text>
+</svg>

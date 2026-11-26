@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 990" width="760" height="990" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>로컬 인프라 한 장: 파일 하나로 MySQL, Kafka, Redis 를 띄우고 같은 파일을 CI 에서도 띄운다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="990" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">로컬 인프라 한 장: 파일 하나로 MySQL · Kafka · Redis</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">를 띄우고, 같은 파일을 CI 에서도 띄워 확인한다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">파랑 = 내 PC 에서 실행하는 것, 초록 = 컨테이너, 회색 = 볼륨</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">(데이터 보관), 주황 = CI. 번호 순서대로 읽는다</text>
+<rect x="20" y="160" width="720" height="172" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="36" y="186" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">내 PC — Windows 11, Docker Desktop (WSL2)</text>
+<rect x="36" y="200" width="336" height="118" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="48" y="226" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① Git Bash 에서 세 줄</text>
+<text x="48" y="249" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">cp .env.example .env</text>
+<text x="48" y="272" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">up -d --wait</text>
+<text x="48" y="295" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">bash infra/verify.sh</text>
+<rect x="388" y="200" width="336" height="118" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="400" y="226" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">IntelliJ 로 띄운 앱 (P3 부터)</text>
+<text x="400" y="249" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">localhost:3306  MySQL</text>
+<text x="400" y="272" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">localhost:9092  Kafka</text>
+<text x="400" y="295" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">localhost:6379  Redis</text>
+<line x1="150" y1="332" x2="150" y2="372" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<text x="162" y="358" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">② 띄우고 healthy 까지 기다린다</text>
+<line x1="560" y1="332" x2="560" y2="372" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<text x="572" y="358" font-size="16" fill="#1d4ed8" font-weight="700" xml:space="preserve">③ 쓰고 읽어 본다</text>
+<rect x="20" y="374" width="720" height="372" rx="8" fill="#ffffff" stroke="#047857" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="36" y="400" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">infra/docker-compose.yml 이 띄우는 컨테이너 3개</text>
+<text x="36" y="424" font-size="16" fill="#475569" xml:space="preserve">각자 healthcheck 로 5초마다 "응답하나?" 를 확인한다</text>
+<rect x="36" y="440" width="220" height="120" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="48" y="466" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">MySQL 8.4</text>
+<text x="48" y="489" font-size="16" fill="#0f172a" xml:space="preserve">포트 3306</text>
+<text x="48" y="512" font-size="16" fill="#0f172a" xml:space="preserve">문자셋 utf8mb4</text>
+<text x="48" y="535" font-size="16" fill="#0f172a" xml:space="preserve">시간대 +09:00</text>
+<line x1="146" y1="560" x2="146" y2="590" stroke="#94a3b8" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#mx)"/>
+<rect x="36" y="592" width="220" height="56" rx="8" fill="#f1f5f9" stroke="#334155" stroke-width="1.6"/>
+<text x="48" y="618" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">mysql-data</text>
+<text x="48" y="640" font-size="16" fill="#475569" xml:space="preserve">볼륨 (down -v 로만 삭제)</text>
+<rect x="270" y="440" width="220" height="120" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="282" y="466" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">Kafka 4.1 (KRaft)</text>
+<text x="282" y="489" font-size="16" fill="#0f172a" xml:space="preserve">9092  내 PC 용</text>
+<text x="282" y="512" font-size="16" fill="#0f172a" xml:space="preserve">29092  컨테이너끼리</text>
+<text x="282" y="535" font-size="16" fill="#0f172a" xml:space="preserve">9093  컨트롤러</text>
+<line x1="380" y1="560" x2="380" y2="590" stroke="#94a3b8" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#mx)"/>
+<rect x="270" y="592" width="220" height="56" rx="8" fill="#f1f5f9" stroke="#334155" stroke-width="1.6"/>
+<text x="282" y="618" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">kafka-data</text>
+<text x="282" y="640" font-size="16" fill="#475569" xml:space="preserve">볼륨 (down -v 로만 삭제)</text>
+<rect x="504" y="440" width="220" height="120" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="516" y="466" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">Redis 7.4</text>
+<text x="516" y="489" font-size="16" fill="#0f172a" xml:space="preserve">포트 6379</text>
+<text x="516" y="512" font-size="16" fill="#0f172a" xml:space="preserve">AOF 켬</text>
+<text x="516" y="535" font-size="16" fill="#0f172a" xml:space="preserve">재기동해도 데이터 유지</text>
+<line x1="614" y1="560" x2="614" y2="590" stroke="#94a3b8" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#mx)"/>
+<rect x="504" y="592" width="220" height="56" rx="8" fill="#f1f5f9" stroke="#334155" stroke-width="1.6"/>
+<text x="516" y="618" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">redis-data</text>
+<text x="516" y="640" font-size="16" fill="#475569" xml:space="preserve">볼륨 (down -v 로만 삭제)</text>
+<rect x="36" y="664" width="688" height="64" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="48" y="690" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">선택: kafka-ui (http://localhost:8089)</text>
+<text x="48" y="713" font-size="16" fill="#0f172a" xml:space="preserve">--profile tools 를 줄 때만 뜬다. 기본 실행에는 없다</text>
+<line x1="380" y1="746" x2="380" y2="790" stroke="#c2410c" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#mo)"/>
+<text x="392" y="774" font-size="16" fill="#c2410c" font-weight="700" xml:space="preserve">같은 파일</text>
+<rect x="20" y="792" width="720" height="118" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="32" y="818" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ GitHub Actions 의 infra-smoke 잡 (PR 마다)</text>
+<text x="32" y="841" font-size="16" fill="#0f172a" xml:space="preserve">같은 docker-compose.yml 과 .env.example 로 up --wait</text>
+<text x="32" y="864" font-size="16" fill="#0f172a" xml:space="preserve">→ verify.sh → 실패하면 로그 출력 → 항상 down -v</text>
+<text x="32" y="887" font-size="16" fill="#0f172a" xml:space="preserve">내 PC 에서 되는 파일이 다른 컴퓨터에서도 되는지 본다</text>
+<text x="20" y="940" font-size="16" fill="#64748b" xml:space="preserve">근거: bank-transfer PR #1 (P3-0) — infra/docker-compose.yml,</text>
+<text x="20" y="964" font-size="16" fill="#64748b" xml:space="preserve">infra/verify.sh, .github/workflows/ci.yml</text>
+</svg>

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 700" width="760" height="700" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 3-7b. 문자열 압축 예제 3 단위 3 — 조각마다 prev, count, sb 가 어떻게 바뀌고 마지막 묶음을 언제 붙이나</title>
+  <rect width="760" height="700" fill="#ffffff"/>
+  <text x="24" y="40" font-size="22" font-weight="700" fill="#0f172a">문자열 압축 예제 3 단위 3 — 조각마다 prev, count,</text>
+  <text x="24" y="70" font-size="22" font-weight="700" fill="#0f172a">sb 가 어떻게 바뀌고 마지막 묶음을 언제 붙이나</text>
+  <text x="24" y="104" font-size="16" fill="#475569">prev = 지금 세고 있는 조각, count = 그 조각이 연속으로 나온 수,</text>
+  <text x="24" y="128" font-size="16" fill="#475569">sb = 지금까지 확정된 압축 결과. 초록 글자 = 그 단계에서 sb 에 붙은 것.</text>
+
+  <rect x="24" y="148" width="712" height="40" fill="#eff6ff" stroke="#bfdbfe"/>
+  <g font-size="16" font-weight="700" fill="#1e3a8a">
+    <text x="44" y="174">차례</text>
+    <text x="110" y="174">읽은 조각과 판단</text>
+    <text x="420" y="174">prev, count</text>
+    <text x="590" y="174">sb</text>
+  </g>
+
+  <g font-size="16" fill="#334155">
+    <!-- 1 -->
+    <circle cx="56" cy="214" r="12" fill="#1d4ed8"/><text x="56" y="220" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+    <text x="110" y="220">시작: 첫 조각을 prev 로 둔다</text>
+    <text x="420" y="220" font-family="Consolas, monospace">"abc", 1</text>
+    <text x="590" y="220" font-family="Consolas, monospace">""</text>
+    <line x1="24" y1="240" x2="736" y2="240" stroke="#e2e8f0"/>
+    <!-- 2 -->
+    <circle cx="56" cy="266" r="12" fill="#1d4ed8"/><text x="56" y="272" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+    <text x="110" y="272">i=3, "abc" — prev 와 같다</text>
+    <text x="110" y="296" fill="#047857">→ count 만 1 늘린다</text>
+    <text x="420" y="272" font-family="Consolas, monospace">"abc", <tspan fill="#047857" font-weight="700">2</tspan></text>
+    <text x="590" y="272" font-family="Consolas, monospace">""</text>
+    <line x1="24" y1="314" x2="736" y2="314" stroke="#e2e8f0"/>
+    <!-- 3 -->
+    <circle cx="56" cy="340" r="12" fill="#1d4ed8"/><text x="56" y="346" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+    <text x="110" y="346">i=6, "ded" — prev 와 다르다</text>
+    <text x="110" y="370" fill="#c2410c">→ "2" + "abc" 를 붙이고 prev 교체</text>
+    <text x="420" y="346" font-family="Consolas, monospace">"ded", 1</text>
+    <text x="590" y="346" font-family="Consolas, monospace"><tspan fill="#047857" font-weight="700">2abc</tspan></text>
+    <line x1="24" y1="388" x2="736" y2="388" stroke="#e2e8f0"/>
+    <!-- 4 -->
+    <circle cx="56" cy="414" r="12" fill="#1d4ed8"/><text x="56" y="420" font-weight="700" fill="#fff" text-anchor="middle">4</text>
+    <text x="110" y="420">i=9, "e" (1글자뿐인 마지막 조각)</text>
+    <text x="110" y="444" fill="#c2410c">→ 다르니 "ded" 를 붙이고 prev 교체</text>
+    <text x="420" y="420" font-family="Consolas, monospace">"e", 1</text>
+    <text x="590" y="420" font-family="Consolas, monospace">2abc<tspan fill="#047857" font-weight="700">ded</tspan></text>
+    <line x1="24" y1="462" x2="736" y2="462" stroke="#e2e8f0"/>
+    <!-- 5 -->
+    <circle cx="56" cy="488" r="12" fill="#1d4ed8"/><text x="56" y="494" font-weight="700" fill="#fff" text-anchor="middle">5</text>
+    <text x="110" y="494">i=12 ≥ 10 이라 for 가 끝난다</text>
+    <text x="110" y="518" fill="#b91c1c">→ 루프 밖에서 남은 "e" 를 붙인다</text>
+    <text x="420" y="494" font-family="Consolas, monospace">"e", 1</text>
+    <text x="590" y="494" font-family="Consolas, monospace">2abcded<tspan fill="#047857" font-weight="700">e</tspan></text>
+  </g>
+
+  <rect x="24" y="544" width="712" height="140" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <g font-size="16" fill="#334155">
+    <text x="44" y="572" font-weight="700" fill="#047857">단위 3 의 결과 "2abcdede" 는 8글자다. best = min(9, 8) = 8.</text>
+    <text x="44" y="600">sb 에 붙이는 경우는 "다른 조각을 만났을 때" 와 "루프가 끝났을 때" 두 가지뿐이다.</text>
+    <text x="44" y="626">5번 차례를 빼먹으면 단위 3 의 결과가 "2abcded" 7글자가 되어 답이 틀린다.</text>
+    <text x="44" y="654">4번 차례의 짧은 조각은 Math.min(i + unit, n) 덕분에 범위를 넘지 않는다.</text>
+  </g>
+</svg>

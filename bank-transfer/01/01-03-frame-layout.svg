@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 700" width="760" height="700" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>성명조회 요청 전문 56바이트를 자리별로 나누면</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="700" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">성명조회 요청 전문 56바이트를 자리별로 나누면</text>
+<text x="20" y="68" font-size="16" fill="#475569" xml:space="preserve">길이부 4 + 공통부 33 + 개별부 19. "0052" 는 길이부를 뺀 52 다.</text>
+<text x="20" y="91" font-size="16" fill="#475569" xml:space="preserve">값의 _ 는 공백(0x20) 한 바이트</text>
+<text x="20" y="140" font-size="16" fill="#475569" xml:space="preserve">한 줄로 보면 (보기 쉽게 띄어 썼다)</text>
+<text x="20" y="166" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">0052 0200 NAM 00000001 20261001090000 0000 090 1002123456789___</text>
+<rect x="20" y="186" width="600" height="36" fill="#e2e8f0"/>
+<text x="30" y="210" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">바이트 위치</text>
+<text x="140" y="210" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">필드</text>
+<text x="290" y="210" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">길이</text>
+<text x="360" y="210" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">값</text>
+<rect x="20" y="222" width="600" height="40" fill="#ffffff" stroke="#e2e8f0"/>
+<text x="30" y="248" font-size="16" fill="#0f172a" xml:space="preserve">0 ~ 3</text>
+<text x="140" y="248" font-size="16" fill="#0f172a" xml:space="preserve">길이부</text>
+<text x="290" y="248" font-size="16" fill="#0f172a" xml:space="preserve">4</text>
+<text x="360" y="248" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">0052</text>
+<rect x="20" y="262" width="600" height="40" fill="#f8fafc" stroke="#e2e8f0"/>
+<text x="30" y="288" font-size="16" fill="#0f172a" xml:space="preserve">4 ~ 7</text>
+<text x="140" y="288" font-size="16" fill="#0f172a" xml:space="preserve">전문구분</text>
+<text x="290" y="288" font-size="16" fill="#0f172a" xml:space="preserve">4</text>
+<text x="360" y="288" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">0200</text>
+<rect x="20" y="302" width="600" height="40" fill="#ffffff" stroke="#e2e8f0"/>
+<text x="30" y="328" font-size="16" fill="#0f172a" xml:space="preserve">8 ~ 10</text>
+<text x="140" y="328" font-size="16" fill="#0f172a" xml:space="preserve">업무구분</text>
+<text x="290" y="328" font-size="16" fill="#0f172a" xml:space="preserve">3</text>
+<text x="360" y="328" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">NAM</text>
+<rect x="20" y="342" width="600" height="40" fill="#f8fafc" stroke="#e2e8f0"/>
+<text x="30" y="368" font-size="16" fill="#0f172a" xml:space="preserve">11 ~ 18</text>
+<text x="140" y="368" font-size="16" fill="#0f172a" xml:space="preserve">전문번호</text>
+<text x="290" y="368" font-size="16" fill="#0f172a" xml:space="preserve">8</text>
+<text x="360" y="368" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">00000001</text>
+<rect x="20" y="382" width="600" height="40" fill="#ffffff" stroke="#e2e8f0"/>
+<text x="30" y="408" font-size="16" fill="#0f172a" xml:space="preserve">19 ~ 32</text>
+<text x="140" y="408" font-size="16" fill="#0f172a" xml:space="preserve">전문일시</text>
+<text x="290" y="408" font-size="16" fill="#0f172a" xml:space="preserve">14</text>
+<text x="360" y="408" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">20261001090000</text>
+<rect x="20" y="422" width="600" height="40" fill="#f8fafc" stroke="#e2e8f0"/>
+<text x="30" y="448" font-size="16" fill="#0f172a" xml:space="preserve">33 ~ 36</text>
+<text x="140" y="448" font-size="16" fill="#0f172a" xml:space="preserve">응답코드</text>
+<text x="290" y="448" font-size="16" fill="#0f172a" xml:space="preserve">4</text>
+<text x="360" y="448" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">0000</text>
+<rect x="20" y="462" width="600" height="40" fill="#ffffff" stroke="#e2e8f0"/>
+<text x="30" y="488" font-size="16" fill="#0f172a" xml:space="preserve">37 ~ 39</text>
+<text x="140" y="488" font-size="16" fill="#0f172a" xml:space="preserve">은행코드</text>
+<text x="290" y="488" font-size="16" fill="#0f172a" xml:space="preserve">3</text>
+<text x="360" y="488" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">090</text>
+<rect x="20" y="502" width="600" height="40" fill="#f8fafc" stroke="#e2e8f0"/>
+<text x="30" y="528" font-size="16" fill="#0f172a" xml:space="preserve">40 ~ 55</text>
+<text x="140" y="528" font-size="16" fill="#0f172a" xml:space="preserve">계좌번호</text>
+<text x="290" y="528" font-size="16" fill="#0f172a" xml:space="preserve">16</text>
+<text x="360" y="528" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">1002123456789___</text>
+<rect x="632" y="225" width="108" height="34" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="686" y="248.0" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">길이부 4</text>
+<rect x="632" y="265" width="108" height="194" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="686" y="360.0" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">공통부</text>
+<text x="686" y="382.0" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">33바이트</text>
+<rect x="632" y="465" width="108" height="74" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="686" y="500.0" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">개별부</text>
+<text x="686" y="522.0" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">19바이트</text>
+<text x="20" y="576" font-size="16" fill="#0f172a" xml:space="preserve">• 숫자 필드(전문번호)는 오른쪽 정렬 + 0 채움: 1 → 00000001</text>
+<text x="20" y="601" font-size="16" fill="#0f172a" xml:space="preserve">• 문자 필드(계좌번호)는 왼쪽 정렬 + 공백: 13자리 + 공백 3 = 16</text>
+<text x="20" y="626" font-size="16" fill="#0f172a" xml:space="preserve">• 응답(0210 NAM)은 여기에 예금주명 20바이트가 붙어 본문이 72</text>
+<text x="20" y="662" font-size="16" fill="#64748b" xml:space="preserve">근거: docs/protocol.md §1 ~ §5 (v0.1 과 같은 부분)</text>
+</svg>

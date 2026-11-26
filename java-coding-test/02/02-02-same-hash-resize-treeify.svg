@@ -1,0 +1,127 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 986" width="760" height="986" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 2-2. hashCode 가 모두 같은 키 11개를 넣을 때 — 테이블이 16칸에서 64칸으로 커진 뒤에야 칸이 트리로 바뀐다</title>
+  <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker></defs>
+  <rect width="760" height="986" fill="#ffffff"/>
+  <text x="24" y="40" font-size="22" fill="#0f172a" font-weight="700">hashCode 가 모두 42 인 키 11개를 차례로 넣으면</text>
+  <text x="24" y="70" font-size="20" fill="#0f172a" font-weight="700">테이블이 64칸이 된 뒤에야 칸이 트리로 바뀐다</text>
+  <text x="24" y="104" font-size="16" fill="#475569">B1 = new BadKey(1). 리플렉션으로 내부 배열을 열어 put 마다 출력했다.</text>
+  <text x="24" y="128" font-size="16" fill="#475569">주황 = 트리 대신 resize, 초록 = 트리로 바뀜</text>
+  <rect x="24" y="160" width="712" height="132" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+  <circle cx="48" cy="188" r="13" fill="#1d4ed8"/>
+  <text x="48" y="194" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle">1</text>
+  <text x="72" y="194" font-size="17" fill="#0f172a" font-weight="700" font-family="Consolas, monospace">put(B1) ~ put(B8)</text>
+  <rect x="600" y="172" width="116" height="36" rx="6" fill="#ffffff" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="658" y="197" font-size="17" fill="#1d4ed8" font-weight="700" text-anchor="middle">16칸</text>
+  <text x="48" y="226" font-size="16" fill="#334155">10번 칸: 연결 리스트 8개 — 42 &amp; 15 = 10. 넣을 때마다 리스트가 하나씩 길어진다</text>
+  <rect x="48" y="244" width="40" height="34" rx="5" fill="#ffffff" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="68" y="267" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">1</text>
+  <line x1="88" y1="261" x2="96" y2="261" stroke="#475569" stroke-width="2"/>
+  <rect x="96" y="244" width="40" height="34" rx="5" fill="#ffffff" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="116" y="267" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">2</text>
+  <line x1="136" y1="261" x2="144" y2="261" stroke="#475569" stroke-width="2"/>
+  <rect x="144" y="244" width="40" height="34" rx="5" fill="#ffffff" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="164" y="267" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">3</text>
+  <line x1="184" y1="261" x2="192" y2="261" stroke="#475569" stroke-width="2"/>
+  <rect x="192" y="244" width="40" height="34" rx="5" fill="#ffffff" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="212" y="267" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">4</text>
+  <line x1="232" y1="261" x2="240" y2="261" stroke="#475569" stroke-width="2"/>
+  <rect x="240" y="244" width="40" height="34" rx="5" fill="#ffffff" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="260" y="267" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">5</text>
+  <line x1="280" y1="261" x2="288" y2="261" stroke="#475569" stroke-width="2"/>
+  <rect x="288" y="244" width="40" height="34" rx="5" fill="#ffffff" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="308" y="267" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">6</text>
+  <line x1="328" y1="261" x2="336" y2="261" stroke="#475569" stroke-width="2"/>
+  <rect x="336" y="244" width="40" height="34" rx="5" fill="#ffffff" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="356" y="267" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">7</text>
+  <line x1="376" y1="261" x2="384" y2="261" stroke="#475569" stroke-width="2"/>
+  <rect x="384" y="244" width="40" height="34" rx="5" fill="#ffffff" stroke="#1d4ed8" stroke-width="2"/>
+  <text x="404" y="267" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">8</text>
+  <rect x="24" y="304" width="712" height="132" rx="8" fill="#fff7ed" stroke="#fdba74" stroke-width="1"/>
+  <circle cx="48" cy="332" r="13" fill="#c2410c"/>
+  <text x="48" y="338" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle">2</text>
+  <text x="72" y="338" font-size="17" fill="#0f172a" font-weight="700" font-family="Consolas, monospace">put(B9)</text>
+  <rect x="600" y="316" width="116" height="36" rx="6" fill="#ffffff" stroke="#c2410c" stroke-width="2"/>
+  <text x="658" y="341" font-size="17" fill="#c2410c" font-weight="700" text-anchor="middle">32칸</text>
+  <text x="48" y="370" font-size="16" fill="#334155">10번 칸: 연결 리스트 9개 — 8개 칸에 9번째 → 트리화 조건. 16 &lt; 64 라 resize</text>
+  <rect x="48" y="388" width="40" height="34" rx="5" fill="#ffffff" stroke="#c2410c" stroke-width="2"/>
+  <text x="68" y="411" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">1</text>
+  <line x1="88" y1="405" x2="96" y2="405" stroke="#475569" stroke-width="2"/>
+  <rect x="96" y="388" width="40" height="34" rx="5" fill="#ffffff" stroke="#c2410c" stroke-width="2"/>
+  <text x="116" y="411" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">2</text>
+  <line x1="136" y1="405" x2="144" y2="405" stroke="#475569" stroke-width="2"/>
+  <rect x="144" y="388" width="40" height="34" rx="5" fill="#ffffff" stroke="#c2410c" stroke-width="2"/>
+  <text x="164" y="411" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">3</text>
+  <line x1="184" y1="405" x2="192" y2="405" stroke="#475569" stroke-width="2"/>
+  <rect x="192" y="388" width="40" height="34" rx="5" fill="#ffffff" stroke="#c2410c" stroke-width="2"/>
+  <text x="212" y="411" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">4</text>
+  <line x1="232" y1="405" x2="240" y2="405" stroke="#475569" stroke-width="2"/>
+  <rect x="240" y="388" width="40" height="34" rx="5" fill="#ffffff" stroke="#c2410c" stroke-width="2"/>
+  <text x="260" y="411" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">5</text>
+  <line x1="280" y1="405" x2="288" y2="405" stroke="#475569" stroke-width="2"/>
+  <rect x="288" y="388" width="40" height="34" rx="5" fill="#ffffff" stroke="#c2410c" stroke-width="2"/>
+  <text x="308" y="411" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">6</text>
+  <line x1="328" y1="405" x2="336" y2="405" stroke="#475569" stroke-width="2"/>
+  <rect x="336" y="388" width="40" height="34" rx="5" fill="#ffffff" stroke="#c2410c" stroke-width="2"/>
+  <text x="356" y="411" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">7</text>
+  <line x1="376" y1="405" x2="384" y2="405" stroke="#475569" stroke-width="2"/>
+  <rect x="384" y="388" width="40" height="34" rx="5" fill="#ffffff" stroke="#c2410c" stroke-width="2"/>
+  <text x="404" y="411" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">8</text>
+  <line x1="424" y1="405" x2="432" y2="405" stroke="#475569" stroke-width="2"/>
+  <rect x="432" y="388" width="40" height="34" rx="5" fill="#ffffff" stroke="#c2410c" stroke-width="2"/>
+  <text x="452" y="411" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">9</text>
+  <rect x="24" y="448" width="712" height="132" rx="8" fill="#fff7ed" stroke="#fdba74" stroke-width="1"/>
+  <circle cx="48" cy="476" r="13" fill="#c2410c"/>
+  <text x="48" y="482" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle">3</text>
+  <text x="72" y="482" font-size="17" fill="#0f172a" font-weight="700" font-family="Consolas, monospace">put(B10)</text>
+  <rect x="600" y="460" width="116" height="36" rx="6" fill="#ffffff" stroke="#c2410c" stroke-width="2"/>
+  <text x="658" y="485" font-size="17" fill="#c2410c" font-weight="700" text-anchor="middle">64칸</text>
+  <text x="48" y="514" font-size="16" fill="#334155">42번 칸: 연결 리스트 10개 — 다시 조건 충족, 32 &lt; 64 라 resize. 42 &amp; 63 = 42</text>
+  <rect x="48" y="532" width="40" height="34" rx="5" fill="#ffffff" stroke="#c2410c" stroke-width="2"/>
+  <text x="68" y="555" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">1</text>
+  <line x1="88" y1="549" x2="96" y2="549" stroke="#475569" stroke-width="2"/>
+  <rect x="96" y="532" width="40" height="34" rx="5" fill="#ffffff" stroke="#c2410c" stroke-width="2"/>
+  <text x="116" y="555" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">2</text>
+  <line x1="136" y1="549" x2="144" y2="549" stroke="#475569" stroke-width="2"/>
+  <rect x="144" y="532" width="40" height="34" rx="5" fill="#ffffff" stroke="#c2410c" stroke-width="2"/>
+  <text x="164" y="555" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">3</text>
+  <line x1="184" y1="549" x2="192" y2="549" stroke="#475569" stroke-width="2"/>
+  <rect x="192" y="532" width="40" height="34" rx="5" fill="#ffffff" stroke="#c2410c" stroke-width="2"/>
+  <text x="212" y="555" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">4</text>
+  <line x1="232" y1="549" x2="240" y2="549" stroke="#475569" stroke-width="2"/>
+  <rect x="240" y="532" width="40" height="34" rx="5" fill="#ffffff" stroke="#c2410c" stroke-width="2"/>
+  <text x="260" y="555" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">5</text>
+  <line x1="280" y1="549" x2="288" y2="549" stroke="#475569" stroke-width="2"/>
+  <rect x="288" y="532" width="40" height="34" rx="5" fill="#ffffff" stroke="#c2410c" stroke-width="2"/>
+  <text x="308" y="555" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">6</text>
+  <line x1="328" y1="549" x2="336" y2="549" stroke="#475569" stroke-width="2"/>
+  <rect x="336" y="532" width="40" height="34" rx="5" fill="#ffffff" stroke="#c2410c" stroke-width="2"/>
+  <text x="356" y="555" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">7</text>
+  <line x1="376" y1="549" x2="384" y2="549" stroke="#475569" stroke-width="2"/>
+  <rect x="384" y="532" width="40" height="34" rx="5" fill="#ffffff" stroke="#c2410c" stroke-width="2"/>
+  <text x="404" y="555" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">8</text>
+  <line x1="424" y1="549" x2="432" y2="549" stroke="#475569" stroke-width="2"/>
+  <rect x="432" y="532" width="40" height="34" rx="5" fill="#ffffff" stroke="#c2410c" stroke-width="2"/>
+  <text x="452" y="555" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">9</text>
+  <line x1="472" y1="549" x2="480" y2="549" stroke="#475569" stroke-width="2"/>
+  <rect x="480" y="532" width="40" height="34" rx="5" fill="#ffffff" stroke="#c2410c" stroke-width="2"/>
+  <text x="500" y="555" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">10</text>
+  <rect x="24" y="592" width="712" height="190" rx="8" fill="#ecfdf5" stroke="#6ee7b7" stroke-width="1"/>
+  <circle cx="48" cy="620" r="13" fill="#047857"/>
+  <text x="48" y="626" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle">4</text>
+  <text x="72" y="626" font-size="17" fill="#0f172a" font-weight="700" font-family="Consolas, monospace">put(B11)</text>
+  <rect x="600" y="604" width="116" height="36" rx="6" fill="#ffffff" stroke="#047857" stroke-width="2"/>
+  <text x="658" y="629" font-size="17" fill="#047857" font-weight="700" text-anchor="middle">64칸</text>
+  <text x="48" y="658" font-size="16" fill="#334155">42번 칸: 트리 11개 — 64칸 이상이라 노드가 Node → TreeNode</text>
+  <rect x="350" y="676" width="60" height="34" rx="5" fill="#ffffff" stroke="#047857" stroke-width="2"/>
+  <text x="380" y="699" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">B5</text>
+  <text x="470" y="699" font-size="16" fill="#047857" font-weight="700">← 뿌리는 B5</text>
+  <line x1="380" y1="710" x2="380" y2="728" stroke="#047857" stroke-width="2"/>
+  <rect x="150" y="728" width="460" height="34" rx="5" fill="#ffffff" stroke="#047857" stroke-width="2"/>
+  <text x="380" y="751" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">나머지 10개 (B1 ~ B4, B6 ~ B11)</text>
+  <rect x="24" y="798" width="712" height="168" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="44" y="828" font-size="17" fill="#0f172a" font-weight="700">같은 칸 안에서 키를 찾는 비용</text>
+  <text x="44" y="858" font-size="16" fill="#334155">리스트: 앞에서부터 equals 로 하나씩 비교한다 (최악 n 번).</text>
+  <text x="44" y="886" font-size="16" fill="#334155">트리: Comparable 이면 비교로 길을 골라 내려간다 (O(log n)).</text>
+  <text x="44" y="914" font-size="16" fill="#334155">BadKey 는 Comparable 이 아니라 좌우를 객체 식별 해시로 정했고,</text>
+  <text x="44" y="942" font-size="16" fill="#334155">찾을 때는 양쪽을 다 뒤질 수 있어 O(n) 에 가깝다.</text>
+</svg>

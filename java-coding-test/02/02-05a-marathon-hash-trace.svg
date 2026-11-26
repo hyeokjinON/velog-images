@@ -1,0 +1,77 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 728" width="760" height="728" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 2-5a. 완주하지 못한 선수 예 3 — 해시 풀이에서 이름별 개수가 +1, −1 로 바뀌어 mislav 만 1 이 남는다</title>
+  <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker></defs>
+  <rect width="760" height="728" fill="#ffffff"/>
+  <text x="24" y="40" font-size="22" fill="#0f172a" font-weight="700">완주하지 못한 선수 예 3 — 해시 풀이</text>
+  <text x="24" y="70" font-size="20" fill="#0f172a" font-weight="700">이름별 개수가 +1, −1 로 바뀌어 mislav 만 1 이 남는다</text>
+  <text x="24" y="104" font-size="16" fill="#475569">초록 = 그 줄에서 +1, 빨강 = −1, "—" = 아직 맵에 없음</text>
+  <rect x="24" y="134" width="712" height="44" rx="0" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+  <text x="44" y="163" font-size="16" fill="#1e3a8a" font-weight="700">순서</text>
+  <text x="110" y="163" font-size="16" fill="#1e3a8a" font-weight="700">읽은 이름</text>
+  <text x="420" y="163" font-size="16" fill="#1e3a8a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">ana</text>
+  <text x="540" y="163" font-size="16" fill="#1e3a8a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">mislav</text>
+  <text x="660" y="163" font-size="16" fill="#1e3a8a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">stanko</text>
+  <text x="54" y="210" font-size="16" fill="#475569" text-anchor="middle">2</text>
+  <text x="110" y="210" font-size="16" fill="#047857" font-weight="700" font-family="Consolas, monospace">+ mislav</text>
+  <text x="250" y="210" font-size="15" fill="#475569" font-family="Consolas, monospace">participant</text>
+  <text x="420" y="210" font-size="16" fill="#94a3b8" font-family="Consolas, monospace" text-anchor="middle">—</text>
+  <rect x="500" y="186" width="80" height="34" rx="6" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="540" y="210" font-size="17" fill="#047857" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">1</text>
+  <text x="660" y="210" font-size="16" fill="#94a3b8" font-family="Consolas, monospace" text-anchor="middle">—</text>
+  <line x1="24" y1="228" x2="736" y2="228" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="54" y="260" font-size="16" fill="#475569" text-anchor="middle">3</text>
+  <text x="110" y="260" font-size="16" fill="#047857" font-weight="700" font-family="Consolas, monospace">+ stanko</text>
+  <text x="250" y="260" font-size="15" fill="#475569" font-family="Consolas, monospace">participant</text>
+  <text x="420" y="260" font-size="16" fill="#94a3b8" font-family="Consolas, monospace" text-anchor="middle">—</text>
+  <text x="540" y="260" font-size="16" fill="#334155" font-family="Consolas, monospace" text-anchor="middle">1</text>
+  <rect x="620" y="236" width="80" height="34" rx="6" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="660" y="260" font-size="17" fill="#047857" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">1</text>
+  <line x1="24" y1="278" x2="736" y2="278" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="54" y="310" font-size="16" fill="#475569" text-anchor="middle">4</text>
+  <text x="110" y="310" font-size="16" fill="#047857" font-weight="700" font-family="Consolas, monospace">+ mislav</text>
+  <text x="250" y="310" font-size="15" fill="#475569" font-family="Consolas, monospace">participant</text>
+  <text x="420" y="310" font-size="16" fill="#94a3b8" font-family="Consolas, monospace" text-anchor="middle">—</text>
+  <rect x="500" y="286" width="80" height="34" rx="6" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="540" y="310" font-size="17" fill="#047857" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">2</text>
+  <text x="660" y="310" font-size="16" fill="#334155" font-family="Consolas, monospace" text-anchor="middle">1</text>
+  <line x1="24" y1="328" x2="736" y2="328" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="54" y="360" font-size="16" fill="#475569" text-anchor="middle">5</text>
+  <text x="110" y="360" font-size="16" fill="#047857" font-weight="700" font-family="Consolas, monospace">+ ana</text>
+  <text x="250" y="360" font-size="15" fill="#475569" font-family="Consolas, monospace">participant</text>
+  <rect x="380" y="336" width="80" height="34" rx="6" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="420" y="360" font-size="17" fill="#047857" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">1</text>
+  <text x="540" y="360" font-size="16" fill="#334155" font-family="Consolas, monospace" text-anchor="middle">2</text>
+  <text x="660" y="360" font-size="16" fill="#334155" font-family="Consolas, monospace" text-anchor="middle">1</text>
+  <line x1="24" y1="378" x2="736" y2="378" stroke="#e2e8f0" stroke-width="1"/>
+  <rect x="24" y="382" width="712" height="32" rx="0" fill="#f1f5f9" stroke="#f1f5f9" stroke-width="1"/>
+  <text x="380" y="404" font-size="16" fill="#475569" text-anchor="middle">참가자를 다 셌다. 여기부터 완주자를 뺀다</text>
+  <text x="54" y="450" font-size="16" fill="#475569" text-anchor="middle">6</text>
+  <text x="110" y="450" font-size="16" fill="#b91c1c" font-weight="700" font-family="Consolas, monospace">− stanko</text>
+  <text x="250" y="450" font-size="15" fill="#475569" font-family="Consolas, monospace">completion</text>
+  <text x="420" y="450" font-size="16" fill="#334155" font-family="Consolas, monospace" text-anchor="middle">1</text>
+  <text x="540" y="450" font-size="16" fill="#334155" font-family="Consolas, monospace" text-anchor="middle">2</text>
+  <rect x="620" y="426" width="80" height="34" rx="6" fill="#fef2f2" stroke="#b91c1c" stroke-width="2"/>
+  <text x="660" y="450" font-size="17" fill="#b91c1c" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">0</text>
+  <line x1="24" y1="468" x2="736" y2="468" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="54" y="500" font-size="16" fill="#475569" text-anchor="middle">7</text>
+  <text x="110" y="500" font-size="16" fill="#b91c1c" font-weight="700" font-family="Consolas, monospace">− ana</text>
+  <text x="250" y="500" font-size="15" fill="#475569" font-family="Consolas, monospace">completion</text>
+  <rect x="380" y="476" width="80" height="34" rx="6" fill="#fef2f2" stroke="#b91c1c" stroke-width="2"/>
+  <text x="420" y="500" font-size="17" fill="#b91c1c" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">0</text>
+  <text x="540" y="500" font-size="16" fill="#334155" font-family="Consolas, monospace" text-anchor="middle">2</text>
+  <text x="660" y="500" font-size="16" fill="#334155" font-family="Consolas, monospace" text-anchor="middle">0</text>
+  <line x1="24" y1="518" x2="736" y2="518" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="54" y="550" font-size="16" fill="#475569" text-anchor="middle">8</text>
+  <text x="110" y="550" font-size="16" fill="#b91c1c" font-weight="700" font-family="Consolas, monospace">− mislav</text>
+  <text x="250" y="550" font-size="15" fill="#475569" font-family="Consolas, monospace">completion</text>
+  <text x="420" y="550" font-size="16" fill="#334155" font-family="Consolas, monospace" text-anchor="middle">0</text>
+  <rect x="500" y="526" width="80" height="34" rx="6" fill="#fef2f2" stroke="#b91c1c" stroke-width="2"/>
+  <text x="540" y="550" font-size="17" fill="#b91c1c" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">1</text>
+  <text x="660" y="550" font-size="16" fill="#334155" font-family="Consolas, monospace" text-anchor="middle">0</text>
+  <line x1="24" y1="568" x2="736" y2="568" stroke="#e2e8f0" stroke-width="1"/>
+  <rect x="24" y="584" width="712" height="124" rx="8" fill="#ecfdf5" stroke="#6ee7b7" stroke-width="1"/>
+  <text x="44" y="614" font-size="17" fill="#0f172a" font-weight="700">entrySet 을 돌며 값이 0 보다 큰 이름을 찾는다</text>
+  <text x="44" y="646" font-size="16" fill="#334155" font-family="Consolas, monospace">ana=0 → 건너뜀</text>
+  <text x="44" y="676" font-size="16" fill="#047857" font-weight="700" font-family="Consolas, monospace">mislav=1 → return "mislav"</text>
+  <text x="400" y="676" font-size="16" fill="#475569">(stanko 는 보지 않는다)</text>
+</svg>

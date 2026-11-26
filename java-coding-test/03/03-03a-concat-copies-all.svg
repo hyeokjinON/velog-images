@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 660" width="760" height="660" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 3-3a. 루프 안 s += 'a' 는 반복마다 새 String 을 만들고 앞 글자를 전부 복사한다</title>
+  <rect width="760" height="660" fill="#ffffff"/>
+  <text x="24" y="40" font-size="22" font-weight="700" fill="#0f172a">루프 안 s += 'a' 는 반복마다 새 String 을</text>
+  <text x="24" y="70" font-size="22" font-weight="700" fill="#0f172a">만들고 앞 글자를 전부 복사한다</text>
+  <text x="24" y="104" font-size="16" fill="#475569">주황 칸 = 이전 문자열에서 복사한 글자, 초록 칸 = 이번에 붙인 글자.</text>
+  <text x="24" y="128" font-size="16" fill="#475569">이전 객체는 아무도 가리키지 않게 되어 GC(가비지 컬렉션) 대상이 된다.</text>
+
+  <!-- header -->
+  <rect x="24" y="148" width="712" height="40" fill="#eff6ff" stroke="#bfdbfe"/>
+  <g font-size="16" font-weight="700" fill="#1e3a8a">
+    <text x="44" y="174">반복</text>
+    <text x="130" y="174">새로 만든 String 객체</text>
+    <text x="470" y="174">이번 복사</text>
+    <text x="600" y="174">복사 누계</text>
+  </g>
+
+  <g font-size="16" fill="#334155">
+    <!-- i=0 y 188..240 -->
+    <text x="44" y="220" font-family="Consolas, monospace">i=0</text>
+    <rect x="130" y="198" width="40" height="34" fill="#ecfdf5" stroke="#047857"/><text x="150" y="221" text-anchor="middle" font-family="Consolas, monospace">a</text>
+    <text x="470" y="220">0 글자</text><text x="600" y="220">0</text>
+    <line x1="24" y1="240" x2="736" y2="240" stroke="#e2e8f0"/>
+    <!-- i=1 -->
+    <text x="44" y="272" font-family="Consolas, monospace">i=1</text>
+    <rect x="130" y="250" width="40" height="34" fill="#fff7ed" stroke="#c2410c"/><text x="150" y="273" text-anchor="middle" font-family="Consolas, monospace">a</text>
+    <rect x="170" y="250" width="40" height="34" fill="#ecfdf5" stroke="#047857"/><text x="190" y="273" text-anchor="middle" font-family="Consolas, monospace">a</text>
+    <text x="470" y="272">1 글자</text><text x="600" y="272">1</text>
+    <line x1="24" y1="292" x2="736" y2="292" stroke="#e2e8f0"/>
+    <!-- i=2 -->
+    <text x="44" y="324" font-family="Consolas, monospace">i=2</text>
+    <rect x="130" y="302" width="40" height="34" fill="#fff7ed" stroke="#c2410c"/><text x="150" y="325" text-anchor="middle" font-family="Consolas, monospace">a</text>
+    <rect x="170" y="302" width="40" height="34" fill="#fff7ed" stroke="#c2410c"/><text x="190" y="325" text-anchor="middle" font-family="Consolas, monospace">a</text>
+    <rect x="210" y="302" width="40" height="34" fill="#ecfdf5" stroke="#047857"/><text x="230" y="325" text-anchor="middle" font-family="Consolas, monospace">a</text>
+    <text x="470" y="324">2 글자</text><text x="600" y="324">3</text>
+    <line x1="24" y1="344" x2="736" y2="344" stroke="#e2e8f0"/>
+    <!-- i=3 -->
+    <text x="44" y="376" font-family="Consolas, monospace">i=3</text>
+    <rect x="130" y="354" width="40" height="34" fill="#fff7ed" stroke="#c2410c"/><text x="150" y="377" text-anchor="middle" font-family="Consolas, monospace">a</text>
+    <rect x="170" y="354" width="40" height="34" fill="#fff7ed" stroke="#c2410c"/><text x="190" y="377" text-anchor="middle" font-family="Consolas, monospace">a</text>
+    <rect x="210" y="354" width="40" height="34" fill="#fff7ed" stroke="#c2410c"/><text x="230" y="377" text-anchor="middle" font-family="Consolas, monospace">a</text>
+    <rect x="250" y="354" width="40" height="34" fill="#ecfdf5" stroke="#047857"/><text x="270" y="377" text-anchor="middle" font-family="Consolas, monospace">a</text>
+    <text x="470" y="376">3 글자</text><text x="600" y="376">6</text>
+    <line x1="24" y1="396" x2="736" y2="396" stroke="#e2e8f0"/>
+    <!-- i=4 -->
+    <text x="44" y="428" font-family="Consolas, monospace">i=4</text>
+    <rect x="130" y="406" width="40" height="34" fill="#fff7ed" stroke="#c2410c"/><text x="150" y="429" text-anchor="middle" font-family="Consolas, monospace">a</text>
+    <rect x="170" y="406" width="40" height="34" fill="#fff7ed" stroke="#c2410c"/><text x="190" y="429" text-anchor="middle" font-family="Consolas, monospace">a</text>
+    <rect x="210" y="406" width="40" height="34" fill="#fff7ed" stroke="#c2410c"/><text x="230" y="429" text-anchor="middle" font-family="Consolas, monospace">a</text>
+    <rect x="250" y="406" width="40" height="34" fill="#fff7ed" stroke="#c2410c"/><text x="270" y="429" text-anchor="middle" font-family="Consolas, monospace">a</text>
+    <rect x="290" y="406" width="40" height="34" fill="#ecfdf5" stroke="#047857"/><text x="310" y="429" text-anchor="middle" font-family="Consolas, monospace">a</text>
+    <text x="470" y="428">4 글자</text><text x="600" y="428">10</text>
+    <line x1="24" y1="448" x2="736" y2="448" stroke="#e2e8f0"/>
+    <text x="44" y="480" font-family="Consolas, monospace">…</text>
+    <text x="130" y="480">반복 i 에서는 앞의 i 글자를 복사한다</text>
+  </g>
+
+  <rect x="24" y="504" width="712" height="136" rx="6" fill="#fef2f2" stroke="#b91c1c"/>
+  <text x="44" y="532" font-size="17" font-weight="700" fill="#b91c1c">n = 100,000 번 반복하면</text>
+  <text x="44" y="562" font-size="16" fill="#334155">복사 누계 = 0 + 1 + 2 + … + 99,999 = 4,999,950,000 글자 (약 50억)</text>
+  <text x="44" y="590" font-size="16" fill="#334155">새로 만든 String 은 10만 개이고, 마지막 하나 말고는 모두 버려진다.</text>
+  <text x="44" y="618" font-size="16" fill="#334155">반복 횟수가 n 이면 복사는 약 n²/2 번이라 O(n²) 이다.</text>
+</svg>

@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 560" width="760" height="560" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>응답이 3초 안에 안 오면: 맵에서 지우고 모름으로 끝내며, 늦은 응답은 버린다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="560" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">응답이 3초 안에 안 오면: 맵에서 지우고 "모름" 으로</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">끝내며, 늦게 온 응답은 경고만 남긴다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">왼쪽 = 일어나는 일, 오른쪽 = pending 맵.</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">시각은 send() 를 부른 때부터 잰다 (4초는 예시)</text>
+<rect x="20" y="150" width="480" height="64" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="176" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑤ 0초: 사용자 1 성명조회 send()</text>
+<text x="32" y="199" font-size="16" fill="#0f172a" xml:space="preserve">pending[7] = future A, 0200 NAM #7 을 쓴다</text>
+<rect x="520" y="150" width="220" height="64" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="532" y="176" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">pending</text>
+<text x="532" y="199" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">7 → A</text>
+<line x1="500" y1="182.0" x2="520" y2="182.0" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="234" width="480" height="88" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="260" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑥ 3초: 응답 없음 → orTimeout</text>
+<text x="32" y="283" font-size="16" fill="#0f172a" xml:space="preserve">handle 이 remove(7, A) 로 지운다</text>
+<text x="32" y="306" font-size="16" fill="#0f172a" xml:space="preserve">BankTimeoutException → 504 BANK_TIMEOUT</text>
+<rect x="520" y="234" width="220" height="88" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="532" y="260" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">pending</text>
+<text x="532" y="283" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">(비었다)</text>
+<line x1="500" y1="278.0" x2="520" y2="278.0" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="342" width="480" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="368" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑦ 4초: 0210 NAM #7 이 늦게 도착</text>
+<text x="32" y="391" font-size="16" fill="#0f172a" xml:space="preserve">pending[7] 이 없다 → late response 경고만</text>
+<text x="32" y="414" font-size="16" fill="#0f172a" xml:space="preserve">결과는 다음 단계의 결과조회로 확정한다</text>
+<rect x="520" y="342" width="220" height="88" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="532" y="368" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">pending</text>
+<text x="532" y="391" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">(비었다)</text>
+<line x1="500" y1="386.0" x2="520" y2="386.0" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<text x="20" y="474" font-size="16" fill="#0f172a" xml:space="preserve">remove(번호, future) 두 인자: 번호가 한 바퀴 돌아 같은 번호에 새</text>
+<text x="20" y="498" font-size="16" fill="#0f172a" xml:space="preserve">요청이 들어와 있어도, 옛 요청의 정리가 새 항목을 지우지 않는다</text>
+<text x="20" y="540" font-size="16" fill="#64748b" xml:space="preserve">근거: BankGatewayClient.send (orTimeout · handle), protocol.md §6</text>
+</svg>

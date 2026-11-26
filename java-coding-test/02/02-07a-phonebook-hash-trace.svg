@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 666" width="760" height="666" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 2-7a. 전화번호 목록 예 1 — 해시 풀이는 번호마다 접두어를 만들어 Set 에서 찾고, 1195524421 의 세 번째 접두어 119 에서 멈춘다</title>
+  <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker></defs>
+  <rect width="760" height="666" fill="#ffffff"/>
+  <text x="24" y="40" font-size="22" fill="#0f172a" font-weight="700">전화번호 목록 예 1 — 해시 풀이</text>
+  <text x="24" y="70" font-size="20" fill="#0f172a" font-weight="700">번호마다 접두어를 만들어 Set 에서 찾는다</text>
+  <text x="24" y="104" font-size="16" fill="#475569">회색 = Set 에 없음 (false), 초록 = Set 에 있음 (true)</text>
+  <rect x="24" y="134" width="712" height="52" rx="8" fill="#eff6ff" stroke="#bfdbfe" stroke-width="1"/>
+  <text x="44" y="167" font-size="17" fill="#1d4ed8" font-weight="700" font-family="Consolas, monospace">all = { 119, 97674223, 1195524421 }</text>
+  <rect x="24" y="202" width="712" height="112" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="48" cy="230" r="13" fill="#1d4ed8"/>
+  <text x="48" y="236" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle">1</text>
+  <text x="72" y="236" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, monospace">num = "119"</text>
+  <text x="330" y="236" font-size="16" fill="#475569">접두어 len = 1 ~ 2</text>
+  <rect x="48" y="258" width="28.8" height="36" rx="5" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="62.4" y="282" font-size="16" fill="#475569" font-family="Consolas, monospace" text-anchor="middle">1</text>
+  <rect x="84.8" y="258" width="37.6" height="36" rx="5" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="103.6" y="282" font-size="16" fill="#475569" font-family="Consolas, monospace" text-anchor="middle">11</text>
+  <rect x="24" y="326" width="712" height="112" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <circle cx="48" cy="354" r="13" fill="#1d4ed8"/>
+  <text x="48" y="360" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle">2</text>
+  <text x="72" y="360" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, monospace">num = "97674223"</text>
+  <text x="330" y="360" font-size="16" fill="#475569">접두어 len = 1 ~ 7</text>
+  <rect x="48" y="382" width="28.8" height="36" rx="5" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="62.4" y="406" font-size="16" fill="#475569" font-family="Consolas, monospace" text-anchor="middle">9</text>
+  <rect x="84.8" y="382" width="37.6" height="36" rx="5" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="103.6" y="406" font-size="16" fill="#475569" font-family="Consolas, monospace" text-anchor="middle">97</text>
+  <rect x="130.4" y="382" width="46.400000000000006" height="36" rx="5" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="153.60000000000002" y="406" font-size="16" fill="#475569" font-family="Consolas, monospace" text-anchor="middle">976</text>
+  <rect x="184.8" y="382" width="55.2" height="36" rx="5" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="212.4" y="406" font-size="16" fill="#475569" font-family="Consolas, monospace" text-anchor="middle">9767</text>
+  <rect x="248.0" y="382" width="64.0" height="36" rx="5" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="280.0" y="406" font-size="16" fill="#475569" font-family="Consolas, monospace" text-anchor="middle">97674</text>
+  <rect x="320.0" y="382" width="72.80000000000001" height="36" rx="5" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="356.4" y="406" font-size="16" fill="#475569" font-family="Consolas, monospace" text-anchor="middle">976742</text>
+  <rect x="400.8" y="382" width="81.60000000000001" height="36" rx="5" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="441.6" y="406" font-size="16" fill="#475569" font-family="Consolas, monospace" text-anchor="middle">9767422</text>
+  <rect x="24" y="450" width="712" height="112" rx="8" fill="#ecfdf5" stroke="#6ee7b7" stroke-width="1"/>
+  <circle cx="48" cy="478" r="13" fill="#047857"/>
+  <text x="48" y="484" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle">3</text>
+  <text x="72" y="484" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, monospace">num = "1195524421"</text>
+  <text x="330" y="484" font-size="16" fill="#475569">접두어 len = 1 ~ 9</text>
+  <rect x="48" y="506" width="28.8" height="36" rx="5" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="62.4" y="530" font-size="16" fill="#475569" font-family="Consolas, monospace" text-anchor="middle">1</text>
+  <rect x="84.8" y="506" width="37.6" height="36" rx="5" fill="#f1f5f9" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="103.6" y="530" font-size="16" fill="#475569" font-family="Consolas, monospace" text-anchor="middle">11</text>
+  <rect x="130.4" y="506" width="46.400000000000006" height="36" rx="5" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="153.60000000000002" y="530" font-size="16" fill="#047857" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">119</text>
+  <text x="192.8" y="530" font-size="16" fill="#047857" font-weight="700" font-family="Consolas, monospace">→ return false</text>
+  <rect x="24" y="574" width="712" height="72" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="44" y="604" font-size="16" fill="#0f172a" font-weight="700">contains 를 2 + 7 + 3 = 12번 불렀다.</text>
+  <text x="44" y="630" font-size="16" fill="#334155">자기 자신(len = 자기 길이)은 만들지 않는다.</text>
+</svg>

@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 720" width="760" height="720" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 3-2. Java 9 이후 String 안의 byte 배열 — 영문은 글자당 1바이트, 한글과 이모지는 2바이트 단위로 저장한다</title>
+  <rect width="760" height="720" fill="#ffffff"/>
+  <text x="24" y="40" font-size="22" font-weight="700" fill="#0f172a">Java 9 이후 String 안의 byte 배열</text>
+  <text x="24" y="70" font-size="22" font-weight="700" fill="#0f172a">— 영문은 글자당 1바이트, 한글은 2바이트</text>
+  <text x="24" y="104" font-size="16" fill="#475569">String 은 글자를 byte[] 에 담고, coder 값으로 저장 방식을 표시한다.</text>
+  <text x="24" y="128" font-size="16" fill="#475569">①의 칸은 1바이트, ②와 ③의 칸은 2바이트다. length() 는 칸 수다.</text>
+
+  <!-- block 1: abc -->
+  <circle cx="44" cy="168" r="12" fill="#1d4ed8"/><text x="44" y="174" font-size="16" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+  <text x="66" y="174" font-size="18" font-weight="700" fill="#0f172a" font-family="Consolas, monospace">"abc"</text>
+  <text x="150" y="174" font-size="16" fill="#047857">모든 글자가 Latin-1 범위 → coder = LATIN1</text>
+  <g font-family="Consolas, monospace" font-size="16" text-anchor="middle">
+    <rect x="66" y="190" width="56" height="44" fill="#ecfdf5" stroke="#047857"/><text x="94" y="218">61</text>
+    <rect x="122" y="190" width="56" height="44" fill="#ecfdf5" stroke="#047857"/><text x="150" y="218">62</text>
+    <rect x="178" y="190" width="56" height="44" fill="#ecfdf5" stroke="#047857"/><text x="206" y="218">63</text>
+  </g>
+  <g font-size="16" fill="#334155" text-anchor="middle">
+    <text x="94" y="256">a</text><text x="150" y="256">b</text><text x="206" y="256">c</text>
+  </g>
+  <text x="270" y="210" font-size="16" fill="#334155">byte[] 3바이트</text>
+  <text x="270" y="236" font-size="16" fill="#334155">length() = 3</text>
+
+  <line x1="24" y1="280" x2="736" y2="280" stroke="#e2e8f0"/>
+
+  <!-- block 2: 가나다 -->
+  <circle cx="44" cy="314" r="12" fill="#1d4ed8"/><text x="44" y="320" font-size="16" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+  <text x="66" y="320" font-size="18" font-weight="700" fill="#0f172a">"가나다"</text>
+  <text x="150" y="320" font-size="16" fill="#c2410c">Latin-1 밖의 글자가 있음 → coder = UTF16</text>
+  <g font-family="Consolas, monospace" font-size="16" text-anchor="middle">
+    <rect x="66" y="336" width="112" height="44" fill="#fff7ed" stroke="#c2410c"/><text x="122" y="364">AC00</text>
+    <rect x="178" y="336" width="112" height="44" fill="#fff7ed" stroke="#c2410c"/><text x="234" y="364">B098</text>
+    <rect x="290" y="336" width="112" height="44" fill="#fff7ed" stroke="#c2410c"/><text x="346" y="364">B2E4</text>
+  </g>
+  <g font-size="16" fill="#334155" text-anchor="middle">
+    <text x="122" y="402">가</text><text x="234" y="402">나</text><text x="346" y="402">다</text>
+  </g>
+  <text x="430" y="356" font-size="16" fill="#334155">byte[] 6바이트</text>
+  <text x="430" y="382" font-size="16" fill="#334155">length() = 3</text>
+
+  <line x1="24" y1="424" x2="736" y2="424" stroke="#e2e8f0"/>
+
+  <!-- block 3: emoji -->
+  <circle cx="44" cy="458" r="12" fill="#1d4ed8"/><text x="44" y="464" font-size="16" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+  <text x="66" y="464" font-size="18" font-weight="700" fill="#0f172a">"a😀"</text>
+  <text x="150" y="464" font-size="16" fill="#b91c1c">이모지는 UTF-16 두 칸(서로게이트 쌍)을 쓴다</text>
+  <g font-family="Consolas, monospace" font-size="16" text-anchor="middle">
+    <rect x="66" y="480" width="112" height="44" fill="#fff7ed" stroke="#c2410c"/><text x="122" y="508">0061</text>
+    <rect x="178" y="480" width="112" height="44" fill="#fef2f2" stroke="#b91c1c"/><text x="234" y="508">D83D</text>
+    <rect x="290" y="480" width="112" height="44" fill="#fef2f2" stroke="#b91c1c"/><text x="346" y="508">DE00</text>
+  </g>
+  <g font-size="16" fill="#334155" text-anchor="middle">
+    <text x="122" y="546">a</text><text x="290" y="546">😀 (U+1F600) 한 글자</text>
+  </g>
+  <text x="430" y="500" font-size="16" fill="#334155">length() = 3 (칸 수)</text>
+  <text x="430" y="526" font-size="16" fill="#334155">codePointCount = 2 (글자 수)</text>
+
+  <!-- bottom: external encodings -->
+  <rect x="24" y="572" width="712" height="128" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="44" y="600" font-size="16" font-weight="700" fill="#0f172a">④ 밖으로 보낼 때는 인코딩에 따라 바이트 수가 또 달라진다</text>
+  <text x="44" y="628" font-size="16" fill="#334155">"가나다".getBytes(UTF_8).length = 9 (한글 1자 = 3바이트)</text>
+  <text x="44" y="654" font-size="16" fill="#334155">"가나다".getBytes(EUC-KR).length = 6 (한글 1자 = 2바이트)</text>
+  <text x="44" y="680" font-size="16" fill="#334155">바이트 길이가 정해진 전문 필드에는 length() 가 아니라 이 값을 쓴다.</text>
+</svg>

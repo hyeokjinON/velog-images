@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 830" width="760" height="830" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>Kafka 메타데이터를 누가 관리하나: ZooKeeper 에서 Kafka 안의 컨트롤러(KRaft)로</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="830" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">Kafka 메타데이터를 누가 관리하나: ZooKeeper</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">에서 Kafka 안의 컨트롤러(KRaft)로</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">위 A = 예전 회사의 ZooKeeper 방식, 아래 B = 이 프로젝트의 로컬</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">구성. 초록 = 메시지를 다루는 브로커, 회색 = 메타데이터 관리</text>
+<rect x="20" y="160" width="720" height="300" rx="8" fill="none" stroke="#b91c1c" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="36" y="188" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">A. ZooKeeper 방식 (예전): Kafka 3대 + ZooKeeper 3대</text>
+<rect x="44" y="206" width="192" height="64" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="56" y="232" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">ZooKeeper 1</text>
+<text x="56" y="255" font-size="16" fill="#0f172a" xml:space="preserve">메타데이터 저장</text>
+<line x1="140" y1="270" x2="140" y2="326" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="44" y="328" width="192" height="64" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="56" y="354" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">Kafka 브로커 1</text>
+<text x="56" y="377" font-size="16" fill="#0f172a" xml:space="preserve">메시지 저장 · 전달</text>
+<rect x="284" y="206" width="192" height="64" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="296" y="232" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">ZooKeeper 2</text>
+<text x="296" y="255" font-size="16" fill="#0f172a" xml:space="preserve">메타데이터 저장</text>
+<line x1="380" y1="270" x2="380" y2="326" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="284" y="328" width="192" height="64" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="296" y="354" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">Kafka 브로커 2</text>
+<text x="296" y="377" font-size="16" fill="#0f172a" xml:space="preserve">메시지 저장 · 전달</text>
+<rect x="524" y="206" width="192" height="64" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="536" y="232" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">ZooKeeper 3</text>
+<text x="536" y="255" font-size="16" fill="#0f172a" xml:space="preserve">메타데이터 저장</text>
+<line x1="620" y1="270" x2="620" y2="326" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="524" y="328" width="192" height="64" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="536" y="354" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">Kafka 브로커 3</text>
+<text x="536" y="377" font-size="16" fill="#0f172a" xml:space="preserve">메시지 저장 · 전달</text>
+<text x="36" y="424" font-size="16" fill="#475569" xml:space="preserve">메타데이터 = 브로커 목록, 컨트롤러 선출, 토픽 · 파티션 리더</text>
+<text x="36" y="448" font-size="16" fill="#b91c1c" font-weight="700" xml:space="preserve">운영할 시스템이 Kafka 와 ZooKeeper 두 종류다</text>
+<rect x="20" y="482" width="720" height="300" rx="8" fill="none" stroke="#047857" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="36" y="510" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">B. KRaft (Kafka 4.x, 이 프로젝트 로컬): 노드 1개</text>
+<rect x="36" y="526" width="688" height="186" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="52" y="552" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">kafka 컨테이너 — KAFKA_NODE_ID 1</text>
+<rect x="52" y="566" width="320" height="132" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="64" y="592" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">broker 역할</text>
+<text x="64" y="615" font-size="16" fill="#0f172a" xml:space="preserve">메시지 저장 · 전달</text>
+<text x="64" y="638" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">INTERNAL  :29092</text>
+<text x="64" y="661" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">EXTERNAL  :9092</text>
+<rect x="388" y="566" width="320" height="132" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="400" y="592" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">controller 역할</text>
+<text x="400" y="615" font-size="16" fill="#0f172a" xml:space="preserve">메타데이터 관리</text>
+<text x="400" y="638" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">CONTROLLER  :9093</text>
+<text x="400" y="661" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">__cluster_metadata</text>
+<text x="36" y="740" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">PROCESS_ROLES = broker,controller 로 한 노드가 두 역할</text>
+<text x="36" y="764" font-size="16" fill="#475569" xml:space="preserve">노드가 여러 대면 컨트롤러끼리 Raft 투표로 리더를 뽑는다</text>
+<text x="20" y="806" font-size="16" fill="#64748b" xml:space="preserve">근거: infra/docker-compose.yml (kafka 서비스), ADR-0003</text>
+</svg>

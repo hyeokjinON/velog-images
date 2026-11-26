@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 700" width="760" height="700" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 3-1. == 는 두 변수가 같은 객체를 가리키는지 본다 — 다섯 식이 가리키는 객체와 결과</title>
+  <rect width="760" height="700" fill="#ffffff"/>
+  <text x="24" y="40" font-size="22" font-weight="700" fill="#0f172a">== 는 두 변수가 같은 객체를 가리키는지 본다</text>
+  <text x="24" y="70" font-size="22" font-weight="700" fill="#0f172a">— 다섯 식이 가리키는 객체와 결과</text>
+  <text x="24" y="104" font-size="16" fill="#475569">변수 ab 는 pool 의 "ab" 객체(P)를 가리킨다. 오른쪽 식의 결과가</text>
+  <text x="24" y="128" font-size="16" fill="#475569">같은 P 를 가리키면 true, 힙에 새로 만든 객체면 false 다.</text>
+
+  <!-- pool zone -->
+  <rect x="24" y="148" width="340" height="150" rx="8" fill="#ecfdf5" stroke="#047857"/>
+  <text x="40" y="176" font-size="17" font-weight="700" fill="#047857">String pool</text>
+  <text x="40" y="200" font-size="16" fill="#047857">같은 리터럴은 하나만 만든다</text>
+  <rect x="104" y="216" width="180" height="64" rx="6" fill="#ffffff" stroke="#047857" stroke-width="2"/>
+  <text x="194" y="244" font-size="18" font-weight="700" fill="#0f172a" text-anchor="middle" font-family="Consolas, monospace">P  "ab"</text>
+  <text x="194" y="268" font-size="16" fill="#047857" text-anchor="middle">변수 ab, ① ③ ④</text>
+
+  <!-- heap zone -->
+  <rect x="380" y="148" width="356" height="150" rx="8" fill="#f8fafc" stroke="#334155"/>
+  <text x="396" y="176" font-size="17" font-weight="700" fill="#334155">힙의 일반 영역</text>
+  <text x="396" y="200" font-size="16" fill="#334155">실행 중에 새로 만든 객체</text>
+  <rect x="396" y="216" width="156" height="64" rx="6" fill="#ffffff" stroke="#b91c1c" stroke-width="2"/>
+  <text x="474" y="244" font-size="18" font-weight="700" fill="#0f172a" text-anchor="middle" font-family="Consolas, monospace">H1 "ab"</text>
+  <text x="474" y="268" font-size="16" fill="#b91c1c" text-anchor="middle">② 의 결과</text>
+  <rect x="564" y="216" width="156" height="64" rx="6" fill="#ffffff" stroke="#b91c1c" stroke-width="2"/>
+  <text x="642" y="244" font-size="18" font-weight="700" fill="#0f172a" text-anchor="middle" font-family="Consolas, monospace">H2 "ab"</text>
+  <text x="642" y="268" font-size="16" fill="#b91c1c" text-anchor="middle">⑤ 의 결과</text>
+
+  <!-- table header -->
+  <rect x="24" y="318" width="712" height="40" fill="#eff6ff" stroke="#bfdbfe"/>
+  <g font-size="16" font-weight="700" fill="#1e3a8a">
+    <text x="66" y="344">식 (ab == ?)</text>
+    <text x="300" y="344">가리키는 객체와 이유</text>
+    <text x="640" y="344">결과</text>
+  </g>
+
+  <g font-size="16" fill="#334155">
+    <!-- row 1 -->
+    <circle cx="44" cy="382" r="12" fill="#1d4ed8"/><text x="44" y="388" font-weight="700" fill="#fff" text-anchor="middle">1</text>
+    <text x="66" y="388" font-family="Consolas, monospace" fill="#0f172a">"a" + "b"</text>
+    <text x="300" y="388">P — 컴파일할 때 "ab" 로 합쳐짐</text>
+    <text x="640" y="388" font-weight="700" fill="#047857">true</text>
+    <line x1="24" y1="408" x2="736" y2="408" stroke="#e2e8f0"/>
+    <!-- row 2 -->
+    <circle cx="44" cy="434" r="12" fill="#1d4ed8"/><text x="44" y="440" font-weight="700" fill="#fff" text-anchor="middle">2</text>
+    <text x="66" y="440" font-family="Consolas, monospace" fill="#0f172a">a + "b"</text>
+    <text x="300" y="440">H1 — 실행 중에 새로 만듦</text>
+    <text x="640" y="440" font-weight="700" fill="#b91c1c">false</text>
+    <line x1="24" y1="460" x2="736" y2="460" stroke="#e2e8f0"/>
+    <!-- row 3 -->
+    <circle cx="44" cy="486" r="12" fill="#1d4ed8"/><text x="44" y="492" font-weight="700" fill="#fff" text-anchor="middle">3</text>
+    <text x="66" y="492" font-family="Consolas, monospace" fill="#0f172a">fa + "b"</text>
+    <text x="300" y="492">P — final 상수라 컴파일 때 합쳐짐</text>
+    <text x="640" y="492" font-weight="700" fill="#047857">true</text>
+    <line x1="24" y1="512" x2="736" y2="512" stroke="#e2e8f0"/>
+    <!-- row 4 -->
+    <circle cx="44" cy="538" r="12" fill="#1d4ed8"/><text x="44" y="544" font-weight="700" fill="#fff" text-anchor="middle">4</text>
+    <text x="66" y="544" font-family="Consolas, monospace" fill="#0f172a">(a + "b").intern()</text>
+    <text x="300" y="544">P — pool 에서 같은 내용을 찾아 줌</text>
+    <text x="640" y="544" font-weight="700" fill="#047857">true</text>
+    <line x1="24" y1="564" x2="736" y2="564" stroke="#e2e8f0"/>
+    <!-- row 5 -->
+    <circle cx="44" cy="590" r="12" fill="#1d4ed8"/><text x="44" y="596" font-weight="700" fill="#fff" text-anchor="middle">5</text>
+    <text x="66" y="596" font-family="Consolas, monospace" fill="#0f172a">new String("ab")</text>
+    <text x="300" y="596">H2 — new 는 항상 새 객체</text>
+    <text x="640" y="596" font-weight="700" fill="#b91c1c">false</text>
+  </g>
+
+  <rect x="24" y="624" width="712" height="56" rx="6" fill="#f1f5f9" stroke="#cbd5e1"/>
+  <text x="44" y="648" font-size="16" font-weight="700" fill="#0f172a">내용이 같은지는 equals 로 본다.</text>
+  <text x="44" y="670" font-size="16" fill="#334155">다섯 식 모두 ab.equals(...) 는 true 다. 결과가 갈리는 것은 == 뿐이다.</text>
+</svg>

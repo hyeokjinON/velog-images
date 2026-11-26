@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 558" width="760" height="558" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 2-5b. 완주하지 못한 선수 예 3 — 정렬 풀이에서 같은 위치끼리 비교하다 2번 칸에서 처음 어긋난다</title>
+  <defs><marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#475569"/></marker></defs>
+  <rect width="760" height="558" fill="#ffffff"/>
+  <text x="24" y="40" font-size="22" fill="#0f172a" font-weight="700">완주하지 못한 선수 예 3 — 정렬 풀이</text>
+  <text x="24" y="70" font-size="20" fill="#0f172a" font-weight="700">같은 위치끼리 비교하다 2번 칸에서 처음 어긋난다</text>
+  <text x="24" y="104" font-size="16" fill="#475569">두 배열을 각각 Arrays.sort 로 정렬한 뒤의 모습이다.</text>
+  <text x="245.0" y="154" font-size="16" fill="#475569" text-anchor="middle">0번</text>
+  <text x="385.0" y="154" font-size="16" fill="#475569" text-anchor="middle">1번</text>
+  <text x="525.0" y="154" font-size="16" fill="#475569" text-anchor="middle">2번</text>
+  <text x="665.0" y="154" font-size="16" fill="#475569" text-anchor="middle">3번</text>
+  <text x="24" y="196" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, monospace">participant</text>
+  <rect x="180" y="166" width="130" height="46" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="245.0" y="196" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">ana</text>
+  <rect x="320" y="166" width="130" height="46" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="385.0" y="196" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">mislav</text>
+  <rect x="460" y="166" width="130" height="46" rx="6" fill="#ffffff" stroke="#b91c1c" stroke-width="2"/>
+  <text x="525.0" y="196" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">mislav</text>
+  <rect x="600" y="166" width="130" height="46" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="665.0" y="196" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">stanko</text>
+  <text x="245.0" y="246" font-size="22" fill="#047857" font-weight="700" text-anchor="middle">=</text>
+  <text x="385.0" y="246" font-size="22" fill="#047857" font-weight="700" text-anchor="middle">=</text>
+  <text x="525.0" y="246" font-size="22" fill="#b91c1c" font-weight="700" text-anchor="middle">≠</text>
+  <text x="665.0" y="246" font-size="16" fill="#94a3b8" text-anchor="middle">비교 안 함</text>
+  <text x="24" y="290" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, monospace">completion</text>
+  <rect x="180" y="260" width="130" height="46" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="245.0" y="290" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">ana</text>
+  <rect x="320" y="260" width="130" height="46" rx="6" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="385.0" y="290" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">mislav</text>
+  <rect x="460" y="260" width="130" height="46" rx="6" fill="#ffffff" stroke="#b91c1c" stroke-width="2"/>
+  <text x="525.0" y="290" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, monospace" text-anchor="middle">stanko</text>
+  <rect x="24" y="330" width="712" height="96" rx="8" fill="#ecfdf5" stroke="#6ee7b7" stroke-width="1"/>
+  <text x="44" y="360" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, monospace">i = 2 에서 mislav ≠ stanko → return participant[2]</text>
+  <text x="44" y="392" font-size="16" fill="#334155">답 "mislav". 0번, 1번 칸은 같아서 다음 칸으로 넘어갔다.</text>
+  <rect x="24" y="442" width="712" height="96" rx="8" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="44" y="472" font-size="16" fill="#0f172a" font-weight="700">끝까지 같으면 (예 1)</text>
+  <text x="44" y="504" font-size="16" fill="#334155" font-family="Consolas, monospace">[eden, kiki, leo] / [eden, kiki] → 마지막 사람 leo</text>
+</svg>
