@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 750" width="760" height="750" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>롤링 뒤 api 두 대가 한 워커로 몰린 이유</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="750" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">롤링 뒤 api 두 대가 한 워커로 몰린 이유</text>
+<text x="20" y="68" font-size="16" fill="#475569" xml:space="preserve">회색 점선 = 옛 버전 Pod, 초록 = 새 버전 Pod.</text>
+<text x="20" y="91" font-size="16" fill="#475569" xml:space="preserve">순서는 설명을 위해 단순하게 줄였다 (실제로 세 번 관측)</text>
+<text x="20" y="132" font-size="17" fill="#b91c1c" font-weight="700" xml:space="preserve">A. app=api 로 세면 옛 Pod 까지 센다 (고치기 전)</text>
+<rect x="20" y="148" width="430" height="96" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="174" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① 새 N1 이 워커 1 에 뜨고</text>
+<text x="32" y="197" font-size="16" fill="#0f172a" xml:space="preserve">옛 A 가 내려간다</text>
+<rect x="470" y="148" width="126" height="96" rx="8" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="480" y="172" font-size="16" fill="#1d4ed8" font-weight="700" xml:space="preserve">워커 1</text>
+<rect x="480" y="184" width="106" height="24" rx="5" fill="#ecfdf5" stroke="#047857" stroke-width="1.4"/>
+<text x="488" y="202" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">N1</text>
+<rect x="606" y="148" width="126" height="96" rx="8" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="616" y="172" font-size="16" fill="#1d4ed8" font-weight="700" xml:space="preserve">워커 2</text>
+<rect x="616" y="184" width="106" height="24" rx="5" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="5 3"/>
+<text x="624" y="202" font-size="16" fill="#475569" xml:space="preserve">옛 B</text>
+<rect x="20" y="258" width="430" height="111" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="32" y="284" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② N2 자리 계산</text>
+<text x="32" y="307" font-size="16" fill="#0f172a" xml:space="preserve">워커 1 = N1 (1)</text>
+<text x="32" y="330" font-size="16" fill="#0f172a" xml:space="preserve">워커 2 = 옛 B (1) → 동점</text>
+<text x="32" y="353" font-size="16" fill="#0f172a" xml:space="preserve">점수일 뿐이라 워커 1 로 갈 수 있다</text>
+<rect x="470" y="265" width="126" height="96" rx="8" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="480" y="289" font-size="16" fill="#1d4ed8" font-weight="700" xml:space="preserve">워커 1</text>
+<rect x="480" y="301" width="106" height="24" rx="5" fill="#ecfdf5" stroke="#047857" stroke-width="1.4"/>
+<text x="488" y="319" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">N1</text>
+<rect x="480" y="329" width="106" height="24" rx="5" fill="#ecfdf5" stroke="#047857" stroke-width="1.4"/>
+<text x="488" y="347" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">N2</text>
+<rect x="606" y="265" width="126" height="96" rx="8" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="616" y="289" font-size="16" fill="#1d4ed8" font-weight="700" xml:space="preserve">워커 2</text>
+<rect x="616" y="301" width="106" height="24" rx="5" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="5 3"/>
+<text x="624" y="319" font-size="16" fill="#475569" xml:space="preserve">옛 B</text>
+<rect x="20" y="383" width="430" height="96" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="409" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ 옛 B 가 내려가면</text>
+<text x="32" y="432" font-size="16" fill="#0f172a" xml:space="preserve">워커 1 에 N1 · N2</text>
+<text x="32" y="455" font-size="16" fill="#0f172a" xml:space="preserve">워커 2 는 비어 있다</text>
+<rect x="470" y="383" width="126" height="96" rx="8" fill="#ffffff" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="480" y="407" font-size="16" fill="#1d4ed8" font-weight="700" xml:space="preserve">워커 1</text>
+<rect x="480" y="419" width="106" height="24" rx="5" fill="#ecfdf5" stroke="#047857" stroke-width="1.4"/>
+<text x="488" y="437" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">N1</text>
+<rect x="480" y="447" width="106" height="24" rx="5" fill="#ecfdf5" stroke="#047857" stroke-width="1.4"/>
+<text x="488" y="465" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">N2</text>
+<rect x="606" y="383" width="126" height="96" rx="8" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="616" y="407" font-size="16" fill="#1d4ed8" font-weight="700" xml:space="preserve">워커 2</text>
+<text x="20" y="515" font-size="17" fill="#047857" font-weight="700" xml:space="preserve">B. matchLabelKeys: [pod-template-hash] (같은 버전끼리만)</text>
+<rect x="20" y="531" width="430" height="111" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="557" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② N2 자리 계산</text>
+<text x="32" y="580" font-size="16" fill="#0f172a" xml:space="preserve">워커 1 = N1 (1)</text>
+<text x="32" y="603" font-size="16" fill="#0f172a" xml:space="preserve">워커 2 = 0 (옛 B 는 안 센다)</text>
+<text x="32" y="626" font-size="16" fill="#0f172a" xml:space="preserve">→ 워커 2 로 간다</text>
+<rect x="470" y="538" width="126" height="96" rx="8" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="480" y="562" font-size="16" fill="#1d4ed8" font-weight="700" xml:space="preserve">워커 1</text>
+<rect x="480" y="574" width="106" height="24" rx="5" fill="#ecfdf5" stroke="#047857" stroke-width="1.4"/>
+<text x="488" y="592" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">N1</text>
+<rect x="606" y="538" width="126" height="96" rx="8" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="616" y="562" font-size="16" fill="#1d4ed8" font-weight="700" xml:space="preserve">워커 2</text>
+<rect x="616" y="574" width="106" height="24" rx="5" fill="#ffffff" stroke="#94a3b8" stroke-width="1.4" stroke-dasharray="5 3"/>
+<text x="624" y="592" font-size="16" fill="#475569" xml:space="preserve">옛 B</text>
+<rect x="616" y="602" width="106" height="24" rx="5" fill="#ecfdf5" stroke="#047857" stroke-width="1.4"/>
+<text x="624" y="620" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">N2</text>
+<rect x="20" y="666" width="720" height="64" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="692" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">몰린 상태에서 그 워커를 끄자 api 0대 약 5분 (5xx 883)</text>
+<text x="32" y="715" font-size="16" fill="#0f172a" xml:space="preserve">스모크에 "두 api 가 다른 노드인가" 를 넣어 다시 깨지면 보이게</text>
+</svg>

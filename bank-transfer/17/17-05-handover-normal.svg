@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 728" width="760" height="728" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>정상 교대 순서: 거절, 비우기, 끊기, 라벨 떼기, 반납을 지키면 결과 모름 0, 은행 공백 1.1 ~ 3.7초</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="728" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">정상 교대 (SIGTERM) 다섯 단계</text>
+<text x="20" y="68" font-size="16" fill="#475569" xml:space="preserve">회색 = 옛 리더 A 가 하는 일, 초록 = 새 리더 B 가 하는 일</text>
+<text x="20" y="91" font-size="16" fill="#475569" xml:space="preserve">시각은 Postman 확인 때 로그 (2026-11-16)</text>
+<circle cx="34" cy="154" r="13" fill="#334155"/><text x="34" y="160" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">①</text>
+<rect x="60" y="120" width="680" height="68" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="72" y="146" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">새 요청 거절: 503 안 보냄</text>
+<text x="72" y="169" font-size="16" fill="#0f172a" xml:space="preserve">api 가 재시도 토픽으로 다시 보낸다</text>
+<line x1="400" y1="188" x2="400" y2="200" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<circle cx="34" cy="236" r="13" fill="#334155"/><text x="34" y="242" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">②</text>
+<rect x="60" y="202" width="680" height="68" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="72" y="228" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">처리 중 전문 비우기 (최대 5초)</text>
+<text x="72" y="251" font-size="16" fill="#0f172a" xml:space="preserve">은행에 이미 보낸 전문의 응답을 다 받는다</text>
+<line x1="400" y1="270" x2="400" y2="282" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<circle cx="34" cy="318" r="13" fill="#334155"/><text x="34" y="324" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">③</text>
+<rect x="60" y="284" width="680" height="68" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="72" y="310" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">은행 연결 끊기 → 은행 세션 0</text>
+<text x="72" y="333" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">16:39:04.374  session closed sessions=0</text>
+<line x1="400" y1="352" x2="400" y2="364" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<circle cx="34" cy="400" r="13" fill="#334155"/><text x="34" y="406" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">④</text>
+<rect x="60" y="366" width="680" height="68" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="72" y="392" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">리더 라벨 떼기</text>
+<text x="72" y="415" font-size="16" fill="#0f172a" xml:space="preserve">Service 대상에서 빠진다</text>
+<line x1="400" y1="434" x2="400" y2="446" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<circle cx="34" cy="482" r="13" fill="#334155"/><text x="34" y="488" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">⑤</text>
+<rect x="60" y="448" width="680" height="68" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="72" y="474" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">Lease 반납 (holder 비움), 반납이 닿았는지 최대 2초 확인</text>
+<text x="72" y="497" font-size="16" fill="#0f172a" xml:space="preserve">B 는 만료 15초를 기다리지 않는다</text>
+<line x1="400" y1="516" x2="400" y2="528" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<circle cx="34" cy="564" r="13" fill="#047857"/><text x="34" y="570" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">⑥</text>
+<rect x="60" y="530" width="680" height="68" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="72" y="556" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">B: Lease 획득 → 구간 예약 → 접속 시작 · 라벨</text>
+<text x="72" y="579" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">16:39:07.357 획득, .373 예약, .406 접속</text>
+<rect x="20" y="616" width="350" height="92" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="32" y="642" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">②가 ③보다 먼저</text>
+<text x="32" y="665" font-size="16" fill="#0f172a" xml:space="preserve">끊기 전에 응답을 다 받으니</text>
+<text x="32" y="688" font-size="16" fill="#0f172a" xml:space="preserve">결과 모름 0</text>
+<rect x="390" y="616" width="350" height="92" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="402" y="642" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③이 ⑤보다 먼저</text>
+<text x="402" y="665" font-size="16" fill="#0f172a" xml:space="preserve">세션을 비운 뒤 반납하니</text>
+<text x="402" y="688" font-size="16" fill="#0f172a" xml:space="preserve">B 가 바로 붙는다</text>
+</svg>

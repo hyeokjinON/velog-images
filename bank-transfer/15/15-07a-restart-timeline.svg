@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 712" width="760" height="712" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>재시작(SIGTERM): api-1 이 그룹을 정상 탈퇴해 api-2 가 0.96초 만에 파티션을 이어받고 5xx 는 0건이다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="712" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">재시작 (SIGTERM): 스스로 나가니 1초</text>
+<text x="20" y="68" font-size="16" fill="#475569" xml:space="preserve">왼쪽 = restart 를 건 때부터의 시간 (restart-1 회차)</text>
+<text x="20" y="91" font-size="16" fill="#475569" xml:space="preserve">부하: 초당 20건 × 60초, 20초 시점에 restart api-1</text>
+<text x="108" y="146" font-size="16" fill="#1d4ed8" font-weight="700" text-anchor="end" xml:space="preserve">0s</text>
+<rect x="120" y="120" width="620" height="71" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="132" y="146" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① docker compose restart api-1</text>
+<text x="132" y="169" font-size="16" fill="#0f172a" xml:space="preserve">SIGTERM 이 java(PID 1)에 바로 간다</text>
+<line x1="430.0" y1="191" x2="430.0" y2="215" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<text x="108" y="243" font-size="16" fill="#047857" font-weight="700" text-anchor="end" xml:space="preserve">바로</text>
+<rect x="120" y="217" width="620" height="94" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="132" y="243" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② api-1 이 새 연결을 받지 않는다</text>
+<text x="132" y="266" font-size="16" fill="#0f172a" xml:space="preserve">nginx: 연결 거절 → 같은 요청을 api-2 로</text>
+<text x="132" y="289" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">첫 시도 5xx 0건</text>
+<line x1="430.0" y1="311" x2="430.0" y2="335" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<text x="108" y="363" font-size="16" fill="#047857" font-weight="700" text-anchor="end" xml:space="preserve">바로</text>
+<rect x="120" y="337" width="620" height="71" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="132" y="363" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ Kafka 리스너가 처리 중 메시지를 끝내고</text>
+<text x="132" y="386" font-size="16" fill="#0f172a" xml:space="preserve">브로커에 "그룹에서 나간다" 를 알린다</text>
+<line x1="430.0" y1="408" x2="430.0" y2="432" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<text x="108" y="460" font-size="16" fill="#047857" font-weight="700" text-anchor="end" xml:space="preserve">0.96s</text>
+<rect x="120" y="434" width="620" height="71" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="132" y="460" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ 브로커가 바로 파티션을 다시 나눈다</text>
+<text x="132" y="483" font-size="16" fill="#0f172a" xml:space="preserve">api-2 의 놀던 컨슈머가 받는다 (2회차 3.2s)</text>
+<line x1="430.0" y1="505" x2="430.0" y2="529" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<text x="108" y="557" font-size="16" fill="#334155" font-weight="700" text-anchor="end" xml:space="preserve">≤ 30s</text>
+<rect x="120" y="531" width="620" height="71" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="132" y="557" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑤ 앱은 단계마다 20초 안에 끝낸다</text>
+<text x="132" y="580" font-size="16" fill="#0f172a" xml:space="preserve">Docker 는 30초(stop_grace_period) 뒤에야 SIGKILL</text>
+<line x1="430.0" y1="602" x2="430.0" y2="626" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="120" y="628" width="620" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="132" y="654" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">다시 뜬 api-1 은 약 9 ~ 10초 뒤</text>
+<text x="132" y="677" font-size="16" fill="#0f172a" xml:space="preserve">파티션을 다시 나눠 받는다</text>
+</svg>

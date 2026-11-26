@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 664" width="760" height="664" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>워커 노드 전원을 끄면: 감지 약 50초, 대체 api 는 363초 vs 88초</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="664" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">워커 노드 전원을 끄면: 감지 약 50초,</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">대체 api 는 363초 vs 88초</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">가로축 = 노드를 끈 뒤 지난 시간(초). 빨강 = 감지 전,</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">회색 = api 1대로 버티는 시간, 초록 점 = 대체 api Ready</text>
+<text x="20" y="162" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">퇴거 대기 300초 (기본)</text>
+<rect x="40" y="176" width="93.94736842105263" height="30" fill="#fecaca" stroke="#b91c1c" stroke-width="1.2"/>
+<rect x="133.94736842105263" y="176" width="555.8105263157895" height="30" fill="#e2e8f0" stroke="#334155" stroke-width="1.2"/>
+<circle cx="689.7578947368421" cy="191" r="9" fill="#047857"/>
+<text x="675.7578947368421" y="197" font-size="16" fill="#047857" font-weight="700" text-anchor="end" xml:space="preserve">363.1초</text>
+<text x="44" y="232" font-size="16" fill="#b91c1c" font-weight="700" xml:space="preserve">+52.5초 감지</text>
+<text x="190" y="232" font-size="16" fill="#475569" xml:space="preserve">첫 시도 5xx 512 · 끝내 실패 144</text>
+<text x="20" y="280" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">퇴거 대기 30초</text>
+<rect x="40" y="294" width="85.17894736842105" height="30" fill="#fecaca" stroke="#b91c1c" stroke-width="1.2"/>
+<rect x="125.17894736842105" y="294" width="72.65263157894738" height="30" fill="#e2e8f0" stroke="#334155" stroke-width="1.2"/>
+<circle cx="197.83157894736843" cy="309" r="9" fill="#047857"/>
+<text x="211.83157894736843" y="315" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">88.2초</text>
+<text x="44" y="350" font-size="16" fill="#b91c1c" font-weight="700" xml:space="preserve">+47.6초 감지</text>
+<text x="190" y="350" font-size="16" fill="#475569" xml:space="preserve">첫 시도 5xx 439 · 끝내 실패 113</text>
+<line x1="40" y1="374" x2="720.0" y2="374" stroke="#334155" stroke-width="1.6"/>
+<line x1="40.0" y1="374" x2="40.0" y2="380" stroke="#334155" stroke-width="1.4"/>
+<text x="40.0" y="400" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">0</text>
+<line x1="129.4736842105263" y1="374" x2="129.4736842105263" y2="380" stroke="#334155" stroke-width="1.4"/>
+<text x="129.4736842105263" y="400" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">50</text>
+<line x1="218.94736842105263" y1="374" x2="218.94736842105263" y2="380" stroke="#334155" stroke-width="1.4"/>
+<text x="218.94736842105263" y="400" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">100</text>
+<line x1="308.42105263157896" y1="374" x2="308.42105263157896" y2="380" stroke="#334155" stroke-width="1.4"/>
+<text x="308.42105263157896" y="400" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">150</text>
+<line x1="397.89473684210526" y1="374" x2="397.89473684210526" y2="380" stroke="#334155" stroke-width="1.4"/>
+<text x="397.89473684210526" y="400" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">200</text>
+<line x1="487.36842105263156" y1="374" x2="487.36842105263156" y2="380" stroke="#334155" stroke-width="1.4"/>
+<text x="487.36842105263156" y="400" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">250</text>
+<line x1="576.8421052631579" y1="374" x2="576.8421052631579" y2="380" stroke="#334155" stroke-width="1.4"/>
+<text x="576.8421052631579" y="400" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">300</text>
+<line x1="666.3157894736842" y1="374" x2="666.3157894736842" y2="380" stroke="#334155" stroke-width="1.4"/>
+<text x="666.3157894736842" y="400" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">350</text>
+<rect x="20" y="424" width="720" height="64" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="450" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">빨강을 줄이는 손잡이: 입구의 이상 대상 빼기</text>
+<text x="32" y="473" font-size="16" fill="#0f172a" xml:space="preserve">연속 연결 실패한 Pod 를 몇 초 안에 뺀다 (outlier detection)</text>
+<rect x="20" y="502" width="720" height="64" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="528" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">회색을 줄이는 손잡이: 퇴거 대기 (tolerationSeconds)</text>
+<text x="32" y="551" font-size="16" fill="#0f172a" xml:space="preserve">대가: 짧은 네트워크 끊김에도 Pod 를 옮긴다</text>
+<rect x="20" y="580" width="720" height="64" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="606" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">돈: 실패는 모두 연결 단계 → api 에 닿지 않았다</text>
+<text x="32" y="629" font-size="16" fill="#0f172a" xml:space="preserve">출금 행이 없고, 접수 = 출금 행, 이중 0</text>
+</svg>

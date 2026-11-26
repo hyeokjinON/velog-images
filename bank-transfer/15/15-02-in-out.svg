@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 795" width="760" height="795" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>들어오는 쪽은 nginx 가 api 2대에 나누고, 나가는 쪽은 api 2대가 게이트웨이 1대로 모인다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="795" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">들어오는 쪽은 나누고, 나가는 쪽은 모은다</text>
+<text x="20" y="68" font-size="16" fill="#475569" xml:space="preserve">파랑 = 들어오는 길 (nginx 가 나눈다)</text>
+<text x="20" y="91" font-size="16" fill="#475569" xml:space="preserve">초록 = 은행으로 나가는 길 (게이트웨이가 모은다)</text>
+<text x="20" y="114" font-size="16" fill="#475569" xml:space="preserve">회색 = 두 api 가 같이 쓰는 저장소</text>
+<rect x="180" y="143" width="400" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="192" y="169" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① PC 의 Postman</text>
+<text x="192" y="192" font-size="16" fill="#0f172a" xml:space="preserve">127.0.0.1:8000 으로만 보낸다</text>
+<line x1="380" y1="207" x2="380" y2="239" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<rect x="180" y="241" width="400" height="64" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="192" y="267" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② nginx (라운드 로빈)</text>
+<text x="192" y="290" font-size="16" fill="#0f172a" xml:space="preserve">api-1, api-2 에 번갈아 보낸다</text>
+<line x1="330" y1="305" x2="190" y2="353" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<line x1="430" y1="305" x2="570" y2="353" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<text x="170" y="341" font-size="16" fill="#1d4ed8" font-weight="700" text-anchor="middle" xml:space="preserve">나눈다</text>
+<rect x="40" y="355" width="300" height="88" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="52" y="381" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">api-1 :8080</text>
+<text x="52" y="404" font-size="16" fill="#0f172a" xml:space="preserve">상태(잔고, 중복 기록)는 DB 에</text>
+<text x="52" y="427" font-size="16" fill="#0f172a" xml:space="preserve">어느 쪽이 받아도 같다</text>
+<rect x="420" y="355" width="300" height="88" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="432" y="381" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">api-2 :8080</text>
+<text x="432" y="404" font-size="16" fill="#0f172a" xml:space="preserve">같은 이미지, 같은 DB</text>
+<text x="432" y="427" font-size="16" fill="#0f172a" xml:space="preserve">INFO_INSTANCE 만 다르다</text>
+<line x1="190" y1="443" x2="330" y2="491" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<line x1="570" y1="443" x2="430" y2="491" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<text x="590" y="479" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">모은다 (HTTP)</text>
+<rect x="160" y="493" width="440" height="88" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="172" y="519" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ bank-gateway :8082 (1대)</text>
+<text x="172" y="542" font-size="16" fill="#0f172a" xml:space="preserve">은행 TCP 연결을 혼자 가진다</text>
+<text x="172" y="565" font-size="16" fill="#0f172a" xml:space="preserve">전문번호 → 기다리는 요청 표가 메모리에</text>
+<line x1="380" y1="581" x2="380" y2="613" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<text x="392" y="603" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">TCP 1개</text>
+<rect x="230" y="615" width="300" height="44" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="242" y="643" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">mock-bank :9090 (모의 은행)</text>
+<rect x="20" y="685" width="720" height="90" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="711" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ MySQL, Kafka, Redis — 두 api 가 같이 쓴다</text>
+<text x="32" y="734" font-size="16" fill="#0f172a" xml:space="preserve">같은 DB, 같은 Kafka 컨슈머 그룹(transfer-processor)</text>
+<text x="32" y="757" font-size="16" fill="#0f172a" xml:space="preserve">출금은 Kafka 를 거쳐, 접수한 api 와 처리하는 api 가 다를 수 있다</text>
+</svg>

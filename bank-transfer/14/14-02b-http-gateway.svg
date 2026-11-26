@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 673" width="760" height="673" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>http 모드: api 는 몇 대든 게이트웨이를 HTTP 로 부르고, 은행 연결과 짝짓기 표는 게이트웨이 한 곳에 있다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="673" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">http 모드: 은행 연결과 짝짓기 표를</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">게이트웨이 한 곳에 둔다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">파랑 = api, 초록 = 게이트웨이, 회색 = 은행</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">파랑 화살표 = HTTP JSON POST /internal/v1/bank/*</text>
+<text x="20" y="142" font-size="16" fill="#475569" xml:space="preserve">게이트웨이는 1대다 (이중화는 P8-3)</text>
+<rect x="20" y="175" width="230" height="66" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="201" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">api 1</text>
+<text x="32" y="225" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">HttpBankGateway</text>
+<line x1="135" y1="241" x2="135" y2="299" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<rect x="265" y="175" width="230" height="66" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="277" y="201" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">api 2</text>
+<text x="277" y="225" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">HttpBankGateway</text>
+<line x1="380" y1="241" x2="380" y2="299" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<rect x="510" y="175" width="230" height="66" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="522" y="201" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">api 3</text>
+<text x="522" y="225" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">HttpBankGateway</text>
+<line x1="625" y1="241" x2="625" y2="299" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<rect x="20" y="301" width="720" height="112" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="327" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">apps/bank-gateway :8082 (WebFlux 기본)</text>
+<text x="32" y="350" font-size="16" fill="#0f172a" xml:space="preserve">짝짓기 표 하나: 전문번호 → future</text>
+<text x="32" y="373" font-size="16" fill="#0f172a" xml:space="preserve">전문번호도 여기서 매기고 응답 · 504 본문에 싣는다</text>
+<text x="32" y="396" font-size="16" fill="#0f172a" xml:space="preserve">api 가 몇 대든 이 표는 한 곳이다</text>
+<line x1="380" y1="413" x2="380" y2="471" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<text x="392" y="447" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">TCP 연결 1개</text>
+<rect x="20" y="473" width="720" height="66" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="499" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">모의 은행 :9090</text>
+<text x="32" y="523" font-size="16" fill="#475569" xml:space="preserve">접속은 게이트웨이 하나뿐</text>
+<rect x="20" y="563" width="720" height="90" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="32" y="589" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">대가</text>
+<text x="32" y="612" font-size="16" fill="#0f172a" xml:space="preserve">게이트웨이 1대 = 단일 장애점 (이중화는 P8-3)</text>
+<text x="32" y="635" font-size="16" fill="#0f172a" xml:space="preserve">api ↔ 게이트웨이 사이에 새 실패 구간이 생긴다 (§3)</text>
+</svg>

@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 670" width="760" height="670" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>은행 재접속 대기는 1초에서 두 배씩 늘어 30초에서 멈춘다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="670" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">은행 재접속 대기는 1초에서 두 배씩 늘어</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">30초에서 멈춘다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">가로축 = 은행 연결이 끊긴 뒤 지난 시간(초). 점 = 재접속 시도.</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">시도 시각은 코드 규칙으로 계산한 설명용 값이다 (측정값 아님)</text>
+<line x1="40" y1="246" x2="720" y2="246" stroke="#334155" stroke-width="1.6"/>
+<line x1="40.0" y1="246" x2="40.0" y2="252" stroke="#334155" stroke-width="1.4"/>
+<text x="40.0" y="272" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">0</text>
+<line x1="108.0" y1="246" x2="108.0" y2="252" stroke="#334155" stroke-width="1.4"/>
+<text x="108.0" y="272" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">10</text>
+<line x1="176.0" y1="246" x2="176.0" y2="252" stroke="#334155" stroke-width="1.4"/>
+<text x="176.0" y="272" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">20</text>
+<line x1="244.0" y1="246" x2="244.0" y2="252" stroke="#334155" stroke-width="1.4"/>
+<text x="244.0" y="272" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">30</text>
+<line x1="312.0" y1="246" x2="312.0" y2="252" stroke="#334155" stroke-width="1.4"/>
+<text x="312.0" y="272" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">40</text>
+<line x1="380.0" y1="246" x2="380.0" y2="252" stroke="#334155" stroke-width="1.4"/>
+<text x="380.0" y="272" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">50</text>
+<line x1="448.0" y1="246" x2="448.0" y2="252" stroke="#334155" stroke-width="1.4"/>
+<text x="448.0" y="272" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">60</text>
+<line x1="516.0" y1="246" x2="516.0" y2="252" stroke="#334155" stroke-width="1.4"/>
+<text x="516.0" y="272" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">70</text>
+<line x1="584.0" y1="246" x2="584.0" y2="252" stroke="#334155" stroke-width="1.4"/>
+<text x="584.0" y="272" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">80</text>
+<line x1="652.0" y1="246" x2="652.0" y2="252" stroke="#334155" stroke-width="1.4"/>
+<text x="652.0" y="272" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">90</text>
+<line x1="720.0" y1="246" x2="720.0" y2="252" stroke="#334155" stroke-width="1.4"/>
+<text x="720.0" y="272" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">100</text>
+<rect x="40.0" y="200" width="6.799999999999997" height="30" fill="#93c5fd" stroke="#1d4ed8" stroke-width="1"/>
+<circle cx="46.8" cy="246" r="6" fill="#1d4ed8"/>
+<rect x="46.8" y="200" width="13.600000000000001" height="30" fill="#bfdbfe" stroke="#1d4ed8" stroke-width="1"/>
+<circle cx="60.4" cy="246" r="6" fill="#1d4ed8"/>
+<rect x="60.4" y="200" width="27.199999999999996" height="30" fill="#93c5fd" stroke="#1d4ed8" stroke-width="1"/>
+<text x="74.0" y="221" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">4</text>
+<circle cx="87.6" cy="246" r="6" fill="#1d4ed8"/>
+<rect x="87.6" y="200" width="54.400000000000006" height="30" fill="#bfdbfe" stroke="#1d4ed8" stroke-width="1"/>
+<text x="114.8" y="221" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">8</text>
+<circle cx="142.0" cy="246" r="6" fill="#1d4ed8"/>
+<rect x="142.0" y="200" width="108.79999999999998" height="30" fill="#93c5fd" stroke="#1d4ed8" stroke-width="1"/>
+<text x="196.39999999999998" y="221" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">16</text>
+<circle cx="250.79999999999998" cy="246" r="6" fill="#1d4ed8"/>
+<rect x="250.79999999999998" y="200" width="204.00000000000003" height="30" fill="#bfdbfe" stroke="#1d4ed8" stroke-width="1"/>
+<text x="352.8" y="221" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">30</text>
+<circle cx="454.8" cy="246" r="6" fill="#1d4ed8"/>
+<rect x="454.8" y="200" width="203.99999999999994" height="30" fill="#93c5fd" stroke="#1d4ed8" stroke-width="1"/>
+<text x="556.8" y="221" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">30</text>
+<circle cx="658.8" cy="246" r="6" fill="#1d4ed8"/>
+<text x="40" y="186" font-size="16" fill="#1d4ed8" font-weight="700" xml:space="preserve">대기(초): 1 → 2 → 4 → 8 → 16 → 30 → 30 …</text>
+<line x1="461.59999999999997" y1="160" x2="461.59999999999997" y2="286" stroke="#047857" stroke-width="2.4"/>
+<rect x="461.59999999999997" y="282" width="197.2" height="14" fill="#fecaca" stroke="#b91c1c" stroke-width="1.2"/>
+<text x="457.59999999999997" y="322" font-size="16" fill="#047857" font-weight="700" text-anchor="end" xml:space="preserve">예: 은행이 62초에 돌아와도</text>
+<text x="457.59999999999997" y="345" font-size="16" fill="#b91c1c" text-anchor="end" xml:space="preserve">다음 시도는 91초 → 29초를 더 기다린다</text>
+<rect x="20" y="378" width="720" height="88" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="404" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">B1 (재시작 없음): 최대 30초 + readiness 주기 5초</text>
+<text x="32" y="427" font-size="16" fill="#0f172a" xml:space="preserve">은행 복구 → 다시 Ready 가 6.7 ~ 34.0초로 들쭉날쭉했다</text>
+<text x="32" y="450" font-size="16" fill="#0f172a" xml:space="preserve">34.0초 회차가 대기가 길 때 은행이 돌아온 경우다</text>
+<rect x="20" y="482" width="720" height="88" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="508" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">B2 (재시작): 새 프로세스는 대기를 1초부터 다시 센다</text>
+<text x="32" y="531" font-size="16" fill="#0f172a" xml:space="preserve">은행이 이미 돌아와 있으면 곧 붙는다 → 6.9 · 7.5초</text>
+<text x="32" y="554" font-size="16" fill="#0f172a" xml:space="preserve">liveness 가 좋아서가 아니라 대기가 초기화된 부수 효과</text>
+<rect x="20" y="586" width="720" height="64" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="612" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">손볼 곳: 대기 상한 30초 (BankGatewayClient)</text>
+<text x="32" y="635" font-size="16" fill="#0f172a" xml:space="preserve">상한을 줄이거나 not ready 동안 짧게 재시도 — 다음 과제</text>
+</svg>

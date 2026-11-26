@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 792" width="760" height="792" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>호출자가 본 실패를 둘로 가른다: 확실히 안 갔을 때만 안 보냄, 나머지는 모두 모름</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="792" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">호출자(api)가 본 실패를 둘로 가른다:</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">확실히 안 갔을 때만 '안 보냄'</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">초록 = 안 보냄 (다시 보내도 안전)</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">주황 = 모름 (다시 보내지 않고 결과를 묻는다)</text>
+<rect x="20" y="148" width="720" height="66" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="174" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">HTTP 호출 실패</text>
+<text x="32" y="198" font-size="16" fill="#475569" xml:space="preserve">HttpFailures 한 곳에서 분류 (두 클라이언트 판 공통)</text>
+<line x1="380" y1="214" x2="380" y2="242" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="244" width="720" height="50" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="275" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">은행에 확실히 안 갔다고 증명할 수 있나?</text>
+<line x1="200" y1="294" x2="200" y2="332" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<line x1="560" y1="294" x2="560" y2="332" stroke="#c2410c" stroke-width="2.2" marker-end="url(#mo)"/>
+<text x="212" y="320" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">예</text>
+<text x="572" y="320" font-size="16" fill="#c2410c" font-weight="700" xml:space="preserve">아니오</text>
+<rect x="20" y="334" width="350" height="204" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="360" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">안 보냄 (BankNotSent)</text>
+<text x="32" y="384" font-size="16" fill="#0f172a" xml:space="preserve">① 503 + BANK_NOT_SENT</text>
+<text x="32" y="408" font-size="16" fill="#0f172a" xml:space="preserve">② 연결 거부</text>
+<text x="32" y="432" font-size="16" fill="#0f172a" xml:space="preserve">    연결 시간 초과</text>
+<text x="32" y="456" font-size="16" fill="#0f172a" xml:space="preserve">    이름 풀이 실패</text>
+<text x="32" y="480" font-size="16" fill="#0f172a" xml:space="preserve">③ 풀 대기 시간 초과</text>
+<text x="32" y="504" font-size="16" fill="#0f172a" xml:space="preserve">    풀 대기열 상한 초과</text>
+<rect x="390" y="334" width="350" height="204" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="402" y="360" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">모름 (BankUnavailable 등)</text>
+<text x="402" y="384" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">504 BANK_TIMEOUT</text>
+<text x="402" y="408" font-size="16" fill="#0f172a" xml:space="preserve">502 · 500 · 400</text>
+<text x="402" y="432" font-size="16" fill="#0f172a" xml:space="preserve">코드 없는 503</text>
+<text x="402" y="456" font-size="16" fill="#0f172a" xml:space="preserve">응답 읽기 시간 초과</text>
+<text x="402" y="480" font-size="16" fill="#0f172a" xml:space="preserve">응답 전 끊김, 본문 못 읽음</text>
+<text x="402" y="504" font-size="16" fill="#0f172a" xml:space="preserve">어디에도 안 맞는 예외</text>
+<line x1="195" y1="538" x2="195" y2="566" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<line x1="565" y1="538" x2="565" y2="566" stroke="#c2410c" stroke-width="2.2" marker-end="url(#mo)"/>
+<rect x="20" y="568" width="350" height="90" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="594" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">SENDING → RECEIVED</text>
+<text x="32" y="617" font-size="16" fill="#0f172a" xml:space="preserve">재시도 토픽</text>
+<text x="32" y="640" font-size="16" fill="#0f172a" xml:space="preserve">5초 → 30초 → 60초</text>
+<rect x="390" y="568" width="350" height="90" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="402" y="594" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">SENDING → UNKNOWN</text>
+<text x="402" y="617" font-size="16" fill="#0f172a" xml:space="preserve">정리 작업이 결과조회로 확정</text>
+<text x="402" y="640" font-size="16" fill="#0f172a" xml:space="preserve">이체 전문은 다시 안 보냄</text>
+<rect x="20" y="682" width="720" height="90" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="708" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">틀렸을 때의 비용이 다르다 → 기본값은 '모름'</text>
+<text x="32" y="731" font-size="16" fill="#b91c1c" font-weight="700" xml:space="preserve">모름을 안 보냄으로 잘못 보면 → 이중 출금</text>
+<text x="32" y="754" font-size="16" fill="#c2410c" font-weight="700" xml:space="preserve">안 보냄을 모름으로 잘못 보면 → 처리만 늦어진다 (§5)</text>
+</svg>

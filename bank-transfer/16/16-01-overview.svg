@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 870" width="760" height="870" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>kind 클러스터 한 장: PC 안의 노드 컨테이너 3개, 그 안에서 다시 Pod 가 뜬다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="870" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">kind 클러스터 한 장: PC 안의 노드 컨테이너 3개,</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">그 안에서 다시 Pod 가 뜬다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">파랑 = 노드 컨테이너(서버 한 대 역할), 초록 = 우리 앱 Pod,</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">주황 = 인프라 · 모의 은행 Pod, 회색 = K8s 부품</text>
+<rect x="20" y="150" width="720" height="650" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="34" y="176" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">내 Windows PC — 밖으로 열린 포트는 127.0.0.1:8000 하나</text>
+<rect x="36" y="192" width="688" height="592" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="50" y="218" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">WSL2 리눅스 VM (Docker 엔진) — docker ps 에는 노드 3개만</text>
+<rect x="52" y="236" width="656" height="248" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="66" y="262" font-size="17" fill="#1d4ed8" font-weight="700" xml:space="preserve">① 제어 노드 (role=infra)</text>
+<rect x="68" y="276" width="624" height="42" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="80" y="302" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">K8s 두뇌: API 서버 · etcd · 스케줄러 · 컨트롤러</text>
+<rect x="68" y="328" width="304" height="64" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="80" y="354" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">Envoy 입구</text>
+<text x="80" y="377" font-size="16" fill="#0f172a" xml:space="preserve">NodePort 30080 ← :8000</text>
+<rect x="388" y="328" width="304" height="64" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="400" y="354" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">CoreDNS</text>
+<text x="400" y="377" font-size="16" fill="#0f172a" xml:space="preserve">Service 이름 → 주소</text>
+<rect x="68" y="404" width="304" height="64" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="80" y="430" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">MySQL · Kafka · Redis</text>
+<text x="80" y="453" font-size="16" fill="#0f172a" xml:space="preserve">디스크(PV)는 이 노드에</text>
+<rect x="388" y="404" width="304" height="64" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="400" y="430" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">모의 은행 + PVC</text>
+<text x="400" y="453" font-size="16" fill="#0f172a" xml:space="preserve">거래 기록이 따로 남는다</text>
+<rect x="52" y="500" width="656" height="132" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="66" y="526" font-size="17" fill="#1d4ed8" font-weight="700" xml:space="preserve">② 워커 1 (role=app)</text>
+<rect x="68" y="540" width="304" height="76" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="80" y="566" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">api #1</text>
+<text x="80" y="589" font-size="16" fill="#0f172a" xml:space="preserve">Deployment 2대 중 하나</text>
+<rect x="388" y="540" width="304" height="76" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="400" y="566" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">은행 게이트웨이 1대</text>
+<text x="400" y="589" font-size="16" fill="#0f172a" xml:space="preserve">Recreate, 은행 연결 주인</text>
+<rect x="52" y="648" width="656" height="120" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="66" y="674" font-size="17" fill="#1d4ed8" font-weight="700" xml:space="preserve">③ 워커 2 (role=app)</text>
+<rect x="68" y="688" width="304" height="64" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="80" y="714" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">api #2</text>
+<text x="80" y="737" font-size="16" fill="#0f172a" xml:space="preserve">다른 워커에 (분산 배치)</text>
+<text x="20" y="828" font-size="16" fill="#475569" xml:space="preserve">인프라를 제어 노드에 모은 이유: 워커를 꺼도 DB · 은행 · DNS ·</text>
+<text x="20" y="851" font-size="16" fill="#475569" xml:space="preserve">입구는 살아 있게. 게이트웨이 위치는 스케줄러가 정한다 (위는 예시)</text>
+</svg>

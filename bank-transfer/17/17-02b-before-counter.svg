@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 650" width="760" height="650" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>이전 구성 drain: 새 게이트웨이가 메모리 카운터를 1부터 다시 세서 그날 쓴 번호와 591번 겹쳤다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="650" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">이전 구성 drain ②:</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">번호를 1부터 다시 세서 중복 591번</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">빨강 = 은행이 처리하지 않고 돌려보낸 전문</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">은행은 --unique-tran-no: 같은 날 같은 번호면 3001</text>
+<rect x="20" y="148" width="350" height="114" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="32" y="174" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">옛 게이트웨이 (오전부터)</text>
+<text x="32" y="197" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">AtomicLong 카운터</text>
+<text x="32" y="220" font-size="16" fill="#0f172a" xml:space="preserve">예: 1, 2, 3, … 600 까지 썼다</text>
+<text x="32" y="243" font-size="16" fill="#0f172a" xml:space="preserve">은행: 1 ~ 600 사용됨 (예시 값)</text>
+<rect x="390" y="148" width="350" height="114" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="402" y="174" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">새 게이트웨이 (drain 뒤)</text>
+<text x="402" y="197" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">새 AtomicLong 카운터</text>
+<text x="402" y="220" font-size="16" fill="#0f172a" xml:space="preserve">1 부터 다시 센다</text>
+<text x="402" y="243" font-size="16" fill="#0f172a" xml:space="preserve">1, 2, 3 … → 이미 쓴 번호</text>
+<line x1="565" y1="262" x2="565" y2="294" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<rect x="20" y="296" width="720" height="68" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="322" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">모의 은행: 같은 날 이미 받은 번호 → 응답코드 3001</text>
+<text x="32" y="345" font-size="16" fill="#0f172a" xml:space="preserve">처리하지 않고 돌려보낸다 (duplicate tran no)</text>
+<line x1="380" y1="364" x2="380" y2="396" stroke="#c2410c" stroke-width="2.2" marker-end="url(#mo)"/>
+<rect x="20" y="398" width="720" height="68" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="32" y="424" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">게이트웨이: 3001 을 503 BANK_NOT_SENT(안 보냄)로 바꾼다</text>
+<text x="32" y="447" font-size="16" fill="#0f172a" xml:space="preserve">실패가 아니다. 은행이 처리하지 않았기 때문이다</text>
+<line x1="380" y1="466" x2="380" y2="498" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="20" y="500" width="720" height="68" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="526" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">api: 재시도 토픽으로 다시 보낸다 → 결국 전부 처리</text>
+<text x="32" y="549" font-size="16" fill="#0f172a" xml:space="preserve">돈은 맞았다. 대신 헛걸음이 591번이었다</text>
+<text x="20" y="598" font-size="16" fill="#64748b" xml:space="preserve">3001 을 그대로 실패로 넘기면 api 가 환불해 버려,</text>
+<text x="20" y="622" font-size="16" fill="#64748b" xml:space="preserve">처리도 안 된 출금이 사용자에게 실패로 보인다.</text>
+</svg>

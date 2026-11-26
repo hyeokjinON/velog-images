@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 610" width="760" height="610" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>Lease 시간 규칙: 리더는 마지막 갱신 성공 10초 뒤 스스로 끊고, 대기는 15초 만료 뒤에야 얻어 두 주인이 겹치지 않는다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="610" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">Lease 시간 규칙: 10초에 놓고 15초에 잡는다</text>
+<text x="20" y="68" font-size="16" fill="#475569" xml:space="preserve">초록 = 리더가 은행에 붙어 있는 시간, 회색 = 아무도 안 붙음</text>
+<text x="20" y="91" font-size="16" fill="#475569" xml:space="preserve">파랑 = 대기가 리더가 되는 시점 (0초 = 마지막 갱신 성공)</text>
+<line x1="60" y1="344" x2="720" y2="344" stroke="#334155" stroke-width="1.6"/>
+<line x1="60.0" y1="338" x2="60.0" y2="350" stroke="#334155" stroke-width="1.4"/>
+<text x="60.0" y="372" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">0</text>
+<line x1="142.5" y1="338" x2="142.5" y2="350" stroke="#334155" stroke-width="1.4"/>
+<text x="142.5" y="372" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">2</text>
+<line x1="225.0" y1="338" x2="225.0" y2="350" stroke="#334155" stroke-width="1.4"/>
+<text x="225.0" y="372" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">4</text>
+<line x1="307.5" y1="338" x2="307.5" y2="350" stroke="#334155" stroke-width="1.4"/>
+<text x="307.5" y="372" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">6</text>
+<line x1="390.0" y1="338" x2="390.0" y2="350" stroke="#334155" stroke-width="1.4"/>
+<text x="390.0" y="372" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">8</text>
+<line x1="472.5" y1="338" x2="472.5" y2="350" stroke="#334155" stroke-width="1.4"/>
+<text x="472.5" y="372" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">10</text>
+<line x1="555.0" y1="338" x2="555.0" y2="350" stroke="#334155" stroke-width="1.4"/>
+<text x="555.0" y="372" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">12</text>
+<line x1="637.5" y1="338" x2="637.5" y2="350" stroke="#334155" stroke-width="1.4"/>
+<text x="637.5" y="372" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">14</text>
+<line x1="720.0" y1="338" x2="720.0" y2="350" stroke="#334155" stroke-width="1.4"/>
+<text x="720.0" y="372" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">16</text>
+<text x="720" y="396" font-size="16" fill="#475569" text-anchor="end" xml:space="preserve">초</text>
+<text x="20" y="156" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">게이트웨이 A (리더)</text>
+<rect x="60.0" y="168" width="412.5" height="40" rx="6" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="266.25" y="194" font-size="16" fill="#047857" text-anchor="middle" xml:space="preserve">은행 세션 유지, 2초마다 갱신 시도 (실패 중)</text>
+<text x="20" y="246" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">게이트웨이 B (대기)</text>
+<rect x="60.0" y="258" width="618.75" height="40" rx="6" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="249.74999999999997" y="284" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">Lease 가 아직 A 것이라 기다린다</text>
+<rect x="476.5" y="168" width="198.25" height="40" rx="6" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="6 4"/>
+<text x="575.625" y="194" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">끊음 (공백)</text>
+<rect x="678.75" y="258" width="41.25" height="40" rx="6" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="699.375" y="284" font-size="16" fill="#1d4ed8" font-weight="700" text-anchor="middle" xml:space="preserve">획득</text>
+<line x1="472.5" y1="154" x2="472.5" y2="334" stroke="#b91c1c" stroke-width="2" stroke-dasharray="6 4"/>
+<line x1="678.75" y1="154" x2="678.75" y2="334" stroke="#1d4ed8" stroke-width="2" stroke-dasharray="6 4"/>
+<text x="466.5" y="322" font-size="16" fill="#b91c1c" font-weight="700" text-anchor="end" xml:space="preserve">10초</text>
+<text x="672.75" y="322" font-size="16" fill="#1d4ed8" font-weight="700" text-anchor="end" xml:space="preserve">15초</text>
+<rect x="20" y="414" width="720" height="92" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="32" y="440" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">10 ~ 15초 사이 5초는 아무도 은행에 붙지 않는다</text>
+<text x="32" y="463" font-size="16" fill="#0f172a" xml:space="preserve">이 5초가 두 노드의 시계 차이를 흡수하는 여유다</text>
+<text x="32" y="486" font-size="16" fill="#0f172a" xml:space="preserve">코드 기준 정확한 전제: 시계 차 약 4.75초 미만 (15 − 10 − 0.25)</text>
+<rect x="20" y="522" width="720" height="68" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="548" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">갱신 기한을 유효 시간과 같게(둘 다 15초) 두면</text>
+<text x="32" y="571" font-size="16" fill="#0f172a" xml:space="preserve">경계에서 두 주인이 겹칠 수 있어 버린 대안이다</text>
+</svg>

@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 702" width="760" height="702" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>두 api 가 같은 시각에 깨어나도 shedlock 표의 행을 먼저 바꾼 한 대만 대사를 돌린다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="702" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">두 대가 깨어나도 한 대만 돈다 (ShedLock)</text>
+<text x="20" y="68" font-size="16" fill="#475569" xml:space="preserve">초록 = 이번 회차를 도는 쪽, 회색 = 건너뛰는 쪽</text>
+<text x="20" y="91" font-size="16" fill="#475569" xml:space="preserve">시각은 E5 실험에서 shedlock 행에 남은 값 (UTC)</text>
+<rect x="40" y="120" width="300" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="52" y="146" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① api-1 @Scheduled</text>
+<text x="52" y="169" font-size="16" fill="#0f172a" xml:space="preserve">cron 이 run() 을 부른다</text>
+<rect x="420" y="120" width="300" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="432" y="146" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① api-2 @Scheduled</text>
+<text x="432" y="169" font-size="16" fill="#0f172a" xml:space="preserve">같은 시각에 run()</text>
+<line x1="190" y1="184" x2="300" y2="222" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<line x1="570" y1="184" x2="460" y2="222" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="224" width="720" height="112" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="250" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② MySQL shedlock 표의 같은 행을 바꾸려 한다</text>
+<text x="32" y="273" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">UPDATE shedlock SET lock_until = …, locked_by = …</text>
+<text x="32" y="296" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">WHERE name = 'daily-recon'</text>
+<text x="32" y="319" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">  AND lock_until &lt;= UTC_TIMESTAMP(3)   -- DB 시각</text>
+<line x1="200" y1="336" x2="190" y2="374" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<line x1="560" y1="336" x2="570" y2="374" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="40" y="376" width="300" height="88" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="52" y="402" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ api-1: 0행 바뀜</text>
+<text x="52" y="425" font-size="16" fill="#0f172a" xml:space="preserve">lock_until 이 아직 미래</text>
+<text x="52" y="448" font-size="16" fill="#0f172a" xml:space="preserve">→ 이번 회차 건너뜀</text>
+<rect x="420" y="376" width="300" height="88" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="432" y="402" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ api-2: 1행 바뀜</text>
+<text x="432" y="425" font-size="16" fill="#0f172a" xml:space="preserve">locked_by = api-2</text>
+<text x="432" y="448" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">→ 대사 실행 (약 1.6초)</text>
+<line x1="570" y1="464" x2="570" y2="502" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="20" y="504" width="720" height="140" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="530" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ 끝나면 lock_until 을 locked_at + 1분 으로 줄인다</text>
+<text x="32" y="553" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">name         locked_by  locked_at     lock_until</text>
+<text x="32" y="576" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">daily-recon  api-2      04:53:59.996  04:54:59.996</text>
+<text x="32" y="599" font-size="16" fill="#0f172a" xml:space="preserve">lockAtLeastFor 1분: 시계가 조금 다른 서버가 다시 못 돌게</text>
+<text x="32" y="622" font-size="16" fill="#0f172a" xml:space="preserve">lockAtMostFor 50분: 잡은 채 죽어도 50분 뒤 저절로 풀린다</text>
+<text x="20" y="678" font-size="16" fill="#64748b" xml:space="preserve">E5: 2분마다 약 10분, 6회차 — api-2 5번, api-1 1번, 같은 분에 두 대는 0번</text>
+</svg>

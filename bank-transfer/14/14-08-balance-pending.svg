@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 696" width="760" height="696" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>게이트웨이를 내리고 출금하면 잔고는 바로 줄고 pending 이 늘며, 다시 올리면 pending 만 줄어든다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="696" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">게이트웨이를 내리고 출금했을 때</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">잔고와 pending 이 움직이는 순서</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">금액은 설명용 예시 값이다</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">잔고 = 출금 가능 금액, pending = 그중 은행 처리가 남은 금액</text>
+<rect x="60" y="148" width="680" height="90" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="72" y="174" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">시작</text>
+<text x="72" y="199" font-size="16" fill="#334155" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">잔고 100,000   ·   pending 0</text>
+<text x="72" y="224" font-size="16" fill="#475569" xml:space="preserve">게이트웨이 켜짐</text>
+<circle cx="36" cy="193" r="13" fill="#334155"/><text x="36" y="199" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">①</text>
+<line x1="400" y1="238" x2="400" y2="264" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="60" y="266" width="680" height="90" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="72" y="292" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">게이트웨이를 내리고 10,000원 출금</text>
+<text x="72" y="317" font-size="16" fill="#c2410c" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">잔고 90,000   ·   pending 10,000</text>
+<text x="72" y="342" font-size="16" fill="#475569" xml:space="preserve">202 RECEIVED, 'not sent' → 재시도 토픽</text>
+<circle cx="36" cy="311" r="13" fill="#c2410c"/><text x="36" y="317" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">②</text>
+<line x1="400" y1="356" x2="400" y2="382" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="60" y="384" width="680" height="90" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="72" y="410" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">게이트웨이를 다시 올림</text>
+<text x="72" y="435" font-size="16" fill="#047857" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">잔고 90,000   ·   pending 0</text>
+<text x="72" y="460" font-size="16" fill="#475569" xml:space="preserve">다음 재시도에서 COMPLETED, 은행 입금 1번</text>
+<circle cx="36" cy="429" r="13" fill="#047857"/><text x="36" y="435" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">③</text>
+<line x1="400" y1="474" x2="400" y2="500" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="60" y="502" width="680" height="90" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="72" y="528" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">5,000원 충전</text>
+<text x="72" y="553" font-size="16" fill="#1d4ed8" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">잔고 95,000   ·   pending 0</text>
+<text x="72" y="578" font-size="16" fill="#475569" xml:space="preserve">은행을 거치지 않아 모드와 상관없다</text>
+<circle cx="36" cy="547" r="13" fill="#1d4ed8"/><text x="36" y="553" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">④</text>
+<rect x="20" y="612" width="720" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="638" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">잔고가 줄었는데 완료가 아니다 = 설계 (ADR-0008)</text>
+<text x="32" y="662" font-size="16" fill="#0f172a" xml:space="preserve">출금은 접수할 때 먼저 빼서 같은 잔고로 두 번 못 뺀다</text>
+</svg>

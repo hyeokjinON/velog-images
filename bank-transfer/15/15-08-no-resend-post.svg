@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 654" width="760" height="654" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>nginx 가 다음 api 로 넘기는 경우와 넘기지 않는 경우: 연결 실패는 넘기고, 보낸 뒤 끊긴 POST 는 502 를 주고 클라이언트가 같은 키로 다시 보낸다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="654" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">nginx 는 보낸 POST 를 다시 보내지 않는다</text>
+<text x="20" y="68" font-size="16" fill="#475569" xml:space="preserve">proxy_next_upstream error timeout (non_idempotent 없음)</text>
+<text x="20" y="91" font-size="16" fill="#475569" xml:space="preserve">초록 = 안전하게 넘김, 빨강 = 결과를 모름</text>
+<text x="20" y="140" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">A. 연결조차 못 함 → nginx 가 다음 api 로 넘긴다</text>
+<rect x="20" y="156" width="210" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="182" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">k6 → nginx</text>
+<text x="32" y="205" font-size="16" fill="#0f172a" xml:space="preserve">출금 POST</text>
+<line x1="234" y1="200.0" x2="271" y2="200.0" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="275" y="156" width="210" height="88" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="287" y="182" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">api-1 연결 실패</text>
+<text x="287" y="205" font-size="16" fill="#0f172a" xml:space="preserve">거절 또는 1초</text>
+<text x="287" y="228" font-size="16" fill="#0f172a" xml:space="preserve">요청은 안 갔다</text>
+<line x1="489" y1="200.0" x2="526" y2="200.0" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="530" y="156" width="210" height="88" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="542" y="182" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">api-2 로 같은 요청</text>
+<text x="542" y="205" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">202</text>
+<text x="20" y="302" font-size="16" fill="#b91c1c" font-weight="700" xml:space="preserve">B. 보낸 뒤 끊김 → nginx 는 502, 다시 안 보낸다</text>
+<rect x="20" y="318" width="210" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="344" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">k6 → nginx → api-1</text>
+<text x="32" y="367" font-size="16" fill="#0f172a" xml:space="preserve">POST 전송 끝</text>
+<text x="32" y="390" font-size="16" fill="#0f172a" xml:space="preserve">응답 대기</text>
+<line x1="234" y1="362.0" x2="271" y2="362.0" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<rect x="275" y="318" width="210" height="88" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="287" y="344" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">api-1 SIGKILL</text>
+<text x="287" y="367" font-size="16" fill="#0f172a" xml:space="preserve">응답 헤더 전에</text>
+<text x="287" y="390" font-size="16" fill="#0f172a" xml:space="preserve">연결이 끊김</text>
+<line x1="489" y1="362.0" x2="526" y2="362.0" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<rect x="530" y="318" width="210" height="88" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="542" y="344" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">nginx: 502</text>
+<text x="542" y="367" font-size="16" fill="#0f172a" xml:space="preserve">커밋했는지 모른다</text>
+<text x="542" y="390" font-size="16" fill="#0f172a" xml:space="preserve">→ 넘기지 않는다</text>
+<line x1="635" y1="406" x2="635" y2="444" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<rect x="20" y="446" width="720" height="64" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="472" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">클라이언트(k6)가 1초 뒤 같은 Idempotency-Key 로 다시 보낸다</text>
+<text x="32" y="495" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">withdraw.js: res 가 5xx 면 sleep(1) 뒤 같은 params 로 POST</text>
+<line x1="380" y1="510" x2="380" y2="542" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="20" y="544" width="720" height="90" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="570" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">nginx → api-2: 커밋 전에 죽었으면 202, 커밋 뒤면 200 과 같은 id</text>
+<text x="32" y="593" font-size="16" fill="#0f172a" xml:space="preserve">어느 쪽이든 출금 행은 1개 (kill-3: 접수 키 1201 = 출금 행 1201)</text>
+<text x="32" y="616" font-size="16" fill="#0f172a" xml:space="preserve">1원인증에는 멱등키가 없어서 nginx 가 다시 보내면 1원이 두 번 나갈 수 있다</text>
+</svg>

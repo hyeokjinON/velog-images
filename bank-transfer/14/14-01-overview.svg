@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 832" width="760" height="832" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>게이트웨이 분리 한 장으로 보기: 은행 연결은 한 곳에 모으고, 돈 규칙은 HTTP 를 건너도 그대로 둔다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="832" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">게이트웨이 분리 한 장으로 보기:</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">은행 연결은 한 곳에, 돈 규칙은 그대로</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">파랑 = 구조, 초록 = 안 보냄, 주황 = 모름 · 비용, 빨강 = 버그</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">수치는 한 PC 의 상대 비교다 (운영 수치가 아니다)</text>
+<rect x="20" y="148" width="720" height="90" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="174" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① 문제: api 를 늘리면 은행 연결과 짝짓기 표가 갈라진다</text>
+<text x="32" y="197" font-size="16" fill="#0f172a" xml:space="preserve">api 3대 = 은행 연결 3개, 짝짓기 표 3개</text>
+<text x="32" y="220" font-size="16" fill="#0f172a" xml:space="preserve">응답이 보낸 프로세스가 아닌 곳으로 가면 짝을 못 찾는다</text>
+<line x1="380" y1="238" x2="380" y2="272" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<rect x="20" y="274" width="720" height="90" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="300" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② 분리: api 는 HTTP 로 게이트웨이만 부른다</text>
+<text x="32" y="323" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">api × N → HTTP → 게이트웨이 1대 → TCP 1개 → 은행</text>
+<text x="32" y="346" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">bank.gateway.mode = direct(기본) | http</text>
+<line x1="200" y1="364" x2="200" y2="398" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<line x1="560" y1="364" x2="560" y2="398" stroke="#c2410c" stroke-width="2.2" marker-end="url(#mo)"/>
+<rect x="20" y="400" width="350" height="136" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="426" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ 안 보냄 → 재시도 토픽</text>
+<text x="32" y="449" font-size="16" fill="#0f172a" xml:space="preserve">확실히 안 갔을 때만:</text>
+<text x="32" y="472" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">503 + BANK_NOT_SENT</text>
+<text x="32" y="495" font-size="16" fill="#0f172a" xml:space="preserve">연결 거부, 연결 시간 초과</text>
+<text x="32" y="518" font-size="16" fill="#0f172a" xml:space="preserve">풀에서 연결을 못 얻음</text>
+<rect x="390" y="400" width="350" height="136" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="402" y="426" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ 나머지 전부 모름 → 결과조회</text>
+<text x="402" y="449" font-size="16" fill="#0f172a" xml:space="preserve">504, 502, 코드 없는 503</text>
+<text x="402" y="472" font-size="16" fill="#0f172a" xml:space="preserve">응답 읽기 시간 초과</text>
+<text x="402" y="495" font-size="16" fill="#0f172a" xml:space="preserve">응답 전에 끊김</text>
+<text x="402" y="518" font-size="16" fill="#0f172a" xml:space="preserve">어디에도 안 맞는 예외</text>
+<line x1="380" y1="536" x2="380" y2="570" stroke="#c2410c" stroke-width="2.2" marker-end="url(#mo)"/>
+<rect x="20" y="572" width="720" height="90" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="32" y="598" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑤ 비용: 속도가 목적이 아니라서 숫자로 남겼다</text>
+<text x="32" y="621" font-size="16" fill="#c2410c" xml:space="preserve">블로킹 컨슈머  21.4 → 20.7건/s (−3.3%)</text>
+<text x="32" y="644" font-size="16" fill="#c2410c" xml:space="preserve">코루틴 컨슈머  361.2 → 297.5건/s (−17.6%)</text>
+<line x1="380" y1="662" x2="380" y2="696" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<rect x="20" y="698" width="720" height="114" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="724" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑥ 연결 풀 천장을 일부러 쳐 보니 버그가 나왔다</text>
+<text x="32" y="747" font-size="16" fill="#0f172a" xml:space="preserve">풀 32 · 동시 128 → 출금 324건이 끝나지 않음 (이중 송신 0)</text>
+<text x="32" y="770" font-size="16" fill="#0f172a" xml:space="preserve">대기열 초과 거절을 '모름' 으로 분류하고 있었다</text>
+<text x="32" y="793" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">→ '안 보냄' 으로 고치고 실제 예외로 테스트 고정</text>
+</svg>

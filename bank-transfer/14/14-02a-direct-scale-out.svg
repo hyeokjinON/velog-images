@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 670" width="760" height="670" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>direct 모드로 api 를 3대로 늘리면 은행 연결이 3개, 짝짓기 표가 3개로 갈라진다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="670" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">direct 모드로 api 를 3대로 늘리면:</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">은행 연결 3개, 짝짓기 표 3개</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">파랑 = api 프로세스, 빨강 = 깨지는 지점</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">은행 접속 수 제한은 일반 지식이다 (모의 은행에는 없다)</text>
+<rect x="20" y="152" width="330" height="70" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="178" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">api 1 (Netty 직결)</text>
+<text x="32" y="201" font-size="16" fill="#475569" xml:space="preserve">짝짓기 표: 전문번호 → future</text>
+<line x1="350" y1="187.0" x2="528" y2="187.0" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<text x="440" y="177.0" font-size="16" fill="#b91c1c" font-weight="700" text-anchor="middle" xml:space="preserve">TCP 연결 1</text>
+<rect x="20" y="240" width="330" height="70" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="266" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">api 2 (Netty 직결)</text>
+<text x="32" y="289" font-size="16" fill="#475569" xml:space="preserve">짝짓기 표: 전문번호 → future</text>
+<line x1="350" y1="275.0" x2="528" y2="275.0" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<text x="440" y="265.0" font-size="16" fill="#b91c1c" font-weight="700" text-anchor="middle" xml:space="preserve">TCP 연결 2</text>
+<rect x="20" y="328" width="330" height="70" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="354" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">api 3 (Netty 직결)</text>
+<text x="32" y="377" font-size="16" fill="#475569" xml:space="preserve">짝짓기 표: 전문번호 → future</text>
+<line x1="350" y1="363.0" x2="528" y2="363.0" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<text x="440" y="353.0" font-size="16" fill="#b91c1c" font-weight="700" text-anchor="middle" xml:space="preserve">TCP 연결 3</text>
+<rect x="530" y="152" width="210" height="246" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="542" y="178" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">은행 FEP</text>
+<text x="542" y="201" font-size="16" fill="#0f172a" xml:space="preserve"></text>
+<text x="542" y="224" font-size="16" fill="#0f172a" xml:space="preserve">접속 수가</text>
+<text x="542" y="247" font-size="16" fill="#0f172a" xml:space="preserve">정해져 있다</text>
+<text x="542" y="270" font-size="16" fill="#0f172a" xml:space="preserve">(일반 지식)</text>
+<rect x="20" y="428" width="720" height="90" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="454" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① 연결이 api 대수만큼 는다</text>
+<text x="32" y="477" font-size="16" fill="#0f172a" xml:space="preserve">api 를 4대로 늘리면 연결도 4개가 된다</text>
+<text x="32" y="500" font-size="16" fill="#0f172a" xml:space="preserve">접속 수가 정해진 회선이면 넘친 연결은 거절된다</text>
+<rect x="20" y="538" width="720" height="112" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="564" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② 짝짓기 표가 프로세스마다 따로 있다</text>
+<text x="32" y="587" font-size="16" fill="#0f172a" xml:space="preserve">api 1 이 전문번호 101 을 보내고 표에 101 을 적는다</text>
+<text x="32" y="610" font-size="16" fill="#0f172a" xml:space="preserve">응답 101 이 api 2 로 가면 api 2 의 표에는 101 이 없다</text>
+<text x="32" y="633" font-size="16" fill="#0f172a" xml:space="preserve">응답은 버려지고 api 1 은 시간 초과로 '모름' 이 된다</text>
+</svg>

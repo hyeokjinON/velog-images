@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 910" width="760" height="910" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>강제 종료(SIGKILL): 탈퇴 신호가 없어 브로커가 45초를 기다린 뒤 45.6초에 파티션을 넘기고, 그동안 그 파티션의 출금은 처리가 멈춘다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="910" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">강제 종료 (SIGKILL): 말없이 사라지니 45초</text>
+<text x="20" y="68" font-size="16" fill="#475569" xml:space="preserve">왼쪽 = kill 을 건 때부터의 시간</text>
+<text x="20" y="91" font-size="16" fill="#475569" xml:space="preserve">넘김 시각은 kill-1 · kill-2, 처리 지연은 kill-3 회차</text>
+<text x="20" y="114" font-size="16" fill="#475569" xml:space="preserve">빨강 = 멈춘 것, 주황 = 늦어진 것, 초록 = 회복</text>
+<text x="108" y="169" font-size="16" fill="#b91c1c" font-weight="700" text-anchor="end" xml:space="preserve">0s</text>
+<rect x="120" y="143" width="620" height="71" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="132" y="169" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① docker kill api-1 (SIGKILL)</text>
+<text x="132" y="192" font-size="16" fill="#0f172a" xml:space="preserve">종료 코드를 하나도 실행 못 하고 IP 도 사라진다</text>
+<line x1="430.0" y1="214" x2="430.0" y2="238" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<text x="108" y="266" font-size="16" fill="#c2410c" font-weight="700" text-anchor="end" xml:space="preserve">+1s</text>
+<rect x="120" y="240" width="620" height="71" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="132" y="266" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② nginx: 연결 시간 초과 1초 → api-2 로</text>
+<text x="132" y="289" font-size="16" fill="#0f172a" xml:space="preserve">그 요청만 약 1.03초, 이후 10초마다 다시 시험</text>
+<line x1="430.0" y1="311" x2="430.0" y2="335" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<text x="108" y="363" font-size="16" fill="#c2410c" font-weight="700" text-anchor="end" xml:space="preserve">0~45s</text>
+<rect x="120" y="337" width="620" height="71" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="132" y="363" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ 브로커: 하트비트가 안 오지만 아직 산 것으로 본다</text>
+<text x="132" y="386" font-size="16" fill="#0f172a" xml:space="preserve">session.timeout.ms 기본 45초를 기다린다</text>
+<line x1="430.0" y1="408" x2="430.0" y2="432" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<text x="108" y="460" font-size="16" fill="#c2410c" font-weight="700" text-anchor="end" xml:space="preserve">0~45s</text>
+<rect x="120" y="434" width="620" height="71" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="132" y="460" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ api-1 몫 파티션(3개 중 1개)에 메시지가 쌓인다</text>
+<text x="132" y="483" font-size="16" fill="#0f172a" xml:space="preserve">접수(202)는 api-2 가 계속 받는다 — 접수는 안 늦다</text>
+<line x1="430.0" y1="505" x2="430.0" y2="529" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<text x="108" y="557" font-size="16" fill="#047857" font-weight="700" text-anchor="end" xml:space="preserve">45.6s</text>
+<rect x="120" y="531" width="620" height="71" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="132" y="557" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑤ 리밸런스 → api-2 가 그 파티션을 받는다</text>
+<text x="132" y="580" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">밀린 출금 처리, 가장 늦은 건 45.04s</text>
+<text x="20" y="636" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">파티션 넘김 시간 비교 (0 ~ 50초)</text>
+<text x="20" y="675" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">restart-1</text>
+<rect x="170" y="660" width="10.4" height="20" fill="#047857"/>
+<text x="188.368" y="676" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">0.96s</text>
+<text x="20" y="709" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">restart-2</text>
+<rect x="170" y="694" width="34.6" height="20" fill="#047857"/>
+<text x="212.56" y="710" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">3.2s</text>
+<text x="20" y="743" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">kill-1</text>
+<rect x="170" y="728" width="492.5" height="20" fill="#b91c1c"/>
+<text x="670.48" y="744" font-size="16" fill="#b91c1c" font-weight="700" xml:space="preserve">45.6s</text>
+<text x="20" y="777" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">kill-2</text>
+<rect x="170" y="762" width="492.5" height="20" fill="#b91c1c"/>
+<text x="670.48" y="778" font-size="16" fill="#b91c1c" font-weight="700" xml:space="preserve">45.6s</text>
+<line x1="170" y1="792" x2="710" y2="792" stroke="#94a3b8" stroke-width="1.2"/>
+<text x="170.0" y="812" font-size="16" fill="#64748b" text-anchor="middle" xml:space="preserve">0s</text>
+<text x="278.0" y="812" font-size="16" fill="#64748b" text-anchor="middle" xml:space="preserve">10s</text>
+<text x="386.0" y="812" font-size="16" fill="#64748b" text-anchor="middle" xml:space="preserve">20s</text>
+<text x="494.0" y="812" font-size="16" fill="#64748b" text-anchor="middle" xml:space="preserve">30s</text>
+<text x="602.0" y="812" font-size="16" fill="#64748b" text-anchor="middle" xml:space="preserve">40s</text>
+<text x="710.0" y="812" font-size="16" fill="#64748b" text-anchor="middle" xml:space="preserve">50s</text>
+<text x="20" y="852" font-size="16" fill="#64748b" xml:space="preserve">잃은 메시지 0, 두 번 보낸 은행 송신 0</text>
+<text x="20" y="876" font-size="16" fill="#64748b" xml:space="preserve">Docker 는 kill 한 컨테이너를 다시 띄우지 않았다 (3회 모두)</text>
+</svg>

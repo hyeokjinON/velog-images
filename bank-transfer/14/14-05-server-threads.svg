@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 758" width="760" height="758" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>게이트웨이 서버 두 판의 스레드: WebFlux 는 이벤트 루프가 받고 쓰며, MVC 비동기는 Tomcat 스레드를 두 번 잡는다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="758" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">게이트웨이 서버 두 판의 스레드 모양:</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">WebFlux 최대 30, MVC 비동기 최대 144</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">같은 부하(동시 128), 회차 직후 게이트웨이 스레드 덤프</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">두 판은 대안이다. 한 번에 하나만 뜬다</text>
+<rect x="20" y="148" width="720" height="44" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="177" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">WebFlux (기본): 이벤트 루프가 받고, 기다리지 않고, 그대로 쓴다</text>
+<rect x="60" y="206" width="680" height="66" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="72" y="232" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">받기: 이벤트 루프가 요청을 받는다</text>
+<text x="72" y="256" font-size="16" fill="#475569" font-family="Consolas, D2Coding, monospace" xml:space="preserve">reactor-http-nio-N</text>
+<circle cx="36" cy="239" r="13" fill="#047857"/><text x="36" y="245" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">①</text>
+<rect x="60" y="284" width="680" height="66" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="72" y="310" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">은행 대기: 스레드를 잡지 않는다</text>
+<text x="72" y="334" font-size="16" fill="#475569" font-family="Consolas, D2Coding, monospace" xml:space="preserve">Mono.fromFuture(future, true)</text>
+<circle cx="36" cy="317" r="13" fill="#334155"/><text x="36" y="323" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">②</text>
+<rect x="60" y="362" width="680" height="66" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="72" y="388" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">쓰기: 은행 응답이 오면 이벤트 루프가 쓴다</text>
+<text x="72" y="412" font-size="16" fill="#475569" xml:space="preserve">같은 이벤트 루프 (요청당 스레드 없음)</text>
+<circle cx="36" cy="395" r="13" fill="#047857"/><text x="36" y="401" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">③</text>
+<rect x="20" y="456" width="720" height="44" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="32" y="485" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">MVC 비동기: Tomcat 스레드가 받을 때, 쓸 때 두 번 든다</text>
+<rect x="60" y="514" width="680" height="66" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="72" y="540" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">받기: Tomcat 스레드가 받고 future 를 돌려준 뒤 반납</text>
+<text x="72" y="564" font-size="16" fill="#475569" font-family="Consolas, D2Coding, monospace" xml:space="preserve">http-nio-18082-exec-N</text>
+<circle cx="36" cy="547" r="13" fill="#c2410c"/><text x="36" y="553" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">①</text>
+<rect x="60" y="592" width="680" height="66" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="72" y="618" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">은행 대기: 스레드를 잡지 않는다</text>
+<text x="72" y="642" font-size="16" fill="#475569" font-family="Consolas, D2Coding, monospace" xml:space="preserve">CompletableFuture 반환</text>
+<circle cx="36" cy="625" r="13" fill="#334155"/><text x="36" y="631" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">②</text>
+<rect x="60" y="670" width="680" height="66" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="72" y="696" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">쓰기: AsyncContext 재디스패치로 스레드를 다시 잡는다</text>
+<text x="72" y="720" font-size="16" fill="#475569" xml:space="preserve">덤프에 exec 스레드 129개 (동시 요청만큼 늘었다)</text>
+<circle cx="36" cy="703" r="13" fill="#c2410c"/><text x="36" y="709" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">③</text>
+</svg>

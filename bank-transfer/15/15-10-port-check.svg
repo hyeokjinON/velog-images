@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 651" width="760" height="651" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>docker compose port 출력 다섯 가지를 옛 판정과 새 판정에 넣은 결과: 옛 판정은 invalid IP:0 을 열림으로 잘못 봤다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="651" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">포트가 열렸나: 옛 판정과 새 판정</text>
+<text x="20" y="68" font-size="16" fill="#475569" xml:space="preserve">초록 = 안 열림(통과), 빨강 = 열림(실패), 굵은 빨강 = 헛실패</text>
+<rect x="20" y="97" width="720" height="112" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="123" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">옛 판정: 빈 줄 또는 :0 이면 안 열림, 나머지는 실패</text>
+<text x="32" y="146" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">[ -z "$out" ] || [ "$out" = ":0" ] || fail …</text>
+<text x="32" y="169" font-size="16" fill="#0f172a" xml:space="preserve">새 판정: :1 이상 숫자로 끝날 때만 열림</text>
+<text x="32" y="192" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">[[ "$out" =~ :[1-9][0-9]*$ ]] &amp;&amp; fail …</text>
+<text x="30" y="253" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">docker compose port 출력</text>
+<text x="330" y="253" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">옛 판정</text>
+<text x="550" y="253" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">새 판정</text>
+<rect x="20" y="265" width="290" height="54" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="289" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">(빈 줄)</text>
+<text x="32" y="311" font-size="16" fill="#475569" xml:space="preserve">공개 안 함</text>
+<rect x="320" y="265" width="200" height="54" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="420" y="297" font-size="16" fill="#047857" text-anchor="middle" xml:space="preserve">안 열림</text>
+<rect x="540" y="265" width="200" height="54" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="640" y="297" font-size="16" fill="#047857" text-anchor="middle" xml:space="preserve">안 열림</text>
+<rect x="20" y="327" width="290" height="54" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="351" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">:0</text>
+<text x="32" y="373" font-size="16" fill="#475569" xml:space="preserve">내 PC (v5.6.0)</text>
+<rect x="320" y="327" width="200" height="54" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="420" y="359" font-size="16" fill="#047857" text-anchor="middle" xml:space="preserve">안 열림</text>
+<rect x="540" y="327" width="200" height="54" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="640" y="359" font-size="16" fill="#047857" text-anchor="middle" xml:space="preserve">안 열림</text>
+<rect x="20" y="389" width="290" height="54" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="413" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">invalid IP:0</text>
+<text x="32" y="435" font-size="16" fill="#475569" xml:space="preserve">CI 러너</text>
+<rect x="320" y="389" width="200" height="54" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="420" y="421" font-size="16" fill="#b91c1c" font-weight="700" text-anchor="middle" xml:space="preserve">열림 → 헛실패</text>
+<rect x="540" y="389" width="200" height="54" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="640" y="421" font-size="16" fill="#047857" text-anchor="middle" xml:space="preserve">안 열림</text>
+<rect x="20" y="451" width="290" height="54" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="475" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">127.0.0.1:8000</text>
+<text x="32" y="497" font-size="16" fill="#475569" xml:space="preserve">nginx (공개함)</text>
+<rect x="320" y="451" width="200" height="54" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="420" y="483" font-size="16" fill="#b91c1c" text-anchor="middle" xml:space="preserve">열림</text>
+<rect x="540" y="451" width="200" height="54" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="640" y="483" font-size="16" fill="#b91c1c" text-anchor="middle" xml:space="preserve">열림</text>
+<rect x="20" y="513" width="290" height="54" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="537" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">0.0.0.0:8082</text>
+<text x="32" y="559" font-size="16" fill="#475569" xml:space="preserve">실수로 공개했다면</text>
+<rect x="320" y="513" width="200" height="54" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="420" y="545" font-size="16" fill="#b91c1c" text-anchor="middle" xml:space="preserve">열림</text>
+<rect x="540" y="513" width="200" height="54" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="640" y="545" font-size="16" fill="#b91c1c" text-anchor="middle" xml:space="preserve">열림</text>
+<text x="20" y="597" font-size="16" fill="#64748b" xml:space="preserve">값은 Git Bash 에서 두 판정을 실제로 돌려 확인했다</text>
+<text x="20" y="621" font-size="16" fill="#64748b" xml:space="preserve">실패 쪽 모양을 나열하지 말고, 성공 쪽 모양 하나로 판정한다</text>
+</svg>

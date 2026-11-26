@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 614" width="760" height="614" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>이전 구성 drain: 옛 게이트웨이가 preStop 10초 동안 세션을 쥔 채 새 게이트웨이가 붙으려다 7번 거부당했다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="614" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">이전 구성(1대 · Recreate) drain ①:</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">두 대가 겹치는 동안 세션 거부 7번</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">빨강 = 은행이 거부한 접속, 회색 = 옛 게이트웨이</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">실험 H0, 은행은 --single-session 으로 세션 하나만 받는다</text>
+<circle cx="34" cy="182" r="13" fill="#334155"/><text x="34" y="188" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">①</text>
+<rect x="60" y="148" width="680" height="68" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="72" y="174" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">운영자가 게이트웨이가 있는 노드를 drain 한다</text>
+<text x="72" y="197" font-size="16" fill="#0f172a" xml:space="preserve">퇴거는 새 Pod 를 먼저 만들고 옛 Pod 를 내린다</text>
+<circle cx="34" cy="266" r="13" fill="#334155"/><text x="34" y="272" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">②</text>
+<rect x="60" y="232" width="680" height="68" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="72" y="258" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">옛 게이트웨이: SIGTERM 을 받았지만 preStop 10초 대기</text>
+<text x="72" y="281" font-size="16" fill="#0f172a" xml:space="preserve">그동안 은행 세션을 쥐고 있다 (sessions=1)</text>
+<circle cx="34" cy="350" r="13" fill="#b91c1c"/><text x="34" y="356" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">③</text>
+<rect x="60" y="316" width="680" height="68" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="72" y="342" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">새 게이트웨이가 떠서 은행에 접속한다</text>
+<text x="72" y="365" font-size="16" fill="#0f172a" xml:space="preserve">은행: 이미 세션이 있다 → 새 연결 거부 (session rejected)</text>
+<circle cx="34" cy="434" r="13" fill="#c2410c"/><text x="34" y="440" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">④</text>
+<rect x="60" y="400" width="680" height="68" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="72" y="426" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">새 게이트웨이는 재접속 백오프로 다시 시도한다</text>
+<text x="72" y="449" font-size="16" fill="#0f172a" xml:space="preserve">옛 게이트웨이가 끊을 때까지 거부가 반복된다 → 7번</text>
+<rect x="20" y="488" width="720" height="68" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="514" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">Recreate 는 배포(롤아웃)에만 적용된다</text>
+<text x="32" y="537" font-size="16" fill="#0f172a" xml:space="preserve">drain 퇴거에는 효과가 없어 두 대가 겹친다</text>
+<text x="20" y="586" font-size="16" fill="#64748b" xml:space="preserve">preStop 을 뺀 변형에서는 거부 0 — 겹침의 원인은 preStop 대기였다.</text>
+</svg>

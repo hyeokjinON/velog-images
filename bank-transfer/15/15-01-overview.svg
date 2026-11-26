@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 814" width="760" height="814" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>이 글을 한 장으로: 이미지 3개를 Compose 로 띄워 api 를 2대로 만들고, 깨지는 것을 따지고, 재시작과 강제 종료로 확인했다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="814" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">이 글을 한 장으로:</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">api 를 2대로 띄우면 무엇이 깨지나</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">파랑 = 만든 것, 초록 = 확인된 안전, 주황 = 늦어짐, 빨강 = 실패</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">수치는 한 PC 위 값이다 (운영 수치가 아니다)</text>
+<rect x="20" y="148" width="720" height="90" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="174" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① 이미지 3개 (Dockerfile 하나, 타깃 3개)</text>
+<text x="32" y="197" font-size="16" fill="#0f172a" xml:space="preserve">api 512MB, gateway 381MB, mock-bank 297MB</text>
+<text x="32" y="220" font-size="16" fill="#0f172a" xml:space="preserve">코드 한 줄 수정 → 새 층 1.67MB (의존성 116MB 그대로)</text>
+<line x1="380" y1="238" x2="380" y2="270" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<rect x="20" y="272" width="720" height="90" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="298" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② Compose 한 명령으로 띄운다</text>
+<text x="32" y="321" font-size="16" fill="#0f172a" xml:space="preserve">nginx(127.0.0.1:8000) → api-1, api-2 → bank-gateway 1대</text>
+<text x="32" y="344" font-size="16" fill="#0f172a" xml:space="preserve">MySQL, Kafka, Redis 는 두 api 가 같이 쓴다</text>
+<line x1="380" y1="362" x2="380" y2="394" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="20" y="396" width="720" height="90" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="422" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ 2대가 되면 깨지는 것을 하나씩 따졌다</text>
+<text x="32" y="445" font-size="16" fill="#0f172a" xml:space="preserve">이미 안전: 중복 접수 UNIQUE, 발행 SKIP LOCKED, 조건부 UPDATE</text>
+<text x="32" y="468" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">새로 막음: 하루 배치 → ShedLock (6회차 모두 한 대만)</text>
+<line x1="200" y1="486" x2="200" y2="518" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<line x1="560" y1="486" x2="560" y2="518" stroke="#c2410c" stroke-width="2.2" marker-end="url(#mo)"/>
+<rect x="20" y="520" width="350" height="114" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="546" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ 재시작 (SIGTERM)</text>
+<text x="32" y="569" font-size="16" fill="#0f172a" xml:space="preserve">Kafka 그룹 정상 탈퇴</text>
+<text x="32" y="592" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">파티션 넘김 0.96s · 3.2s</text>
+<text x="32" y="615" font-size="16" fill="#0f172a" xml:space="preserve">5xx 0건</text>
+<rect x="390" y="520" width="350" height="114" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="402" y="546" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ 강제 종료 (SIGKILL)</text>
+<text x="402" y="569" font-size="16" fill="#0f172a" xml:space="preserve">탈퇴 신호 없음 → 45초 대기</text>
+<text x="402" y="592" font-size="16" fill="#c2410c" font-weight="700" xml:space="preserve">파티션 넘김 45.6s</text>
+<text x="402" y="615" font-size="16" fill="#0f172a" xml:space="preserve">처리가 최대 45.04s 늦음</text>
+<text x="380" y="664" font-size="16" fill="#047857" font-weight="700" text-anchor="middle" xml:space="preserve">두 경우 모두 잃은 출금 0건, 두 번 보낸 출금 0건</text>
+<line x1="380" y1="676" x2="380" y2="702" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<rect x="20" y="704" width="720" height="90" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="730" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑤ CI 첫 실행이 실패했다: "8082 가 열려 있다 (invalid IP:0)"</text>
+<text x="32" y="753" font-size="16" fill="#0f172a" xml:space="preserve">앱이 아니라 docker compose port 의 출력 모양이 버전마다 달랐다</text>
+<text x="32" y="776" font-size="16" fill="#0f172a" xml:space="preserve">고침: ":1 이상 포트로 끝날 때만 열림" 하나로 판정</text>
+</svg>

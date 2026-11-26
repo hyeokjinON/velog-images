@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 552" width="760" height="552" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>풀 32 · 동시 128: 대기열을 넘친 요청은 즉시 거절되고, 그 예외를 모름으로 분류한 것이 버그였다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="552" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">풀 32 · 동시 128: 대기열을 넘친 요청이</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">즉시 거절됐고 '모름' 으로 잘못 분류됐다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">파랑 = 연결 사용 중, 주황 = 대기열, 빨강 = 즉시 거절</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">대기열 기본 상한 = 최대 연결 × 2 = 64</text>
+<rect x="20" y="152" width="180.0" height="54" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="110.0" y="185" font-size="16" fill="#1d4ed8" font-weight="700" text-anchor="middle" xml:space="preserve">사용 중 32</text>
+<rect x="200.0" y="152" width="360.0" height="54" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="380.0" y="185" font-size="16" fill="#c2410c" font-weight="700" text-anchor="middle" xml:space="preserve">대기열 64</text>
+<rect x="560.0" y="152" width="180.0" height="54" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="650.0" y="185" font-size="16" fill="#b91c1c" font-weight="700" text-anchor="middle" xml:space="preserve">즉시 거절 최대 32</text>
+<text x="20" y="232" font-size="16" fill="#475569" xml:space="preserve">1</text>
+<text x="200" y="232" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">32</text>
+<text x="560" y="232" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">96 (= 풀 × 3)</text>
+<text x="740" y="232" font-size="16" fill="#475569" text-anchor="end" xml:space="preserve">128</text>
+<rect x="20" y="256" width="720" height="64" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="282" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">97번째부터는 기다리지도 못하고 바로 예외를 받는다</text>
+<text x="32" y="306" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">PoolAcquirePendingLimitException (요청을 쓰기 전)</text>
+<line x1="200" y1="320" x2="200" y2="348" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<line x1="560" y1="320" x2="560" y2="348" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="20" y="350" width="350" height="182" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="376" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">고치기 전</text>
+<text x="32" y="399" font-size="16" fill="#0f172a" xml:space="preserve">분류표가 이 이름을 몰랐다</text>
+<text x="32" y="422" font-size="16" fill="#0f172a" xml:space="preserve">→ 모름 → UNKNOWN</text>
+<text x="32" y="445" font-size="16" fill="#0f172a" xml:space="preserve">→ 결과조회 경로</text>
+<text x="32" y="468" font-size="16" fill="#0f172a" xml:space="preserve">→ 측정 창 안에 못 끝남</text>
+<text x="32" y="491" font-size="16" fill="#b91c1c" font-weight="700" xml:space="preserve">미완료 324 · 283건</text>
+<text x="32" y="514" font-size="16" fill="#475569" xml:space="preserve">이중 송신 0</text>
+<rect x="390" y="350" width="350" height="182" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="402" y="376" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">고친 뒤</text>
+<text x="402" y="399" font-size="16" fill="#0f172a" xml:space="preserve">풀 예외 두 이름을 안 보냄으로</text>
+<text x="402" y="422" font-size="16" fill="#0f172a" xml:space="preserve">→ RECEIVED → 재시도 토픽</text>
+<text x="402" y="445" font-size="16" fill="#0f172a" xml:space="preserve">→ 5초 뒤 다시 보낸다</text>
+<text x="402" y="468" font-size="16" fill="#0f172a" xml:space="preserve">'안 보냄' 로그 218 · 227줄</text>
+<text x="402" y="491" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">미완료 0 · 이중 0</text>
+<text x="402" y="514" font-size="16" fill="#475569" xml:space="preserve">두 회차 모두 정확성 통과</text>
+</svg>

@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 562" width="760" height="562" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>preStop 0초: 입구가 Pod 를 빼기 전에 앱이 먼저 포트를 닫는다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="562" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">preStop 0초: 입구가 Pod 를 빼기 전에</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">앱이 먼저 포트를 닫는다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">왼쪽 = 입구(Envoy) 쪽 (A), 오른쪽 = Pod 쪽 (B).</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">빨강 = 실패한 요청. 시간은 위에서 아래로 흐른다</text>
+<rect x="20" y="146" width="720" height="42" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="172" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① 0초: 롤링 업데이트가 옛 api Pod 를 지운다</text>
+<line x1="195" y1="188" x2="195" y2="218" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<line x1="565" y1="188" x2="565" y2="218" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="218" width="350" height="88" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="244" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② (A) Service 대상에서 빠짐</text>
+<text x="32" y="267" font-size="16" fill="#0f172a" xml:space="preserve">EndpointSlice 변경이 Envoy 로</text>
+<text x="32" y="290" font-size="16" fill="#0f172a" xml:space="preserve">전해지기까지 수 초 (비동기)</text>
+<rect x="390" y="218" width="350" height="88" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="402" y="244" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② (B) SIGTERM 이 바로 간다</text>
+<text x="402" y="267" font-size="16" fill="#0f172a" xml:space="preserve">Spring graceful 이</text>
+<text x="402" y="290" font-size="16" fill="#0f172a" xml:space="preserve">새 연결용 포트를 닫는다</text>
+<line x1="195" y1="306" x2="195" y2="336" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<line x1="565" y1="306" x2="565" y2="336" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<rect x="20" y="336" width="720" height="88" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="362" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ 틈: Envoy 는 옛 Pod 가 아직 목록에 있다고 안다</text>
+<text x="32" y="385" font-size="16" fill="#0f172a" xml:space="preserve">그 Pod 로 새 연결 → 이미 닫힌 포트 → 503 UF</text>
+<text x="32" y="408" font-size="16" fill="#0f172a" xml:space="preserve">(연결 거부 11건, 10초 연결 시간 초과 2건)</text>
+<line x1="380" y1="424" x2="380" y2="454" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<rect x="20" y="454" width="720" height="88" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="480" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ 결과: 롤링 두 번에 첫 시도 5xx 4건 · 9건</text>
+<text x="32" y="503" font-size="16" fill="#0f172a" xml:space="preserve">연결 단계에서 실패해 요청은 api 에 닿지 않았다</text>
+<text x="32" y="526" font-size="16" fill="#0f172a" xml:space="preserve">클라이언트가 같은 키로 다시 보내 모두 한 번만 접수</text>
+</svg>

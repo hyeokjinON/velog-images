@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 796" width="760" height="796" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>빌드 단계에서 jar 를 네 폴더로 풀고, 실행 단계는 덜 바뀌는 층부터 쌓아 코드 층 1.67MB 를 맨 위에 둔다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="796" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">멀티 스테이지와 jar 층 4개</text>
+<text x="20" y="68" font-size="16" fill="#475569" xml:space="preserve">회색 = 빌드 단계 (최종 이미지에 안 남는다)</text>
+<text x="20" y="91" font-size="16" fill="#475569" xml:space="preserve">초록 = 거의 안 바뀌는 층, 주황 = 자주 바뀌는 층</text>
+<rect x="20" y="120" width="720" height="136" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="146" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① 빌드 단계  eclipse-temurin:21-jdk</text>
+<text x="32" y="169" font-size="16" fill="#0f172a" xml:space="preserve">COPY gradlew, 빌드 스크립트 → gradlew --version</text>
+<text x="32" y="192" font-size="16" fill="#0f172a" xml:space="preserve">COPY . . → Gradle 로 세 앱 빌드 (의존성은 캐시 마운트)</text>
+<text x="32" y="215" font-size="16" fill="#0f172a" xml:space="preserve">Boot jar 를 네 폴더로 푼다</text>
+<text x="32" y="238" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">java -Djarmode=tools -jar … extract --layers</text>
+<line x1="380" y1="256" x2="380" y2="298" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<text x="392" y="284" font-size="16" fill="#64748b" font-weight="700" xml:space="preserve">COPY --from=build (결과물만)</text>
+<rect x="20" y="300" width="720" height="356" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="36" y="328" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② 실행 단계  21-jre-alpine, USER app</text>
+<text x="36" y="352" font-size="16" fill="#475569" xml:space="preserve">위로 갈수록 자주 바뀐다 (COPY 순서는 아래부터)</text>
+<rect x="50" y="370" width="660" height="50" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="66" y="401.0" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">application</text>
+<text x="330" y="401.0" font-size="16" fill="#c2410c" font-weight="700" xml:space="preserve">1.67MB</text>
+<text x="420" y="401.0" font-size="16" fill="#475569" xml:space="preserve">내 코드 (한 줄 고치면 이 층만)</text>
+<rect x="50" y="428" width="660" height="40" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="66" y="454.0" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">snapshot-dependencies</text>
+<text x="330" y="454.0" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">4.1kB</text>
+<text x="420" y="454.0" font-size="16" fill="#475569" xml:space="preserve">SNAPSHOT 라이브러리</text>
+<rect x="50" y="476" width="660" height="40" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="66" y="502.0" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">spring-boot-loader</text>
+<text x="330" y="502.0" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">696kB</text>
+<text x="420" y="502.0" font-size="16" fill="#475569" xml:space="preserve">jar 실행기 (JarLauncher)</text>
+<rect x="50" y="524" width="660" height="66" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="66" y="563.0" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">dependencies</text>
+<text x="330" y="563.0" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">116MB</text>
+<text x="420" y="563.0" font-size="16" fill="#475569" xml:space="preserve">라이브러리 — 의존성을 바꿀 때만</text>
+<rect x="50" y="598" width="660" height="40" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="66" y="624.0" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">JRE Alpine 베이스</text>
+<text x="420" y="624.0" font-size="16" fill="#475569" xml:space="preserve">eclipse-temurin:21-jre-alpine</text>
+<line x1="380" y1="656" x2="380" y2="684" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<rect x="20" y="686" width="720" height="90" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="712" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ ENTRYPOINT ["java", …] (exec 형식)</text>
+<text x="32" y="735" font-size="16" fill="#0f172a" xml:space="preserve">java 가 PID 1 → docker stop 의 SIGTERM 을 직접 받는다</text>
+<text x="32" y="758" font-size="16" fill="#0f172a" xml:space="preserve">셸 형식이면 셸이 PID 1 → 신호가 java 에 안 간다</text>
+</svg>

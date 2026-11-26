@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 809" width="760" height="809" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>출금 요청 하나가 클러스터 안에서 지나가는 길</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="809" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">출금 요청 하나가 클러스터 안에서 지나가는 길</text>
+<text x="20" y="68" font-size="16" fill="#475569" xml:space="preserve">파랑 = 요청 · 응답, 초록 = 저장 · 처리, 주황 = 은행 쪽.</text>
+<text x="20" y="91" font-size="16" fill="#475569" xml:space="preserve">괄호 안은 그 부품이 있는 노드다</text>
+<rect x="60" y="118" width="640" height="65" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="72" y="144" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① Postman (내 PC)</text>
+<text x="72" y="167" font-size="16" fill="#0f172a" xml:space="preserve">POST 127.0.0.1:8000/api/v1/transfers, 키 K</text>
+<line x1="380" y1="183" x2="380" y2="209" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="60" y="209" width="640" height="65" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="72" y="235" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② Envoy 입구 (제어 노드)</text>
+<text x="72" y="258" font-size="16" fill="#0f172a" xml:space="preserve">NodePort 30080 으로 받는다. 재시도는 하지 않는다</text>
+<line x1="380" y1="274" x2="380" y2="300" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="60" y="300" width="640" height="65" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="72" y="326" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ Service api → api Pod #1 (워커 1)</text>
+<text x="72" y="349" font-size="16" fill="#0f172a" xml:space="preserve">Ready 인 Pod 에만 나눠 준다</text>
+<line x1="380" y1="365" x2="380" y2="391" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="60" y="391" width="640" height="65" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="72" y="417" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ MySQL 한 트랜잭션 (제어 노드)</text>
+<text x="72" y="440" font-size="16" fill="#0f172a" xml:space="preserve">출금 행 · 차감 · 아웃박스 1행씩 → 202 응답</text>
+<line x1="380" y1="456" x2="380" y2="482" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="60" y="482" width="640" height="65" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="72" y="508" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑤ 아웃박스 → Kafka → 파티션 주인 api</text>
+<text x="72" y="531" font-size="16" fill="#0f172a" xml:space="preserve">#1 이든 #2 든 그 파티션을 가진 쪽이 처리</text>
+<line x1="380" y1="547" x2="380" y2="573" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="60" y="573" width="640" height="65" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="72" y="599" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑥ Service bank-gateway → 게이트웨이 (워커)</text>
+<text x="72" y="622" font-size="16" fill="#0f172a" xml:space="preserve">api 가 HTTP 로 송신을 부탁한다</text>
+<line x1="380" y1="638" x2="380" y2="664" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="60" y="664" width="640" height="65" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="72" y="690" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑦ 모의 은행 (제어 노드)</text>
+<text x="72" y="713" font-size="16" fill="#0f172a" xml:space="preserve">TCP 연결 하나로 전문 1건, 결과는 같은 길로</text>
+<text x="20" y="763" font-size="16" fill="#475569" xml:space="preserve">④ 의 202 는 은행 결과를 기다리지 않는다. ⑦ 의 결과가 돌아오면</text>
+<text x="20" y="786" font-size="16" fill="#475569" xml:space="preserve">출금 행이 COMPLETED 가 된다 (흐름은 Compose 때와 같다)</text>
+</svg>

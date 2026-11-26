@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 658" width="760" height="658" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>fabric8 은 갱신 기한을 루프 시작 때만 봐서 응답 없는 API 서버에서 20초 가까이 리더로 남을 수 있었고, 워치독이 10초에 끊는다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="658" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">응답 없는 API 서버와 워치독</text>
+<text x="20" y="68" font-size="16" fill="#475569" xml:space="preserve">빨강 = 라이브러리만 믿었을 때, 초록 = 워치독을 넣은 뒤</text>
+<text x="20" y="91" font-size="16" fill="#475569" xml:space="preserve">0초 = 마지막으로 성공한 갱신 시도의 시작</text>
+<text x="20" y="138" font-size="18" fill="#0f172a" font-weight="700" xml:space="preserve">A. 고치기 전 (라이브러리 타이밍)</text>
+<circle cx="34" cy="186" r="13" fill="#334155"/><text x="34" y="192" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">①</text>
+<rect x="60" y="152" width="680" height="68" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="72" y="178" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">기한 직전에 갱신 요청을 보낸다</text>
+<text x="72" y="201" font-size="16" fill="#0f172a" xml:space="preserve">API 서버가 패킷을 버려 응답이 오지 않는다</text>
+<circle cx="34" cy="266" r="13" fill="#b91c1c"/><text x="34" y="272" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">②</text>
+<rect x="60" y="232" width="680" height="68" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="72" y="258" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">요청 타임아웃 5초 동안 매달림 → 반납 조회 또 5초</text>
+<text x="72" y="281" font-size="16" fill="#0f172a" xml:space="preserve">콜백이 작업 큐 뒤에서 또 기다린다</text>
+<circle cx="34" cy="346" r="13" fill="#b91c1c"/><text x="34" y="352" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">③</text>
+<rect x="60" y="312" width="680" height="68" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="72" y="338" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">약 20초에야 은행 연결을 끊는다 (B 는 15초에 획득)</text>
+<text x="72" y="361" font-size="16" fill="#0f172a" xml:space="preserve">→ 은행 세션이 5 ~ 10초 겹칠 수 있었다</text>
+<text x="20" y="424" font-size="18" fill="#0f172a" font-weight="700" xml:space="preserve">B. 워치독 (별도 스레드, 250ms 마다)</text>
+<rect x="20" y="438" width="720" height="92" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="464" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">갱신이 성공할 때 시각을 직접 기록한다 (Lock 감싸기)</text>
+<text x="32" y="487" font-size="16" fill="#0f172a" xml:space="preserve">지금 − 마지막 성공 &gt; 10초 → 은행 연결을 직접 끊는다</text>
+<text x="32" y="510" font-size="16" fill="#0f172a" xml:space="preserve">응답 없는 서버 흉내 프록시 테스트: 6.5초(실패) → 기한 안</text>
+<rect x="20" y="546" width="720" height="92" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="32" y="572" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">워치독이 만든 새 결함: 리더 없음 고착</text>
+<text x="32" y="595" font-size="16" fill="#0f172a" xml:space="preserve">늦게 성공한 갱신 → fabric8 은 아직 리더라고 Lease 를 쥔다</text>
+<text x="32" y="618" font-size="16" fill="#0f172a" xml:space="preserve">고침: 끊을 때 그 임기의 선출기도 끝내 반납 → 다시 후보</text>
+</svg>

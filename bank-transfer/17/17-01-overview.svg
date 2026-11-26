@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 796" width="760" height="796" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>게이트웨이 2대 중 리더 1대만 은행에 붙고, 누가 리더인지는 Lease 가, 전문번호 구간은 ConfigMap 이 정한다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="796" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">게이트웨이 이중화 한 장으로 보기:</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">두 대가 떠 있지만 은행에 붙는 것은 리더 1대</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">파랑 = 요청 경로, 초록 = 리더, 회색 = 대기</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">주황 = 함께 보는 장부, 주황 점선 = 대기가 Lease 를 노린다</text>
+<rect x="20" y="148" width="720" height="68" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="174" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① api (출금 · 1원인증)</text>
+<text x="32" y="197" font-size="16" fill="#0f172a" xml:space="preserve">Service bank-gateway 로 은행 호출을 보낸다</text>
+<line x1="380" y1="216" x2="380" y2="248" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<rect x="20" y="250" width="720" height="68" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="276" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② Service bank-gateway</text>
+<text x="32" y="299" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">selector: gateway-role=leader 라벨이 붙은 Pod 만</text>
+<line x1="200" y1="318" x2="200" y2="350" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<text x="470" y="342" font-size="16" fill="#64748b" xml:space="preserve">라벨 없음 → 트래픽 없음</text>
+<rect x="20" y="352" width="350" height="114" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="378" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">게이트웨이 A (리더)</text>
+<text x="32" y="401" font-size="16" fill="#0f172a" xml:space="preserve">라벨 gateway-role=leader</text>
+<text x="32" y="424" font-size="16" fill="#0f172a" xml:space="preserve">readiness UP (role: leader)</text>
+<text x="32" y="447" font-size="16" fill="#0f172a" xml:space="preserve">번호 구간 29001..30000 보유</text>
+<rect x="390" y="352" width="350" height="114" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="402" y="378" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">게이트웨이 B (대기)</text>
+<text x="402" y="401" font-size="16" fill="#0f172a" xml:space="preserve">라벨 없음</text>
+<text x="402" y="424" font-size="16" fill="#0f172a" xml:space="preserve">readiness UP (role: standby)</text>
+<text x="402" y="447" font-size="16" fill="#0f172a" xml:space="preserve">은행에 붙지 않는다</text>
+<line x1="200" y1="466" x2="200" y2="504" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<text x="214" y="492" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">③ 세션 하나</text>
+<rect x="20" y="506" width="350" height="92" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="532" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">모의 은행 (K8s 에서만 제약 켬)</text>
+<text x="32" y="555" font-size="16" fill="#0f172a" xml:space="preserve">--single-session</text>
+<text x="32" y="578" font-size="16" fill="#0f172a" xml:space="preserve">--unique-tran-no</text>
+<rect x="390" y="506" width="350" height="92" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="402" y="532" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ ConfigMap bank-gateway-tran-no</text>
+<text x="402" y="555" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">{date: 20261116,</text>
+<text x="402" y="578" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve"> reservedTo: 30000}</text>
+<rect x="20" y="628" width="720" height="92" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="32" y="654" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑤ Lease bank-gateway-leader</text>
+<text x="32" y="677" font-size="16" fill="#0f172a" xml:space="preserve">holder: A, 15초 유효, 리더가 2초마다 갱신</text>
+<text x="32" y="700" font-size="16" fill="#0f172a" xml:space="preserve">10초 안에 갱신을 못 하면 A 가 스스로 은행 연결을 끊는다</text>
+<polyline points="565,466 565,486 750,486 750,674 742,674" fill="none" stroke="#c2410c" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#mo)"/>
+<text x="20" y="744" font-size="16" fill="#64748b" xml:space="preserve">리더가 사라지면 B 가 Lease 를 얻고, 번호 구간을 예약하고,</text>
+<text x="20" y="768" font-size="16" fill="#64748b" xml:space="preserve">은행 접속을 시작하고, 자기 Pod 에 라벨을 붙인다.</text>
+</svg>

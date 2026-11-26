@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 650" width="760" height="650" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>전문번호 구간 예약: ConfigMap 의 reservedTo 를 1,000씩 올려 구간을 받고, 메모리에서 하나씩 꺼내 쓴다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="650" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">전문번호 구간 예약: 장부는 하나, 번호는 메모리에서</text>
+<text x="20" y="68" font-size="16" fill="#475569" xml:space="preserve">주황 = ConfigMap 장부, 초록 = 리더 메모리의 구간</text>
+<text x="20" y="91" font-size="16" fill="#475569" xml:space="preserve">회색 = 쓰지 않고 버린 번호</text>
+<rect x="20" y="120" width="720" height="68" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="32" y="146" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">ConfigMap bank-gateway-tran-no (장부)</text>
+<text x="32" y="169" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">date=20261116  reservedTo: 28000 → 29000 → 30000</text>
+<line x1="200" y1="188" x2="200" y2="220" stroke="#c2410c" stroke-width="2.2" marker-end="url(#mo)"/>
+<line x1="560" y1="188" x2="560" y2="220" stroke="#c2410c" stroke-width="2.2" marker-end="url(#mo)"/>
+<rect x="20" y="222" width="350" height="114" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="32" y="248" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">교대 1: 리더 jbsk2</text>
+<text x="32" y="271" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">구간 28001..29000</text>
+<text x="32" y="294" font-size="16" fill="#0f172a" xml:space="preserve">중간까지 쓰고 물러남</text>
+<text x="32" y="317" font-size="16" fill="#0f172a" xml:space="preserve">남은 번호는 버린다</text>
+<rect x="390" y="222" width="350" height="114" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="402" y="248" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">교대 2: 리더 6bpnj</text>
+<text x="402" y="271" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">구간 29001..30000</text>
+<text x="402" y="294" font-size="16" fill="#0f172a" xml:space="preserve">next() = 29001, 29002, …</text>
+<text x="402" y="317" font-size="16" fill="#0f172a" xml:space="preserve">API 서버를 부르지 않는다</text>
+<text x="20" y="364" font-size="18" fill="#0f172a" font-weight="700" xml:space="preserve">장부가 늘어나는 때</text>
+<rect x="20" y="380" width="60" height="42" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="32" y="407" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">①</text>
+<rect x="90" y="380" width="500" height="42" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="102" y="407" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">새 리더가 됐을 때 (임기 시작)</text>
+<rect x="600" y="380" width="140" height="42" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="612" y="407" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">+1000</text>
+<rect x="20" y="430" width="60" height="42" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="32" y="457" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">②</text>
+<rect x="90" y="430" width="500" height="42" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="102" y="457" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">쓰던 구간이 100개 미만 남았을 때</text>
+<rect x="600" y="430" width="140" height="42" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="612" y="457" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">+1000</text>
+<rect x="20" y="480" width="60" height="42" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="32" y="507" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③</text>
+<rect x="90" y="480" width="500" height="42" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="102" y="507" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">날짜(KST)가 바뀌었을 때</text>
+<rect x="600" y="480" width="140" height="42" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="612" y="507" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">1부터</text>
+<rect x="20" y="530" width="60" height="42" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="32" y="557" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">—</text>
+<rect x="90" y="530" width="500" height="42" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="102" y="557" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">대기자</text>
+<rect x="600" y="530" width="140" height="42" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="612" y="557" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">안 늘림</text>
+<text x="20" y="598" font-size="16" fill="#64748b" xml:space="preserve">JPA allocationSize · Hibernate pooled optimizer 와 같은 hi/lo 원리.</text>
+<text x="20" y="622" font-size="16" fill="#64748b" xml:space="preserve">②는 백그라운드 스레드가 하고, 송신은 기다리지 않는다.</text>
+</svg>

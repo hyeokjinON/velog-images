@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 642" width="760" height="642" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>같은 설정인데 처리량이 2배 다른 이유: 1회차는 마지막 건이 30초 재시도 칸으로 밀려 약 24초 늦게 끝났다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="642" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">같은 설정인데 처리량이 2배 다른 이유:</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">마지막 건이 30초 칸으로 밀렸다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">풀 32 재측정 두 회차, 출금 5000건</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">처리량 = 5000 ÷ (첫 송신 ~ 마지막 완료)</text>
+<line x1="40" y1="166" x2="720.0" y2="166" stroke="#94a3b8" stroke-width="1.5"/>
+<line x1="40.0" y1="160" x2="40.0" y2="172" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="40.0" y="154" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">0초</text>
+<line x1="176.0" y1="160" x2="176.0" y2="172" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="176.0" y="154" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">10초</text>
+<line x1="312.0" y1="160" x2="312.0" y2="172" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="312.0" y="154" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">20초</text>
+<line x1="448.0" y1="160" x2="448.0" y2="172" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="448.0" y="154" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">30초</text>
+<line x1="584.0" y1="160" x2="584.0" y2="172" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="584.0" y="154" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">40초</text>
+<line x1="720.0" y1="160" x2="720.0" y2="172" stroke="#94a3b8" stroke-width="1.5"/>
+<text x="720.0" y="154" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">50초</text>
+<text x="40" y="200" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">2회차: 모든 건이 5초 재시도 칸 안에서 끝남</text>
+<rect x="40" y="212" width="336.2" height="40" rx="6" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="386.2464" y="238" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">24.724초 → 202.2건/s</text>
+<text x="40" y="296" font-size="16" fill="#b91c1c" font-weight="700" xml:space="preserve">1회차: 또 거절된 건이 30초 칸으로 넘어감</text>
+<rect x="40" y="308" width="336.2" height="40" rx="6" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<rect x="376.2" y="308" width="325.5" height="40" rx="6" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="539.12" y="334" font-size="16" fill="#b91c1c" font-weight="700" text-anchor="middle" xml:space="preserve">꼬리 약 24초</text>
+<text x="701.7488" y="374" font-size="16" fill="#b91c1c" font-weight="700" text-anchor="end" xml:space="preserve">48.658초 → 102.8건/s</text>
+<rect x="20" y="400" width="720" height="112" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="426" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">거의 모든 건은 같은 속도로 끝났다</text>
+<text x="32" y="449" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">p50  236.3 vs 240.4ms</text>
+<text x="32" y="472" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">p95  356.6 vs 357.3ms</text>
+<text x="32" y="495" font-size="16" fill="#0f172a" xml:space="preserve">다른 것은 마지막 한 건이 끝난 시각뿐이다</text>
+<rect x="20" y="532" width="720" height="90" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="32" y="558" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">재시도 간격: 5초 → 30초 → 60초</text>
+<text x="32" y="581" font-size="16" fill="#0f172a" xml:space="preserve">첫 재시도(5초 뒤)에서 또 거절되면 다음은 30초 뒤다</text>
+<text x="32" y="604" font-size="16" fill="#475569" xml:space="preserve">몇 건이 30초 칸으로 갔는지는 확인하지 못했다</text>
+</svg>

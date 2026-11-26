@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 706" width="760" height="706" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>컨테이너마다 IP 가 달라 api-1 과 api-2 가 둘 다 8080 을 열 수 있고, PC 에서는 127.0.0.1:8000 만 들어갈 수 있다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="706" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">같은 8080 두 개가 충돌하지 않는 이유</text>
+<text x="20" y="68" font-size="16" fill="#475569" xml:space="preserve">초록 = 열린 길, 빨강 = 연결 거부</text>
+<text x="20" y="91" font-size="16" fill="#475569" xml:space="preserve">IP A, IP B 는 Compose 가 컨테이너마다 주는 내부 주소</text>
+<rect x="20" y="120" width="720" height="112" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="146" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① 내 PC (포트 번호표가 하나뿐)</text>
+<text x="32" y="169" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">127.0.0.1:8000 → nginx 컨테이너의 80 (열림)</text>
+<text x="32" y="192" font-size="16" fill="#b91c1c" font-weight="700" xml:space="preserve">localhost:8082 → 연결 거부 (공개 안 함)</text>
+<text x="32" y="215" font-size="16" fill="#b91c1c" font-weight="700" xml:space="preserve">localhost:9090 → 연결 거부 (공개 안 함)</text>
+<rect x="20" y="266" width="720" height="420" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="36" y="292" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② Compose 내부 네트워크 (컨테이너마다 IP 와 포트 번호표가 따로)</text>
+<line x1="590" y1="232" x2="590" y2="316" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="170" y="318" width="450" height="64" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="182" y="344" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">nginx :80</text>
+<text x="182" y="367" font-size="16" fill="#1d4ed8" xml:space="preserve">③ 이름 api-1, api-2 → IP A, IP B (내부 DNS)</text>
+<line x1="300" y1="382" x2="190" y2="440" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<line x1="460" y1="382" x2="570" y2="440" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<rect x="50" y="442" width="280" height="64" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="62" y="468" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">api-1</text>
+<text x="62" y="491" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">IP A : 8080</text>
+<rect x="430" y="442" width="280" height="64" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="442" y="468" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">api-2</text>
+<text x="442" y="491" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">IP B : 8080</text>
+<rect x="50" y="532" width="280" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="62" y="558" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">bank-gateway</text>
+<text x="62" y="581" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">IP C : 8082 (공개 안 함)</text>
+<rect x="430" y="532" width="280" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="442" y="558" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">mock-bank</text>
+<text x="442" y="581" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">IP D : 9090 (공개 안 함)</text>
+<text x="380" y="668" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">둘 다 8080 이지만 주소(IP:포트)가 달라 충돌하지 않는다</text>
+</svg>

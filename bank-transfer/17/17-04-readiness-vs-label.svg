@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 660" width="760" height="660" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>처음 설계(리더만 Ready)는 롤링 업데이트를 멈추게 해서, readiness 는 받을 수 있나, 라벨은 받아야 하나로 역할을 나눴다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="660" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">리더만 Ready 의 함정과 고친 설계</text>
+<text x="20" y="68" font-size="16" fill="#475569" xml:space="preserve">빨강 = 처음 설계에서 막히는 곳, 초록 = 고친 설계</text>
+<text x="20" y="91" font-size="16" fill="#475569" xml:space="preserve">롤링 업데이트 설정: maxUnavailable 0, maxSurge 1</text>
+<text x="20" y="138" font-size="18" fill="#0f172a" font-weight="700" xml:space="preserve">A. 처음 설계: readiness = 리더만 UP</text>
+<circle cx="34" cy="186" r="13" fill="#334155"/><text x="34" y="192" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">①</text>
+<rect x="60" y="152" width="680" height="68" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="72" y="178" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">롤링이 새 Pod C 를 띄운다</text>
+<text x="72" y="201" font-size="16" fill="#0f172a" xml:space="preserve">C 는 대기자다 (리더는 아직 옛 Pod A)</text>
+<circle cx="34" cy="266" r="13" fill="#b91c1c"/><text x="34" y="272" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">②</text>
+<rect x="60" y="232" width="680" height="68" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="72" y="258" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">C 의 readiness = DOWN (리더가 아니니까)</text>
+<text x="72" y="281" font-size="16" fill="#0f172a" xml:space="preserve">롤링은 C 가 Ready 되기를 기다린다</text>
+<circle cx="34" cy="346" r="13" fill="#b91c1c"/><text x="34" y="352" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">③</text>
+<rect x="60" y="312" width="680" height="68" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="72" y="338" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">A 를 내려야 C 가 리더가 되는데, C 가 Ready 여야 A 를 내린다</text>
+<text x="72" y="361" font-size="16" fill="#0f172a" xml:space="preserve">→ 서로 기다려 배포가 영원히 멈춘다</text>
+<text x="20" y="400" font-size="16" fill="#64748b" xml:space="preserve">rollout status · PDB 계산 · 스모크도 같이 막힌다</text>
+<text x="20" y="450" font-size="18" fill="#0f172a" font-weight="700" xml:space="preserve">B. 고친 설계: 두 질문을 나눴다</text>
+<rect x="20" y="464" width="350" height="114" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="490" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">readiness = 받을 수 있나</text>
+<text x="32" y="513" font-size="16" fill="#0f172a" xml:space="preserve">대기도 UP (role: standby)</text>
+<text x="32" y="536" font-size="16" fill="#0f172a" xml:space="preserve">리더는 은행 연결을 따라간다</text>
+<text x="32" y="559" font-size="16" fill="#0f172a" xml:space="preserve">→ 롤링이 정상 진행</text>
+<rect x="390" y="464" width="350" height="114" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="402" y="490" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">라벨 = 받아야 하나</text>
+<text x="402" y="513" font-size="16" fill="#0f172a" xml:space="preserve">리더가 자기 Pod 에 붙인다</text>
+<text x="402" y="536" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">gateway-role=leader</text>
+<text x="402" y="559" font-size="16" fill="#0f172a" xml:space="preserve">Service selector 에 이 라벨</text>
+<text x="20" y="608" font-size="16" fill="#64748b" xml:space="preserve">Patroni 가 K8s 에서 PostgreSQL 리더를 role=master 라벨로</text>
+<text x="20" y="632" font-size="16" fill="#64748b" xml:space="preserve">고르는 방식과 같다. 라벨 Pod 이름을 미리 몰라 Pod patch 권한이 더 필요했다.</text>
+</svg>

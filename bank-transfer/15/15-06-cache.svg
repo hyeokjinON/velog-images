@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 595" width="760" height="595" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>무엇이 바뀌었느냐에 따라 빌드 층을 어디부터 다시 만드는지와 걸린 시간</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="595" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">무엇이 바뀌면 어디부터 다시 만드나</text>
+<text x="20" y="68" font-size="16" fill="#475569" xml:space="preserve">초록 = 캐시 그대로, 주황 = 다시 실행</text>
+<text x="20" y="91" font-size="16" fill="#475569" xml:space="preserve">A 래퍼 복사, B Gradle 받기, C 소스 복사(COPY . .),</text>
+<text x="20" y="114" font-size="16" fill="#475569" xml:space="preserve">D Gradle 빌드, E jar 풀기</text>
+<text x="365.0" y="165" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">A</text>
+<text x="421.0" y="165" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">B</text>
+<text x="477.0" y="165" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">C</text>
+<text x="533.0" y="165" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">D</text>
+<text x="589.0" y="165" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">E</text>
+<text x="640" y="165" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">시간</text>
+<text x="20" y="211" font-size="16" fill="#0f172a" xml:space="preserve">① 고치기 전, infra/ 만</text>
+<rect x="340" y="187" width="50" height="36" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<rect x="396" y="187" width="50" height="36" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<rect x="452" y="187" width="50" height="36" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<rect x="508" y="187" width="50" height="36" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<rect x="564" y="187" width="50" height="36" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="640" y="211" font-size="16" fill="#b91c1c" font-weight="700" xml:space="preserve">27.3s</text>
+<text x="20" y="259" font-size="16" fill="#0f172a" xml:space="preserve">② 고친 뒤, 바뀐 것 없음</text>
+<rect x="340" y="235" width="50" height="36" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<rect x="396" y="235" width="50" height="36" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<rect x="452" y="235" width="50" height="36" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<rect x="508" y="235" width="50" height="36" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<rect x="564" y="235" width="50" height="36" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="640" y="259" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">3.9s</text>
+<text x="20" y="307" font-size="16" fill="#0f172a" xml:space="preserve">② 고친 뒤, infra/ 만</text>
+<rect x="340" y="283" width="50" height="36" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<rect x="396" y="283" width="50" height="36" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<rect x="452" y="283" width="50" height="36" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<rect x="508" y="283" width="50" height="36" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<rect x="564" y="283" width="50" height="36" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="640" y="307" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">3.7s</text>
+<text x="20" y="355" font-size="16" fill="#0f172a" xml:space="preserve">③ Kotlin 한 줄</text>
+<rect x="340" y="331" width="50" height="36" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<rect x="396" y="331" width="50" height="36" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<rect x="452" y="331" width="50" height="36" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<rect x="508" y="331" width="50" height="36" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<rect x="564" y="331" width="50" height="36" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="640" y="355" font-size="16" fill="#c2410c" font-weight="700" xml:space="preserve">26.5s</text>
+<text x="20" y="403" font-size="16" fill="#0f172a" xml:space="preserve">④ --no-cache</text>
+<rect x="340" y="379" width="50" height="36" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<rect x="396" y="379" width="50" height="36" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<rect x="452" y="379" width="50" height="36" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<rect x="508" y="379" width="50" height="36" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<rect x="564" y="379" width="50" height="36" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="640" y="403" font-size="16" fill="#c2410c" font-weight="700" xml:space="preserve">1m20s</text>
+<text x="20" y="451" font-size="16" fill="#0f172a" xml:space="preserve">④ CI 처음 (api)</text>
+<rect x="340" y="427" width="50" height="36" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<rect x="396" y="427" width="50" height="36" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<rect x="452" y="427" width="50" height="36" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<rect x="508" y="427" width="50" height="36" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<rect x="564" y="427" width="50" height="36" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="640" y="451" font-size="16" fill="#c2410c" font-weight="700" xml:space="preserve">3m20s</text>
+<rect x="20" y="485" width="720" height="90" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="511" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① 과 ② 의 차이는 .dockerignore 한 곳</text>
+<text x="32" y="534" font-size="16" fill="#0f172a" xml:space="preserve">infra/, .github/, **/*.md, gradlew.bat 를 빌드 컨텍스트에서 뺐다</text>
+<text x="32" y="557" font-size="16" fill="#0f172a" xml:space="preserve">→ 스크립트만 바뀌면 C 의 캐시 키가 그대로라 D 를 건너뛴다</text>
+</svg>
