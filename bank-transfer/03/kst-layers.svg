@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 520" width="1200" height="520" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>Instant 하나가 DATETIME 컬럼에 KST 로 적히기까지 거치는 설정 4개</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="1200" height="520" fill="#ffffff"/>
+<text x="24" y="36" font-size="20" fill="#0f172a" font-weight="700" xml:space="preserve">Instant 하나가 DATETIME 컬럼에 KST 로 적히기까지 거치는 설정 4개</text>
+<text x="24" y="62" font-size="14" fill="#475569" xml:space="preserve">예: 2026-10-20 KST 오전 9시에 접수된 이체. 초록 = 네 설정이 모두 있을 때, 빨강 = ④ 가 빠졌을 때 (구현 전 실험에서 본 결과)</text>
+<rect x="24" y="96" width="270" height="120" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="36" y="120" font-size="14" fill="#0f172a" font-weight="700" xml:space="preserve">도메인 (Kotlin)</text>
+<text x="36" y="141" font-size="14" fill="#0f172a" xml:space="preserve">Instant</text>
+<text x="36" y="162" font-size="14" fill="#0f172a" xml:space="preserve">2026-10-20T00:00:00Z</text>
+<text x="36" y="183" font-size="14" fill="#0f172a" xml:space="preserve">(= KST 09:00)</text>
+<rect x="318" y="96" width="270" height="120" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="330" y="120" font-size="14" fill="#0f172a" font-weight="700" xml:space="preserve">Hibernate 7</text>
+<text x="330" y="141" font-size="14" fill="#0f172a" xml:space="preserve">③ jdbc.time_zone: Asia/Seoul</text>
+<text x="330" y="162" font-size="14" fill="#0f172a" xml:space="preserve">④ preferred_instant_jdbc_type:</text>
+<text x="330" y="183" font-size="14" fill="#0f172a" xml:space="preserve">    TIMESTAMP</text>
+<rect x="612" y="96" width="270" height="120" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="624" y="120" font-size="14" fill="#0f172a" font-weight="700" xml:space="preserve">JDBC 드라이버</text>
+<text x="624" y="141" font-size="14" fill="#0f172a" xml:space="preserve">② connectionTimeZone=Asia/Seoul</text>
+<text x="624" y="162" font-size="14" fill="#0f172a" xml:space="preserve">forceConnectionTimeZone</text>
+<text x="624" y="183" font-size="14" fill="#0f172a" xml:space="preserve">ToSession=true</text>
+<rect x="906" y="96" width="270" height="120" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="918" y="120" font-size="14" fill="#0f172a" font-weight="700" xml:space="preserve">MySQL 서버</text>
+<text x="918" y="141" font-size="14" fill="#0f172a" xml:space="preserve">① --default-time-zone=+09:00</text>
+<text x="918" y="162" font-size="14" fill="#0f172a" xml:space="preserve"></text>
+<text x="918" y="183" font-size="14" fill="#0f172a" xml:space="preserve"></text>
+<line x1="294" y1="156" x2="318" y2="156" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<line x1="588" y1="156" x2="612" y2="156" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<line x1="882" y1="156" x2="906" y2="156" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="24" y="250" width="1152" height="84" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="36" y="274" font-size="14" fill="#0f172a" font-weight="700" xml:space="preserve">네 설정이 모두 있을 때</text>
+<text x="36" y="295" font-size="14" fill="#0f172a" xml:space="preserve">transfer.created_at 컬럼 값 = 2026-10-20 09:00:00.000000  →  KST 벽시계 시각 그대로 적힌다</text>
+<rect x="24" y="352" width="1152" height="104" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="36" y="376" font-size="14" fill="#0f172a" font-weight="700" xml:space="preserve">④ 를 빼고 ①②③ 만 두었을 때 (Hibernate 7)</text>
+<text x="36" y="397" font-size="14" fill="#0f172a" xml:space="preserve">transfer.created_at 컬럼 값 = 2026-10-20 00:00:00.000000  →  Instant 를 UTC 로 적어 9시간 어긋난다</text>
+<text x="36" y="418" font-size="14" fill="#0f172a" xml:space="preserve">일마감 대사가 KST 날짜로 자르면, 0시 ~ 9시 사이 거래가 전날로 들어갈 수 있다</text>
+<text x="24" y="490" font-size="14" fill="#334155" xml:space="preserve">테스트 JVM 은 -Duser.timezone=UTC 로 고정했다. 개발 PC 가 KST 라서 우연히 맞는 경우를 막기 위해서다</text>
+</svg>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 560" width="1200" height="560" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>이체 저장 직후 Kafka 로 바로 보내면 생기는 틈과, 같은 트랜잭션에 신호를 적어 막는 방법</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker></defs>
+<rect width="1200" height="560" fill="#ffffff"/>
+<text x="24" y="34" font-size="20" fill="#0f172a" font-weight="700">이체 저장 직후 Kafka 로 바로 보내면 생기는 틈 vs 같은 트랜잭션에 신호를 적어 막기</text>
+<text x="24" y="58" font-size="14" fill="#475569">빨강 = 틈이 생기는 곳, 초록 = 안전한 경로. 왼쪽은 버린 방식, 오른쪽이 채택한 방식. 오른쪽 ②③ 은 다음 글(P3-2)에서 만든다</text>
+<rect x="24" y="80" width="560" height="450" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6" stroke-dasharray="6 4"/>
+<text x="36" y="104" font-size="16" fill="#0f172a" font-weight="700">A. 버린 방식: DB 저장 → 바로 Kafka 발행</text>
+<rect x="48" y="130" width="230" height="56" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="60" y="154" font-size="14" fill="#0f172a" font-weight="700">① 이체 INSERT + 커밋</text>
+<rect x="318" y="130" width="240" height="56" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="330" y="154" font-size="14" fill="#0f172a" font-weight="700">② Kafka send</text>
+<line x1="278" y1="158" x2="318" y2="158" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="48" y="230" width="510" height="100" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="60" y="254" font-size="14" fill="#0f172a" font-weight="700">②가 실패하거나 ①②사이에 서버가 죽으면</text>
+<text x="60" y="276" font-size="14" fill="#0f172a">이체는 RECEIVED 로 저장됐는데 &quot;처리하라&quot; 신호가 없다</text>
+<text x="60" y="294" font-size="14" fill="#0f172a">→ 사용자는 202 를 받았지만 출금은 영원히 처리되지 않는다</text>
+<rect x="48" y="350" width="510" height="100" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="60" y="374" font-size="14" fill="#0f172a" font-weight="700">반대로 ② 먼저 보내고 ① 이 롤백되면</text>
+<text x="60" y="396" font-size="14" fill="#0f172a">없는 이체를 컨슈머가 처리한다 (은행에 돈이 나간다)</text>
+<text x="60" y="414" font-size="14" fill="#0f172a">DB 와 Kafka 는 서로 다른 자원이라 한 번에 묶을 수 없다</text>
+<text x="48" y="490" font-size="14" fill="#7f1d1d">Kafka + DB 를 같이 묶는 분산 트랜잭션은 설명 · 운영 비용이 커서 버렸다</text>
+<rect x="616" y="80" width="560" height="450" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6" stroke-dasharray="6 4"/>
+<text x="628" y="104" font-size="16" fill="#0f172a" font-weight="700">B. 채택: 이체 + 신호를 한 트랜잭션, 발행은 나중에</text>
+<rect x="640" y="130" width="512" height="56" rx="8" fill="#ffffff" stroke="#047857" stroke-width="1.6"/>
+<text x="652" y="154" font-size="14" fill="#0f172a" font-weight="700">① [한 트랜잭션] INSERT transfer + INSERT outbox_event</text>
+<text x="652" y="172" font-size="14" fill="#065f46">둘 다 성공하거나 둘 다 롤백 → &quot;저장 됐는데 신호 없음&quot; 이 없다</text>
+<rect x="640" y="210" width="240" height="84" rx="8" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="652" y="234" font-size="14" fill="#0f172a" font-weight="700">② (P3-2) 폴링 발행기</text>
+<text x="652" y="256" font-size="14" fill="#0f172a">0.5초마다 미발행 행을 읽어</text>
+<text x="652" y="278" font-size="14" fill="#0f172a">Kafka 로 보낸다</text>
+<rect x="912" y="210" width="240" height="84" rx="8" fill="#ffffff" stroke="#047857" stroke-width="1.6"/>
+<text x="924" y="234" font-size="14" fill="#0f172a" font-weight="700">③ (P3-2) Kafka 가 받은 뒤</text>
+<text x="924" y="256" font-size="14" fill="#0f172a">published_at 을 기록</text>
+<line x1="880" y1="245" x2="912" y2="245" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<line x1="896" y1="186" x2="760" y2="210" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+
+<rect x="640" y="310" width="512" height="100" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="652" y="334" font-size="14" fill="#0f172a" font-weight="700">③ 을 적기 전에 서버가 죽으면: 같은 신호가 한 번 더 나간다</text>
+<text x="652" y="356" font-size="14" fill="#0f172a">= at-least-once (적어도 한 번 전달). 중복은 허용한다</text>
+<text x="652" y="374" font-size="14" fill="#0f172a">컨슈머가 &quot;RECEIVED 일 때만&quot; 처리해서 중복을 걸러낸다</text>
+<rect x="640" y="430" width="512" height="80" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="652" y="454" font-size="14" fill="#0f172a" font-weight="700">결과</text>
+<text x="652" y="476" font-size="14" fill="#0f172a">유실 없음 (재발행) + 중복은 컨슈머 조건부 UPDATE 가 흡수</text>
+<text x="652" y="494" font-size="14" fill="#0f172a">대가: 발행이 폴링이라 약 0.5초 늦고 빈 폴링 쿼리가 있다</text>
+</svg>
