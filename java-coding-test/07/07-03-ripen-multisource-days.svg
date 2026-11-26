@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 638" width="760" height="638" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 7-3. 멀티소스 BFS — 익은 토마토 두 개를 먼저 큐에 넣고 하루씩 퍼진다</title>
+  <rect width="760" height="638" fill="#ffffff"/>
+  <text x="24" y="40" font-size="21" fill="#0f172a" font-weight="700">멀티소스 BFS — 익은 토마토 두 개를</text>
+  <text x="24" y="70" font-size="21" fill="#0f172a" font-weight="700">먼저 큐에 넣고 하루씩 퍼진다</text>
+  <text x="24" y="102" font-size="16" fill="#475569">입력 [[1,0,0],[0,0,0],[0,0,1]]. 칸 안의 숫자 = 익은 날 (day 배열)</text>
+  <rect x="24" y="140" width="224" height="268" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="38" y="170" font-size="17" fill="#1e3a8a" font-weight="700">① 시작 (0일)</text>
+  <rect x="46" y="190" width="60" height="60" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="76.0" y="226.0" font-size="18" fill="#047857" font-weight="700" text-anchor="middle">0</text>
+  <rect x="106" y="190" width="60" height="60" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="166" y="190" width="60" height="60" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="46" y="250" width="60" height="60" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="106" y="250" width="60" height="60" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="166" y="250" width="60" height="60" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="46" y="310" width="60" height="60" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="106" y="310" width="60" height="60" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="166" y="310" width="60" height="60" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="196.0" y="346.0" font-size="18" fill="#047857" font-weight="700" text-anchor="middle">0</text>
+  <text x="38" y="394" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">unripe = 7</text>
+  <rect x="268" y="140" width="224" height="268" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="282" y="170" font-size="17" fill="#1e3a8a" font-weight="700">② 1일 뒤</text>
+  <rect x="290" y="190" width="60" height="60" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="320.0" y="226.0" font-size="18" fill="#334155" text-anchor="middle">0</text>
+  <rect x="350" y="190" width="60" height="60" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="380.0" y="226.0" font-size="18" fill="#047857" font-weight="700" text-anchor="middle">1</text>
+  <rect x="410" y="190" width="60" height="60" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="290" y="250" width="60" height="60" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="320.0" y="286.0" font-size="18" fill="#047857" font-weight="700" text-anchor="middle">1</text>
+  <rect x="350" y="250" width="60" height="60" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="410" y="250" width="60" height="60" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="440.0" y="286.0" font-size="18" fill="#047857" font-weight="700" text-anchor="middle">1</text>
+  <rect x="290" y="310" width="60" height="60" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="350" y="310" width="60" height="60" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="380.0" y="346.0" font-size="18" fill="#047857" font-weight="700" text-anchor="middle">1</text>
+  <rect x="410" y="310" width="60" height="60" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="440.0" y="346.0" font-size="18" fill="#334155" text-anchor="middle">0</text>
+  <text x="282" y="394" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">unripe = 3</text>
+  <rect x="512" y="140" width="224" height="268" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="526" y="170" font-size="17" fill="#1e3a8a" font-weight="700">③ 2일 뒤</text>
+  <rect x="534" y="190" width="60" height="60" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="564.0" y="226.0" font-size="18" fill="#334155" text-anchor="middle">0</text>
+  <rect x="594" y="190" width="60" height="60" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="624.0" y="226.0" font-size="18" fill="#334155" text-anchor="middle">1</text>
+  <rect x="654" y="190" width="60" height="60" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="684.0" y="226.0" font-size="18" fill="#047857" font-weight="700" text-anchor="middle">2</text>
+  <rect x="534" y="250" width="60" height="60" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="564.0" y="286.0" font-size="18" fill="#334155" text-anchor="middle">1</text>
+  <rect x="594" y="250" width="60" height="60" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="624.0" y="286.0" font-size="18" fill="#047857" font-weight="700" text-anchor="middle">2</text>
+  <rect x="654" y="250" width="60" height="60" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="684.0" y="286.0" font-size="18" fill="#334155" text-anchor="middle">1</text>
+  <rect x="534" y="310" width="60" height="60" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="564.0" y="346.0" font-size="18" fill="#047857" font-weight="700" text-anchor="middle">2</text>
+  <rect x="594" y="310" width="60" height="60" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="624.0" y="346.0" font-size="18" fill="#334155" text-anchor="middle">1</text>
+  <rect x="654" y="310" width="60" height="60" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="684.0" y="346.0" font-size="18" fill="#334155" text-anchor="middle">0</text>
+  <text x="526" y="394" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">unripe = 0</text>
+  <text x="24" y="442" font-size="17" fill="#1e3a8a" font-weight="700">④ 큐에서 꺼낸 순서 (앞 2개가 시작점)</text>
+  <text x="44" y="472" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">(0,0) (2,2) → (1,0) (0,1) (1,2) (2,1)</text>
+  <text x="44" y="498" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">→ (2,0) (1,1) (0,2)</text>
+  <text x="44" y="524" font-size="16" fill="#475569">초록 = 그날 새로 익은 칸, 회색 = 그 전에 익은 칸</text>
+  <rect x="24" y="544" width="712" height="74" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1"/>
+  <text x="44" y="574" font-size="17" fill="#047857" font-weight="700">마지막으로 익은 날 last = 2, 안 익은 칸 0개 → 답 2</text>
+  <text x="44" y="600" font-size="16" fill="#334155">시작점마다 BFS 를 따로 돌리지 않고, 두 개를 함께 넣고 한 번 돌린다.</text>
+</svg>

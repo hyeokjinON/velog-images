@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 800" width="760" height="800" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>포기까지 네 바퀴: 재시도 약 95초와 대기 5분이 네 번 이어져 약 26분 뒤 FAILED E001</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="800" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">포기까지 네 바퀴: 재시도 약 95초 + 대기 5분이</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">네 번 이어져 약 26분 뒤 FAILED E001</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">주황 = 재시도 토픽 체인(약 95초), 회색 = 대기 5분, 초록 숫자 = 재발행 뒤</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">republish_count. 은행이 끝까지 안 돌아오는 출금, 접수를 0:00:00 으로 둔다</text>
+<text x="20" y="190" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">1바퀴</text>
+<rect x="120" y="170" width="135" height="30" rx="4" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="130" y="191" font-size="16" fill="#c2410c" font-weight="700" xml:space="preserve">재시도 95초</text>
+<rect x="255" y="170" width="425" height="30" rx="4" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="265" y="191" font-size="16" fill="#475569" xml:space="preserve">대기 5분 (정리 작업이 건드리지 않음)</text>
+<circle cx="702" cy="185" r="13" fill="#047857"/>
+<text x="702" y="191" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">1</text>
+<text x="120" y="226" font-size="16" fill="#c2410c" xml:space="preserve">0:00:00 접수 → 0:01:35 DLT</text>
+<text x="120" y="252" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">→ 0:06:35 재발행 1</text>
+<text x="20" y="320" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">2바퀴</text>
+<rect x="120" y="300" width="135" height="30" rx="4" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="130" y="321" font-size="16" fill="#c2410c" font-weight="700" xml:space="preserve">재시도 95초</text>
+<rect x="255" y="300" width="425" height="30" rx="4" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="265" y="321" font-size="16" fill="#475569" xml:space="preserve">대기 5분 (정리 작업이 건드리지 않음)</text>
+<circle cx="702" cy="315" r="13" fill="#047857"/>
+<text x="702" y="321" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">2</text>
+<text x="120" y="356" font-size="16" fill="#c2410c" xml:space="preserve">0:06:35 → 0:08:10 DLT</text>
+<text x="120" y="382" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">→ 0:13:10 재발행 2</text>
+<text x="20" y="450" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">3바퀴</text>
+<rect x="120" y="430" width="135" height="30" rx="4" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="130" y="451" font-size="16" fill="#c2410c" font-weight="700" xml:space="preserve">재시도 95초</text>
+<rect x="255" y="430" width="425" height="30" rx="4" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="265" y="451" font-size="16" fill="#475569" xml:space="preserve">대기 5분 (정리 작업이 건드리지 않음)</text>
+<circle cx="702" cy="445" r="13" fill="#047857"/>
+<text x="702" y="451" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">3</text>
+<text x="120" y="486" font-size="16" fill="#c2410c" xml:space="preserve">0:13:10 → 0:14:45 DLT</text>
+<text x="120" y="512" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">→ 0:19:45 재발행 3</text>
+<text x="20" y="580" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">4바퀴</text>
+<rect x="120" y="560" width="135" height="30" rx="4" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="130" y="581" font-size="16" fill="#c2410c" font-weight="700" xml:space="preserve">재시도 95초</text>
+<rect x="255" y="560" width="425" height="30" rx="4" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="265" y="581" font-size="16" fill="#475569" xml:space="preserve">대기 5분 (정리 작업이 건드리지 않음)</text>
+<line x1="692" y1="565" x2="712" y2="585" stroke="#b91c1c" stroke-width="3"/><line x1="692" y1="585" x2="712" y2="565" stroke="#b91c1c" stroke-width="3"/>
+<text x="120" y="616" font-size="16" fill="#c2410c" xml:space="preserve">0:19:45 → 0:21:20 DLT</text>
+<text x="120" y="642" font-size="16" fill="#b91c1c" font-weight="700" xml:space="preserve">→ 0:26:20 포기, FAILED E001</text>
+<text x="20" y="700" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">395초 × 4 = 1,580초 ≈ 26분 20초 (정리 작업 주기 최대 10초씩 더해진다)</text>
+<text x="20" y="744" font-size="16" fill="#64748b" xml:space="preserve">근거: P3-3b 설계 §2 · §10, ADR-0007 결과(한계), HANDOVER</text>
+</svg>

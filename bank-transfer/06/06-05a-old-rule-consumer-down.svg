@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 720" width="760" height="720" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>처음 기준(미발행 신호가 없으면 재발행)으로 세면: 컨슈머가 꺼진 20분 동안 횟수가 3까지 오른다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="720" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">처음 기준(미발행 신호가 없으면 재발행)으로 세면:</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">컨슈머가 꺼진 20분 동안 횟수가 3까지 오른다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">장면 3: 은행은 멀쩡하고 컨슈머만 10:00 ~ 10:20 꺼져 있다.</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">빨강 = 잘못 쓴 재발행 횟수. 시각은 예시</text>
+<text x="20" y="168" font-size="16" fill="#475569" font-weight="700" xml:space="preserve">시각</text>
+<text x="130" y="168" font-size="16" fill="#475569" font-weight="700" xml:space="preserve">무슨 일이 있었나</text>
+<text x="520" y="168" font-size="16" fill="#475569" font-weight="700" xml:space="preserve">이체</text>
+<rect x="20" y="180" width="96" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="206" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">10:00</text>
+<rect x="130" y="180" width="376" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="142" y="206" font-size="16" fill="#0f172a" xml:space="preserve">접수, 신호 발행</text>
+<text x="142" y="229" font-size="16" fill="#0f172a" xml:space="preserve">→ 아무도 안 읽음</text>
+<rect x="520" y="180" width="220" height="64" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="532" y="206" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">RECEIVED</text>
+<text x="532" y="229" font-size="16" fill="#0f172a" xml:space="preserve">횟수 0, sending_at 없음</text>
+<rect x="20" y="256" width="96" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="282" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">10:05</text>
+<rect x="130" y="256" width="376" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="142" y="282" font-size="16" fill="#0f172a" xml:space="preserve">미발행 신호 없음</text>
+<text x="142" y="305" font-size="16" fill="#0f172a" xml:space="preserve">→ 재발행 1</text>
+<rect x="520" y="256" width="220" height="64" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="532" y="282" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">RECEIVED</text>
+<text x="532" y="305" font-size="16" fill="#0f172a" xml:space="preserve">횟수 1</text>
+<rect x="20" y="332" width="96" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="358" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">10:10</text>
+<rect x="130" y="332" width="376" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="142" y="358" font-size="16" fill="#0f172a" xml:space="preserve">재발행 신호도 곧 발행됨</text>
+<text x="142" y="381" font-size="16" fill="#0f172a" xml:space="preserve">→ 미발행 없음 → 재발행 2</text>
+<rect x="520" y="332" width="220" height="64" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="532" y="358" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">RECEIVED</text>
+<text x="532" y="381" font-size="16" fill="#0f172a" xml:space="preserve">횟수 2</text>
+<rect x="20" y="408" width="96" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="434" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">10:15</text>
+<rect x="130" y="408" width="376" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="142" y="434" font-size="16" fill="#0f172a" xml:space="preserve">같은 이유로</text>
+<text x="142" y="457" font-size="16" fill="#0f172a" xml:space="preserve">→ 재발행 3</text>
+<rect x="520" y="408" width="220" height="64" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="532" y="434" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">RECEIVED</text>
+<text x="532" y="457" font-size="16" fill="#0f172a" xml:space="preserve">횟수 3</text>
+<rect x="20" y="484" width="96" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="510" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">10:20</text>
+<rect x="130" y="484" width="376" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="142" y="510" font-size="16" fill="#0f172a" xml:space="preserve">한도를 다 썼다</text>
+<text x="142" y="533" font-size="16" fill="#0f172a" xml:space="preserve">→ 포기</text>
+<rect x="520" y="484" width="220" height="64" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="532" y="510" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">FAILED</text>
+<text x="532" y="533" font-size="16" fill="#0f172a" xml:space="preserve">E001</text>
+<rect x="20" y="568" width="720" height="64" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="594" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">결과: 은행에 한 번도 가지 않은 출금이 실패로 끝났다</text>
+<text x="32" y="617" font-size="16" fill="#0f172a" xml:space="preserve">컨슈머는 10:20 에 돌아왔지만 이미 FAILED 다 (sending_at 은 끝까지 NULL)</text>
+<text x="20" y="668" font-size="16" fill="#64748b" xml:space="preserve">근거: bank-transfer P3-3b 설계 §5, ADR-0007 검토한 다른 선택지</text>
+</svg>

@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 860" width="760" height="860" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>토픽 다섯 개와 컨슈머 그룹 다섯 개: 넘길 때마다 그 단계 그룹이 오프셋을 커밋한다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="860" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">토픽 다섯 개와 컨슈머 그룹 다섯 개:</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">넘길 때마다 그 단계 그룹이 오프셋을 커밋한다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">왼쪽 = 토픽 (파티션 3, 복제 1), 오른쪽 = 그 토픽을 읽는 그룹</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">(컨슈머 3), 주황 화살표 = 실패한 메시지가 다음 토픽으로 가는 길</text>
+<rect x="20" y="156" width="330" height="64" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="182" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">transfer.requested</text>
+<text x="32" y="205" font-size="16" fill="#0f172a" xml:space="preserve">원래 토픽</text>
+<rect x="410" y="156" width="330" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="422" y="182" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">transfer-processor</text>
+<text x="422" y="205" font-size="16" fill="#0f172a" xml:space="preserve">넘긴 뒤 오프셋 커밋</text>
+<line x1="350" y1="188" x2="410" y2="188" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<line x1="185" y1="220" x2="185" y2="260" stroke="#c2410c" stroke-width="2.2" marker-end="url(#mo)"/>
+<text x="200" y="246" font-size="16" fill="#c2410c" xml:space="preserve">실패 → 다음 토픽에 다시 쓴다</text>
+<rect x="20" y="260" width="330" height="64" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="286" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">transfer.requested-retry-0</text>
+<text x="32" y="309" font-size="16" fill="#0f172a" xml:space="preserve">5초 뒤 다시 처리</text>
+<rect x="410" y="260" width="330" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="422" y="286" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">transfer-processor-retry-0</text>
+<text x="422" y="309" font-size="16" fill="#0f172a" xml:space="preserve">넘긴 뒤 오프셋 커밋</text>
+<line x1="350" y1="292" x2="410" y2="292" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<line x1="185" y1="324" x2="185" y2="364" stroke="#c2410c" stroke-width="2.2" marker-end="url(#mo)"/>
+<text x="200" y="350" font-size="16" fill="#c2410c" xml:space="preserve">실패 → 다음 토픽에 다시 쓴다</text>
+<rect x="20" y="364" width="330" height="64" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="390" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">transfer.requested-retry-1</text>
+<text x="32" y="413" font-size="16" fill="#0f172a" xml:space="preserve">30초 뒤 다시 처리</text>
+<rect x="410" y="364" width="330" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="422" y="390" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">transfer-processor-retry-1</text>
+<text x="422" y="413" font-size="16" fill="#0f172a" xml:space="preserve">넘긴 뒤 오프셋 커밋</text>
+<line x1="350" y1="396" x2="410" y2="396" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<line x1="185" y1="428" x2="185" y2="468" stroke="#c2410c" stroke-width="2.2" marker-end="url(#mo)"/>
+<text x="200" y="454" font-size="16" fill="#c2410c" xml:space="preserve">실패 → 다음 토픽에 다시 쓴다</text>
+<rect x="20" y="468" width="330" height="64" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="494" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">transfer.requested-retry-2</text>
+<text x="32" y="517" font-size="16" fill="#0f172a" xml:space="preserve">60초 뒤 다시 처리</text>
+<rect x="410" y="468" width="330" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="422" y="494" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">transfer-processor-retry-2</text>
+<text x="422" y="517" font-size="16" fill="#0f172a" xml:space="preserve">넘긴 뒤 오프셋 커밋</text>
+<line x1="350" y1="500" x2="410" y2="500" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<line x1="185" y1="532" x2="185" y2="572" stroke="#c2410c" stroke-width="2.2" marker-end="url(#mo)"/>
+<text x="200" y="558" font-size="16" fill="#c2410c" xml:space="preserve">실패 → 다음 토픽에 다시 쓴다</text>
+<rect x="20" y="572" width="330" height="64" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="598" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">transfer.requested-dlt</text>
+<text x="32" y="621" font-size="16" fill="#0f172a" xml:space="preserve">다시 처리하지 않음</text>
+<rect x="410" y="572" width="330" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="422" y="598" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">transfer-processor-dlt</text>
+<text x="422" y="621" font-size="16" fill="#0f172a" xml:space="preserve">로그 남기고 ack → 커밋</text>
+<line x1="350" y1="604" x2="410" y2="604" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="680" width="720" height="88" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="706" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">groupId 를 비워 두면</text>
+<text x="32" y="729" font-size="16" fill="#0f172a" xml:space="preserve">접미사가 붙지 않아 다섯 단계 컨슈머 15개가 그룹 하나를 같이 쓴다</text>
+<text x="32" y="752" font-size="16" fill="#0f172a" xml:space="preserve">→ 단계별 오프셋과 랙을 그룹 이름으로 나눠 볼 수 없다</text>
+<text x="20" y="806" font-size="16" fill="#64748b" xml:space="preserve">근거: bank-transfer PR #9 — TransferRequestedListener,</text>
+<text x="20" y="830" font-size="16" fill="#64748b" xml:space="preserve">RetryTopicFlowTest(AdminClient 로 다섯 그룹 확인), ADR-0007 결정 6</text>
+</svg>

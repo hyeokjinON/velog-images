@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 908" width="760" height="908" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 6-3. firstTrue(0, 100, x → x² ≥ 50) — F 와 T 의 경계 8 을 찾을 때까지 [lo, hi] 가 줄어드는 모습</title>
+  <rect width="760" height="908" fill="#ffffff"/>
+  <text x="24" y="40" font-size="22" fill="#0f172a" font-weight="700">firstTrue(0, 100, x → x² ≥ 50) —</text>
+  <text x="24" y="70" font-size="22" fill="#0f172a" font-weight="700">F 와 T 의 경계를 찾을 때까지 구간이 준다</text>
+  <text x="24" y="104" font-size="16" fill="#475569">x 가 0 ~ 7 이면 F, 8 ~ 100 이면 T. 첫 번째 T 인 8 이 답이다</text>
+  <text x="24" y="128" font-size="16" fill="#475569">막대 = 남은 [lo, hi] (0 ~ 100 을 같은 비율로 그림)</text>
+  <rect x="380" y="166" width="28.0" height="22" rx="0" fill="#fef2f2" stroke="#b91c1c" stroke-width="1"/>
+  <rect x="408.0" y="166" width="322.0" height="22" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="1"/>
+  <text x="372" y="183" font-size="16" fill="#475569" text-anchor="end">F 0~7 | T 8~100</text>
+  <text x="380.0" y="210" font-size="16" fill="#1e3a8a" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">0</text>
+  <text x="408.0" y="210" font-size="16" fill="#1e3a8a" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">8</text>
+  <text x="555.0" y="210" font-size="16" fill="#1e3a8a" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">50</text>
+  <text x="730.0" y="210" font-size="16" fill="#1e3a8a" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">100</text>
+  <line x1="24" y1="222" x2="736" y2="222" stroke="#94a3b8" stroke-width="1"/>
+  <text x="24" y="254" font-size="16" fill="#0f172a" font-weight="700">시작</text>
+  <text x="24" y="278" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">lo = 0, hi = 100</text>
+  <rect x="380" y="246" width="350" height="20" rx="0" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="380.0" y="246" width="350.0" height="20" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="386.0" y="286" font-size="16" fill="#1e3a8a" font-family="Consolas, D2Coding, monospace">[0, 100]</text>
+  <line x1="24" y1="292" x2="736" y2="292" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="24" y="320" font-size="16" fill="#047857" font-weight="700">① mid = 50</text>
+  <text x="24" y="344" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">2500 ≥ 50, T → hi = 50</text>
+  <rect x="380" y="312" width="350" height="20" rx="0" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="380.0" y="312" width="175.0" height="20" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="563.0" y="352" font-size="16" fill="#1e3a8a" font-family="Consolas, D2Coding, monospace">[0, 50]</text>
+  <line x1="555.0" y1="306" x2="555.0" y2="338" stroke="#b45309" stroke-width="3"/>
+  <line x1="24" y1="358" x2="736" y2="358" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="24" y="386" font-size="16" fill="#047857" font-weight="700">② mid = 25</text>
+  <text x="24" y="410" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">625 ≥ 50, T → hi = 25</text>
+  <rect x="380" y="378" width="350" height="20" rx="0" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="380.0" y="378" width="87.5" height="20" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="475.5" y="418" font-size="16" fill="#1e3a8a" font-family="Consolas, D2Coding, monospace">[0, 25]</text>
+  <line x1="467.5" y1="372" x2="467.5" y2="404" stroke="#b45309" stroke-width="3"/>
+  <line x1="24" y1="424" x2="736" y2="424" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="24" y="452" font-size="16" fill="#047857" font-weight="700">③ mid = 12</text>
+  <text x="24" y="476" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">144 ≥ 50, T → hi = 12</text>
+  <rect x="380" y="444" width="350" height="20" rx="0" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="380.0" y="444" width="42.0" height="20" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="430.0" y="484" font-size="16" fill="#1e3a8a" font-family="Consolas, D2Coding, monospace">[0, 12]</text>
+  <line x1="422.0" y1="438" x2="422.0" y2="470" stroke="#b45309" stroke-width="3"/>
+  <line x1="24" y1="490" x2="736" y2="490" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="24" y="518" font-size="16" fill="#b91c1c" font-weight="700">④ mid = 6</text>
+  <text x="24" y="542" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">36 &lt; 50, F → lo = 7</text>
+  <rect x="380" y="510" width="350" height="20" rx="0" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="404.5" y="510" width="17.5" height="20" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="430.0" y="550" font-size="16" fill="#1e3a8a" font-family="Consolas, D2Coding, monospace">[7, 12]</text>
+  <line x1="401.0" y1="504" x2="401.0" y2="536" stroke="#b45309" stroke-width="3"/>
+  <line x1="24" y1="556" x2="736" y2="556" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="24" y="584" font-size="16" fill="#047857" font-weight="700">⑤ mid = 9</text>
+  <text x="24" y="608" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">81 ≥ 50, T → hi = 9</text>
+  <rect x="380" y="576" width="350" height="20" rx="0" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="404.5" y="576" width="7.0" height="20" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="419.5" y="616" font-size="16" fill="#1e3a8a" font-family="Consolas, D2Coding, monospace">[7, 9]</text>
+  <line x1="411.5" y1="570" x2="411.5" y2="602" stroke="#b45309" stroke-width="3"/>
+  <line x1="24" y1="622" x2="736" y2="622" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="24" y="650" font-size="16" fill="#047857" font-weight="700">⑥ mid = 8</text>
+  <text x="24" y="674" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">64 ≥ 50, T → hi = 8</text>
+  <rect x="380" y="642" width="350" height="20" rx="0" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="404.5" y="642" width="4" height="20" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="416.5" y="682" font-size="16" fill="#1e3a8a" font-family="Consolas, D2Coding, monospace">[7, 8]</text>
+  <line x1="408.0" y1="636" x2="408.0" y2="668" stroke="#b45309" stroke-width="3"/>
+  <line x1="24" y1="688" x2="736" y2="688" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="24" y="716" font-size="16" fill="#b91c1c" font-weight="700">⑦ mid = 7</text>
+  <text x="24" y="740" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">49 &lt; 50, F → lo = 8</text>
+  <rect x="380" y="708" width="350" height="20" rx="0" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="408.0" y="708" width="4" height="20" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="420.0" y="748" font-size="16" fill="#1e3a8a" font-family="Consolas, D2Coding, monospace">[8, 8]</text>
+  <line x1="404.5" y1="702" x2="404.5" y2="734" stroke="#b45309" stroke-width="3"/>
+  <line x1="24" y1="754" x2="736" y2="754" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="380" y="772" font-size="16" fill="#b45309">주황 세로선 = 이번 mid</text>
+  <rect x="24" y="786" width="712" height="102" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1"/>
+  <text x="44" y="816" font-size="17" fill="#047857" font-weight="700">lo = hi = 8 에서 멈추고 8 을 돌려준다. 반복은 7 번이다.</text>
+  <text x="44" y="842" font-size="16" fill="#334155">T 면 hi = mid 로 mid 를 답 후보로 남기고,</text>
+  <text x="44" y="868" font-size="16" fill="#334155">F 면 lo = mid + 1 로 mid 를 버린다. ⑤ ~ ⑦ 은 경계 7 | 8 근처다.</text>
+</svg>

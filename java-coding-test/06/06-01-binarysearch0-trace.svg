@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 862" width="760" height="862" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 6-1. Arrays.binarySearch(a, 4) — 닫힌 구간 [low, high] 가 반씩 줄고, 못 찾으면 -(low + 1) 을 돌려준다</title>
+  <rect width="760" height="862" fill="#ffffff"/>
+  <text x="24" y="40" font-size="22" fill="#0f172a" font-weight="700">Arrays.binarySearch(a, 4) — 구간이 반씩 줄고</text>
+  <text x="24" y="70" font-size="22" fill="#0f172a" font-weight="700">못 찾으면 -(low + 1) 을 돌려준다</text>
+  <text x="24" y="104" font-size="16" fill="#475569">a = {1, 3, 3, 3, 5, 8, 13}, 닫힌 구간 [low, high]</text>
+  <text x="24" y="128" font-size="16" fill="#475569">JDK 21 의 binarySearch0 과 같은 줄을 실행해 출력한 값이다</text>
+  <rect x="24" y="149" width="22" height="20" rx="0" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="54" y="164" font-size="16" fill="#475569">남은 구간</text>
+  <rect x="137.6" y="149" width="22" height="20" rx="0" fill="#fef3c7" stroke="#b45309" stroke-width="2.5"/>
+  <text x="167.6" y="164" font-size="16" fill="#475569">이번 mid</text>
+  <rect x="261.12" y="149" width="22" height="20" rx="0" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="291.12" y="164" font-size="16" fill="#475569">버린 칸</text>
+  <rect x="364.8" y="149" width="22" height="20" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2.5"/>
+  <text x="394.8" y="164" font-size="16" fill="#475569">끝난 위치</text>
+  <text x="24" y="208" font-size="16" fill="#1e3a8a" font-weight="700">인덱스</text>
+  <text x="282.0" y="208" font-size="16" fill="#1e3a8a" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">0</text>
+  <text x="346.0" y="208" font-size="16" fill="#1e3a8a" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">1</text>
+  <text x="410.0" y="208" font-size="16" fill="#1e3a8a" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">2</text>
+  <text x="474.0" y="208" font-size="16" fill="#1e3a8a" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">3</text>
+  <text x="538.0" y="208" font-size="16" fill="#1e3a8a" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">4</text>
+  <text x="602.0" y="208" font-size="16" fill="#1e3a8a" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">5</text>
+  <text x="666.0" y="208" font-size="16" fill="#1e3a8a" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">6</text>
+  <line x1="24" y1="220" x2="736" y2="220" stroke="#94a3b8" stroke-width="1"/>
+  <text x="24" y="254" font-size="16" fill="#0f172a" font-weight="700">시작</text>
+  <text x="24" y="278" font-size="16" fill="#334155">low = 0, high = 6</text>
+  <rect x="250" y="242" width="64" height="44" rx="0" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="282.0" y="270.0" font-size="17" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle">1</text>
+  <rect x="314" y="242" width="64" height="44" rx="0" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="346.0" y="270.0" font-size="17" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle">3</text>
+  <rect x="378" y="242" width="64" height="44" rx="0" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="410.0" y="270.0" font-size="17" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle">3</text>
+  <rect x="442" y="242" width="64" height="44" rx="0" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="474.0" y="270.0" font-size="17" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle">3</text>
+  <rect x="506" y="242" width="64" height="44" rx="0" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="538.0" y="270.0" font-size="17" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle">5</text>
+  <rect x="570" y="242" width="64" height="44" rx="0" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="602.0" y="270.0" font-size="17" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle">8</text>
+  <rect x="634" y="242" width="64" height="44" rx="0" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="666.0" y="270.0" font-size="17" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle">13</text>
+  <line x1="24" y1="318" x2="736" y2="318" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="24" y="350" font-size="16" fill="#b45309" font-weight="700">① mid = 3</text>
+  <text x="24" y="374" font-size="16" fill="#334155">a[3] = 3 &lt; 4</text>
+  <text x="24" y="398" font-size="16" fill="#334155">→ low = 4</text>
+  <rect x="250" y="338" width="64" height="44" rx="0" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="282.0" y="366.0" font-size="17" fill="#94a3b8" font-family="Consolas, D2Coding, monospace" text-anchor="middle">1</text>
+  <rect x="314" y="338" width="64" height="44" rx="0" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="346.0" y="366.0" font-size="17" fill="#94a3b8" font-family="Consolas, D2Coding, monospace" text-anchor="middle">3</text>
+  <rect x="378" y="338" width="64" height="44" rx="0" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="410.0" y="366.0" font-size="17" fill="#94a3b8" font-family="Consolas, D2Coding, monospace" text-anchor="middle">3</text>
+  <rect x="442" y="338" width="64" height="44" rx="0" fill="#fef3c7" stroke="#b45309" stroke-width="2.5"/>
+  <text x="474.0" y="366.0" font-size="17" fill="#b45309" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">3</text>
+  <rect x="506" y="338" width="64" height="44" rx="0" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="538.0" y="366.0" font-size="17" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle">5</text>
+  <rect x="570" y="338" width="64" height="44" rx="0" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="602.0" y="366.0" font-size="17" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle">8</text>
+  <rect x="634" y="338" width="64" height="44" rx="0" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="666.0" y="366.0" font-size="17" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle">13</text>
+  <line x1="24" y1="414" x2="736" y2="414" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="24" y="446" font-size="16" fill="#b45309" font-weight="700">② mid = 5</text>
+  <text x="24" y="470" font-size="16" fill="#334155">a[5] = 8 &gt; 4</text>
+  <text x="24" y="494" font-size="16" fill="#334155">→ high = 4</text>
+  <rect x="250" y="434" width="64" height="44" rx="0" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="282.0" y="462.0" font-size="17" fill="#94a3b8" font-family="Consolas, D2Coding, monospace" text-anchor="middle">1</text>
+  <rect x="314" y="434" width="64" height="44" rx="0" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="346.0" y="462.0" font-size="17" fill="#94a3b8" font-family="Consolas, D2Coding, monospace" text-anchor="middle">3</text>
+  <rect x="378" y="434" width="64" height="44" rx="0" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="410.0" y="462.0" font-size="17" fill="#94a3b8" font-family="Consolas, D2Coding, monospace" text-anchor="middle">3</text>
+  <rect x="442" y="434" width="64" height="44" rx="0" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="474.0" y="462.0" font-size="17" fill="#94a3b8" font-family="Consolas, D2Coding, monospace" text-anchor="middle">3</text>
+  <rect x="506" y="434" width="64" height="44" rx="0" fill="#ffffff" stroke="#2563eb" stroke-width="1.5"/>
+  <text x="538.0" y="462.0" font-size="17" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle">5</text>
+  <rect x="570" y="434" width="64" height="44" rx="0" fill="#fef3c7" stroke="#b45309" stroke-width="2.5"/>
+  <text x="602.0" y="462.0" font-size="17" fill="#b45309" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">8</text>
+  <rect x="634" y="434" width="64" height="44" rx="0" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="666.0" y="462.0" font-size="17" fill="#94a3b8" font-family="Consolas, D2Coding, monospace" text-anchor="middle">13</text>
+  <line x1="24" y1="510" x2="736" y2="510" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="24" y="542" font-size="16" fill="#b45309" font-weight="700">③ mid = 4</text>
+  <text x="24" y="566" font-size="16" fill="#334155">a[4] = 5 &gt; 4</text>
+  <text x="24" y="590" font-size="16" fill="#334155">→ high = 3</text>
+  <rect x="250" y="530" width="64" height="44" rx="0" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="282.0" y="558.0" font-size="17" fill="#94a3b8" font-family="Consolas, D2Coding, monospace" text-anchor="middle">1</text>
+  <rect x="314" y="530" width="64" height="44" rx="0" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="346.0" y="558.0" font-size="17" fill="#94a3b8" font-family="Consolas, D2Coding, monospace" text-anchor="middle">3</text>
+  <rect x="378" y="530" width="64" height="44" rx="0" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="410.0" y="558.0" font-size="17" fill="#94a3b8" font-family="Consolas, D2Coding, monospace" text-anchor="middle">3</text>
+  <rect x="442" y="530" width="64" height="44" rx="0" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="474.0" y="558.0" font-size="17" fill="#94a3b8" font-family="Consolas, D2Coding, monospace" text-anchor="middle">3</text>
+  <rect x="506" y="530" width="64" height="44" rx="0" fill="#fef3c7" stroke="#b45309" stroke-width="2.5"/>
+  <text x="538.0" y="558.0" font-size="17" fill="#b45309" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">5</text>
+  <rect x="570" y="530" width="64" height="44" rx="0" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="602.0" y="558.0" font-size="17" fill="#94a3b8" font-family="Consolas, D2Coding, monospace" text-anchor="middle">8</text>
+  <rect x="634" y="530" width="64" height="44" rx="0" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="666.0" y="558.0" font-size="17" fill="#94a3b8" font-family="Consolas, D2Coding, monospace" text-anchor="middle">13</text>
+  <line x1="24" y1="606" x2="736" y2="606" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="24" y="638" font-size="16" fill="#047857" font-weight="700">끝  low = 4, high = 3</text>
+  <text x="24" y="662" font-size="16" fill="#334155">low &gt; high 라서 멈춘다</text>
+  <rect x="250" y="626" width="64" height="44" rx="0" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="282.0" y="654.0" font-size="17" fill="#94a3b8" font-family="Consolas, D2Coding, monospace" text-anchor="middle">1</text>
+  <rect x="314" y="626" width="64" height="44" rx="0" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="346.0" y="654.0" font-size="17" fill="#94a3b8" font-family="Consolas, D2Coding, monospace" text-anchor="middle">3</text>
+  <rect x="378" y="626" width="64" height="44" rx="0" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="410.0" y="654.0" font-size="17" fill="#94a3b8" font-family="Consolas, D2Coding, monospace" text-anchor="middle">3</text>
+  <rect x="442" y="626" width="64" height="44" rx="0" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="474.0" y="654.0" font-size="17" fill="#94a3b8" font-family="Consolas, D2Coding, monospace" text-anchor="middle">3</text>
+  <rect x="506" y="626" width="64" height="44" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2.5"/>
+  <text x="538.0" y="654.0" font-size="17" fill="#047857" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">5</text>
+  <rect x="570" y="626" width="64" height="44" rx="0" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="602.0" y="654.0" font-size="17" fill="#94a3b8" font-family="Consolas, D2Coding, monospace" text-anchor="middle">8</text>
+  <rect x="634" y="626" width="64" height="44" rx="0" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1"/>
+  <text x="666.0" y="654.0" font-size="17" fill="#94a3b8" font-family="Consolas, D2Coding, monospace" text-anchor="middle">13</text>
+  <line x1="24" y1="702" x2="736" y2="702" stroke="#e2e8f0" stroke-width="1"/>
+  <rect x="24" y="714" width="712" height="128" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1"/>
+  <text x="44" y="744" font-size="17" fill="#047857" font-weight="700">return -(4 + 1) = -5. 삽입 위치는 -(-5) - 1 = 4 다.</text>
+  <text x="44" y="770" font-size="16" fill="#334155">초록 칸 4 가 4 를 넣으면 정렬이 유지되는 자리다(5 앞).</text>
+  <text x="44" y="796" font-size="16" fill="#334155">key = 3 이면 ① 의 mid = 3 에서 바로 같아 3 을 돌려준다.</text>
+  <text x="44" y="822" font-size="16" fill="#334155">3 이 처음 나오는 인덱스 1 이 아니다.</text>
+</svg>

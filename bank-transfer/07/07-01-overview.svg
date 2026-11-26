@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 948" width="760" height="948" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>원화 잔고 한 장: 접수 트랜잭션에서 조건부로 빼고, 결과를 모르는 동안 보류하고, 실패가 확정되면 fail() 이 돌려준다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="948" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">원화 잔고 한 장: 접수 때 조건부로 빼고,</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">실패가 확정되면 fail() 이 돌려준다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">초록 = 돈이 빠지는 일, 빨강 = 거절 · 환불, 파랑 = 은행 처리,</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">주황 = 보류 (결과를 모르는 돈)</text>
+<rect x="20" y="146" width="720" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="172" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① 사용자 앱: POST /api/v1/transfers (출금 30,000원)</text>
+<text x="32" y="195" font-size="16" fill="#0f172a" xml:space="preserve">헤더 X-User-Id: user-1, Idempotency-Key: K1</text>
+<line x1="240" y1="210" x2="240" y2="236" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="20" y="236" width="720" height="266" rx="8" fill="#ffffff" stroke="#047857" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="36" y="264" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">② 접수 트랜잭션 — 모두 커밋되거나 모두 롤백된다</text>
+<rect x="36" y="280" width="430" height="44" rx="8" fill="#ffffff" stroke="#047857" stroke-width="1.6"/>
+<text x="48" y="308" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">a. 출금 INSERT — transfer (RECEIVED)</text>
+<line x1="150" y1="324" x2="150" y2="334" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="36" y="334" width="430" height="44" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="48" y="362" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">b. 잔고 차감 — 조건부 UPDATE</text>
+<line x1="150" y1="378" x2="150" y2="388" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="36" y="388" width="430" height="44" rx="8" fill="#ffffff" stroke="#047857" stroke-width="1.6"/>
+<text x="48" y="416" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">c. 원장 INSERT — WITHDRAW 30,000</text>
+<line x1="150" y1="432" x2="150" y2="442" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="36" y="442" width="430" height="44" rx="8" fill="#ffffff" stroke="#047857" stroke-width="1.6"/>
+<text x="48" y="470" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">d. 아웃박스 INSERT — 처리 신호</text>
+<line x1="466" y1="356" x2="486" y2="356" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<rect x="486" y="316" width="238" height="170" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="500" y="342" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">b 가 0건이면</text>
+<text x="500" y="365" font-size="16" fill="#0f172a" xml:space="preserve">= 잔고 부족</text>
+<text x="500" y="388" font-size="16" fill="#0f172a" xml:space="preserve">전체 롤백</text>
+<text x="500" y="411" font-size="16" fill="#0f172a" xml:space="preserve">(a 의 출금 행도 취소)</text>
+<text x="500" y="434" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">→ 422</text>
+<text x="500" y="457" font-size="15" fill="#b91c1c" font-family="Consolas, D2Coding, monospace" xml:space="preserve">INSUFFICIENT_BALANCE</text>
+<line x1="240" y1="502" x2="240" y2="528" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<text x="256" y="521" font-size="16" fill="#1d4ed8" font-weight="700" xml:space="preserve">커밋 → 202</text>
+<rect x="20" y="528" width="720" height="88" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="32" y="554" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ 은행 처리 (컨슈머 · 정리 작업, #4 ~ #6)</text>
+<text x="32" y="577" font-size="16" fill="#0f172a" xml:space="preserve">RECEIVED · SENDING · UNKNOWN 동안 돈은 빠진 채 보류</text>
+<text x="32" y="600" font-size="16" fill="#0f172a" xml:space="preserve">GET /api/v1/wallet → balance 70,000, pending 30,000</text>
+<line x1="190" y1="616" x2="190" y2="644" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<line x1="560" y1="616" x2="560" y2="644" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<rect x="20" y="644" width="340" height="88" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="670" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ 은행 완료 COMPLETED</text>
+<text x="32" y="693" font-size="16" fill="#0f172a" xml:space="preserve">잔고는 빠진 채 확정</text>
+<text x="32" y="716" font-size="16" fill="#0f172a" xml:space="preserve">pending 만 0 이 된다</text>
+<rect x="380" y="644" width="360" height="88" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="392" y="670" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑤ 실패 확정 (4경로) → fail()</text>
+<text x="392" y="693" font-size="16" fill="#0f172a" xml:space="preserve">상태 FAILED + 잔고 복원</text>
+<text x="392" y="716" font-size="16" fill="#0f172a" xml:space="preserve">+ 원장 REFUND, 한 트랜잭션</text>
+<rect x="20" y="760" width="300" height="88" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="786" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">wallet (잔고)</text>
+<text x="32" y="809" font-size="16" fill="#0f172a" xml:space="preserve">user-1 balance 70,000</text>
+<text x="32" y="832" font-size="16" fill="#0f172a" xml:space="preserve">CHECK (balance &gt;= 0)</text>
+<rect x="340" y="760" width="400" height="88" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="352" y="786" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">wallet_ledger (원장, 덧붙이기만)</text>
+<text x="352" y="809" font-size="16" fill="#0f172a" xml:space="preserve">DEPOSIT 100,000 · WITHDRAW 30,000</text>
+<text x="352" y="832" font-size="16" fill="#0f172a" xml:space="preserve">UNIQUE (transfer_id, type)</text>
+<text x="380" y="880" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">잔고 = DEPOSIT − WITHDRAW + REFUND 의 합 (늘 같아야 한다)</text>
+<text x="20" y="916" font-size="16" fill="#64748b" xml:space="preserve">근거: bank-transfer PR #11 (P4-1) — JpaTransferStore, WalletLedger, ADR-0008</text>
+</svg>

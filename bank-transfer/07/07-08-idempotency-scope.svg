@@ -1,0 +1,65 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 812" width="760" height="812" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>같은 키 order-1 을 두 사용자가 썼을 때: 전역 UNIQUE 는 B 에게 A 의 출금을 돌려주고, 사용자 범위 UNIQUE 는 서로 다른 키로 본다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="812" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">같은 키 order-1 을 두 사용자가 쓰면:</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">UNIQUE 의 범위가 결과를 가른다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">user-a 가 먼저 order-1 로 50,000원을 접수했다.</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">user-b 가 같은 키 · 같은 내용으로 요청한다</text>
+<rect x="20" y="146" width="720" height="290" rx="8" fill="#ffffff" stroke="#b91c1c" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="36" y="174" font-size="17" fill="#b91c1c" font-weight="700" xml:space="preserve">UNIQUE 를 전역 (idempotency_key) 으로 두면</text>
+<rect x="36" y="190" width="150" height="34" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"/>
+<text x="46" y="213" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">user_id</text>
+<rect x="186" y="190" width="190" height="34" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"/>
+<text x="196" y="213" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">idempotency_key</text>
+<rect x="376" y="190" width="120" height="34" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"/>
+<text x="386" y="213" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">amount</text>
+<rect x="496" y="190" width="228" height="34" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"/>
+<text x="506" y="213" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">비고</text>
+<rect x="36" y="224" width="150" height="36" fill="#ffffff" stroke="#94a3b8" stroke-width="1"/>
+<text x="46" y="248" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">user-a</text>
+<rect x="186" y="224" width="190" height="36" fill="#ffffff" stroke="#94a3b8" stroke-width="1"/>
+<text x="196" y="248" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">order-1</text>
+<rect x="376" y="224" width="120" height="36" fill="#ffffff" stroke="#94a3b8" stroke-width="1"/>
+<text x="386" y="248" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">50000</text>
+<rect x="496" y="224" width="228" height="36" fill="#ffffff" stroke="#94a3b8" stroke-width="1"/>
+<text x="506" y="248" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">A 의 출금</text>
+<text x="36" y="292" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">user-b 요청 → findByIdempotencyKey("order-1")</text>
+<line x1="200" y1="300" x2="200" y2="326" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<rect x="36" y="326" width="688" height="88" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="48" y="352" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">→ user-a 의 행을 찾는다. 해시도 같다 → 200</text>
+<text x="48" y="375" font-size="16" fill="#0f172a" xml:space="preserve">user-b 가 받은 응답: user-a 의 출금 id · 상태</text>
+<text x="48" y="398" font-size="16" fill="#0f172a" xml:space="preserve">키 하나가 세상에 하나뿐이라 남의 요청에 닿는다</text>
+<rect x="20" y="456" width="720" height="300" rx="8" fill="#ffffff" stroke="#047857" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="36" y="484" font-size="17" fill="#047857" font-weight="700" xml:space="preserve">고친 뒤 (V3): UNIQUE (user_id, idempotency_key)</text>
+<rect x="36" y="500" width="150" height="34" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"/>
+<text x="46" y="523" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">user_id</text>
+<rect x="186" y="500" width="190" height="34" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"/>
+<text x="196" y="523" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">idempotency_key</text>
+<rect x="376" y="500" width="120" height="34" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"/>
+<text x="386" y="523" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">amount</text>
+<rect x="496" y="500" width="228" height="34" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1"/>
+<text x="506" y="523" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">비고</text>
+<rect x="36" y="534" width="150" height="36" fill="#ffffff" stroke="#94a3b8" stroke-width="1"/>
+<text x="46" y="558" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">user-a</text>
+<rect x="186" y="534" width="190" height="36" fill="#ffffff" stroke="#94a3b8" stroke-width="1"/>
+<text x="196" y="558" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">order-1</text>
+<rect x="376" y="534" width="120" height="36" fill="#ffffff" stroke="#94a3b8" stroke-width="1"/>
+<text x="386" y="558" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">50000</text>
+<rect x="496" y="534" width="228" height="36" fill="#ffffff" stroke="#94a3b8" stroke-width="1"/>
+<text x="506" y="558" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">A 의 출금</text>
+<rect x="36" y="570" width="150" height="36" fill="#ecfdf5" stroke="#94a3b8" stroke-width="1"/>
+<text x="46" y="594" font-size="15" fill="#047857" font-family="Consolas, D2Coding, monospace" xml:space="preserve">user-b</text>
+<rect x="186" y="570" width="190" height="36" fill="#ecfdf5" stroke="#94a3b8" stroke-width="1"/>
+<text x="196" y="594" font-size="15" fill="#047857" font-family="Consolas, D2Coding, monospace" xml:space="preserve">order-1</text>
+<rect x="376" y="570" width="120" height="36" fill="#ecfdf5" stroke="#94a3b8" stroke-width="1"/>
+<text x="386" y="594" font-size="15" fill="#047857" font-family="Consolas, D2Coding, monospace" xml:space="preserve">50000</text>
+<rect x="496" y="570" width="228" height="36" fill="#ecfdf5" stroke="#94a3b8" stroke-width="1"/>
+<text x="506" y="594" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">B 의 새 출금 (202)</text>
+<text x="36" y="638" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">user-b 요청 → findByIdempotencyKey("user-b", "order-1")</text>
+<rect x="36" y="652" width="688" height="88" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="48" y="678" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">→ 없음. user-b 가 인증한 계좌 · 잔고로만 판단해 새로 접수</text>
+<text x="48" y="701" font-size="16" fill="#0f172a" xml:space="preserve">user-b 가 user-a 의 출금 id 로 조회하면 404</text>
+<text x="48" y="724" font-size="16" fill="#0f172a" xml:space="preserve">(403 이면 "그 id 가 있다" 는 사실이 샌다)</text>
+<text x="20" y="784" font-size="16" fill="#64748b" xml:space="preserve">근거: V3__wallet.sql uk_transfer_user_idempotency, ADR-0008 결정 5</text>
+</svg>

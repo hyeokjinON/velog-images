@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 616" width="760" height="616" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 6-5b. 입국심사 예제 — 두 심사관의 시간표. 27 분까지 5 명, 28 분까지 6 명이 끝난다</title>
+  <rect width="760" height="616" fill="#ffffff"/>
+  <text x="24" y="40" font-size="22" fill="#0f172a" font-weight="700">입국심사 예제 — 두 심사관의 시간표</text>
+  <text x="24" y="70" font-size="22" fill="#0f172a" font-weight="700">27 분까지 5 명, 28 분까지 6 명이 끝난다</text>
+  <text x="24" y="104" font-size="16" fill="#475569">상자 하나 = 한 사람의 심사. 번호는 줄 선 순서</text>
+  <text x="24" y="128" font-size="16" fill="#475569">힙 시뮬레이션(6-5절)이 꺼낸 끝나는 시각과 같다</text>
+  <text x="170.0" y="184" font-size="16" fill="#1e3a8a" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">0</text>
+  <line x1="170.0" y1="192" x2="170.0" y2="378" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="263.33333333333337" y="184" font-size="16" fill="#1e3a8a" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">5</text>
+  <line x1="263.33333333333337" y1="192" x2="263.33333333333337" y2="378" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="356.6666666666667" y="184" font-size="16" fill="#1e3a8a" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">10</text>
+  <line x1="356.6666666666667" y1="192" x2="356.6666666666667" y2="378" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="450.0" y="184" font-size="16" fill="#1e3a8a" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">15</text>
+  <line x1="450.0" y1="192" x2="450.0" y2="378" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="543.3333333333334" y="184" font-size="16" fill="#1e3a8a" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">20</text>
+  <line x1="543.3333333333334" y1="192" x2="543.3333333333334" y2="378" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="636.6666666666667" y="184" font-size="16" fill="#1e3a8a" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">25</text>
+  <line x1="636.6666666666667" y1="192" x2="636.6666666666667" y2="378" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="730.0" y="184" font-size="16" fill="#1e3a8a" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="middle">30</text>
+  <line x1="730.0" y1="192" x2="730.0" y2="378" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="24" y="184" font-size="16" fill="#1e3a8a" font-weight="700">시각(분)</text>
+  <text x="24" y="234" font-size="16" fill="#0f172a" font-weight="700">7분 심사관</text>
+  <rect x="170.0" y="210" width="130.66666666666669" height="40" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="235.33333333333334" y="236" font-size="16" fill="#1e3a8a" font-weight="700" text-anchor="middle">1번</text>
+  <rect x="300.6666666666667" y="210" width="130.66666666666669" height="40" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="366.0" y="236" font-size="16" fill="#1e3a8a" font-weight="700" text-anchor="middle">3번</text>
+  <rect x="431.33333333333337" y="210" width="130.66666666666669" height="40" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="496.6666666666667" y="236" font-size="16" fill="#1e3a8a" font-weight="700" text-anchor="middle">5번</text>
+  <rect x="562.0" y="210" width="130.66666666666669" height="40" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="627.3333333333334" y="236" font-size="16" fill="#047857" font-weight="700" text-anchor="middle">6번</text>
+  <text x="24" y="298" font-size="16" fill="#0f172a" font-weight="700">10분 심사관</text>
+  <rect x="170.0" y="274" width="186.66666666666669" height="40" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="263.33333333333337" y="300" font-size="16" fill="#1e3a8a" font-weight="700" text-anchor="middle">2번</text>
+  <rect x="356.6666666666667" y="274" width="186.66666666666669" height="40" rx="0" fill="#eff6ff" stroke="#2563eb" stroke-width="2"/>
+  <text x="450.0" y="300" font-size="16" fill="#1e3a8a" font-weight="700" text-anchor="middle">4번</text>
+  <rect x="543.3333333333334" y="274" width="186.66666666666669" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1" stroke-dasharray="5,4"/>
+  <text x="551.3333333333334" y="300" font-size="16" fill="#475569">6번이 오면 30</text>
+  <line x1="674.0" y1="190" x2="674.0" y2="336" stroke="#b91c1c" stroke-width="2.5" stroke-dasharray="6,4"/>
+  <line x1="692.6666666666667" y1="190" x2="692.6666666666667" y2="336" stroke="#047857" stroke-width="2.5" stroke-dasharray="6,4"/>
+  <text x="668.0" y="358" font-size="16" fill="#b91c1c" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="end">27</text>
+  <text x="698.6666666666667" y="358" font-size="16" fill="#047857" font-weight="700" font-family="Consolas, D2Coding, monospace">28</text>
+  <line x1="24" y1="374" x2="736" y2="374" stroke="#94a3b8" stroke-width="1"/>
+  <text x="24" y="404" font-size="16" fill="#b91c1c" font-weight="700">T = 27: 7분 심사관 ⌊27/7⌋ = 3 명, 10분 심사관 ⌊27/10⌋ = 2 명 → 5 명</text>
+  <text x="24" y="432" font-size="16" fill="#047857" font-weight="700">T = 28: ⌊28/7⌋ = 4 명, ⌊28/10⌋ = 2 명 → 6 명</text>
+  <text x="24" y="460" font-size="16" fill="#334155">6번은 20 분에 빈 10분 심사관 대신 21 분까지 기다려 7분 심사관에게 간다</text>
+  <text x="24" y="488" font-size="16" fill="#334155">힙이 꺼낸 끝나는 시각: 7, 10, 14, 20, 21, 28 → 마지막 28</text>
+  <rect x="24" y="520" width="712" height="76" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1"/>
+  <text x="44" y="550" font-size="17" fill="#047857" font-weight="700">두 방법 모두 28. 판정식 ⌊T/7⌋ + ⌊T/10⌋ 이 시간표와 맞는다.</text>
+  <text x="44" y="576" font-size="16" fill="#334155">심사관이 쉬지 않고 일한다고 보면 T 분에 ⌊T/t⌋ 명을 끝낸다.</text>
+</svg>

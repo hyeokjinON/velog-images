@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 612" width="760" height="612" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 7-5a. 게임 맵 최단거리 예제 1 — BFS 가 끝난 뒤의 dist 배열과 최단 경로 11칸</title>
+  <rect width="760" height="612" fill="#ffffff"/>
+  <text x="24" y="40" font-size="21" fill="#0f172a" font-weight="700">게임 맵 최단거리 예제 1 — BFS 가 끝난</text>
+  <text x="24" y="70" font-size="21" fill="#0f172a" font-weight="700">뒤의 dist 배열 (답 11)</text>
+  <text x="24" y="102" font-size="16" fill="#475569">칸 안의 숫자 = 시작 칸부터 지나온 칸 수. 바깥 숫자 = 행 · 열 번호(0부터)</text>
+  <text x="84.0" y="154" font-size="16" fill="#475569" text-anchor="middle">0</text>
+  <text x="156.0" y="154" font-size="16" fill="#475569" text-anchor="middle">1</text>
+  <text x="228.0" y="154" font-size="16" fill="#475569" text-anchor="middle">2</text>
+  <text x="300.0" y="154" font-size="16" fill="#475569" text-anchor="middle">3</text>
+  <text x="372.0" y="154" font-size="16" fill="#475569" text-anchor="middle">4</text>
+  <text x="34" y="206.0" font-size="16" fill="#475569" text-anchor="middle">0</text>
+  <rect x="48" y="164" width="72" height="72" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="84.0" y="206.0" font-size="20" fill="#047857" font-weight="700" text-anchor="middle">1</text>
+  <rect x="120" y="164" width="72" height="72" rx="0" fill="#334155" stroke="#1e293b" stroke-width="1"/>
+  <text x="156.0" y="206.0" font-size="16" fill="#cbd5e1" text-anchor="middle">벽</text>
+  <rect x="192" y="164" width="72" height="72" rx="0" fill="#eff6ff" stroke="#1e3a8a" stroke-width="2"/>
+  <text x="228.0" y="206.0" font-size="20" fill="#1e3a8a" font-weight="700" text-anchor="middle">9</text>
+  <rect x="264" y="164" width="72" height="72" rx="0" fill="#eff6ff" stroke="#1e3a8a" stroke-width="2"/>
+  <text x="300.0" y="206.0" font-size="20" fill="#1e3a8a" font-weight="700" text-anchor="middle">10</text>
+  <rect x="336" y="164" width="72" height="72" rx="0" fill="#eff6ff" stroke="#1e3a8a" stroke-width="2"/>
+  <text x="372.0" y="206.0" font-size="20" fill="#1e3a8a" font-weight="700" text-anchor="middle">11</text>
+  <text x="34" y="278.0" font-size="16" fill="#475569" text-anchor="middle">1</text>
+  <rect x="48" y="236" width="72" height="72" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="84.0" y="278.0" font-size="20" fill="#047857" font-weight="700" text-anchor="middle">2</text>
+  <rect x="120" y="236" width="72" height="72" rx="0" fill="#334155" stroke="#1e293b" stroke-width="1"/>
+  <text x="156.0" y="278.0" font-size="16" fill="#cbd5e1" text-anchor="middle">벽</text>
+  <rect x="192" y="236" width="72" height="72" rx="0" fill="#eff6ff" stroke="#1e3a8a" stroke-width="2"/>
+  <text x="228.0" y="278.0" font-size="20" fill="#1e3a8a" font-weight="700" text-anchor="middle">8</text>
+  <rect x="264" y="236" width="72" height="72" rx="0" fill="#334155" stroke="#1e293b" stroke-width="1"/>
+  <text x="300.0" y="278.0" font-size="16" fill="#cbd5e1" text-anchor="middle">벽</text>
+  <rect x="336" y="236" width="72" height="72" rx="0" fill="#eff6ff" stroke="#1e3a8a" stroke-width="2"/>
+  <text x="372.0" y="278.0" font-size="20" fill="#1e3a8a" font-weight="700" text-anchor="middle">10</text>
+  <text x="34" y="350.0" font-size="16" fill="#475569" text-anchor="middle">2</text>
+  <rect x="48" y="308" width="72" height="72" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="84.0" y="350.0" font-size="20" fill="#047857" font-weight="700" text-anchor="middle">3</text>
+  <rect x="120" y="308" width="72" height="72" rx="0" fill="#334155" stroke="#1e293b" stroke-width="1"/>
+  <text x="156.0" y="350.0" font-size="16" fill="#cbd5e1" text-anchor="middle">벽</text>
+  <rect x="192" y="308" width="72" height="72" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="228.0" y="350.0" font-size="20" fill="#047857" font-weight="700" text-anchor="middle">7</text>
+  <rect x="264" y="308" width="72" height="72" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="300.0" y="350.0" font-size="20" fill="#047857" font-weight="700" text-anchor="middle">8</text>
+  <rect x="336" y="308" width="72" height="72" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="372.0" y="350.0" font-size="20" fill="#047857" font-weight="700" text-anchor="middle">9</text>
+  <text x="34" y="422.0" font-size="16" fill="#475569" text-anchor="middle">3</text>
+  <rect x="48" y="380" width="72" height="72" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="84.0" y="422.0" font-size="20" fill="#047857" font-weight="700" text-anchor="middle">4</text>
+  <rect x="120" y="380" width="72" height="72" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="156.0" y="422.0" font-size="20" fill="#047857" font-weight="700" text-anchor="middle">5</text>
+  <rect x="192" y="380" width="72" height="72" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="228.0" y="422.0" font-size="20" fill="#047857" font-weight="700" text-anchor="middle">6</text>
+  <rect x="264" y="380" width="72" height="72" rx="0" fill="#334155" stroke="#1e293b" stroke-width="1"/>
+  <text x="300.0" y="422.0" font-size="16" fill="#cbd5e1" text-anchor="middle">벽</text>
+  <rect x="336" y="380" width="72" height="72" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="372.0" y="422.0" font-size="20" fill="#047857" font-weight="700" text-anchor="middle">10</text>
+  <text x="34" y="494.0" font-size="16" fill="#475569" text-anchor="middle">4</text>
+  <rect x="48" y="452" width="72" height="72" rx="0" fill="#334155" stroke="#1e293b" stroke-width="1"/>
+  <text x="84.0" y="494.0" font-size="16" fill="#cbd5e1" text-anchor="middle">벽</text>
+  <rect x="120" y="452" width="72" height="72" rx="0" fill="#334155" stroke="#1e293b" stroke-width="1"/>
+  <text x="156.0" y="494.0" font-size="16" fill="#cbd5e1" text-anchor="middle">벽</text>
+  <rect x="192" y="452" width="72" height="72" rx="0" fill="#334155" stroke="#1e293b" stroke-width="1"/>
+  <text x="228.0" y="494.0" font-size="16" fill="#cbd5e1" text-anchor="middle">벽</text>
+  <rect x="264" y="452" width="72" height="72" rx="0" fill="#334155" stroke="#1e293b" stroke-width="1"/>
+  <text x="300.0" y="494.0" font-size="16" fill="#cbd5e1" text-anchor="middle">벽</text>
+  <rect x="336" y="452" width="72" height="72" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="372.0" y="494.0" font-size="20" fill="#047857" font-weight="700" text-anchor="middle">11</text>
+  <text x="432" y="184" font-size="16" fill="#047857" font-weight="700">초록 = 최단 경로 11칸</text>
+  <text x="432" y="212" font-size="16" fill="#1e3a8a" font-weight="700">파랑 = 방문했지만</text>
+  <text x="432" y="240" font-size="16" fill="#1e3a8a" font-weight="700">경로에는 없는 칸</text>
+  <text x="432" y="296" font-size="16" fill="#334155">(2,2) 의 거리 7 에서</text>
+  <text x="432" y="324" font-size="16" fill="#334155">(1,2) 와 (2,3) 으로</text>
+  <text x="432" y="352" font-size="16" fill="#334155">갈라져 둘 다 8 이 된다.</text>
+  <text x="432" y="408" font-size="16" fill="#334155">(4,4) 는 (3,4) 를 거쳐</text>
+  <text x="432" y="436" font-size="16" fill="#334155">처음 닿을 때 11 로</text>
+  <text x="432" y="464" font-size="16" fill="#334155">정해지고 바뀌지 않는다.</text>
+  <rect x="24" y="544" width="712" height="48" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1"/>
+  <text x="44" y="574" font-size="17" fill="#047857" font-weight="700">return dist[4][4] → 11 (큐에서 꺼낸 횟수 16번 = 방문한 칸 16개)</text>
+</svg>

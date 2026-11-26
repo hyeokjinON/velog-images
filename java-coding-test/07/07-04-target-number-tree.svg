@@ -1,0 +1,105 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 766" width="760" height="766" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 7-4. 타겟 넘버 예제 2 — 부호를 고르는 트리의 리프 16개 중 합이 4 인 것은 2개</title>
+  <rect width="760" height="766" fill="#ffffff"/>
+  <text x="24" y="40" font-size="21" fill="#0f172a" font-weight="700">타겟 넘버 예제 2 — numbers [4, 1, 2, 1],</text>
+  <text x="24" y="70" font-size="21" fill="#0f172a" font-weight="700">target 4 의 부호 트리</text>
+  <text x="24" y="102" font-size="16" fill="#475569">동그라미 안 = 그 노드까지의 sum. 왼쪽 가지 = 더하기(파랑 실선),</text>
+  <text x="24" y="126" font-size="16" fill="#475569">오른쪽 가지 = 빼기(회색 점선). 초록 리프 = sum 이 4 → 1 을 돌려준다</text>
+  <line x1="380.0" y1="192" x2="202.0" y2="288" stroke="#1e3a8a" stroke-width="2"/>
+  <line x1="380.0" y1="192" x2="558.0" y2="288" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 4"/>
+  <line x1="202.0" y1="288" x2="113.0" y2="384" stroke="#1e3a8a" stroke-width="2"/>
+  <line x1="202.0" y1="288" x2="291.0" y2="384" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 4"/>
+  <line x1="558.0" y1="288" x2="469.0" y2="384" stroke="#1e3a8a" stroke-width="2"/>
+  <line x1="558.0" y1="288" x2="647.0" y2="384" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 4"/>
+  <line x1="113.0" y1="384" x2="68.5" y2="480" stroke="#1e3a8a" stroke-width="2"/>
+  <line x1="113.0" y1="384" x2="157.5" y2="480" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 4"/>
+  <line x1="291.0" y1="384" x2="246.5" y2="480" stroke="#1e3a8a" stroke-width="2"/>
+  <line x1="291.0" y1="384" x2="335.5" y2="480" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 4"/>
+  <line x1="469.0" y1="384" x2="424.5" y2="480" stroke="#1e3a8a" stroke-width="2"/>
+  <line x1="469.0" y1="384" x2="513.5" y2="480" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 4"/>
+  <line x1="647.0" y1="384" x2="602.5" y2="480" stroke="#1e3a8a" stroke-width="2"/>
+  <line x1="647.0" y1="384" x2="691.5" y2="480" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 4"/>
+  <line x1="68.5" y1="480" x2="46.2" y2="576" stroke="#1e3a8a" stroke-width="2"/>
+  <line x1="68.5" y1="480" x2="90.8" y2="576" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 4"/>
+  <line x1="157.5" y1="480" x2="135.2" y2="576" stroke="#1e3a8a" stroke-width="2"/>
+  <line x1="157.5" y1="480" x2="179.8" y2="576" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 4"/>
+  <line x1="246.5" y1="480" x2="224.2" y2="576" stroke="#1e3a8a" stroke-width="2"/>
+  <line x1="246.5" y1="480" x2="268.8" y2="576" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 4"/>
+  <line x1="335.5" y1="480" x2="313.2" y2="576" stroke="#1e3a8a" stroke-width="2"/>
+  <line x1="335.5" y1="480" x2="357.8" y2="576" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 4"/>
+  <line x1="424.5" y1="480" x2="402.2" y2="576" stroke="#1e3a8a" stroke-width="2"/>
+  <line x1="424.5" y1="480" x2="446.8" y2="576" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 4"/>
+  <line x1="513.5" y1="480" x2="491.2" y2="576" stroke="#1e3a8a" stroke-width="2"/>
+  <line x1="513.5" y1="480" x2="535.8" y2="576" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 4"/>
+  <line x1="602.5" y1="480" x2="580.2" y2="576" stroke="#1e3a8a" stroke-width="2"/>
+  <line x1="602.5" y1="480" x2="624.8" y2="576" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 4"/>
+  <line x1="691.5" y1="480" x2="669.2" y2="576" stroke="#1e3a8a" stroke-width="2"/>
+  <line x1="691.5" y1="480" x2="713.8" y2="576" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6 4"/>
+  <circle cx="380.0" cy="192" r="22" fill="#ffffff" stroke="#1e3a8a" stroke-width="2"/>
+  <text x="380.0" y="198" font-size="17" fill="#0f172a" font-weight="700" text-anchor="middle">0</text>
+  <circle cx="202.0" cy="288" r="22" fill="#ffffff" stroke="#1e3a8a" stroke-width="2"/>
+  <text x="202.0" y="294" font-size="17" fill="#0f172a" font-weight="700" text-anchor="middle">4</text>
+  <circle cx="558.0" cy="288" r="22" fill="#ffffff" stroke="#1e3a8a" stroke-width="2"/>
+  <text x="558.0" y="294" font-size="17" fill="#0f172a" font-weight="700" text-anchor="middle">−4</text>
+  <circle cx="113.0" cy="384" r="22" fill="#ffffff" stroke="#1e3a8a" stroke-width="2"/>
+  <text x="113.0" y="390" font-size="17" fill="#0f172a" font-weight="700" text-anchor="middle">5</text>
+  <circle cx="291.0" cy="384" r="22" fill="#ffffff" stroke="#1e3a8a" stroke-width="2"/>
+  <text x="291.0" y="390" font-size="17" fill="#0f172a" font-weight="700" text-anchor="middle">3</text>
+  <circle cx="469.0" cy="384" r="22" fill="#ffffff" stroke="#1e3a8a" stroke-width="2"/>
+  <text x="469.0" y="390" font-size="17" fill="#0f172a" font-weight="700" text-anchor="middle">−3</text>
+  <circle cx="647.0" cy="384" r="22" fill="#ffffff" stroke="#1e3a8a" stroke-width="2"/>
+  <text x="647.0" y="390" font-size="17" fill="#0f172a" font-weight="700" text-anchor="middle">−5</text>
+  <circle cx="68.5" cy="480" r="20" fill="#ffffff" stroke="#1e3a8a" stroke-width="2"/>
+  <text x="68.5" y="486" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle">7</text>
+  <circle cx="157.5" cy="480" r="20" fill="#ffffff" stroke="#1e3a8a" stroke-width="2"/>
+  <text x="157.5" y="486" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle">3</text>
+  <circle cx="246.5" cy="480" r="20" fill="#ffffff" stroke="#1e3a8a" stroke-width="2"/>
+  <text x="246.5" y="486" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle">5</text>
+  <circle cx="335.5" cy="480" r="20" fill="#ffffff" stroke="#1e3a8a" stroke-width="2"/>
+  <text x="335.5" y="486" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle">1</text>
+  <circle cx="424.5" cy="480" r="20" fill="#ffffff" stroke="#1e3a8a" stroke-width="2"/>
+  <text x="424.5" y="486" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle">−1</text>
+  <circle cx="513.5" cy="480" r="20" fill="#ffffff" stroke="#1e3a8a" stroke-width="2"/>
+  <text x="513.5" y="486" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle">−5</text>
+  <circle cx="602.5" cy="480" r="20" fill="#ffffff" stroke="#1e3a8a" stroke-width="2"/>
+  <text x="602.5" y="486" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle">−3</text>
+  <circle cx="691.5" cy="480" r="20" fill="#ffffff" stroke="#1e3a8a" stroke-width="2"/>
+  <text x="691.5" y="486" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle">−7</text>
+  <circle cx="46.2" cy="576" r="20" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+  <text x="46.2" y="582" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle">8</text>
+  <circle cx="90.8" cy="576" r="20" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+  <text x="90.8" y="582" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle">6</text>
+  <circle cx="135.2" cy="576" r="20" fill="#ecfdf5" stroke="#047857" stroke-width="3"/>
+  <text x="135.2" y="582" font-size="16" fill="#047857" font-weight="700" text-anchor="middle">4</text>
+  <circle cx="179.8" cy="576" r="20" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+  <text x="179.8" y="582" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle">2</text>
+  <circle cx="224.2" cy="576" r="20" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+  <text x="224.2" y="582" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle">6</text>
+  <circle cx="268.8" cy="576" r="20" fill="#ecfdf5" stroke="#047857" stroke-width="3"/>
+  <text x="268.8" y="582" font-size="16" fill="#047857" font-weight="700" text-anchor="middle">4</text>
+  <circle cx="313.2" cy="576" r="20" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+  <text x="313.2" y="582" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle">2</text>
+  <circle cx="357.8" cy="576" r="20" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+  <text x="357.8" y="582" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle">0</text>
+  <circle cx="402.2" cy="576" r="20" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+  <text x="402.2" y="582" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle">0</text>
+  <circle cx="446.8" cy="576" r="20" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+  <text x="446.8" y="582" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle">−2</text>
+  <circle cx="491.2" cy="576" r="20" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+  <text x="491.2" y="582" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle">−4</text>
+  <circle cx="535.8" cy="576" r="20" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+  <text x="535.8" y="582" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle">−6</text>
+  <circle cx="580.2" cy="576" r="20" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+  <text x="580.2" y="582" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle">−2</text>
+  <circle cx="624.8" cy="576" r="20" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+  <text x="624.8" y="582" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle">−4</text>
+  <circle cx="669.2" cy="576" r="20" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+  <text x="669.2" y="582" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle">−6</text>
+  <circle cx="713.8" cy="576" r="20" fill="#ffffff" stroke="#94a3b8" stroke-width="2"/>
+  <text x="713.8" y="582" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle">−8</text>
+  <text x="24" y="626" font-size="16" fill="#334155">층마다 위에서부터 idx 0 의 4, idx 1 의 1, idx 2 의 2, idx 3 의 1 을</text>
+  <text x="24" y="652" font-size="16" fill="#334155">더하거나 뺀다. 리프 = idx 4 (숫자를 다 쓴 자리)</text>
+  <rect x="24" y="672" width="712" height="74" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1"/>
+  <text x="44" y="702" font-size="17" fill="#047857" font-weight="700">리프 16개 중 sum 이 4 인 것은 +4+1−2+1 과 +4−1+2−1 의 2개 → 답 2</text>
+  <text x="44" y="728" font-size="16" fill="#334155">−4 로 시작한 오른쪽 8개는 가장 커도 0 이라 하나도 4 가 되지 않는다.</text>
+</svg>

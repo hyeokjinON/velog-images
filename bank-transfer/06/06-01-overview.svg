@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 1080" width="760" height="1080" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>은행에 못 보낸 출금 한 장: 재시도 토픽 세 번, 재발행 세 번, 그래도 안 되면 FAILED E001</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="1080" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">은행에 못 보낸 출금 한 장: 재시도 토픽 세 번,</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">재발행 세 번, 그래도 안 되면 FAILED E001</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">파랑 = Kafka 토픽, 주황 = 은행에 못 보냄, 초록 = 성공 · 재발행,</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">빨강 = 포기, 회색 상자 = 정리 작업. 번호 순서대로 읽는다</text>
+<rect x="20" y="150" width="720" height="88" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="32" y="176" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① 컨슈머: RECEIVED → SENDING (sending_at 기록)</text>
+<text x="32" y="199" font-size="16" fill="#0f172a" xml:space="preserve">게이트웨이 연결 없음 → 전문을 쓰기도 전에 실패</text>
+<text x="32" y="222" font-size="16" fill="#0f172a" xml:space="preserve">SENDING → RECEIVED 로 되돌린다. sending_at 은 남긴다</text>
+<line x1="380" y1="238" x2="380" y2="266" stroke="#c2410c" stroke-width="2.2" marker-end="url(#mo)"/>
+<rect x="20" y="266" width="720" height="64" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="292" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② 원래 토픽 transfer.requested: RetryLaterException</text>
+<text x="32" y="315" font-size="16" fill="#0f172a" xml:space="preserve">이 메시지만 다음 토픽으로 옮긴다 (뒤 메시지는 계속 처리)</text>
+<line x1="132" y1="330" x2="132" y2="360" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<rect x="20" y="360" width="224" height="64" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="386" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ -retry-0</text>
+<text x="32" y="409" font-size="16" fill="#0f172a" xml:space="preserve">5초 뒤 다시</text>
+<rect x="268" y="360" width="224" height="64" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="280" y="386" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">-retry-1</text>
+<text x="280" y="409" font-size="16" fill="#0f172a" xml:space="preserve">30초 뒤 다시</text>
+<rect x="516" y="360" width="224" height="64" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="528" y="386" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">-retry-2</text>
+<text x="528" y="409" font-size="16" fill="#0f172a" xml:space="preserve">60초 뒤 다시</text>
+<line x1="244" y1="392" x2="268" y2="392" stroke="#c2410c" stroke-width="2.2" marker-end="url(#mo)"/>
+<line x1="492" y1="392" x2="516" y2="392" stroke="#c2410c" stroke-width="2.2" marker-end="url(#mo)"/>
+<line x1="132" y1="424" x2="132" y2="456" stroke="#047857" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#mg)"/>
+<rect x="20" y="456" width="340" height="64" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="482" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">중간에 은행이 돌아오면</text>
+<text x="32" y="505" font-size="16" fill="#0f172a" xml:space="preserve">보내서 COMPLETED (평소대로)</text>
+<line x1="628" y1="424" x2="628" y2="456" stroke="#c2410c" stroke-width="2.2" marker-end="url(#mo)"/>
+<rect x="400" y="456" width="340" height="64" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="412" y="482" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ -dlt (접수 약 95초 뒤)</text>
+<text x="412" y="505" font-size="16" fill="#0f172a" xml:space="preserve">WARN 로그, 이체는 RECEIVED</text>
+<line x1="570" y1="520" x2="570" y2="552" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="552" width="720" height="330" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="36" y="580" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">⑤ 정리 작업 ⓪ — 10초마다, 5분 넘게 RECEIVED 인 건</text>
+<rect x="36" y="596" width="688" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="48" y="622" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">대상 조건</text>
+<text x="48" y="645" font-size="16" fill="#0f172a" xml:space="preserve">sending_at 이 있고, 마지막 재발행 뒤에 찍혔다</text>
+<text x="48" y="668" font-size="16" fill="#0f172a" xml:space="preserve">(republished_at 이 NULL 이거나 sending_at 이 더 늦다)</text>
+<line x1="200" y1="684" x2="200" y2="712" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<line x1="560" y1="684" x2="560" y2="712" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<rect x="36" y="712" width="330" height="112" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="48" y="738" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">횟수 &lt; 3 → 재발행</text>
+<text x="48" y="761" font-size="16" fill="#0f172a" xml:space="preserve">횟수 +1 (조건부 UPDATE)</text>
+<text x="48" y="784" font-size="16" fill="#0f172a" xml:space="preserve">+ 아웃박스 신호 1행</text>
+<text x="48" y="807" font-size="16" fill="#0f172a" xml:space="preserve">둘을 한 트랜잭션에</text>
+<rect x="394" y="712" width="330" height="112" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="406" y="738" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑥ 횟수 = 3 → 포기</text>
+<text x="406" y="761" font-size="16" fill="#0f172a" xml:space="preserve">RECEIVED → FAILED</text>
+<text x="406" y="784" font-size="16" fill="#0f172a" xml:space="preserve">응답코드 E001</text>
+<text x="406" y="807" font-size="16" fill="#0f172a" xml:space="preserve">은행에 간 적 없음</text>
+<text x="226" y="858" font-size="16" fill="#334155" font-weight="700" xml:space="preserve">모두 조건부라 인스턴스가 여럿이어도 한 번만 반영된다</text>
+<line x1="200" y1="824" x2="200" y2="906" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="20" y="906" width="720" height="64" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="932" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">재발행한 신호는 발행기가 원래 토픽으로 보낸다</text>
+<text x="32" y="955" font-size="16" fill="#0f172a" xml:space="preserve">→ ① 부터 다시 (재시도 세 번을 처음부터 다시 쓴다)</text>
+<text x="20" y="1012" font-size="16" fill="#64748b" xml:space="preserve">근거: bank-transfer PR #9 · #10 (P3-3b) — TransferRequestedListener,</text>
+<text x="20" y="1036" font-size="16" fill="#64748b" xml:space="preserve">TransferReconciler, JpaTransferStore.republish, ADR-0007</text>
+</svg>

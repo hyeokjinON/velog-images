@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 690" width="760" height="690" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>충전부터 환불까지 잔고 · 보류 · 원장: 접수 때 빠지고, 완료되면 그대로, 거절되면 같은 금액이 돌아온다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="690" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">충전부터 환불까지 잔고 · 보류 · 원장:</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">접수 때 빠지고, 거절되면 같은 금액이 돌아온다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">사용자 user-1, http/transfer.http 9절 순서. 초록 = 차감,</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">빨강 = 환불, 주황 = 보류가 있는 순간, 회색 = 변화 없음</text>
+<rect x="20" y="150" width="720" height="38" fill="#f1f5f9" stroke="#334155" stroke-width="1.2"/>
+<text x="32" y="175" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">단계</text>
+<text x="364" y="175" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">잔고</text>
+<text x="478" y="175" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">보류</text>
+<text x="578" y="175" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">원장에 생긴 줄</text>
+<rect x="20" y="188" width="720" height="50" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+<text x="32" y="220" font-size="16" fill="#0f172a" xml:space="preserve">① 9-1 충전 10만 원</text>
+<text x="440" y="220" font-size="16" fill="#0f172a" font-weight="700" text-anchor="end" xml:space="preserve">100,000</text>
+<text x="540" y="220" font-size="16" fill="#64748b" text-anchor="end" xml:space="preserve">0</text>
+<text x="578" y="220" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">DEPOSIT 100,000</text>
+<rect x="20" y="238" width="720" height="50" fill="#ecfdf5" stroke="#cbd5e1" stroke-width="1"/>
+<text x="32" y="270" font-size="16" fill="#0f172a" xml:space="preserve">② 9-2 출금 3만 원 접수 (202)</text>
+<text x="440" y="270" font-size="16" fill="#0f172a" font-weight="700" text-anchor="end" xml:space="preserve">70,000</text>
+<text x="540" y="270" font-size="16" fill="#c2410c" font-weight="700" text-anchor="end" xml:space="preserve">30,000</text>
+<text x="578" y="270" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">WITHDRAW 30,000</text>
+<rect x="20" y="288" width="720" height="50" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+<text x="32" y="320" font-size="16" fill="#0f172a" xml:space="preserve">③ 은행 완료 COMPLETED</text>
+<text x="440" y="320" font-size="16" fill="#0f172a" font-weight="700" text-anchor="end" xml:space="preserve">70,000</text>
+<text x="540" y="320" font-size="16" fill="#64748b" text-anchor="end" xml:space="preserve">0</text>
+<text x="578" y="320" font-size="16" fill="#64748b" xml:space="preserve">(없음)</text>
+<rect x="20" y="338" width="720" height="50" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+<text x="32" y="370" font-size="16" fill="#0f172a" xml:space="preserve">④ 9-4 70,001원 출금 (422)</text>
+<text x="440" y="370" font-size="16" fill="#0f172a" font-weight="700" text-anchor="end" xml:space="preserve">70,000</text>
+<text x="540" y="370" font-size="16" fill="#64748b" text-anchor="end" xml:space="preserve">0</text>
+<text x="578" y="370" font-size="16" fill="#64748b" xml:space="preserve">(없음)</text>
+<rect x="20" y="388" width="720" height="50" fill="#ecfdf5" stroke="#cbd5e1" stroke-width="1"/>
+<text x="32" y="420" font-size="16" fill="#0f172a" xml:space="preserve">⑤ 9-5 없는 계좌로 2만 원 (202)</text>
+<text x="440" y="420" font-size="16" fill="#0f172a" font-weight="700" text-anchor="end" xml:space="preserve">50,000</text>
+<text x="540" y="420" font-size="16" fill="#c2410c" font-weight="700" text-anchor="end" xml:space="preserve">20,000</text>
+<text x="578" y="420" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">WITHDRAW 20,000</text>
+<rect x="20" y="438" width="720" height="50" fill="#fef2f2" stroke="#cbd5e1" stroke-width="1"/>
+<text x="32" y="470" font-size="16" fill="#0f172a" xml:space="preserve">⑥ 은행 1001 거절 → FAILED</text>
+<text x="440" y="470" font-size="16" fill="#0f172a" font-weight="700" text-anchor="end" xml:space="preserve">70,000</text>
+<text x="540" y="470" font-size="16" fill="#64748b" text-anchor="end" xml:space="preserve">0</text>
+<text x="578" y="470" font-size="16" fill="#b91c1c" font-weight="700" xml:space="preserve">REFUND 20,000</text>
+<line x1="352" y1="150" x2="352" y2="488" stroke="#cbd5e1" stroke-width="1"/>
+<line x1="466" y1="150" x2="466" y2="488" stroke="#cbd5e1" stroke-width="1"/>
+<line x1="566" y1="150" x2="566" y2="488" stroke="#cbd5e1" stroke-width="1"/>
+<rect x="20" y="506" width="720" height="88" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="532" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">원장 합 = 100,000 − 30,000 − 20,000 + 20,000 = 70,000</text>
+<text x="32" y="555" font-size="16" fill="#0f172a" xml:space="preserve">→ 잔고 70,000 과 같다. 보류도 0 으로 돌아왔다</text>
+<text x="32" y="578" font-size="16" fill="#0f172a" xml:space="preserve">④ 는 차감 0건이라 롤백: 출금 · 원장 · 아웃박스 어디에도 없다</text>
+<text x="20" y="634" font-size="16" fill="#64748b" xml:space="preserve">근거: bank-transfer http/transfer.http 9-1 ~ 9-7, ADR-0008</text>
+<text x="20" y="658" font-size="16" fill="#64748b" xml:space="preserve">③ 이 끝나기 전에 조회하면 보류는 30,000 이다 (9-3 설명)</text>
+</svg>

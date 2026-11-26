@@ -1,0 +1,76 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 802" width="760" height="802" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 7-2. 빈 3 × 3 격자 BFS — 넣을 때 체크와 꺼낼 때 체크의 offer 횟수</title>
+  <rect width="760" height="802" fill="#ffffff"/>
+  <text x="24" y="40" font-size="21" fill="#0f172a" font-weight="700">빈 3 × 3 격자 BFS — 칸마다 큐에 몇 번</text>
+  <text x="24" y="70" font-size="21" fill="#0f172a" font-weight="700">들어갔나 (넣을 때 체크 vs 꺼낼 때 체크)</text>
+  <text x="24" y="102" font-size="16" fill="#475569">(0,0) 에서 출발. 칸 안의 숫자 = 그 칸을 offer 한 횟수</text>
+  <rect x="24" y="140" width="348" height="330" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="40" y="170" font-size="17" fill="#1e3a8a" font-weight="700">① 넣을 때 체크</text>
+  <rect x="93" y="194" width="70" height="70" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="128.0" y="235.0" font-size="20" fill="#047857" font-weight="700" text-anchor="middle">1</text>
+  <rect x="163" y="194" width="70" height="70" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="198.0" y="235.0" font-size="20" fill="#047857" font-weight="700" text-anchor="middle">1</text>
+  <rect x="233" y="194" width="70" height="70" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="268.0" y="235.0" font-size="20" fill="#047857" font-weight="700" text-anchor="middle">1</text>
+  <rect x="93" y="264" width="70" height="70" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="128.0" y="305.0" font-size="20" fill="#047857" font-weight="700" text-anchor="middle">1</text>
+  <rect x="163" y="264" width="70" height="70" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="198.0" y="305.0" font-size="20" fill="#047857" font-weight="700" text-anchor="middle">1</text>
+  <rect x="233" y="264" width="70" height="70" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="268.0" y="305.0" font-size="20" fill="#047857" font-weight="700" text-anchor="middle">1</text>
+  <rect x="93" y="334" width="70" height="70" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="128.0" y="375.0" font-size="20" fill="#047857" font-weight="700" text-anchor="middle">1</text>
+  <rect x="163" y="334" width="70" height="70" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="198.0" y="375.0" font-size="20" fill="#047857" font-weight="700" text-anchor="middle">1</text>
+  <rect x="233" y="334" width="70" height="70" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="268.0" y="375.0" font-size="20" fill="#047857" font-weight="700" text-anchor="middle">1</text>
+  <text x="40" y="446" font-size="17" fill="#047857" font-weight="700">offer 9번 = 칸 수</text>
+  <rect x="388" y="140" width="348" height="330" rx="8" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="404" y="170" font-size="17" fill="#1e3a8a" font-weight="700">② 꺼낼 때 체크</text>
+  <rect x="457" y="194" width="70" height="70" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="492.0" y="235.0" font-size="20" fill="#047857" font-weight="700" text-anchor="middle">1</text>
+  <rect x="527" y="194" width="70" height="70" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="562.0" y="235.0" font-size="20" fill="#047857" font-weight="700" text-anchor="middle">1</text>
+  <rect x="597" y="194" width="70" height="70" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="632.0" y="235.0" font-size="20" fill="#047857" font-weight="700" text-anchor="middle">1</text>
+  <rect x="457" y="264" width="70" height="70" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="492.0" y="305.0" font-size="20" fill="#047857" font-weight="700" text-anchor="middle">1</text>
+  <rect x="527" y="264" width="70" height="70" rx="0" fill="#fef2f2" stroke="#b91c1c" stroke-width="2"/>
+  <text x="562.0" y="305.0" font-size="20" fill="#b91c1c" font-weight="700" text-anchor="middle">2</text>
+  <rect x="597" y="264" width="70" height="70" rx="0" fill="#fef2f2" stroke="#b91c1c" stroke-width="2"/>
+  <text x="632.0" y="305.0" font-size="20" fill="#b91c1c" font-weight="700" text-anchor="middle">2</text>
+  <rect x="457" y="334" width="70" height="70" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="492.0" y="375.0" font-size="20" fill="#047857" font-weight="700" text-anchor="middle">1</text>
+  <rect x="527" y="334" width="70" height="70" rx="0" fill="#fef2f2" stroke="#b91c1c" stroke-width="2"/>
+  <text x="562.0" y="375.0" font-size="20" fill="#b91c1c" font-weight="700" text-anchor="middle">2</text>
+  <rect x="597" y="334" width="70" height="70" rx="0" fill="#fef2f2" stroke="#b91c1c" stroke-width="2"/>
+  <text x="632.0" y="375.0" font-size="20" fill="#b91c1c" font-weight="700" text-anchor="middle">2</text>
+  <text x="404" y="446" font-size="17" fill="#b91c1c" font-weight="700">offer 13번, 버린 poll 4번</text>
+  <text x="24" y="502" font-size="17" fill="#1e3a8a" font-weight="700">③ 꺼낼 때 체크 — (0,1) 을 꺼낸 직후의 큐 (앞이 왼쪽)</text>
+  <rect x="44" y="520" width="90" height="44" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="89.0" y="548.0" font-size="17" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">(2,0)</text>
+  <rect x="144" y="520" width="90" height="44" rx="0" fill="#fef2f2" stroke="#b91c1c" stroke-width="2"/>
+  <text x="189.0" y="548.0" font-size="17" fill="#b91c1c" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">(1,1)</text>
+  <rect x="244" y="520" width="90" height="44" rx="0" fill="#fef2f2" stroke="#b91c1c" stroke-width="2"/>
+  <text x="289.0" y="548.0" font-size="17" fill="#b91c1c" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">(1,1)</text>
+  <rect x="344" y="520" width="90" height="44" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="389.0" y="548.0" font-size="17" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">(0,2)</text>
+  <text x="460" y="538" font-size="16" fill="#b91c1c" font-weight="700">(1,1) 이 두 번 들어 있다.</text>
+  <text x="460" y="562" font-size="16" fill="#334155">(1,0) 과 (0,1) 이 둘 다 넣었다.</text>
+  <text x="24" y="600" font-size="17" fill="#1e3a8a" font-weight="700">④ 격자를 키우면 (넣을 때 / 꺼낼 때 offer)</text>
+  <text x="44" y="630" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">10 × 10</text>
+  <text x="260" y="630" font-size="16" fill="#047857" font-weight="700" text-anchor="end" font-family="Consolas, D2Coding, monospace">100</text>
+  <text x="276" y="630" font-size="16" fill="#475569" font-family="Consolas, D2Coding, monospace">/</text>
+  <text x="370" y="630" font-size="16" fill="#b91c1c" font-weight="700" text-anchor="end" font-family="Consolas, D2Coding, monospace">181</text>
+  <text x="44" y="656" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">100 × 100</text>
+  <text x="260" y="656" font-size="16" fill="#047857" font-weight="700" text-anchor="end" font-family="Consolas, D2Coding, monospace">10,000</text>
+  <text x="276" y="656" font-size="16" fill="#475569" font-family="Consolas, D2Coding, monospace">/</text>
+  <text x="370" y="656" font-size="16" fill="#b91c1c" font-weight="700" text-anchor="end" font-family="Consolas, D2Coding, monospace">19,801</text>
+  <text x="44" y="682" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">500 × 500</text>
+  <text x="260" y="682" font-size="16" fill="#047857" font-weight="700" text-anchor="end" font-family="Consolas, D2Coding, monospace">250,000</text>
+  <text x="276" y="682" font-size="16" fill="#475569" font-family="Consolas, D2Coding, monospace">/</text>
+  <text x="370" y="682" font-size="16" fill="#b91c1c" font-weight="700" text-anchor="end" font-family="Consolas, D2Coding, monospace">499,001</text>
+  <rect x="24" y="708" width="712" height="74" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1"/>
+  <text x="44" y="738" font-size="17" fill="#b91c1c" font-weight="700">넣을 때 체크하면 칸마다 정확히 1번 들어간다.</text>
+  <text x="44" y="764" font-size="16" fill="#334155">꺼낼 때 체크하면 아직 꺼내지 않은 칸을 다른 이웃이 또 넣는다.</text>
+</svg>

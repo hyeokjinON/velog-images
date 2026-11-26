@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 790" width="760" height="790" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>채택한 방식: 조건부 UPDATE 한 문장이면 B 는 A 의 행 락을 기다렸다가 최신 잔고 3만 원으로 조건을 다시 보고 0건이 되어 422 를 받는다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="790" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">채택한 방식: 조건부 UPDATE 한 문장이면</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">B 는 기다렸다가 최신 잔고로 다시 본다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">같은 장면: 잔고 100,000, A · B 모두 70,000 출금.</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">초록 = 성공, 주황 = 행 락 기다림, 빨강 = 0건 · 롤백</text>
+<rect x="15" y="146" width="220" height="60" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="125" y="171" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">요청 A 스레드</text>
+<text x="125" y="195" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">(먼저 UPDATE)</text>
+<line x1="125" y1="206" x2="125" y2="640" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 4"/>
+<rect x="270" y="146" width="220" height="60" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="380" y="171" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">MySQL</text>
+<text x="380" y="195" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">wallet (user-1)</text>
+<line x1="380" y1="206" x2="380" y2="640" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 4"/>
+<rect x="525" y="146" width="220" height="60" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="635" y="171" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">요청 B 스레드</text>
+<text x="635" y="195" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">(늦은 쪽)</text>
+<line x1="635" y1="206" x2="635" y2="640" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 4"/>
+<line x1="129" y1="290" x2="376" y2="290" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<text x="252.5" y="281" font-size="16" fill="#047857" text-anchor="middle" xml:space="preserve">WHERE balance &gt;= 70000</text>
+<text x="252.5" y="258" font-size="16" fill="#047857" text-anchor="middle" xml:space="preserve">UPDATE … balance - 70000</text>
+<circle cx="105" cy="290" r="13" fill="#047857"/><text x="105" y="296" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">①</text>
+<text x="380" y="320" font-size="16" fill="#047857" font-weight="700" text-anchor="middle" xml:space="preserve">1건, 잔고 30,000</text>
+<text x="380" y="343" font-size="16" fill="#047857" text-anchor="middle" xml:space="preserve">행 락은 A 가 쥔다</text>
+<line x1="631" y1="400" x2="384" y2="400" stroke="#c2410c" stroke-width="2.2" marker-end="url(#mo)"/>
+<text x="507.5" y="391" font-size="16" fill="#c2410c" text-anchor="middle" xml:space="preserve">같은 UPDATE 문장</text>
+<circle cx="655" cy="400" r="13" fill="#c2410c"/><text x="655" y="406" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">②</text>
+<rect x="627" y="406" width="16" height="134" fill="#fdba74" stroke="#c2410c" stroke-width="1.4"/>
+<text x="507.5" y="440" font-size="16" fill="#c2410c" font-weight="700" text-anchor="middle" xml:space="preserve">A 의 행 락이 풀릴</text>
+<text x="507.5" y="463" font-size="16" fill="#c2410c" font-weight="700" text-anchor="middle" xml:space="preserve">때까지 기다린다</text>
+<line x1="129" y1="480" x2="376" y2="480" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<text x="252.5" y="471" font-size="16" fill="#047857" text-anchor="middle" xml:space="preserve">원장 · 아웃박스, COMMIT</text>
+<circle cx="105" cy="480" r="13" fill="#047857"/><text x="105" y="486" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">③</text>
+<rect x="15" y="500" width="220" height="42" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="27" y="527" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">A 응답: 202</text>
+<line x1="631" y1="586" x2="384" y2="586" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<text x="507.5" y="577" font-size="16" fill="#b91c1c" text-anchor="middle" xml:space="preserve">거짓 → 0건</text>
+<text x="507.5" y="554" font-size="16" fill="#b91c1c" text-anchor="middle" xml:space="preserve">최신 30,000 &gt;= 70,000 ?</text>
+<circle cx="655" cy="586" r="13" fill="#b91c1c"/><text x="655" y="592" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">④</text>
+<rect x="525" y="600" width="220" height="64" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="537" y="626" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">B: 전체 롤백</text>
+<text x="537" y="649" font-size="16" fill="#0f172a" xml:space="preserve">응답 422</text>
+<rect x="20" y="684" width="720" height="64" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="710" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">결과: 출금 1건 = 70,000원, 잔고 30,000 (맞다)</text>
+<text x="32" y="733" font-size="16" fill="#0f172a" xml:space="preserve">UPDATE 는 스냅숏이 아니라 그 순간의 최신 값으로 조건을 본다</text>
+<text x="20" y="776" font-size="16" fill="#64748b" xml:space="preserve">근거: WalletLedger.withdraw (P4-1)</text>
+</svg>

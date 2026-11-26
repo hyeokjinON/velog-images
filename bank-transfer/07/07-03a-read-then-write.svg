@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 820" width="760" height="820" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>버린 방식: SELECT 로 읽고 앱에서 계산해 쓰면, 두 요청이 같은 10만 원을 읽고 둘 다 3만 원을 써서 7만 원 출금 하나가 기록에서 사라진다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="820" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">버린 방식: 읽고 → 앱에서 계산하고 → 쓰면</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">7만 원 출금 하나가 기록에서 사라진다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">위에서 아래로 시간이 흐른다. 잔고 100,000, A · B 모두 70,000 출금.</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">파랑 = 읽기, 빨강 = 틀린 쓰기</text>
+<rect x="15" y="146" width="220" height="60" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="125" y="171" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">요청 A 스레드</text>
+<text x="125" y="195" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">70,000 출금</text>
+<line x1="125" y1="206" x2="125" y2="660" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 4"/>
+<rect x="270" y="146" width="220" height="60" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="380" y="171" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">MySQL</text>
+<text x="380" y="195" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">wallet (user-1)</text>
+<line x1="380" y1="206" x2="380" y2="660" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 4"/>
+<rect x="525" y="146" width="220" height="60" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="635" y="171" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">요청 B 스레드</text>
+<text x="635" y="195" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">70,000 출금</text>
+<line x1="635" y1="206" x2="635" y2="660" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 4"/>
+<line x1="129" y1="270" x2="376" y2="270" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<text x="252.5" y="261" font-size="16" fill="#1d4ed8" text-anchor="middle" xml:space="preserve">→ 100,000</text>
+<text x="252.5" y="238" font-size="16" fill="#1d4ed8" text-anchor="middle" xml:space="preserve">SELECT balance</text>
+<circle cx="105" cy="270" r="13" fill="#1d4ed8"/><text x="105" y="276" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">①</text>
+<line x1="631" y1="270" x2="384" y2="270" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<text x="507.5" y="261" font-size="16" fill="#1d4ed8" text-anchor="middle" xml:space="preserve">→ 100,000</text>
+<text x="507.5" y="238" font-size="16" fill="#1d4ed8" text-anchor="middle" xml:space="preserve">SELECT balance</text>
+<circle cx="655" cy="270" r="13" fill="#1d4ed8"/><text x="655" y="276" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">②</text>
+<rect x="246.55999999999997" y="283" width="266.88000000000005" height="26" fill="#ffffff"/>
+<text x="380" y="302" font-size="16" fill="#1d4ed8" text-anchor="middle" xml:space="preserve">일반 SELECT 는 락을 잡지 않는다</text>
+<text x="125" y="346" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">③ 앱에서 계산</text>
+<text x="125" y="370" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">100,000 &gt;= 70,000</text>
+<text x="125" y="394" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">새 값 30,000</text>
+<text x="635" y="346" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">③ 앱에서 계산</text>
+<text x="635" y="370" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">100,000 &gt;= 70,000</text>
+<text x="635" y="394" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">새 값 30,000</text>
+<line x1="129" y1="470" x2="376" y2="470" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<text x="252.5" y="461" font-size="16" fill="#b91c1c" text-anchor="middle" xml:space="preserve">COMMIT</text>
+<text x="252.5" y="438" font-size="16" fill="#b91c1c" text-anchor="middle" xml:space="preserve">UPDATE balance = 30000</text>
+<circle cx="105" cy="470" r="13" fill="#b91c1c"/><text x="105" y="476" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">④</text>
+<text x="380" y="500" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">잔고 30,000</text>
+<line x1="631" y1="580" x2="384" y2="580" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<text x="507.5" y="571" font-size="16" fill="#b91c1c" text-anchor="middle" xml:space="preserve">COMMIT (덮어쓰기)</text>
+<text x="507.5" y="548" font-size="16" fill="#b91c1c" text-anchor="middle" xml:space="preserve">UPDATE balance = 30000</text>
+<circle cx="655" cy="580" r="13" fill="#b91c1c"/><text x="655" y="586" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">⑤</text>
+<text x="380" y="610" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">잔고 30,000</text>
+<rect x="20" y="676" width="720" height="88" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="702" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">결과: 출금 2건 = 140,000원이 은행으로 나간다</text>
+<text x="32" y="725" font-size="16" fill="#0f172a" xml:space="preserve">그런데 잔고 기록은 30,000 이다 (맞으려면 −40,000 → 거절했어야)</text>
+<text x="32" y="748" font-size="16" fill="#0f172a" xml:space="preserve">A 의 차감이 B 의 쓰기에 덮여 사라졌다 = lost update</text>
+<text x="20" y="790" font-size="16" fill="#64748b" xml:space="preserve">설명용 예시 금액. 이 프로젝트는 이 방식을 쓰지 않는다</text>
+</svg>

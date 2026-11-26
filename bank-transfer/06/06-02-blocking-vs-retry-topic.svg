@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 930" width="760" height="930" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>같은 파티션에 출금이 줄 서 있을 때: 블로킹 재시도와 재시도 토픽</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="930" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">같은 파티션에 출금이 줄 서 있을 때:</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">블로킹 재시도와 재시도 토픽</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">주황 = 은행에 못 보내 다시 시도 중, 회색 = 처리 차례를 기다림,</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">초록 = 차례가 바로 옴. 시각은 예시, 은행 연결은 0초부터 끊겨 있다</text>
+<rect x="20" y="150" width="720" height="330" rx="8" fill="#ffffff" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="36" y="178" font-size="17" fill="#b91c1c" font-weight="700" xml:space="preserve">A. 블로킹 재시도 (P3-2) — 맨 앞 1건이 줄을 붙잡는다</text>
+<text x="36" y="214" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">파티션 0</text>
+<rect x="36" y="228" width="300" height="64" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="48" y="254" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">가 (맨 앞)</text>
+<text x="48" y="277" font-size="16" fill="#0f172a" xml:space="preserve">그 자리에서 다시 시도</text>
+<rect x="352" y="228" width="180" height="64" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="364" y="254" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">나</text>
+<text x="364" y="277" font-size="16" fill="#0f172a" xml:space="preserve">기다림</text>
+<rect x="548" y="228" width="176" height="64" rx="8" fill="#f1f5f9" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="560" y="254" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">다</text>
+<text x="560" y="277" font-size="16" fill="#0f172a" xml:space="preserve">기다림</text>
+<text x="36" y="328" font-size="16" fill="#0f172a" xml:space="preserve">0초 실패 → 1초 · 3초 · 7초 · 15초 · 25초에 다시 (1 · 2 · 4 · 8 · 10초 간격)</text>
+<text x="36" y="356" font-size="16" fill="#0f172a" xml:space="preserve">그동안 나, 다 는 처리가 시작되지도 않는다</text>
+<text x="36" y="384" font-size="16" fill="#0f172a" xml:space="preserve">은행이 10초에 돌아와도 가 의 다음 시도(15초)까지 줄이 멈춰 있다</text>
+<text x="36" y="412" font-size="16" fill="#0f172a" xml:space="preserve">25초를 다 쓰면 가 는 로그만 남기고 넘어가 RECEIVED 로 남는다</text>
+<text x="36" y="448" font-size="16" fill="#b91c1c" font-weight="700" xml:space="preserve">출금 20건이면 20번째는 약 8분(25초 × 19) 뒤에야 처음 시도된다</text>
+<rect x="20" y="504" width="720" height="336" rx="8" fill="#ffffff" stroke="#047857" stroke-width="1.6"/>
+<text x="36" y="532" font-size="17" fill="#047857" font-weight="700" xml:space="preserve">B. 재시도 토픽 (P3-3b) — 실패한 1건만 다른 토픽으로</text>
+<text x="36" y="568" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">파티션 0 (transfer.requested)</text>
+<rect x="36" y="582" width="300" height="64" rx="8" fill="#ffffff" stroke="#c2410c" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="48" y="608" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">가 → -retry-0 으로 옮김</text>
+<text x="48" y="631" font-size="16" fill="#0f172a" xml:space="preserve">원래 줄에서 빠진다</text>
+<rect x="352" y="582" width="180" height="64" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="364" y="608" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">나</text>
+<text x="364" y="631" font-size="16" fill="#0f172a" xml:space="preserve">차례가 바로 옴</text>
+<rect x="548" y="582" width="176" height="64" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="560" y="608" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">다</text>
+<text x="560" y="631" font-size="16" fill="#0f172a" xml:space="preserve">차례가 바로 옴</text>
+<line x1="186" y1="646" x2="186" y2="690" stroke="#c2410c" stroke-width="2.2" marker-end="url(#mo)"/>
+<rect x="36" y="690" width="688" height="64" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="48" y="716" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">transfer.requested-retry-0 → -retry-1 → -retry-2</text>
+<text x="48" y="739" font-size="16" fill="#0f172a" xml:space="preserve">가 는 여기서 5초 · 30초 · 60초를 따로 기다린다 (이 파티션만 멈춤)</text>
+<text x="36" y="786" font-size="16" fill="#0f172a" xml:space="preserve">나, 다 도 은행에 보내는 출금이면 각자 실패해 재시도 토픽으로 간다</text>
+<text x="36" y="814" font-size="16" fill="#0f172a" xml:space="preserve">은행이 돌아온 뒤 들어온 출금은 줄을 기다리지 않고 바로 은행으로 간다</text>
+<text x="20" y="872" font-size="16" fill="#64748b" xml:space="preserve">근거: bank-transfer CHANGELOG P3-2 · P3-3b, ADR-0007 맥락 · 결정 1</text>
+<text x="20" y="896" font-size="16" fill="#64748b" xml:space="preserve">(블로킹 재시도: 1초부터 두 배씩, 최대 10초, 5번)</text>
+</svg>

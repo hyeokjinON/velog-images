@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 860" width="760" height="860" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>재발행 한 번: 횟수를 올리는 UPDATE 와 신호 INSERT 를 한 트랜잭션에, 0행이면 아무것도 넣지 않는다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="860" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">재발행 한 번: 횟수를 올리는 UPDATE 와 신호 INSERT 를</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">한 트랜잭션에, 0행이면 아무것도 넣지 않는다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">회색 = 정리 작업, 초록 = 정상 재발행, 빨강 = 다른 쪽이 먼저 바꿔 0행,</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">파랑 = 접수 때와 같은 발행 경로. 예제 이체 3f2a…, 10:06:40</text>
+<rect x="20" y="150" width="720" height="64" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="176" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① 정리 작업 ⓪ 이 대상을 찾는다 (findRepublishable)</text>
+<text x="32" y="199" font-size="16" fill="#0f172a" xml:space="preserve">3f2a… : RECEIVED, republish_count = 0</text>
+<line x1="380" y1="214" x2="380" y2="244" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="244" width="720" height="312" rx="8" fill="#ffffff" stroke="#047857" stroke-width="1.6"/>
+<text x="36" y="272" font-size="17" fill="#047857" font-weight="700" xml:space="preserve">② 한 트랜잭션 (JpaTransferStore.republish)</text>
+<rect x="36" y="288" width="688" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="48" y="314" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">UPDATE transfer SET republish_count = republish_count + 1,</text>
+<text x="48" y="337" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">  republished_at = 10:06:40 … WHERE … republish_count = 0</text>
+<text x="48" y="360" font-size="15" fill="#0f172a" font-weight="700" xml:space="preserve">→ 바뀐 행 수를 본다</text>
+<line x1="200" y1="376" x2="200" y2="404" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<line x1="560" y1="376" x2="560" y2="404" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<rect x="36" y="404" width="330" height="136" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="48" y="430" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">1행 → 계속</text>
+<text x="48" y="453" font-size="16" fill="#0f172a" xml:space="preserve">outbox_event 에</text>
+<text x="48" y="476" font-size="16" fill="#0f172a" xml:space="preserve">TransferRequested 1행 INSERT</text>
+<text x="48" y="499" font-size="16" fill="#0f172a" xml:space="preserve">→ 둘 다 함께 커밋</text>
+<text x="48" y="522" font-size="16" fill="#0f172a" xml:space="preserve">횟수 1, 신호 2행째</text>
+<rect x="394" y="404" width="330" height="136" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="406" y="430" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">0행 → 여기서 끝</text>
+<text x="406" y="453" font-size="16" fill="#0f172a" xml:space="preserve">다른 쪽이 먼저 바꿨다</text>
+<text x="406" y="476" font-size="16" fill="#0f172a" xml:space="preserve">INSERT 하지 않는다</text>
+<text x="406" y="499" font-size="16" fill="#0f172a" xml:space="preserve">→ 재발행은 한 번만</text>
+<text x="406" y="522" font-size="16" fill="#0f172a" xml:space="preserve">반영된다</text>
+<line x1="200" y1="556" x2="200" y2="588" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<rect x="20" y="588" width="720" height="88" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="614" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ 접수 때와 같은 길로 나간다</text>
+<text x="32" y="637" font-size="16" fill="#0f172a" xml:space="preserve">발행기(OutboxRelay)가 0.5초마다 읽어 transfer.requested 로 보낸다</text>
+<text x="32" y="660" font-size="16" fill="#0f172a" xml:space="preserve">→ 컨슈머가 처음부터 처리한다 (재시도 세 번도 다시 쓴다)</text>
+<text x="20" y="712" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">INSERT 가 실패하면 UPDATE 도 함께 롤백된다</text>
+<text x="20" y="738" font-size="16" fill="#0f172a" xml:space="preserve">→ 횟수만 늘고 신호는 없는 상태가 생기지 않는다</text>
+<text x="20" y="790" font-size="16" fill="#64748b" xml:space="preserve">근거: bank-transfer PR #9 — JpaTransferStore.republish,</text>
+<text x="20" y="814" font-size="16" fill="#64748b" xml:space="preserve">TransferJpaRepository.incrementRepublishCount, JpaTransferStoreTest</text>
+</svg>

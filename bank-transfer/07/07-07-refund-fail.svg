@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 960" width="760" height="960" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>실패 확정 네 경로가 fail() 하나로 모이고, 조건부 전이가 1건일 때만 원장의 WITHDRAW 금액을 돌려준다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="960" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">실패 확정 네 경로가 fail() 하나로 모이고,</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">전이가 1건일 때만 환불한다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">빨강 = 실패 확정, 초록 = 잔고 복원, 회색 = 아무것도 안 하는 길</text>
+<rect x="20" y="124" width="350" height="64" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="150" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">컨슈머: 은행 거절</text>
+<text x="32" y="173" font-size="16" fill="#0f172a" xml:space="preserve">SENDING → FAILED</text>
+<rect x="390" y="124" width="350" height="64" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="402" y="150" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">컨슈머: 늦게 온 거절</text>
+<text x="402" y="173" font-size="16" fill="#0f172a" xml:space="preserve">UNKNOWN → FAILED</text>
+<rect x="20" y="200" width="350" height="64" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="226" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">정리 작업: 결과조회 2001</text>
+<text x="32" y="249" font-size="16" fill="#0f172a" xml:space="preserve">UNKNOWN → FAILED</text>
+<rect x="390" y="200" width="350" height="64" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="402" y="226" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">정리 작업: 재발행 소진</text>
+<text x="402" y="249" font-size="16" fill="#0f172a" xml:space="preserve">RECEIVED → FAILED (E001)</text>
+<line x1="195" y1="264" x2="195" y2="292" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<line x1="565" y1="264" x2="565" y2="292" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<rect x="20" y="292" width="720" height="520" rx="8" fill="#ffffff" stroke="#b91c1c" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="36" y="320" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">TransferStore.fail(id, from, at, code) — 한 트랜잭션</text>
+<text x="36" y="344" font-size="16" fill="#b91c1c" font-weight="700" xml:space="preserve">transition(…, to = FAILED) 는 require 로 거부 ✕</text>
+<rect x="36" y="362" width="420" height="64" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="48" y="388" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① 조건부 전이</text>
+<text x="48" y="411" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">UPDATE … WHERE status = from</text>
+<line x1="456" y1="394" x2="476" y2="394" stroke="#94a3b8" stroke-width="2.2" marker-end="url(#mx)"/>
+<rect x="476" y="362" width="248" height="64" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="488" y="388" font-size="16" fill="#0f172a" xml:space="preserve">0건 = 다른 쪽이 먼저</text>
+<text x="488" y="411" font-size="16" fill="#0f172a" xml:space="preserve">→ false, 아무것도 안 함</text>
+<text x="254.0" y="448" font-size="16" fill="#b91c1c" font-weight="700" xml:space="preserve">1건</text>
+<line x1="246.0" y1="426" x2="246.0" y2="458" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<rect x="36" y="458" width="420" height="64" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="48" y="484" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② 원장에서 이 출금의 WITHDRAW 찾기</text>
+<text x="48" y="507" font-size="16" fill="#0f172a" xml:space="preserve">금액 · 사용자를 여기서 읽는다</text>
+<line x1="456" y1="490" x2="476" y2="490" stroke="#94a3b8" stroke-width="2.2" marker-end="url(#mx)"/>
+<rect x="476" y="458" width="248" height="64" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="488" y="484" font-size="16" fill="#0f172a" xml:space="preserve">없음 = P3 시절 출금</text>
+<text x="488" y="507" font-size="16" fill="#0f172a" xml:space="preserve">→ 상태만 FAILED</text>
+<line x1="246.0" y1="522" x2="246.0" y2="554" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="36" y="554" width="420" height="64" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="48" y="580" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ UPDATE wallet</text>
+<text x="48" y="603" font-size="16" fill="#0f172a" xml:space="preserve">balance = balance + 20,000</text>
+<line x1="246.0" y1="618" x2="246.0" y2="650" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="36" y="650" width="420" height="64" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="48" y="676" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ 원장 INSERT REFUND 20,000</text>
+<text x="48" y="699" font-size="16" fill="#0f172a" xml:space="preserve">UNIQUE (transfer_id, type)</text>
+<line x1="456" y1="682" x2="476" y2="682" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<rect x="476" y="650" width="248" height="88" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="488" y="676" font-size="16" fill="#0f172a" xml:space="preserve">REFUND 가 이미 있으면</text>
+<text x="488" y="699" font-size="16" fill="#0f172a" xml:space="preserve">UNIQUE 위반 → 예외</text>
+<text x="488" y="722" font-size="16" fill="#0f172a" xml:space="preserve">→ ① 까지 전부 롤백</text>
+<line x1="246.0" y1="714" x2="246.0" y2="742" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="36" y="742" width="420" height="54" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="48" y="775" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">커밋 → true (잔고 50,000 → 70,000)</text>
+<rect x="20" y="832" width="720" height="64" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="858" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">이중 환불 방지 두 겹: ① 의 조건부 전이 + ④ 의 원장 UNIQUE</text>
+<text x="32" y="881" font-size="16" fill="#0f172a" xml:space="preserve">새 실패 경로가 생겨도 fail() 말고는 FAILED 로 갈 길이 없다</text>
+<text x="20" y="926" font-size="16" fill="#64748b" xml:space="preserve">근거: JpaTransferStore.fail · WalletLedger.refund (P4-1), ADR-0008</text>
+</svg>

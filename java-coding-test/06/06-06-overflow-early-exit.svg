@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 800" width="760" height="800" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 6-6. 판정 함수의 합이 long 을 넘는 순간 — 일찍 끝내기가 있으면 첫 심사관에서 true, 없으면 19 번째에서 음수가 된다</title>
+  <rect width="760" height="800" fill="#ffffff"/>
+  <text x="24" y="40" font-size="22" fill="#0f172a" font-weight="700">판정 함수의 합이 long 을 넘는 순간</text>
+  <text x="24" y="70" font-size="22" fill="#0f172a" font-weight="700">일찍 끝내기가 있을 때와 없을 때</text>
+  <text x="24" y="104" font-size="16" fill="#475569">심사 시간 1 인 심사관 20 명 + 10억인 심사관 1 명, n = 10억</text>
+  <text x="24" y="128" font-size="16" fill="#475569">hi = 가장 느린 시간 × n = 10¹⁸, 첫 mid = 5 × 10¹⁷</text>
+  <text x="24" y="182" font-size="16" fill="#1e3a8a" font-weight="700">long 최댓값 = 9,223,372,036,854,775,807 (약 9.2 × 10¹⁸)</text>
+  <rect x="24" y="202" width="712" height="96" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.5"/>
+  <text x="44" y="232" font-size="17" fill="#047857" font-weight="700">일찍 끝내기 있음 — if (done &gt;= n) return true;</text>
+  <text x="44" y="260" font-size="16" fill="#334155">1 번째 심사관: done = 5 × 10¹⁷ ≥ 10억 → 바로 true</text>
+  <text x="44" y="286" font-size="16" fill="#334155">합을 더 쌓지 않으니 넘칠 일이 없다. 답 50,000,000</text>
+  <text x="24" y="338" font-size="17" fill="#b91c1c" font-weight="700">일찍 끝내기 없음 — 21 명을 모두 더한다</text>
+  <text x="24" y="370" font-size="16" fill="#1e3a8a" font-weight="700">심사관</text>
+  <text x="200" y="370" font-size="16" fill="#1e3a8a" font-weight="700">done</text>
+  <text x="560" y="370" font-size="16" fill="#1e3a8a" font-weight="700">상태</text>
+  <line x1="24" y1="380" x2="736" y2="380" stroke="#94a3b8" stroke-width="1"/>
+  <text x="24" y="408" font-size="16" fill="#0f172a" font-weight="700">1 번째</text>
+  <text x="200" y="408" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">500,000,000,000,000,000</text>
+  <text x="560" y="408" font-size="16" fill="#334155">정상</text>
+  <line x1="24" y1="420" x2="736" y2="420" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="24" y="448" font-size="16" fill="#0f172a" font-weight="700">2 번째</text>
+  <text x="200" y="448" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">1,000,000,000,000,000,000</text>
+  <text x="560" y="448" font-size="16" fill="#334155">정상</text>
+  <line x1="24" y1="460" x2="736" y2="460" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="24" y="488" font-size="16" fill="#0f172a" font-weight="700">…</text>
+  <text x="200" y="488" font-size="16" fill="#475569" font-family="Consolas, D2Coding, monospace">…</text>
+  <text x="560" y="488" font-size="16" fill="#475569"></text>
+  <line x1="24" y1="500" x2="736" y2="500" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="24" y="528" font-size="16" fill="#0f172a" font-weight="700">18 번째</text>
+  <text x="200" y="528" font-size="16" fill="#b45309" font-family="Consolas, D2Coding, monospace">9,000,000,000,000,000,000</text>
+  <text x="560" y="528" font-size="16" fill="#b45309" font-weight="700">최댓값 직전</text>
+  <line x1="24" y1="540" x2="736" y2="540" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="24" y="568" font-size="16" fill="#0f172a" font-weight="700">19 번째</text>
+  <text x="200" y="568" font-size="16" fill="#b91c1c" font-weight="700" font-family="Consolas, D2Coding, monospace">-8,946,744,073,709,551,616</text>
+  <text x="560" y="568" font-size="16" fill="#b91c1c" font-weight="700">넘쳐서 음수</text>
+  <line x1="24" y1="580" x2="736" y2="580" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="24" y="608" font-size="16" fill="#0f172a" font-weight="700">20 번째</text>
+  <text x="200" y="608" font-size="16" fill="#b91c1c" font-weight="700" font-family="Consolas, D2Coding, monospace">-8,446,744,073,709,551,616</text>
+  <text x="560" y="608" font-size="16" fill="#b91c1c" font-weight="700">음수</text>
+  <line x1="24" y1="620" x2="736" y2="620" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="24" y="648" font-size="16" fill="#0f172a" font-weight="700">21 번째</text>
+  <text x="200" y="648" font-size="16" fill="#b91c1c" font-weight="700" font-family="Consolas, D2Coding, monospace">-8,446,744,073,209,551,616</text>
+  <text x="560" y="648" font-size="16" fill="#b91c1c" font-weight="700">음수 &lt; n → F</text>
+  <line x1="24" y1="660" x2="736" y2="660" stroke="#e2e8f0" stroke-width="1"/>
+  <rect x="24" y="678" width="712" height="102" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1"/>
+  <text x="44" y="708" font-size="17" fill="#b91c1c" font-weight="700">음수라서 "안 된다" 로 판정하고 lo = mid + 1 로 오른쪽으로 간다.</text>
+  <text x="44" y="734" font-size="16" fill="#334155">답은 50,000,000 인데 922,337,203,689,360,721 이 나왔다.</text>
+  <text x="44" y="760" font-size="16" fill="#334155">20 명분 합 10¹⁹ 은 -8,446,744,073,709,551,616 으로 보인다.</text>
+</svg>

@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 760" width="760" height="760" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>첫 재시도 간격과 게이트웨이 재접속: 1초면 재접속 전에 다시 실패하고, 5초면 재접속 시도 두 번이 먼저 지나간다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="760" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">첫 재시도 간격과 게이트웨이 재접속: 1초면 다시 실패,</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">5초면 재접속 시도 두 번이 먼저 지나간다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">예: 연결이 0초에 끊기고 은행은 2초에 돌아왔다 (점선).</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">빨간 엑스 = 실패, 초록 점 = 성공 · 연결됨, 주황 점 = 처음 실패</text>
+<line x1="70" y1="170" x2="694" y2="170" stroke="#334155" stroke-width="2"/>
+<line x1="70" y1="164" x2="70" y2="176" stroke="#334155" stroke-width="2"/>
+<text x="70" y="156" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">0</text>
+<line x1="122" y1="164" x2="122" y2="176" stroke="#334155" stroke-width="2"/>
+<text x="122" y="156" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">1</text>
+<line x1="174" y1="164" x2="174" y2="176" stroke="#334155" stroke-width="2"/>
+<text x="174" y="156" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">2</text>
+<line x1="226" y1="164" x2="226" y2="176" stroke="#334155" stroke-width="2"/>
+<text x="226" y="156" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">3</text>
+<line x1="278" y1="164" x2="278" y2="176" stroke="#334155" stroke-width="2"/>
+<text x="278" y="156" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">4</text>
+<line x1="330" y1="164" x2="330" y2="176" stroke="#334155" stroke-width="2"/>
+<text x="330" y="156" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">5</text>
+<line x1="382" y1="164" x2="382" y2="176" stroke="#334155" stroke-width="2"/>
+<text x="382" y="156" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">6</text>
+<line x1="434" y1="164" x2="434" y2="176" stroke="#334155" stroke-width="2"/>
+<text x="434" y="156" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">7</text>
+<line x1="486" y1="164" x2="486" y2="176" stroke="#334155" stroke-width="2"/>
+<text x="486" y="156" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">8</text>
+<line x1="538" y1="164" x2="538" y2="176" stroke="#334155" stroke-width="2"/>
+<text x="538" y="156" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">9</text>
+<line x1="590" y1="164" x2="590" y2="176" stroke="#334155" stroke-width="2"/>
+<text x="590" y="156" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">10</text>
+<line x1="642" y1="164" x2="642" y2="176" stroke="#334155" stroke-width="2"/>
+<text x="642" y="156" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">11</text>
+<line x1="694" y1="164" x2="694" y2="176" stroke="#334155" stroke-width="2"/>
+<text x="694" y="156" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">12</text>
+<text x="708" y="176" font-size="16" fill="#475569" xml:space="preserve">초</text>
+<line x1="174" y1="182" x2="174" y2="214" stroke="#047857" stroke-width="2" stroke-dasharray="6 5"/>
+<line x1="174" y1="262" x2="174" y2="296" stroke="#047857" stroke-width="2" stroke-dasharray="6 5"/>
+<line x1="174" y1="392" x2="174" y2="426" stroke="#047857" stroke-width="2" stroke-dasharray="6 5"/>
+<line x1="174" y1="542" x2="174" y2="576" stroke="#047857" stroke-width="2" stroke-dasharray="6 5"/>
+<text x="182" y="204" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">은행 복구 (2초)</text>
+<text x="20" y="240" font-size="17" fill="#334155" font-weight="700" xml:space="preserve">게이트웨이 재접속 (1초 → 2초 → 4초 간격)</text>
+<line x1="70" y1="280" x2="694" y2="280" stroke="#94a3b8" stroke-width="2"/>
+<line x1="114" y1="272" x2="130" y2="288" stroke="#b91c1c" stroke-width="3"/><line x1="114" y1="288" x2="130" y2="272" stroke="#b91c1c" stroke-width="3"/>
+<circle cx="226" cy="280" r="8" fill="#047857"/>
+<circle cx="434" cy="280" r="6" fill="#94a3b8"/>
+<text x="122" y="312" font-size="16" fill="#b91c1c" text-anchor="middle" xml:space="preserve">1초 실패</text>
+<text x="232" y="312" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">3초 연결됨</text>
+<text x="413.2" y="312" font-size="16" fill="#475569" xml:space="preserve">7초 시도는 필요 없음</text>
+<text x="20" y="370" font-size="17" fill="#b91c1c" font-weight="700" xml:space="preserve">첫 간격 1초 (버린 안: 1초 · 10초 · 60초)</text>
+<line x1="70" y1="410" x2="694" y2="410" stroke="#94a3b8" stroke-width="2"/>
+<circle cx="70" cy="410" r="8" fill="#c2410c"/>
+<line x1="114" y1="402" x2="130" y2="418" stroke="#b91c1c" stroke-width="3"/><line x1="114" y1="418" x2="130" y2="402" stroke="#b91c1c" stroke-width="3"/>
+<circle cx="642" cy="410" r="8" fill="#047857"/>
+<path d="M134,400 Q382,364 630,400" fill="none" stroke="#b91c1c" stroke-width="2" stroke-dasharray="6 5" marker-end="url(#mr)"/>
+<text x="122" y="442" font-size="16" fill="#b91c1c" xml:space="preserve">1초 다시 → 아직 안 붙어 또 실패</text>
+<text x="382" y="474" font-size="16" fill="#b91c1c" font-weight="700" text-anchor="middle" xml:space="preserve">다음 시도는 11초 (10초 더 기다림)</text>
+<text x="20" y="520" font-size="17" fill="#047857" font-weight="700" xml:space="preserve">첫 간격 5초 (채택: 5초 · 30초 · 60초)</text>
+<line x1="70" y1="560" x2="694" y2="560" stroke="#94a3b8" stroke-width="2"/>
+<circle cx="70" cy="560" r="8" fill="#c2410c"/>
+<circle cx="330" cy="560" r="8" fill="#047857"/>
+<path d="M82,550 Q200.0,522 318,550" fill="none" stroke="#047857" stroke-width="2" marker-end="url(#mg)"/>
+<text x="70" y="592" font-size="16" fill="#c2410c" xml:space="preserve">0초 실패</text>
+<text x="336" y="592" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">5초 다시 → 이미 붙어 있어 성공</text>
+<text x="20" y="640" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">재시도 간격은 아래 계층(재접속)이 복구될 시간보다 길게 잡는다</text>
+<text x="20" y="706" font-size="16" fill="#64748b" xml:space="preserve">근거: ADR-0007 검토한 다른 선택지, BankGatewayClient 재접속 백오프</text>
+<text x="20" y="730" font-size="16" fill="#64748b" xml:space="preserve">(1초부터 두 배씩, 최대 30초)</text>
+</svg>
