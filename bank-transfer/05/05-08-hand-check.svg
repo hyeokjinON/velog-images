@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 930" width="760" height="930" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>손 확인: 무응답 계좌 출금 5건이 모두 sending_at 뒤 32 ~ 38초에 COMPLETED 가 됐고 입금은 1건씩이었다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="930" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">손 확인: 무응답 계좌 출금 5건이 모두 sending_at 뒤</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">32 ~ 38초에 COMPLETED, 입금은 1건씩</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">Postman "3. 결과조회 · 정리 작업" 폴더의 순서다. 계좌 9990000000002 는</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">이체를 처리하고 응답만 보내지 않는다 (1원 이체에는 정상 응답)</text>
+<rect x="20" y="146" width="720" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="172" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">1. 1원인증으로 9990000000002 를 VERIFIED 로</text>
+<text x="32" y="195" font-size="16" fill="#0f172a" xml:space="preserve">1원 이체는 정상 응답하므로 인증이 된다</text>
+<line x1="380" y1="210" x2="380" y2="226" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="226" width="720" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="252" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">2. 30,000원 출금 접수</text>
+<text x="32" y="275" font-size="16" fill="#0f172a" xml:space="preserve">202, status = RECEIVED</text>
+<line x1="380" y1="290" x2="380" y2="306" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="306" width="720" height="64" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="32" y="332" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">3. 몇 초 뒤 조회</text>
+<text x="32" y="355" font-size="16" fill="#0f172a" xml:space="preserve">status = UNKNOWN (은행은 입금했지만 응답이 없다)</text>
+<line x1="380" y1="370" x2="380" y2="386" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="386" width="720" height="64" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="412" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">4. 40초쯤 뒤 조회</text>
+<text x="32" y="435" font-size="16" fill="#0f172a" xml:space="preserve">status = COMPLETED, 응답코드 0000</text>
+<line x1="380" y1="450" x2="380" y2="466" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="466" width="720" height="64" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="492" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">5. 모의 은행 콘솔</text>
+<text x="32" y="515" font-size="16" fill="#0f172a" xml:space="preserve">30,000원 입금은 1건뿐 (다시 보내지 않았다)</text>
+<text x="20" y="580" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">sending_at 을 0초로 둔 시간 막대 (5건)</text>
+<line x1="40" y1="650" x2="715.0" y2="650" stroke="#334155" stroke-width="2"/>
+<rect x="40" y="616" width="450.0" height="28" fill="#fff7ed" stroke="#c2410c" stroke-width="1.4" stroke-dasharray="6 4"/>
+<text x="265.0" y="636" font-size="16" fill="#c2410c" font-weight="700" text-anchor="middle" xml:space="preserve">30초 유예: 묻지 않는다</text>
+<rect x="520.0" y="616" width="90.0" height="28" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<line x1="40.0" y1="646" x2="40.0" y2="656" stroke="#334155" stroke-width="2"/>
+<text x="40.0" y="678" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">0초</text>
+<line x1="85.0" y1="646" x2="85.0" y2="656" stroke="#334155" stroke-width="2"/>
+<text x="85.0" y="678" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">3초</text>
+<line x1="190.0" y1="646" x2="190.0" y2="656" stroke="#334155" stroke-width="2"/>
+<text x="190.0" y="678" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">10초</text>
+<line x1="340.0" y1="646" x2="340.0" y2="656" stroke="#334155" stroke-width="2"/>
+<text x="340.0" y="678" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">20초</text>
+<line x1="490.0" y1="646" x2="490.0" y2="656" stroke="#334155" stroke-width="2"/>
+<text x="490.0" y="678" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">30초</text>
+<line x1="640.0" y1="646" x2="640.0" y2="656" stroke="#334155" stroke-width="2"/>
+<text x="640.0" y="678" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">40초</text>
+<text x="565.0" y="712" font-size="16" fill="#047857" font-weight="700" text-anchor="middle" xml:space="preserve">32 ~ 38초 확정</text>
+<line x1="565.0" y1="694" x2="565.0" y2="646" stroke="#047857" stroke-width="1.6"/>
+<text x="77.0" y="712" font-size="16" fill="#c2410c" font-weight="700" xml:space="preserve">↑ 3초에 UNKNOWN</text>
+<rect x="20" y="740" width="720" height="112" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="766" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">읽는 법</text>
+<text x="32" y="789" font-size="16" fill="#0f172a" xml:space="preserve">확정이 30초 바로 뒤가 아니라 32 ~ 38초에 흩어진 것은 정리 작업이</text>
+<text x="32" y="812" font-size="16" fill="#0f172a" xml:space="preserve">10초마다 돌기 때문이다. inquiry_attempts 는 5건 모두 0 이었다:</text>
+<text x="32" y="835" font-size="16" fill="#0f172a" xml:space="preserve">첫 결과조회에서 바로 답(0000)을 받았다는 뜻이다</text>
+<text x="20" y="890" font-size="16" fill="#64748b" xml:space="preserve">근거: bank-transfer HANDOVER P3-3a 손 확인, http/transfer.http 7-1 ~ 7-5</text>
+</svg>

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 860" width="760" height="860" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>은행 호출 결과 4가지: 전문을 쓰기 전 실패만 다시 보내고, 응답을 못 받으면 UNKNOWN 으로 둔다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="860" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">은행 호출 결과 4가지: 쓰기 전 실패만 다시 보내고,</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">응답을 못 받으면 UNKNOWN 으로 둔다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">왼쪽 질문을 위에서부터 차례로 묻는다. 초록 = 완료, 빨강 = 거절,</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">주황 = 모름 (다시 안 보냄), 파랑 = 안 보냄 (다시 보냄)</text>
+<rect x="20" y="140" width="720" height="64" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="166" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">BankTransferAdapter 가 게이트웨이로 이체 전문을 보낸다</text>
+<text x="32" y="189" font-size="16" fill="#0f172a" xml:space="preserve">컨슈머 스레드가 결과를 기다린다 (SENDING 커밋 뒤)</text>
+<line x1="220" y1="204" x2="220" y2="240" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="240" width="370" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="266" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">Q1. 전문을 소켓에 쓰기 전에</text>
+<text x="32" y="289" font-size="16" fill="#0f172a" xml:space="preserve">실패했나? (연결 없음)</text>
+<line x1="390" y1="284" x2="450" y2="284" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<text x="420.0" y="276" font-size="16" fill="#1d4ed8" font-weight="700" text-anchor="middle" xml:space="preserve">예</text>
+<rect x="450" y="240" width="290" height="88" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="462" y="266" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">안 보냄 → RECEIVED</text>
+<text x="462" y="289" font-size="16" fill="#0f172a" xml:space="preserve">BankNotSentException.</text>
+<text x="462" y="312" font-size="16" fill="#0f172a" xml:space="preserve">은행에 안 갔다 → 다시 보냄</text>
+<line x1="220" y1="328" x2="220" y2="400" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<text x="232" y="356" font-size="16" fill="#334155" font-weight="700" xml:space="preserve">아니오</text>
+<text x="232" y="379" font-size="16" fill="#334155" xml:space="preserve">은행에 갔을 수 있다</text>
+<rect x="20" y="400" width="370" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="426" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">Q2. 3초 안에 은행 응답을</text>
+<text x="32" y="449" font-size="16" fill="#0f172a" xml:space="preserve">받았나?</text>
+<line x1="390" y1="444" x2="450" y2="444" stroke="#c2410c" stroke-width="2.2" marker-end="url(#mo)"/>
+<text x="420.0" y="436" font-size="16" fill="#c2410c" font-weight="700" text-anchor="middle" xml:space="preserve">아니오</text>
+<rect x="450" y="400" width="290" height="88" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="462" y="426" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">모름 → UNKNOWN</text>
+<text x="462" y="449" font-size="16" fill="#0f172a" xml:space="preserve">무응답 · 보낸 뒤 끊김 ·</text>
+<text x="462" y="472" font-size="16" fill="#0f172a" xml:space="preserve">쓰기 실패 · 예상 못 한 예외</text>
+<line x1="220" y1="488" x2="220" y2="560" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<text x="232" y="516" font-size="16" fill="#334155" font-weight="700" xml:space="preserve">예</text>
+<text x="232" y="539" font-size="16" fill="#334155" xml:space="preserve">응답을 받았다</text>
+<rect x="20" y="560" width="370" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="586" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">Q3. 응답코드가 0000 인가?</text>
+<line x1="390" y1="604" x2="450" y2="604" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<text x="420.0" y="596" font-size="16" fill="#b91c1c" font-weight="700" text-anchor="middle" xml:space="preserve">아니오</text>
+<rect x="450" y="560" width="290" height="88" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="462" y="586" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">거절 → FAILED</text>
+<text x="462" y="609" font-size="16" fill="#0f172a" xml:space="preserve">예: 1001 (계좌 없음).</text>
+<text x="462" y="632" font-size="16" fill="#0f172a" xml:space="preserve">은행이 확정한 실패</text>
+<line x1="220" y1="648" x2="220" y2="690" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<text x="232" y="676" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">예</text>
+<rect x="20" y="690" width="370" height="64" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="716" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">완료 → COMPLETED</text>
+<text x="32" y="739" font-size="16" fill="#0f172a" xml:space="preserve">응답코드 0000 을 함께 적는다</text>
+<text x="20" y="798" font-size="16" fill="#64748b" xml:space="preserve">근거: BankTransferAdapter (P3-2) — BankNotSentException 만 NotSent,</text>
+<text x="20" y="822" font-size="16" fill="#64748b" xml:space="preserve">그 밖의 실패는 모두 ResultUnknown. ADR-0005 결정 6</text>
+</svg>

@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 784" width="760" height="784" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>고치기 전 (REPEATABLE READ): 발행기의 FOR UPDATE 가 빈 구간까지 잠가, 새 접수의 아웃박스 INSERT 가 기다리다 실패한다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="784" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">고치기 전 (REPEATABLE READ): 발행기가 빈 구간까지</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">잠가, 새 접수의 아웃박스 INSERT 가 기다린다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">인덱스 idx_outbox_unpublished (published_at, id) 를 정렬 순서대로</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">세로로 그렸다. NULL 이 맨 앞에 온다. 시각 · id 는 설명용</text>
+<text x="20" y="150" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① 발행기가 미발행 2행을 FOR UPDATE SKIP LOCKED 로 읽는다</text>
+<rect x="190" y="166" width="380" height="32" fill="#e2e8f0" stroke="#334155" stroke-width="1"/>
+<text x="198" y="188" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">published_at</text>
+<text x="348" y="188" font-size="15" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">id</text>
+<text x="418" y="188" font-size="15" fill="#0f172a" font-weight="700" xml:space="preserve">잠금</text>
+<rect x="190" y="198" width="380" height="34" fill="#ecfdf5" stroke="#94a3b8" stroke-width="1"/>
+<text x="198" y="221" font-size="15" fill="#065f46" font-family="Consolas, D2Coding, monospace" xml:space="preserve">NULL</text>
+<text x="348" y="221" font-size="15" fill="#065f46" font-family="Consolas, D2Coding, monospace" xml:space="preserve">7</text>
+<text x="418" y="221" font-size="15" fill="#065f46" font-weight="700" xml:space="preserve">행 잠금</text>
+<rect x="190" y="232" width="380" height="34" fill="#ecfdf5" stroke="#94a3b8" stroke-width="1"/>
+<text x="198" y="255" font-size="15" fill="#065f46" font-family="Consolas, D2Coding, monospace" xml:space="preserve">NULL</text>
+<text x="348" y="255" font-size="15" fill="#065f46" font-family="Consolas, D2Coding, monospace" xml:space="preserve">8</text>
+<text x="418" y="255" font-size="15" fill="#065f46" font-weight="700" xml:space="preserve">행 잠금</text>
+<rect x="190" y="266" width="380" height="34" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6" stroke-dasharray="6 4"/>
+<text x="198" y="289" font-size="15" fill="#c2410c" font-weight="700" xml:space="preserve">빈 구간 (NULL, 8) ~ (09:59:50, 1)</text>
+<rect x="190" y="300" width="380" height="34" fill="#fff7ed" stroke="#94a3b8" stroke-width="1"/>
+<text x="198" y="323" font-size="15" fill="#c2410c" font-family="Consolas, D2Coding, monospace" xml:space="preserve">09:59:50</text>
+<text x="348" y="323" font-size="15" fill="#c2410c" font-family="Consolas, D2Coding, monospace" xml:space="preserve">1</text>
+<text x="418" y="323" font-size="15" fill="#c2410c" font-weight="700" xml:space="preserve">행 + 앞 빈 구간</text>
+<rect x="190" y="334" width="380" height="34" fill="#ffffff" stroke="#94a3b8" stroke-width="1"/>
+<text x="198" y="357" font-size="15" fill="#475569" font-family="Consolas, D2Coding, monospace" xml:space="preserve">09:59:51</text>
+<text x="348" y="357" font-size="15" fill="#475569" font-family="Consolas, D2Coding, monospace" xml:space="preserve">2</text>
+<text x="418" y="357" font-size="15" fill="#475569" xml:space="preserve">-</text>
+<text x="20" y="398" font-size="16" fill="#334155" xml:space="preserve">미발행 행 뒤의 첫 행까지 읽어야 "끝" 을 알 수 있다. REPEATABLE READ 는</text>
+<text x="20" y="422" font-size="16" fill="#334155" xml:space="preserve">그 행과 앞의 빈 구간까지 잠근다 (다른 트랜잭션이 끼워 넣지 못하게)</text>
+<rect x="20" y="452" width="720" height="88" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="32" y="478" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② 발행기는 이 잠금을 쥔 채 Kafka 응답을 기다린다</text>
+<text x="32" y="501" font-size="16" fill="#0f172a" xml:space="preserve">브로커가 응답하지 않으면 send() 자체가 기본 60초까지 막힌다</text>
+<text x="32" y="524" font-size="16" fill="#0f172a" xml:space="preserve">(max.block.ms 기본값). 건마다 get 을 기다려 더 길어진다</text>
+<rect x="20" y="556" width="720" height="112" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="582" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ 그 사이 새 출금 접수: INSERT outbox_event (NULL, 9)</text>
+<text x="32" y="605" font-size="16" fill="#0f172a" xml:space="preserve">새 행은 published_at 이 NULL, id 가 가장 크므로 (NULL, 8) 바로</text>
+<text x="32" y="628" font-size="16" fill="#0f172a" xml:space="preserve">뒤, 즉 잠긴 빈 구간에 들어가야 한다 → 잠금 대기</text>
+<text x="32" y="651" font-size="16" fill="#0f172a" xml:space="preserve">InnoDB 잠금 대기 한도 50초 → ERROR 1205 Lock wait timeout</text>
+<rect x="20" y="684" width="720" height="64" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="710" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">결과: Kafka 가 죽으면 출금 접수 API 까지 실패한다</text>
+<text x="32" y="733" font-size="16" fill="#0f172a" xml:space="preserve">"메시지 시스템이 죽어도 접수는 된다" 는 아웃박스의 목적이 깨진다</text>
+</svg>

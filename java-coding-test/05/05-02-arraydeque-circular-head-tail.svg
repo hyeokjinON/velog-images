@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 648" width="760" height="648" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 5-2. ArrayDeque 원형 배열 — offerFirst 가 head 를 0 에서 7 로 돌려 보낸다</title>
+  <rect width="760" height="648" fill="#ffffff"/>
+  <text x="24" y="40" font-size="21" fill="#0f172a" font-weight="700">ArrayDeque 원형 배열 — offerFirst 는</text>
+  <text x="24" y="70" font-size="21" fill="#0f172a" font-weight="700">head 를 0 에서 배열 끝 7 로 돌려 보낸다</text>
+  <text x="24" y="102" font-size="16" fill="#475569">new ArrayDeque&lt;&gt;(7) 은 길이 8 배열을 만든다 (요청 + 1, 실행 확인)</text>
+  <text x="108.0" y="138" font-size="15" fill="#475569" text-anchor="middle">0</text>
+  <text x="188.0" y="138" font-size="15" fill="#475569" text-anchor="middle">1</text>
+  <text x="268.0" y="138" font-size="15" fill="#475569" text-anchor="middle">2</text>
+  <text x="348.0" y="138" font-size="15" fill="#475569" text-anchor="middle">3</text>
+  <text x="428.0" y="138" font-size="15" fill="#475569" text-anchor="middle">4</text>
+  <text x="508.0" y="138" font-size="15" fill="#475569" text-anchor="middle">5</text>
+  <text x="588.0" y="138" font-size="15" fill="#475569" text-anchor="middle">6</text>
+  <text x="668.0" y="138" font-size="15" fill="#475569" text-anchor="middle">7</text>
+  <text x="24" y="164" font-size="17" fill="#1e3a8a" font-weight="700">① new ArrayDeque&lt;&gt;(7) — 비어 있다 (head 0, tail 0)</text>
+  <rect x="72" y="178" width="72" height="40" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="152" y="178" width="72" height="40" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="232" y="178" width="72" height="40" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="312" y="178" width="72" height="40" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="392" y="178" width="72" height="40" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="472" y="178" width="72" height="40" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="552" y="178" width="72" height="40" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="632" y="178" width="72" height="40" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="108.0" y="240" font-size="16" fill="#1e3a8a" font-weight="700" text-anchor="middle">head = tail</text>
+  <text x="24" y="268" font-size="17" fill="#1e3a8a" font-weight="700">② offerLast(1), (2), (3) — tail 이 3 으로 간다</text>
+  <rect x="72" y="282" width="72" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="108.0" y="308.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">1</text>
+  <rect x="152" y="282" width="72" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="188.0" y="308.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">2</text>
+  <rect x="232" y="282" width="72" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="268.0" y="308.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">3</text>
+  <rect x="312" y="282" width="72" height="40" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="392" y="282" width="72" height="40" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="472" y="282" width="72" height="40" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="552" y="282" width="72" height="40" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="632" y="282" width="72" height="40" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="108.0" y="344" font-size="16" fill="#1e3a8a" font-weight="700" text-anchor="middle">head</text>
+  <text x="348.0" y="344" font-size="16" fill="#b91c1c" font-weight="700" text-anchor="middle">tail</text>
+  <text x="24" y="372" font-size="17" fill="#1e3a8a" font-weight="700">③ offerFirst(0) — head 가 0 − 1 = −1 대신 7 로</text>
+  <rect x="72" y="386" width="72" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="108.0" y="412.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">1</text>
+  <rect x="152" y="386" width="72" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="188.0" y="412.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">2</text>
+  <rect x="232" y="386" width="72" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="268.0" y="412.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">3</text>
+  <rect x="312" y="386" width="72" height="40" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="392" y="386" width="72" height="40" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="472" y="386" width="72" height="40" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="552" y="386" width="72" height="40" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <rect x="632" y="386" width="72" height="40" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="668.0" y="412.0" font-size="16" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">0</text>
+  <text x="668.0" y="448" font-size="16" fill="#1e3a8a" font-weight="700" text-anchor="middle">head</text>
+  <text x="348.0" y="448" font-size="16" fill="#b91c1c" font-weight="700" text-anchor="middle">tail</text>
+  <text x="24" y="478" font-size="16" fill="#334155">꺼내는 순서: head(7번) 에서 오른쪽으로 돌아 0, 1, 2, 3</text>
+  <text x="24" y="504" font-size="16" fill="#475569">tail 칸(3번)은 다음에 뒤로 넣을 빈자리다.</text>
+  <rect x="24" y="526" width="712" height="100" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1"/>
+  <text x="44" y="556" font-size="17" fill="#047857" font-weight="700">가득 차면 새 배열에 복사한다 (실행 확인, 기본 길이 17)</text>
+  <text x="44" y="582" font-size="16" fill="#334155">17 → 36 → 74 → 111 : 64 미만은 2배 + 2, 64 이상은 1.5배</text>
+  <text x="44" y="608" font-size="16" fill="#334155">원소를 밀어 옮기지 않으므로 양 끝 넣기 · 빼기는 O(1) 이다.</text>
+</svg>

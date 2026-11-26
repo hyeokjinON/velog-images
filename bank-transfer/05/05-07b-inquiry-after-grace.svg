@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 770" width="760" height="770" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>고친 뒤: sending_at 이 30초 지난 UNKNOWN 만 물어서, 은행이 처리를 마친 뒤의 답을 받는다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="770" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">고친 뒤: sending_at 이 30초 지난 UNKNOWN 만 물어서,</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">은행이 처리를 마친 뒤의 답을 받는다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">같은 시나리오에 결과조회 대상 쿼리의 30초 조건을 더했다.</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">초록 = 맞는 확정, 회색 점선 = 이번 틱에는 대상이 아님</text>
+<text x="20" y="154" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">시각</text>
+<text x="130" y="154" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">일어난 일</text>
+<text x="20" y="206" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">t=0.0s</text>
+<rect x="130" y="168" width="610" height="64" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="142" y="194" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">컨슈머 → 은행: 이체 전문 (거래번호 T…01)</text>
+<text x="142" y="217" font-size="16" fill="#0f172a" xml:space="preserve">status = SENDING, sending_at = t0</text>
+<text x="20" y="284" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">t=3.0s</text>
+<rect x="130" y="246" width="610" height="64" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="142" y="272" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">3초 안에 응답 없음 → 타임아웃</text>
+<text x="142" y="295" font-size="16" fill="#0f172a" xml:space="preserve">status = UNKNOWN</text>
+<text x="20" y="362" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">t=3.1s</text>
+<rect x="130" y="324" width="610" height="88" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="142" y="350" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">정리 작업 틱: 기준 시각 = 틱 − 30초</text>
+<text x="142" y="373" font-size="16" fill="#0f172a" xml:space="preserve">sending_at(t0) 이 기준보다 늦다 → 이번 틱의 대상이 아니다</text>
+<text x="142" y="396" font-size="16" fill="#0f172a" xml:space="preserve">묻지 않는다, inquiry_attempts 도 0 그대로</text>
+<text x="20" y="464" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">t=3.2s</text>
+<rect x="130" y="426" width="610" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="142" y="452" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">은행이 이체를 마친다 (돈이 나간다)</text>
+<text x="142" y="475" font-size="16" fill="#0f172a" xml:space="preserve">늦은 응답은 로그 한 줄만 남는다</text>
+<text x="20" y="542" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">t=30~40s</text>
+<rect x="130" y="504" width="610" height="64" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="142" y="530" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">유예가 지난 첫 틱: 결과조회 T…01</text>
+<text x="142" y="553" font-size="16" fill="#0f172a" xml:space="preserve">은행: 처리결과 0000 → status = COMPLETED</text>
+<rect x="20" y="588" width="720" height="88" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="614" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">DB 도 COMPLETED, 실제로도 출금 완료. 입금은 1건</text>
+<text x="32" y="637" font-size="16" fill="#0f172a" xml:space="preserve">은행이 30초보다 더 늦으면 같은 일이 생길 수 있다.</text>
+<text x="32" y="660" font-size="16" fill="#0f172a" xml:space="preserve">그 경우의 최종 안전망은 일마감 대사(P5)다</text>
+<text x="20" y="708" font-size="16" fill="#64748b" xml:space="preserve">근거: findByStatusAndInquiryAttemptsLessThanAndSendingAtBefore…,</text>
+<text x="20" y="732" font-size="16" fill="#64748b" xml:space="preserve">ReconcileFlowTest 의 유예 회귀 테스트 (PR #7)</text>
+</svg>

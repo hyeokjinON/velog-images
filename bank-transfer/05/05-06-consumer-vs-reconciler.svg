@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 1040" width="760" height="1040" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>컨슈머와 정리 작업이 같은 이체를 다툴 때: 먼저 바꾼 쪽만 1행이 바뀌고, 은행이 직접 준 답은 UNKNOWN 도 덮는다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="1040" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">컨슈머와 정리 작업이 같은 이체를 다툴 때:</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">은행이 직접 준 답은 UNKNOWN 도 덮는다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">예를 들어 꾸민 순서다. 위에서 아래로 시간이 흐른다.</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">오른쪽 칸 = 그 순간 transfer 행의 상태와 UPDATE 가 바꾼 행 수</text>
+<text x="140.0" y="164" font-size="17" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">컨슈머</text>
+<text x="390.0" y="164" font-size="17" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">정리 작업</text>
+<text x="630.0" y="164" font-size="17" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">transfer 행</text>
+<rect x="20" y="180" width="240" height="64" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="206" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① SENDING 기록</text>
+<text x="32" y="229" font-size="16" fill="#0f172a" xml:space="preserve">은행에 TRF 전송</text>
+<rect x="520" y="180" width="220" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="532" y="206" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">SENDING</text>
+<text x="532" y="229" font-size="16" fill="#0f172a" xml:space="preserve">sending_at = t0</text>
+<rect x="20" y="260" width="240" height="64" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="286" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② 응답 0000 받음</text>
+<text x="32" y="309" font-size="16" fill="#0f172a" xml:space="preserve">DB 에 적기 전 멈춤</text>
+<rect x="520" y="260" width="220" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="532" y="286" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">SENDING</text>
+<text x="532" y="309" font-size="16" fill="#0f172a" xml:space="preserve">그대로</text>
+<rect x="270" y="340" width="240" height="64" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="282" y="366" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ t0 + 30초 지남</text>
+<text x="282" y="389" font-size="16" fill="#0f172a" xml:space="preserve">SENDING → UNKNOWN</text>
+<rect x="520" y="340" width="220" height="64" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="532" y="366" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">UNKNOWN</text>
+<text x="532" y="389" font-size="16" fill="#0f172a" xml:space="preserve">1행 바뀜</text>
+<rect x="20" y="420" width="240" height="64" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="446" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ SENDING 에서 바꾸기</text>
+<text x="32" y="469" font-size="16" fill="#0f172a" xml:space="preserve">→ 0행 (이미 UNKNOWN)</text>
+<rect x="520" y="420" width="220" height="64" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="532" y="446" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">UNKNOWN</text>
+<text x="532" y="469" font-size="16" fill="#0f172a" xml:space="preserve">0행 바뀜</text>
+<rect x="20" y="500" width="240" height="64" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="526" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑤ UNKNOWN 에서 바꾸기</text>
+<text x="32" y="549" font-size="16" fill="#0f172a" xml:space="preserve">확정 결과라 허용</text>
+<rect x="520" y="500" width="220" height="64" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="532" y="526" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">COMPLETED</text>
+<text x="532" y="549" font-size="16" fill="#0f172a" xml:space="preserve">1행, 코드 0000</text>
+<rect x="270" y="580" width="240" height="64" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="282" y="606" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑥ 다음 틱</text>
+<text x="282" y="629" font-size="16" fill="#0f172a" xml:space="preserve">UNKNOWN 이 아니라 안 물음</text>
+<rect x="520" y="580" width="220" height="64" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="532" y="606" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">COMPLETED</text>
+<text x="532" y="629" font-size="16" fill="#0f172a" xml:space="preserve">그대로</text>
+<rect x="20" y="672" width="720" height="136" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="698" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">반대 결과가 오면 CONFLICT</text>
+<text x="32" y="721" font-size="16" fill="#0f172a" xml:space="preserve">예: 정리 작업이 2001 로 FAILED 를 확정한 뒤, 컨슈머가 은행의</text>
+<text x="32" y="744" font-size="16" fill="#0f172a" xml:space="preserve">완료 응답을 받았다. SENDING 에서도 UNKNOWN 에서도 0행이고,</text>
+<text x="32" y="767" font-size="16" fill="#0f172a" xml:space="preserve">지금 상태(FAILED)가 받은 결과(완료)와 반대 확정이다</text>
+<text x="32" y="790" font-size="16" fill="#0f172a" xml:space="preserve">→ CONFLICT 경고 로그만 남기고 ack 한다</text>
+<rect x="20" y="828" width="720" height="112" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="854" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">예외를 던지지 않는 이유</text>
+<text x="32" y="877" font-size="16" fill="#0f172a" xml:space="preserve">다시 시도해도 풀리지 않는다 (상태는 이미 확정).</text>
+<text x="32" y="900" font-size="16" fill="#0f172a" xml:space="preserve">던지면 Kafka 가 같은 메시지를 다시 주느라</text>
+<text x="32" y="923" font-size="16" fill="#0f172a" xml:space="preserve">같은 파티션의 뒤 메시지가 막힌다</text>
+<text x="20" y="974" font-size="16" fill="#64748b" xml:space="preserve">근거: TransferProcessor.record (PR #7), ADR-0006 결정 5,</text>
+<text x="20" y="998" font-size="16" fill="#64748b" xml:space="preserve">TransferProcessorTest 경합 테스트</text>
+</svg>

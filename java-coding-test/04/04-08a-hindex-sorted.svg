@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 724" width="760" height="724" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 4-8a. H-Index [3, 0, 6, 1, 5] 정렬 풀이 — 정렬한 배열에서 c[i] 와 n - i 를 비교한다</title>
+  <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker></defs>
+  <rect width="760" height="724" fill="#ffffff"/>
+  <text x="24" y="40" font-size="22" fill="#0f172a" font-weight="700">H-Index [3, 0, 6, 1, 5] 정렬 풀이 —</text>
+  <text x="24" y="70" font-size="22" fill="#0f172a" font-weight="700">정렬한 배열에서 c[i] 와 n - i 를 비교한다</text>
+  <text x="24" y="104" font-size="16" fill="#475569">막대 = 정렬한 인용 횟수 c[i], 빨강 점선 = 그 칸의 n - i</text>
+  <text x="24" y="128" font-size="16" fill="#475569">n - i = c[i] 이상 인용된 논문 수 (그 칸부터 끝까지)</text>
+  <line x1="100" y1="458" x2="720" y2="458" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="90" y="463" font-size="16" fill="#475569" text-anchor="end">0</text>
+  <line x1="100" y1="414" x2="720" y2="414" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="90" y="419" font-size="16" fill="#475569" text-anchor="end">1</text>
+  <line x1="100" y1="370" x2="720" y2="370" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="90" y="375" font-size="16" fill="#475569" text-anchor="end">2</text>
+  <line x1="100" y1="326" x2="720" y2="326" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="90" y="331" font-size="16" fill="#475569" text-anchor="end">3</text>
+  <line x1="100" y1="282" x2="720" y2="282" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="90" y="287" font-size="16" fill="#475569" text-anchor="end">4</text>
+  <line x1="100" y1="238" x2="720" y2="238" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="90" y="243" font-size="16" fill="#475569" text-anchor="end">5</text>
+  <line x1="100" y1="194" x2="720" y2="194" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="90" y="199" font-size="16" fill="#475569" text-anchor="end">6</text>
+  <rect x="120" y="455" width="70" height="3" rx="0" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.4"/>
+  <text x="155.0" y="447" font-size="16" fill="#1d4ed8" font-weight="700" text-anchor="middle">0</text>
+  <line x1="110" y1="238" x2="200" y2="238" stroke="#b91c1c" stroke-width="2.5" stroke-dasharray="6 4"/>
+  <text x="202" y="243" font-size="16" fill="#b91c1c" font-weight="700">5</text>
+  <text x="155.0" y="482" font-size="16" fill="#475569" text-anchor="middle">i=0</text>
+  <rect x="240" y="414" width="70" height="44" rx="0" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.4"/>
+  <text x="275.0" y="406" font-size="16" fill="#1d4ed8" font-weight="700" text-anchor="middle">1</text>
+  <line x1="230" y1="282" x2="320" y2="282" stroke="#b91c1c" stroke-width="2.5" stroke-dasharray="6 4"/>
+  <text x="322" y="287" font-size="16" fill="#b91c1c" font-weight="700">4</text>
+  <text x="275.0" y="482" font-size="16" fill="#475569" text-anchor="middle">i=1</text>
+  <rect x="360" y="326" width="70" height="132" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="395.0" y="318" font-size="16" fill="#047857" font-weight="700" text-anchor="middle">3</text>
+  <line x1="350" y1="326" x2="440" y2="326" stroke="#b91c1c" stroke-width="2.5" stroke-dasharray="6 4"/>
+  <text x="442" y="331" font-size="16" fill="#b91c1c" font-weight="700">3</text>
+  <text x="395.0" y="482" font-size="16" fill="#475569" text-anchor="middle">i=2</text>
+  <rect x="480" y="238" width="70" height="220" rx="0" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.4"/>
+  <text x="515.0" y="230" font-size="16" fill="#1d4ed8" font-weight="700" text-anchor="middle">5</text>
+  <line x1="470" y1="370" x2="560" y2="370" stroke="#b91c1c" stroke-width="2.5" stroke-dasharray="6 4"/>
+  <text x="562" y="375" font-size="16" fill="#b91c1c" font-weight="700">2</text>
+  <text x="515.0" y="482" font-size="16" fill="#475569" text-anchor="middle">i=3</text>
+  <rect x="600" y="194" width="70" height="264" rx="0" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.4"/>
+  <text x="635.0" y="186" font-size="16" fill="#1d4ed8" font-weight="700" text-anchor="middle">6</text>
+  <line x1="590" y1="414" x2="680" y2="414" stroke="#b91c1c" stroke-width="2.5" stroke-dasharray="6 4"/>
+  <text x="682" y="419" font-size="16" fill="#b91c1c" font-weight="700">1</text>
+  <text x="635.0" y="482" font-size="16" fill="#475569" text-anchor="middle">i=4</text>
+  <text x="395.0" y="506" font-size="16" fill="#047857" font-weight="700" text-anchor="middle">처음 c[i] ≥ n - i</text>
+  <text x="44" y="550" font-size="16" fill="#0f172a" font-weight="700">i = 0</text>
+  <text x="130" y="550" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">c[0] = 0, n - i = 5</text>
+  <text x="420" y="550" font-size="16" fill="#334155">0 ≥ 5 거짓</text>
+  <text x="44" y="578" font-size="16" fill="#0f172a" font-weight="700">i = 1</text>
+  <text x="130" y="578" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">c[1] = 1, n - i = 4</text>
+  <text x="420" y="578" font-size="16" fill="#334155">1 ≥ 4 거짓</text>
+  <text x="44" y="606" font-size="16" fill="#0f172a" font-weight="700">i = 2</text>
+  <text x="130" y="606" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">c[2] = 3, n - i = 3</text>
+  <text x="420" y="606" font-size="16" fill="#047857" font-weight="700">3 ≥ 3 참 → return 3</text>
+  <rect x="24" y="642" width="712" height="62" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.4"/>
+  <text x="44" y="668" font-size="17" fill="#047857" font-weight="700">답 3 — 3, 5, 6 세 편이 3번 이상 인용되었다.</text>
+  <text x="44" y="692" font-size="16" fill="#334155">나머지 0, 1 은 3번 이하라서 지문의 두 조건을 모두 만족한다.</text>
+</svg>

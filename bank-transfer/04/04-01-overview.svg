@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 1210" width="760" height="1210" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>출금 처리 한 장: 아웃박스 신호를 Kafka 로 보내고, 상태를 바꾼 컨슈머만 은행에 이체 전문을 보낸다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="1210" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">출금 처리 한 장: 아웃박스 신호를 Kafka 로 보내고,</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">상태를 바꾼 컨슈머만 은행에 이체 전문을 보낸다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">초록 = 정상 흐름, 파랑 = Kafka 메시지, 주황 = 결과를 모름,</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">회색 점선 = #3 에서 만든 부분. 번호 순서대로 읽는다</text>
+<rect x="20" y="140" width="720" height="64" rx="8" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="32" y="166" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">#3 출금 접수 (P3-1)</text>
+<text x="32" y="189" font-size="16" fill="#0f172a" xml:space="preserve">transfer(RECEIVED) + outbox_event 1행을 한 트랜잭션에 저장</text>
+<line x1="380" y1="204" x2="380" y2="236" stroke="#94a3b8" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#mx)"/>
+<rect x="20" y="236" width="720" height="112" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="262" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① OutboxRelay — 0.5초마다 도는 발행기</text>
+<text x="32" y="285" font-size="16" fill="#0f172a" xml:space="preserve">published_at 이 NULL 인 행을 최대 100건 잠가 읽고</text>
+<text x="32" y="308" font-size="16" fill="#0f172a" xml:space="preserve">(FOR UPDATE SKIP LOCKED) Kafka 로 보낸 뒤,</text>
+<text x="32" y="331" font-size="16" fill="#0f172a" xml:space="preserve">브로커가 받았다고 확인하면 published_at 을 적는다</text>
+<line x1="380" y1="348" x2="380" y2="380" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<rect x="20" y="380" width="720" height="132" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="406" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② Kafka 토픽 transfer.requested</text>
+<text x="32" y="429" font-size="16" fill="#0f172a" xml:space="preserve">key = 이체 id. 같은 이체는 늘 같은 파티션으로 간다</text>
+<rect x="44" y="446" width="208" height="52" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="56" y="478" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">파티션 0</text>
+<rect x="276" y="446" width="208" height="52" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="288" y="478" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">파티션 1</text>
+<rect x="508" y="446" width="208" height="52" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="520" y="478" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">파티션 2</text>
+<line x1="380" y1="512" x2="380" y2="544" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<rect x="20" y="544" width="720" height="88" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="570" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ TransferRequestedListener × 3 (그룹 transfer-processor)</text>
+<text x="32" y="593" font-size="16" fill="#0f172a" xml:space="preserve">파티션 하나를 컨슈머 하나가 맡는다. 수동 ack:</text>
+<text x="32" y="616" font-size="16" fill="#0f172a" xml:space="preserve">처리를 끝내야 "여기까지 읽었다"(오프셋)를 커밋한다</text>
+<line x1="380" y1="632" x2="380" y2="664" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="20" y="664" width="720" height="452" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="36" y="692" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">TransferProcessor — 메시지 한 건의 처리</text>
+<rect x="36" y="708" width="420" height="88" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="48" y="734" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ 조건부 UPDATE</text>
+<text x="48" y="757" font-size="16" fill="#0f172a" xml:space="preserve">RECEIVED 일 때만 SENDING 으로 바꾼다</text>
+<text x="48" y="780" font-size="16" fill="#0f172a" xml:space="preserve">1건 바뀐 쪽만 다음으로 간다</text>
+<rect x="36" y="816" width="420" height="88" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="48" y="842" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑤ 은행에 이체 전문</text>
+<text x="48" y="865" font-size="16" fill="#0f172a" xml:space="preserve">DB 트랜잭션 밖에서 보낸다</text>
+<text x="48" y="888" font-size="16" fill="#0f172a" xml:space="preserve">응답은 최대 3초 기다린다</text>
+<rect x="36" y="924" width="420" height="88" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="48" y="950" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑥ 결과를 기록한다</text>
+<text x="48" y="973" font-size="16" fill="#0f172a" xml:space="preserve">COMPLETED / FAILED / UNKNOWN,</text>
+<text x="48" y="996" font-size="16" fill="#0f172a" xml:space="preserve">못 보냈으면 RECEIVED 로 되돌림</text>
+<rect x="36" y="1032" width="420" height="64" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="48" y="1058" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑦ ack</text>
+<text x="48" y="1081" font-size="16" fill="#0f172a" xml:space="preserve">이제야 오프셋을 커밋한다</text>
+<line x1="246" y1="796" x2="246" y2="816" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<line x1="246" y1="904" x2="246" y2="924" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<line x1="246" y1="1012" x2="246" y2="1032" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="486" y="708" width="238" height="88" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="498" y="734" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">0건이면 멈춘다</text>
+<text x="498" y="757" font-size="16" fill="#0f172a" xml:space="preserve">이미 처리 중이거나</text>
+<text x="498" y="780" font-size="16" fill="#0f172a" xml:space="preserve">끝난 건 → 은행 안 감</text>
+<line x1="456" y1="752" x2="486" y2="752" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<rect x="486" y="816" width="238" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="498" y="842" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">모의 은행 (TCP)</text>
+<text x="498" y="865" font-size="16" fill="#0f172a" xml:space="preserve">Netty 게이트웨이를</text>
+<text x="498" y="888" font-size="16" fill="#0f172a" xml:space="preserve">거쳐 전문을 주고받는다</text>
+<line x1="456" y1="860" x2="486" y2="860" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="486" y="924" width="238" height="88" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="498" y="950" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">모르면 UNKNOWN</text>
+<text x="498" y="973" font-size="16" fill="#0f172a" xml:space="preserve">다시 보내지 않는다</text>
+<text x="498" y="996" font-size="16" fill="#0f172a" xml:space="preserve">→ P3-3 결과조회</text>
+<line x1="456" y1="968" x2="486" y2="968" stroke="#c2410c" stroke-width="2.2" marker-end="url(#mo)"/>
+<text x="20" y="1150" font-size="16" fill="#64748b" xml:space="preserve">근거: bank-transfer PR #5 (P3-2) — OutboxRelay,</text>
+<text x="20" y="1174" font-size="16" fill="#64748b" xml:space="preserve">TransferRequestedListener, TransferProcessor, ADR-0005</text>
+</svg>

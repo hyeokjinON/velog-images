@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 930" width="760" height="930" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>발행기가 published_at 을 적기 전에 죽으면: 같은 신호가 Kafka 에 한 번 더 들어간다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="930" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">발행기가 published_at 을 적기 전에 죽으면:</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">같은 신호가 Kafka 에 한 번 더 들어간다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">위에서 아래로 시간이 흐른다. 값은 설명용 (이체 id 7d0c…,</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">outbox_event id 1). 빨강 X = 앱이 죽은 순간</text>
+<rect x="15" y="140" width="220" height="60" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="125" y="165" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">OutboxRelay</text>
+<text x="125" y="189" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">(발행기)</text>
+<line x1="125" y1="200" x2="125" y2="760" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 4"/>
+<rect x="270" y="140" width="220" height="60" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="380" y="165" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">MySQL</text>
+<text x="380" y="189" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">outbox_event</text>
+<line x1="380" y1="200" x2="380" y2="760" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 4"/>
+<rect x="525" y="140" width="220" height="60" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="635" y="165" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">Kafka</text>
+<text x="635" y="189" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">transfer.requested</text>
+<line x1="635" y1="200" x2="635" y2="760" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 4"/>
+<line x1="129" y1="270" x2="376" y2="270" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<text x="252.5" y="238" font-size="16" fill="#334155" text-anchor="middle" xml:space="preserve">SELECT … SKIP LOCKED</text>
+<text x="252.5" y="261" font-size="16" fill="#334155" text-anchor="middle" xml:space="preserve">→ id 1 (NULL)</text>
+<circle cx="105" cy="270" r="13" fill="#334155"/><text x="105" y="276" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">①</text>
+<line x1="129" y1="340" x2="631" y2="340" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<text x="380.0" y="331" font-size="16" fill="#1d4ed8" text-anchor="middle" xml:space="preserve">send(key = 7d0c…)</text>
+<circle cx="105" cy="340" r="13" fill="#1d4ed8"/><text x="105" y="346" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">②</text>
+<text x="625" y="366" font-size="16" fill="#1d4ed8" font-weight="700" text-anchor="end" xml:space="preserve">offset 0 에 저장</text>
+<line x1="631" y1="410" x2="129" y2="410" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<text x="380.0" y="401" font-size="16" fill="#1d4ed8" text-anchor="middle" xml:space="preserve">get() → 받았다고 확인</text>
+<circle cx="659" cy="410" r="13" fill="#1d4ed8"/><text x="659" y="416" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">③</text>
+<line x1="113" y1="440" x2="137" y2="464" stroke="#b91c1c" stroke-width="4"/>
+<line x1="113" y1="464" x2="137" y2="440" stroke="#b91c1c" stroke-width="4"/>
+<text x="149" y="458" font-size="16" fill="#b91c1c" font-weight="700" xml:space="preserve">④ 여기서 앱이 재시작된다</text>
+<text x="149" y="481" font-size="16" fill="#b91c1c" xml:space="preserve">published_at 을 적기 전이다</text>
+<rect x="398" y="476" width="330" height="56" fill="#ffffff"/>
+<text x="394" y="494" font-size="16" fill="#334155" xml:space="preserve">트랜잭션 롤백 → 잠금 풀림</text>
+<text x="394" y="517" font-size="16" fill="#334155" font-weight="700" xml:space="preserve">published_at 은 그대로 NULL</text>
+<rect x="30" y="552" width="190" height="26" fill="#ffffff"/>
+<text x="125" y="570" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">0.5초 뒤 다음 주기</text>
+<line x1="129" y1="620" x2="376" y2="620" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<text x="252.5" y="588" font-size="16" fill="#334155" text-anchor="middle" xml:space="preserve">같은 SELECT</text>
+<text x="252.5" y="611" font-size="16" fill="#334155" text-anchor="middle" xml:space="preserve">→ id 1 이 또 나온다</text>
+<circle cx="105" cy="620" r="13" fill="#334155"/><text x="105" y="626" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">⑤</text>
+<line x1="129" y1="680" x2="631" y2="680" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<text x="380.0" y="671" font-size="16" fill="#1d4ed8" text-anchor="middle" xml:space="preserve">send(key = 7d0c…) 다시</text>
+<circle cx="105" cy="680" r="13" fill="#1d4ed8"/><text x="105" y="686" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">⑥</text>
+<text x="625" y="706" font-size="16" fill="#b91c1c" font-weight="700" text-anchor="end" xml:space="preserve">offset 1 에 같은 신호</text>
+<line x1="129" y1="748" x2="376" y2="748" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<text x="252.5" y="739" font-size="16" fill="#047857" text-anchor="middle" xml:space="preserve">get 확인 → published_at 기록</text>
+<circle cx="105" cy="748" r="13" fill="#047857"/><text x="105" y="754" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">⑦</text>
+<rect x="20" y="786" width="720" height="112" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="812" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">결과: 토픽에 같은 신호가 2개 (offset 0, 1)</text>
+<text x="32" y="835" font-size="16" fill="#0f172a" xml:space="preserve">신호가 사라지는 것보다 두 번 오는 쪽을 고른 것이다 = 적어도 한 번.</text>
+<text x="32" y="858" font-size="16" fill="#0f172a" xml:space="preserve">두 번째 신호는 컨슈머의 조건부 UPDATE 가 0건이 되어 걸러진다</text>
+<text x="32" y="881" font-size="16" fill="#0f172a" xml:space="preserve">(2절). 은행에는 한 번만 간다</text>
+</svg>

@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 696" width="760" height="696" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 5-5. 스택 2개로 만든 큐 — out 이 빌 때만 in 을 통째로 옮긴다</title>
+  <rect width="760" height="696" fill="#ffffff"/>
+  <text x="24" y="40" font-size="21" fill="#0f172a" font-weight="700">스택 2개로 만든 큐 — out 이 빌 때만</text>
+  <text x="24" y="70" font-size="21" fill="#0f172a" font-weight="700">in 을 통째로 옮긴다</text>
+  <text x="24" y="102" font-size="16" fill="#475569">스택 칸은 왼쪽이 꼭대기 (ArrayDeque 출력 순서와 같다)</text>
+  <text x="24" y="140" font-size="16" fill="#1e3a8a" font-weight="700">연산</text>
+  <text x="250" y="140" font-size="16" fill="#1e3a8a" font-weight="700">in</text>
+  <text x="430" y="140" font-size="16" fill="#1e3a8a" font-weight="700">out</text>
+  <text x="620" y="140" font-size="16" fill="#1e3a8a" font-weight="700">반환</text>
+  <line x1="24" y1="152" x2="736" y2="152" stroke="#94a3b8" stroke-width="1"/>
+  <text x="24" y="188" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">offer(1)</text>
+  <rect x="250" y="170" width="44" height="30" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="272.0" y="191.0" font-size="15" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">1</text>
+  <rect x="430" y="170" width="150" height="30" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="505.0" y="191.0" font-size="15" fill="#94a3b8" text-anchor="middle">비어 있음</text>
+  <line x1="24" y1="228" x2="736" y2="228" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="24" y="254" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">offer(2)</text>
+  <rect x="250" y="236" width="44" height="30" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="272.0" y="257.0" font-size="15" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">2</text>
+  <rect x="300" y="236" width="44" height="30" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="322.0" y="257.0" font-size="15" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">1</text>
+  <rect x="430" y="236" width="150" height="30" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="505.0" y="257.0" font-size="15" fill="#94a3b8" text-anchor="middle">비어 있음</text>
+  <line x1="24" y1="294" x2="736" y2="294" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="24" y="320" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">poll()</text>
+  <text x="24" y="344" font-size="15" fill="#047857">out 이 비어 1, 2 를 옮김</text>
+  <rect x="250" y="302" width="150" height="30" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="325.0" y="323.0" font-size="15" fill="#94a3b8" text-anchor="middle">비어 있음</text>
+  <rect x="430" y="302" width="44" height="30" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="452.0" y="323.0" font-size="15" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">2</text>
+  <rect x="620" y="302" width="60" height="30" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="650.0" y="323.0" font-size="16" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">1</text>
+  <line x1="24" y1="360" x2="736" y2="360" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="24" y="386" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">offer(3)</text>
+  <rect x="250" y="368" width="44" height="30" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="272.0" y="389.0" font-size="15" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">3</text>
+  <rect x="430" y="368" width="44" height="30" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="452.0" y="389.0" font-size="15" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">2</text>
+  <line x1="24" y1="426" x2="736" y2="426" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="24" y="452" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">poll()</text>
+  <text x="24" y="476" font-size="15" fill="#475569">out 에 2 가 있어 안 옮김</text>
+  <rect x="250" y="434" width="44" height="30" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="272.0" y="455.0" font-size="15" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">3</text>
+  <rect x="430" y="434" width="150" height="30" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="505.0" y="455.0" font-size="15" fill="#94a3b8" text-anchor="middle">비어 있음</text>
+  <rect x="620" y="434" width="60" height="30" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="650.0" y="455.0" font-size="16" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">2</text>
+  <line x1="24" y1="492" x2="736" y2="492" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="24" y="518" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">poll()</text>
+  <text x="24" y="542" font-size="15" fill="#047857">out 이 비어 3 을 옮김</text>
+  <rect x="250" y="500" width="150" height="30" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="325.0" y="521.0" font-size="15" fill="#94a3b8" text-anchor="middle">비어 있음</text>
+  <rect x="430" y="500" width="150" height="30" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="505.0" y="521.0" font-size="15" fill="#94a3b8" text-anchor="middle">비어 있음</text>
+  <rect x="620" y="500" width="60" height="30" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="650.0" y="521.0" font-size="16" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">3</text>
+  <line x1="24" y1="558" x2="736" y2="558" stroke="#e2e8f0" stroke-width="1"/>
+  <rect x="24" y="574" width="712" height="100" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1"/>
+  <text x="44" y="604" font-size="17" fill="#047857" font-weight="700">반환 순서 1, 2, 3 = 넣은 순서 (큐)</text>
+  <text x="44" y="630" font-size="16" fill="#334155">다섯 번째 줄에서 3 을 옮겼다면 out = [3, 2] 가 되어</text>
+  <text x="44" y="656" font-size="16" fill="#334155">2 대신 3 이 먼저 나온다. 조건은 "out 이 빌 때만" 이다.</text>
+</svg>

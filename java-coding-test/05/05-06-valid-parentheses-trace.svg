@@ -1,0 +1,79 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 760" width="760" height="760" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 5-6. 올바른 괄호 예제 2 — 스택 크기와 카운터 open 은 같이 움직인다</title>
+  <rect width="760" height="760" fill="#ffffff"/>
+  <text x="24" y="40" font-size="21" fill="#0f172a" font-weight="700">올바른 괄호 예 2 "(())()" — 스택 크기와</text>
+  <text x="24" y="70" font-size="21" fill="#0f172a" font-weight="700">카운터 open 은 같이 움직인다</text>
+  <text x="24" y="102" font-size="16" fill="#475569">스택에는 ( 만 쌓이므로 크기 하나만 알면 된다</text>
+  <text x="24" y="140" font-size="16" fill="#1e3a8a" font-weight="700">i</text>
+  <text x="70" y="140" font-size="16" fill="#1e3a8a" font-weight="700">문자</text>
+  <text x="150" y="140" font-size="16" fill="#1e3a8a" font-weight="700">스택 (왼쪽이 꼭대기)</text>
+  <text x="470" y="140" font-size="16" fill="#1e3a8a" font-weight="700">크기</text>
+  <text x="580" y="140" font-size="16" fill="#1e3a8a" font-weight="700">open</text>
+  <line x1="24" y1="152" x2="736" y2="152" stroke="#94a3b8" stroke-width="1"/>
+  <text x="24" y="186" font-size="16" fill="#0f172a" font-weight="700">0</text>
+  <text x="70" y="186" font-size="17" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">(</text>
+  <text x="100" y="186" font-size="15" fill="#047857">push</text>
+  <rect x="150" y="166" width="38" height="32" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="169.0" y="188.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">(</text>
+  <text x="490" y="188" font-size="17" fill="#0f172a" font-weight="700" text-anchor="middle">1</text>
+  <rect x="580" y="166" width="60" height="32" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="610.0" y="188.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">1</text>
+  <line x1="24" y1="208" x2="736" y2="208" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="24" y="234" font-size="16" fill="#0f172a" font-weight="700">1</text>
+  <text x="70" y="234" font-size="17" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">(</text>
+  <text x="100" y="234" font-size="15" fill="#047857">push</text>
+  <rect x="150" y="214" width="38" height="32" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="169.0" y="236.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">(</text>
+  <rect x="194" y="214" width="38" height="32" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="213.0" y="236.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">(</text>
+  <text x="490" y="236" font-size="17" fill="#0f172a" font-weight="700" text-anchor="middle">2</text>
+  <rect x="580" y="214" width="60" height="32" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="610.0" y="236.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">2</text>
+  <line x1="24" y1="256" x2="736" y2="256" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="24" y="282" font-size="16" fill="#0f172a" font-weight="700">2</text>
+  <text x="70" y="282" font-size="17" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">)</text>
+  <text x="100" y="282" font-size="15" fill="#b91c1c">pop</text>
+  <rect x="150" y="262" width="38" height="32" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="169.0" y="284.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">(</text>
+  <text x="490" y="284" font-size="17" fill="#0f172a" font-weight="700" text-anchor="middle">1</text>
+  <rect x="580" y="262" width="60" height="32" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="610.0" y="284.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">1</text>
+  <line x1="24" y1="304" x2="736" y2="304" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="24" y="330" font-size="16" fill="#0f172a" font-weight="700">3</text>
+  <text x="70" y="330" font-size="17" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">)</text>
+  <text x="100" y="330" font-size="15" fill="#b91c1c">pop</text>
+  <rect x="150" y="310" width="120" height="32" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="210.0" y="332.0" font-size="15" fill="#94a3b8" text-anchor="middle">비어 있음</text>
+  <text x="490" y="332" font-size="17" fill="#0f172a" font-weight="700" text-anchor="middle">0</text>
+  <rect x="580" y="310" width="60" height="32" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="610.0" y="332.0" font-size="16" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">0</text>
+  <line x1="24" y1="352" x2="736" y2="352" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="24" y="378" font-size="16" fill="#0f172a" font-weight="700">4</text>
+  <text x="70" y="378" font-size="17" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">(</text>
+  <text x="100" y="378" font-size="15" fill="#047857">push</text>
+  <rect x="150" y="358" width="38" height="32" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="169.0" y="380.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">(</text>
+  <text x="490" y="380" font-size="17" fill="#0f172a" font-weight="700" text-anchor="middle">1</text>
+  <rect x="580" y="358" width="60" height="32" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="610.0" y="380.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">1</text>
+  <line x1="24" y1="400" x2="736" y2="400" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="24" y="426" font-size="16" fill="#0f172a" font-weight="700">5</text>
+  <text x="70" y="426" font-size="17" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace">)</text>
+  <text x="100" y="426" font-size="15" fill="#b91c1c">pop</text>
+  <rect x="150" y="406" width="120" height="32" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="210.0" y="428.0" font-size="15" fill="#94a3b8" text-anchor="middle">비어 있음</text>
+  <text x="490" y="428" font-size="17" fill="#0f172a" font-weight="700" text-anchor="middle">0</text>
+  <rect x="580" y="406" width="60" height="32" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2"/>
+  <text x="610.0" y="428.0" font-size="16" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">0</text>
+  <line x1="24" y1="448" x2="736" y2="448" stroke="#e2e8f0" stroke-width="1"/>
+  <rect x="24" y="464" width="712" height="48" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1"/>
+  <text x="44" y="494" font-size="17" fill="#047857" font-weight="700">끝: 스택이 비었고 open = 0 → true (기대 출력 true)</text>
+  <rect x="24" y="526" width="712" height="100" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1"/>
+  <text x="44" y="556" font-size="17" fill="#b91c1c" font-weight="700">예 3 ")()(" — i = 0 에서 open = −1</text>
+  <text x="44" y="582" font-size="16" fill="#334155">닫는 괄호가 먼저 와서 바로 false. 스택 풀이는 빈 스택에서 pop 을</text>
+  <text x="44" y="608" font-size="16" fill="#334155">하려다 false 를 돌려준다.</text>
+  <rect x="24" y="640" width="712" height="100" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1"/>
+  <text x="44" y="670" font-size="17" fill="#b91c1c" font-weight="700">예 4 "(()(" — 끝에서 open = 2</text>
+  <text x="44" y="696" font-size="16" fill="#334155">중간에 음수는 없지만 여는 괄호 2개가 남아 false.</text>
+  <text x="44" y="722" font-size="16" fill="#334155">스택 풀이도 크기 2 인 스택이 남는다.</text>
+</svg>

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 756" width="760" height="756" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 4-2. 안정 정렬 확인 — 점수가 같은 학생이 이진 삽입 정렬에서 입력 순서를 지키는 과정</title>
+  <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker></defs>
+  <rect width="760" height="756" fill="#ffffff"/>
+  <text x="24" y="40" font-size="22" fill="#0f172a" font-weight="700">안정 정렬 확인 — 점수가 같은 학생이</text>
+  <text x="24" y="70" font-size="22" fill="#0f172a" font-weight="700">입력 순서를 지키는 과정 (점수 내림차순)</text>
+  <text x="24" y="104" font-size="16" fill="#475569">초록 칸 = 그 줄에서 끼워 넣은 원소, 회색 칸 = 아직 안 본 원소</text>
+  <text x="24" y="128" font-size="16" fill="#475569">cmp 결과: 음수 = 앞, 양수 = 뒤, 0 = 같은 순위</text>
+  <text x="24" y="182" font-size="17" fill="#0f172a" font-weight="700">입력</text>
+  <rect x="150" y="158" width="120" height="38" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="210.0" y="183.0" font-size="16" fill="#334155" text-anchor="middle">kim 90</text>
+  <rect x="270" y="158" width="120" height="38" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="330.0" y="183.0" font-size="16" fill="#334155" text-anchor="middle">lee 80</text>
+  <rect x="390" y="158" width="120" height="38" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="450.0" y="183.0" font-size="16" fill="#334155" text-anchor="middle">park 90</text>
+  <rect x="510" y="158" width="120" height="38" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="570.0" y="183.0" font-size="16" fill="#334155" text-anchor="middle">choi 80</text>
+  <text x="150" y="222" font-size="16" fill="#334155">리스트에 넣은 순서 그대로다.</text>
+  <line x1="24" y1="252" x2="736" y2="252" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="24" y="284" font-size="17" fill="#0f172a" font-weight="700">① run 찾기</text>
+  <rect x="150" y="260" width="120" height="38" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="210.0" y="285.0" font-size="16" fill="#334155" text-anchor="middle">kim 90</text>
+  <rect x="270" y="260" width="120" height="38" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="330.0" y="285.0" font-size="16" fill="#334155" text-anchor="middle">lee 80</text>
+  <rect x="390" y="260" width="120" height="38" rx="0" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="450.0" y="285.0" font-size="16" fill="#64748b" text-anchor="middle">park 90</text>
+  <rect x="510" y="260" width="120" height="38" rx="0" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="570.0" y="285.0" font-size="16" fill="#64748b" text-anchor="middle">choi 80</text>
+  <text x="150" y="324" font-size="16" fill="#334155">cmp(lee80, kim90) = 1 → lee 는 kim 뒤, 정렬된 구간</text>
+  <text x="150" y="348" font-size="16" fill="#334155">cmp(park90, lee80) = -1 → run 은 [kim, lee] 에서 끝</text>
+  <line x1="24" y1="378" x2="736" y2="378" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="24" y="410" font-size="17" fill="#0f172a" font-weight="700">② park 넣기</text>
+  <rect x="150" y="386" width="120" height="38" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="210.0" y="411.0" font-size="16" fill="#334155" text-anchor="middle">kim 90</text>
+  <rect x="270" y="386" width="120" height="38" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2.2"/>
+  <text x="330.0" y="411.0" font-size="16" fill="#047857" font-weight="700" text-anchor="middle">park 90</text>
+  <rect x="390" y="386" width="120" height="38" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="450.0" y="411.0" font-size="16" fill="#334155" text-anchor="middle">lee 80</text>
+  <rect x="510" y="386" width="120" height="38" rx="0" fill="#e2e8f0" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="570.0" y="411.0" font-size="16" fill="#64748b" text-anchor="middle">choi 80</text>
+  <text x="150" y="450" font-size="16" fill="#334155">cmp(park90, lee80) = -1 → 왼쪽 반으로</text>
+  <text x="150" y="474" font-size="16" fill="#334155">cmp(park90, kim90) = 0 → 0 이면 kim 의 오른쪽에</text>
+  <line x1="24" y1="504" x2="736" y2="504" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="24" y="536" font-size="17" fill="#0f172a" font-weight="700">③ choi 넣기</text>
+  <rect x="150" y="512" width="120" height="38" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="210.0" y="537.0" font-size="16" fill="#334155" text-anchor="middle">kim 90</text>
+  <rect x="270" y="512" width="120" height="38" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="330.0" y="537.0" font-size="16" fill="#334155" text-anchor="middle">park 90</text>
+  <rect x="390" y="512" width="120" height="38" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="450.0" y="537.0" font-size="16" fill="#334155" text-anchor="middle">lee 80</text>
+  <rect x="510" y="512" width="120" height="38" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2.2"/>
+  <text x="570.0" y="537.0" font-size="16" fill="#047857" font-weight="700" text-anchor="middle">choi 80</text>
+  <text x="150" y="576" font-size="16" fill="#334155">cmp(choi80, park90) = 1 → 오른쪽 반으로</text>
+  <text x="150" y="600" font-size="16" fill="#334155">cmp(choi80, lee80) = 0 → 0 이면 lee 의 오른쪽에</text>
+  <line x1="24" y1="630" x2="736" y2="630" stroke="#e2e8f0" stroke-width="1"/>
+  <rect x="24" y="644" width="712" height="92" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.4"/>
+  <text x="44" y="674" font-size="17" fill="#047857" font-weight="700">결과 [kim, park, lee, choi]</text>
+  <text x="44" y="700" font-size="16" fill="#334155">90점은 kim → park, 80점은 lee → choi 로 입력 순서 그대로다.</text>
+  <text x="44" y="724" font-size="16" fill="#334155">비교가 0 이면 새 원소를 같은 값의 오른쪽에 두는 규칙 덕분이다.</text>
+</svg>

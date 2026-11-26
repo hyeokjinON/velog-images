@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 1040" width="760" height="1040" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>결과를 모르는 출금 한 장: 다시 보내지 않고, 30초 기다린 뒤 거래번호로 묻는다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="1040" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">결과를 모르는 출금 한 장: 다시 보내지 않고,</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">30초 기다린 뒤 거래번호로 은행에 묻는다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">파랑 = 은행과 주고받는 전문, 주황 = 결과 모름, 초록 = 성공 확정,</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">빨강 = 실패 확정, 회색 점선 = 사람과 일마감 대사로 넘김</text>
+<rect x="20" y="146" width="340" height="88" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="172" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">컨슈머 (#4 에서 만든 것)</text>
+<text x="32" y="195" font-size="16" fill="#0f172a" xml:space="preserve">① 이체 전문 TRF 를 보낸다</text>
+<text x="32" y="218" font-size="16" fill="#0f172a" xml:space="preserve">거래번호 T261021… 를 싣는다</text>
+<rect x="420" y="146" width="320" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="432" y="172" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">은행</text>
+<text x="432" y="195" font-size="16" fill="#0f172a" xml:space="preserve">이체를 이미 처리했을 수도,</text>
+<text x="432" y="218" font-size="16" fill="#0f172a" xml:space="preserve">아직 안 했을 수도 있다</text>
+<line x1="360" y1="190" x2="420" y2="190" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<line x1="190" y1="234" x2="190" y2="266" stroke="#c2410c" stroke-width="2.2" marker-end="url(#mo)"/>
+<rect x="20" y="266" width="720" height="64" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="32" y="292" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② 3초 안에 응답이 없다 → UNKNOWN 으로 기록</text>
+<text x="32" y="315" font-size="16" fill="#0f172a" xml:space="preserve">다시 보내지 않는다 (은행이 처리했다면 두 번 출금된다)</text>
+<line x1="380" y1="330" x2="380" y2="362" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="362" width="720" height="452" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="36" y="390" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">정리 작업 TransferReconciler — 10초마다 한 번 돈다</text>
+<rect x="36" y="406" width="688" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="48" y="432" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ 30초 넘게 SENDING 인 건 → UNKNOWN</text>
+<text x="48" y="455" font-size="16" fill="#0f172a" xml:space="preserve">컨슈머가 은행 호출 중에 죽어 멈춘 건을 거둔다</text>
+<line x1="380" y1="470" x2="380" y2="490" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="36" y="490" width="688" height="88" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="48" y="516" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ 은행에 결과조회 전문 INQ 를 보낸다 (묻기만 한다)</text>
+<text x="48" y="539" font-size="16" fill="#0f172a" xml:space="preserve">대상: UNKNOWN 이고, sending_at 이 30초 지났고,</text>
+<text x="48" y="562" font-size="16" fill="#0f172a" xml:space="preserve">결과조회 시도가 10번 미만인 건</text>
+<line x1="146" y1="578" x2="146" y2="606" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<line x1="380" y1="578" x2="380" y2="606" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<line x1="614" y1="578" x2="614" y2="606" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="36" y="606" width="220" height="64" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="48" y="632" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑤ 0000 처리됨</text>
+<text x="48" y="655" font-size="16" fill="#0f172a" xml:space="preserve">→ COMPLETED</text>
+<rect x="270" y="606" width="220" height="64" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="282" y="632" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑤ 2001 원거래 없음</text>
+<text x="282" y="655" font-size="16" fill="#0f172a" xml:space="preserve">→ FAILED</text>
+<rect x="504" y="606" width="220" height="64" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="516" y="632" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑤ 그 밖은 모름</text>
+<text x="516" y="655" font-size="16" fill="#0f172a" xml:space="preserve">→ 시도 횟수 + 1</text>
+<line x1="614" y1="670" x2="614" y2="698" stroke="#94a3b8" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#mx)"/>
+<rect x="504" y="698" width="220" height="100" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="516" y="724" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑥ 10번째도 모름</text>
+<text x="516" y="747" font-size="16" fill="#0f172a" xml:space="preserve">더 묻지 않고 경고</text>
+<text x="516" y="770" font-size="16" fill="#0f172a" xml:space="preserve">→ 일마감 대사 (P5)</text>
+<text x="36" y="722" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">모든 상태 변경은 조건부 UPDATE 다</text>
+<text x="36" y="748" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">WHERE id = ? AND status = 'UNKNOWN'</text>
+<text x="36" y="774" font-size="16" fill="#0f172a" xml:space="preserve">먼저 바꾼 쪽만 1행이 바뀌고,</text>
+<text x="36" y="797" font-size="16" fill="#0f172a" xml:space="preserve">늦은 쪽은 0행이라 아무것도 안 한다</text>
+<rect x="20" y="838" width="720" height="88" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="864" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">스케줄러 스레드 2개</text>
+<text x="32" y="887" font-size="16" fill="#0f172a" xml:space="preserve">0.5초마다 도는 아웃박스 발행기와 10초마다 도는 정리 작업이</text>
+<text x="32" y="910" font-size="16" fill="#0f172a" xml:space="preserve">서로를 기다리지 않게 한다 (Spring 기본값은 1개)</text>
+<text x="20" y="966" font-size="16" fill="#64748b" xml:space="preserve">근거: bank-transfer PR #7 (P3-3a) — TransferReconciler,</text>
+<text x="20" y="990" font-size="16" fill="#64748b" xml:space="preserve">BankInquiryAdapter, ADR-0006, docs/protocol.md v0.2</text>
+</svg>

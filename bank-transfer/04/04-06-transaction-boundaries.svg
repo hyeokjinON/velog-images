@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 900" width="760" height="900" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>컨슈머 스레드 한 건의 처리: 트랜잭션 두 개 사이에 은행 호출이 있고, 그 사이에 죽으면 SENDING 에 남는다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="900" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">컨슈머 한 건의 처리: 트랜잭션 두 개 사이에 은행</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">호출이 있고, 그 사이에 죽으면 SENDING 에 남는다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">왼쪽 = 컨슈머 스레드가 하는 일 (위에서 아래로), 초록 상자 = DB</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">트랜잭션 (짧다), 흰 상자 = 트랜잭션 밖, 빨강 = 죽었을 때</text>
+<rect x="20" y="140" width="400" height="88" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="166" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① 트랜잭션 1</text>
+<text x="32" y="189" font-size="16" fill="#0f172a" xml:space="preserve">UPDATE RECEIVED → SENDING</text>
+<text x="32" y="212" font-size="16" fill="#0f172a" xml:space="preserve">+ sending_at 기록 → COMMIT</text>
+<rect x="20" y="264" width="400" height="112" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="290" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② 트랜잭션 밖: 은행 호출</text>
+<text x="32" y="313" font-size="16" fill="#0f172a" xml:space="preserve">이체 전문을 보내고 최대 3초</text>
+<text x="32" y="336" font-size="16" fill="#0f172a" xml:space="preserve">기다린다. DB 커넥션 · 잠금을</text>
+<text x="32" y="359" font-size="16" fill="#0f172a" xml:space="preserve">쥐고 있지 않다</text>
+<rect x="20" y="412" width="400" height="88" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="438" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ 트랜잭션 2</text>
+<text x="32" y="461" font-size="16" fill="#0f172a" xml:space="preserve">UPDATE SENDING → 결과</text>
+<text x="32" y="484" font-size="16" fill="#0f172a" xml:space="preserve">+ 응답코드 → COMMIT</text>
+<rect x="20" y="536" width="400" height="64" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="562" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ ack</text>
+<text x="32" y="585" font-size="16" fill="#0f172a" xml:space="preserve">Kafka 에 오프셋 커밋</text>
+<line x1="220" y1="228" x2="220" y2="264" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<line x1="220" y1="376" x2="220" y2="412" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<line x1="220" y1="500" x2="220" y2="536" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="450" y="264" width="290" height="136" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="462" y="290" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">②와 ③ 사이에 죽으면</text>
+<text x="462" y="313" font-size="16" fill="#0f172a" xml:space="preserve">행이 SENDING 에 남는다.</text>
+<text x="462" y="336" font-size="16" fill="#0f172a" xml:space="preserve">은행이 받았을 수 있으니</text>
+<text x="462" y="359" font-size="16" fill="#0f172a" xml:space="preserve">다시 보내지 않는다.</text>
+<text x="462" y="382" font-size="16" fill="#0f172a" xml:space="preserve">→ P3-3 정리 작업</text>
+<line x1="424" y1="320" x2="450" y2="320" stroke="#b91c1c" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#mr)"/>
+<rect x="450" y="520" width="290" height="112" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="462" y="546" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ 전에 죽으면</text>
+<text x="462" y="569" font-size="16" fill="#0f172a" xml:space="preserve">같은 메시지가 다시 온다.</text>
+<text x="462" y="592" font-size="16" fill="#0f172a" xml:space="preserve">①의 조건부 UPDATE 가</text>
+<text x="462" y="615" font-size="16" fill="#0f172a" xml:space="preserve">0건 → ack 만 한다</text>
+<line x1="424" y1="568" x2="450" y2="568" stroke="#b91c1c" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#mr)"/>
+<text x="20" y="676" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">은행 호출을 트랜잭션 안에 넣었다면</text>
+<rect x="20" y="692" width="720" height="112" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="32" y="718" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">버린 방식: ①~③을 트랜잭션 하나로</text>
+<text x="32" y="741" font-size="16" fill="#0f172a" xml:space="preserve">은행 응답을 기다리는 최대 3초 동안 DB 커넥션과 행 잠금을 쥔다.</text>
+<text x="32" y="764" font-size="16" fill="#0f172a" xml:space="preserve">컨슈머 3개가 모두 기다리면 커넥션 3개가 3초씩 묶인다. 은행이</text>
+<text x="32" y="787" font-size="16" fill="#0f172a" xml:space="preserve">느린 날에는 그만큼 다른 DB 작업이 커넥션을 못 얻는다</text>
+<text x="20" y="846" font-size="16" fill="#64748b" xml:space="preserve">근거: TransferProcessor.process (P3-2), ADR-0005 결정 7.</text>
+<text x="20" y="870" font-size="16" fill="#64748b" xml:space="preserve">SENDING 에 남은 건은 P3-3 정리 작업이 30초 뒤 UNKNOWN 으로 바꾼다</text>
+</svg>

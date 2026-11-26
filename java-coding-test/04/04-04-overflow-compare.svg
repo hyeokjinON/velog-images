@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 666" width="760" height="666" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 4-4. a - b 비교가 넘쳐서 MIN_VALUE 가 맨 뒤로 가는 과정과 Integer.compare 의 결과</title>
+  <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker></defs>
+  <rect width="760" height="666" fill="#ffffff"/>
+  <text x="24" y="40" font-size="22" fill="#0f172a" font-weight="700">a - b 비교가 넘쳐서 MIN_VALUE 가 맨 뒤로</text>
+  <text x="24" y="70" font-size="22" fill="#0f172a" font-weight="700">가는 과정과 Integer.compare 의 결과</text>
+  <text x="24" y="104" font-size="16" fill="#475569">입력 [MIN, 1, 0], MIN = Integer.MIN_VALUE = -2147483648</text>
+  <rect x="24" y="130" width="712" height="266" rx="10" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+  <text x="44" y="162" font-size="18" fill="#b91c1c" font-weight="700">(a, b) -&gt; a - b  — 비교 2번</text>
+  <text x="44" y="194" font-size="16" fill="#334155">compare(1, MIN) = 1 - (-2147483648)</text>
+  <text x="44" y="222" font-size="16" fill="#334155">참값 2,147,483,649 &gt; int 최댓값 2,147,483,647</text>
+  <text x="44" y="250" font-size="16" fill="#334155">→ 넘쳐서 -2,147,483,647 (음수) → "1 이 MIN 보다 앞"</text>
+  <text x="44" y="278" font-size="16" fill="#334155">compare(0, 1) = -1 → "0 이 1 보다 앞"</text>
+  <text x="44" y="306" font-size="16" fill="#334155">→ [MIN, 1, 0] 전체를 내림차순 run 으로 보고 뒤집기만 함</text>
+  <text x="44" y="356" font-size="16" fill="#b91c1c" font-weight="700">결과</text>
+  <rect x="100" y="334" width="80" height="36" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="140.0" y="358.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">0</text>
+  <rect x="180" y="334" width="80" height="36" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="220.0" y="358.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">1</text>
+  <rect x="260" y="334" width="80" height="36" rx="0" fill="#fef2f2" stroke="#b91c1c" stroke-width="2.2"/>
+  <text x="300.0" y="358.0" font-size="16" fill="#b91c1c" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">MIN</text>
+  <text x="360" y="358" font-size="16" fill="#b91c1c" font-weight="700">MIN 이 맨 뒤 (틀림, 예외 없음)</text>
+  <rect x="24" y="416" width="712" height="230" rx="10" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+  <text x="44" y="448" font-size="18" fill="#047857" font-weight="700">Integer::compare  — 비교 4번</text>
+  <text x="44" y="480" font-size="16" fill="#334155">compare(1, MIN) = 1 → [MIN, 1] 이 오름차순 run</text>
+  <text x="44" y="508" font-size="16" fill="#334155">compare(0, 1) = -1 → run 은 길이 2 에서 끝</text>
+  <text x="44" y="536" font-size="16" fill="#334155">compare(0, 1) = -1, compare(0, MIN) = 1</text>
+  <text x="44" y="564" font-size="16" fill="#334155">→ 0 을 MIN 과 1 사이에 끼워 넣음 (뺄셈이 없어 안 넘친다)</text>
+  <text x="44" y="614" font-size="16" fill="#047857" font-weight="700">결과</text>
+  <rect x="100" y="592" width="80" height="36" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2.2"/>
+  <text x="140.0" y="616.0" font-size="16" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">MIN</text>
+  <rect x="180" y="592" width="80" height="36" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2.2"/>
+  <text x="220.0" y="616.0" font-size="16" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">0</text>
+  <rect x="260" y="592" width="80" height="36" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2.2"/>
+  <text x="300.0" y="616.0" font-size="16" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">1</text>
+  <text x="360" y="616" font-size="16" fill="#047857" font-weight="700">정상</text>
+</svg>

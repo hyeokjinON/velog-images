@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 666" width="760" height="666" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 5-1. 같은 push 1, 2, 3 — Stack 과 ArrayDeque 의 내부 배열 자리와 출력 순서</title>
+  <rect width="760" height="666" fill="#ffffff"/>
+  <text x="24" y="40" font-size="21" fill="#0f172a" font-weight="700">같은 push 1, 2, 3 — 내부 배열의 자리와</text>
+  <text x="24" y="70" font-size="21" fill="#0f172a" font-weight="700">println 순서가 다르다</text>
+  <text x="24" y="102" font-size="16" fill="#475569">JDK 21 에서 리플렉션으로 내부 배열을 읽은 값이다</text>
+  <text x="24" y="148" font-size="17" fill="#1e3a8a" font-weight="700">① Stack (Vector 를 상속) — 배열 0번 칸부터 채운다</text>
+  <text x="94" y="184" font-size="15" fill="#475569" text-anchor="middle">0</text>
+  <rect x="60" y="192" width="68" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="94.0" y="218.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">1</text>
+  <text x="170" y="184" font-size="15" fill="#475569" text-anchor="middle">1</text>
+  <rect x="136" y="192" width="68" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="170.0" y="218.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">2</text>
+  <text x="246" y="184" font-size="15" fill="#475569" text-anchor="middle">2</text>
+  <rect x="212" y="192" width="68" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="246.0" y="218.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">3</text>
+  <text x="322" y="184" font-size="15" fill="#475569" text-anchor="middle">3</text>
+  <rect x="288" y="192" width="68" height="40" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="398" y="184" font-size="15" fill="#475569" text-anchor="middle">4</text>
+  <rect x="364" y="192" width="68" height="40" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="470" y="218" font-size="16" fill="#475569">… (뒤는 빈 칸)</text>
+  <text x="94" y="256" font-size="16" fill="#475569" text-anchor="middle">바닥</text>
+  <text x="246" y="256" font-size="16" fill="#1e3a8a" font-weight="700" text-anchor="middle">꼭대기</text>
+  <text x="36" y="290" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">println(st) → [1, 2, 3]  (0번 칸 = 바닥부터)</text>
+  <line x1="24" y1="310" x2="736" y2="310" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="24" y="336" font-size="17" fill="#1e3a8a" font-weight="700">② ArrayDeque — push 는 head 를 한 칸 왼쪽으로 옮겨 넣는다</text>
+  <text x="200" y="372" font-size="15" fill="#475569" text-anchor="middle">0 ~ 13</text>
+  <rect x="60" y="380" width="280" height="40" rx="0" fill="#ffffff" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="200.0" y="406.0" font-size="16" fill="#94a3b8" text-anchor="middle">14칸 모두 null</text>
+  <text x="390" y="372" font-size="15" fill="#475569" text-anchor="middle">14</text>
+  <rect x="356" y="380" width="68" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="390.0" y="406.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">3</text>
+  <text x="466" y="372" font-size="15" fill="#475569" text-anchor="middle">15</text>
+  <rect x="432" y="380" width="68" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="466.0" y="406.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">2</text>
+  <text x="542" y="372" font-size="15" fill="#475569" text-anchor="middle">16</text>
+  <rect x="508" y="380" width="68" height="40" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="542.0" y="406.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">1</text>
+  <text x="390" y="444" font-size="16" fill="#1e3a8a" font-weight="700" text-anchor="middle">head = 14</text>
+  <text x="390" y="466" font-size="16" fill="#1e3a8a" text-anchor="middle">(꼭대기)</text>
+  <text x="90" y="444" font-size="16" fill="#475569">tail = 0</text>
+  <text x="36" y="502" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">println(dq) → [3, 2, 1]  (head 부터 = pop 순서)</text>
+  <text x="36" y="528" font-size="16" fill="#475569">배열 길이 17 = 기본 16 + 비워 두는 1칸</text>
+  <rect x="24" y="550" width="712" height="100" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1"/>
+  <text x="44" y="580" font-size="17" fill="#047857" font-weight="700">두 객체 모두 peek() 은 3, pop 순서도 3, 2, 1 이다.</text>
+  <text x="44" y="606" font-size="16" fill="#334155">다른 것은 출력 순서뿐이다. Stack 은 바닥부터 보여 주고,</text>
+  <text x="44" y="632" font-size="16" fill="#334155">ArrayDeque 는 꺼낼 순서대로 보여 준다.</text>
+</svg>

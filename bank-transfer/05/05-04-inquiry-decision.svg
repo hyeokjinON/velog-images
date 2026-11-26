@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 880" width="760" height="880" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>결과조회 응답 판정: 확실한 답 두 개만 확정하고, 나머지는 전부 모름으로 둔다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="880" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">결과조회 응답 판정: 확실한 답 두 개만 확정하고,</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">나머지는 전부 모름으로 둔다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">BankInquiryAdapter 가 위에서 아래로 묻는다. 아래로 = 다음 질문,</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">오른쪽 = 거기서 판정 끝. 초록 = 성공 확정, 빨강 = 실패 확정, 주황 = 모름</text>
+<rect x="20" y="146" width="720" height="64" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="172" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">INQ 응답 도착</text>
+<text x="32" y="195" font-size="16" fill="#0f172a" xml:space="preserve">예: 공통부 응답코드 0000, 거래번호 T261021ABCDEFGHIJKLM, 처리결과 0000</text>
+<line x1="220" y1="210" x2="220" y2="246" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="246" width="400" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="272" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① 공통부 응답코드가 0000 인가?</text>
+<text x="32" y="295" font-size="16" fill="#0f172a" xml:space="preserve">조회 전문 자체가 처리됐는지</text>
+<line x1="420" y1="278" x2="500" y2="278" stroke="#c2410c" stroke-width="2.2" marker-end="url(#mo)"/>
+<text x="460" y="270" font-size="16" fill="#c2410c" font-weight="700" text-anchor="middle" xml:space="preserve">아니오</text>
+<rect x="500" y="246" width="240" height="64" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="512" y="272" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">모름</text>
+<text x="512" y="295" font-size="16" fill="#0f172a" xml:space="preserve">조회 자체가 거절됐다</text>
+<line x1="220" y1="310" x2="220" y2="346" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<text x="230" y="334" font-size="16" fill="#334155" font-weight="700" xml:space="preserve">예</text>
+<rect x="20" y="346" width="400" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="372" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② 응답의 거래번호 = 물은 번호?</text>
+<text x="32" y="395" font-size="16" fill="#0f172a" xml:space="preserve">다른 거래의 답을 막는다</text>
+<line x1="420" y1="378" x2="500" y2="378" stroke="#c2410c" stroke-width="2.2" marker-end="url(#mo)"/>
+<text x="460" y="370" font-size="16" fill="#c2410c" font-weight="700" text-anchor="middle" xml:space="preserve">아니오</text>
+<rect x="500" y="346" width="240" height="64" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="512" y="372" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">모름</text>
+<text x="512" y="395" font-size="16" fill="#0f172a" xml:space="preserve">남의 2001 일 수 있다</text>
+<line x1="220" y1="410" x2="220" y2="446" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<text x="230" y="434" font-size="16" fill="#334155" font-weight="700" xml:space="preserve">예</text>
+<rect x="20" y="446" width="400" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="472" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ 처리결과가 0000 인가?</text>
+<text x="32" y="495" font-size="16" fill="#0f172a" xml:space="preserve">원래 이체가 처리됐는지</text>
+<line x1="420" y1="478" x2="500" y2="478" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<text x="460" y="470" font-size="16" fill="#047857" font-weight="700" text-anchor="middle" xml:space="preserve">예</text>
+<rect x="500" y="446" width="240" height="64" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="512" y="472" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">Processed</text>
+<text x="512" y="495" font-size="16" fill="#0f172a" xml:space="preserve">→ COMPLETED</text>
+<line x1="220" y1="510" x2="220" y2="546" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<text x="230" y="534" font-size="16" fill="#334155" font-weight="700" xml:space="preserve">아니오</text>
+<rect x="20" y="546" width="400" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="572" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ 처리결과가 2001 인가?</text>
+<text x="32" y="595" font-size="16" fill="#0f172a" xml:space="preserve">은행에 원거래가 없는지</text>
+<line x1="420" y1="578" x2="500" y2="578" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<text x="460" y="570" font-size="16" fill="#b91c1c" font-weight="700" text-anchor="middle" xml:space="preserve">예</text>
+<rect x="500" y="546" width="240" height="64" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="512" y="572" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">NotProcessed(2001)</text>
+<text x="512" y="595" font-size="16" fill="#0f172a" xml:space="preserve">→ FAILED</text>
+<line x1="220" y1="610" x2="220" y2="646" stroke="#c2410c" stroke-width="2.2" marker-end="url(#mo)"/>
+<text x="230" y="634" font-size="16" fill="#334155" font-weight="700" xml:space="preserve">아니오</text>
+<rect x="20" y="646" width="720" height="64" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="32" y="672" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">모름 (Unknown): 모르는 처리결과 코드</text>
+<text x="32" y="695" font-size="16" fill="#0f172a" xml:space="preserve">다음 주기에 다시 묻는다. 정리 작업은 시도 횟수를 1 늘린다</text>
+<rect x="20" y="730" width="720" height="88" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="32" y="756" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">판정 전에 끝나는 경우도 모두 모름이다</text>
+<text x="32" y="779" font-size="16" fill="#0f172a" xml:space="preserve">시간 초과(3초), 연결 없음, 그 밖의 예외. 어댑터는 예외를 던지지 않고</text>
+<text x="32" y="802" font-size="16" fill="#0f172a" xml:space="preserve">Unknown 을 돌려준다 → 정리 작업이 멈추지 않는다</text>
+<text x="20" y="850" font-size="16" fill="#64748b" xml:space="preserve">근거: bank-transfer PR #7 (P3-3a) — BankInquiryAdapter, ADR-0006 결정 4</text>
+</svg>

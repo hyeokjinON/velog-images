@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 870" width="760" height="870" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>전문 규격 v0.2: 이체에 거래번호 20바이트를 붙이고, 결과조회 INQ 를 새로 만들었다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="870" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">전문 규격 v0.2: 이체에 거래번호 20바이트를 붙이고,</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">결과조회 INQ 를 새로 만들었다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">칸 안의 숫자 = 바이트 수 (칸 너비는 바이트에 비례하지 않는다).</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">초록 칸 = v0.2 에서 더한 칸</text>
+<text x="20" y="160" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">공통부 33바이트 — 모든 전문 맨 앞 (그 앞에 길이 4바이트)</text>
+<rect x="20" y="174" width="140" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="90.0" y="201" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">전문구분</text>
+<text x="90.0" y="224" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">4</text>
+<rect x="160" y="174" width="130" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="225.0" y="201" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">업무구분</text>
+<text x="225.0" y="224" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">3</text>
+<rect x="290" y="174" width="150" height="64" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="365.0" y="201" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">전문번호</text>
+<text x="365.0" y="224" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">8</text>
+<rect x="440" y="174" width="160" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="520.0" y="201" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">전문일시</text>
+<text x="520.0" y="224" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">14</text>
+<rect x="600" y="174" width="140" height="64" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="670.0" y="201" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">응답코드</text>
+<text x="670.0" y="224" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">4</text>
+<text x="160" y="264" font-size="16" fill="#c2410c" xml:space="preserve">전문번호: 요청과 응답을 짝짓는 번호다.</text>
+<text x="160" y="287" font-size="16" fill="#c2410c" xml:space="preserve">돌고 돌아서 며칠 전 이체를 가리킬 수 없다</text>
+<text x="160" y="314" font-size="16" fill="#1d4ed8" xml:space="preserve">응답코드: 이 전문 자체가 성공했는가</text>
+<text x="20" y="350" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">이체 TRF 개별부 — v0.1 52바이트 → v0.2 72바이트</text>
+<rect x="20" y="364" width="130" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="85.0" y="391" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">은행코드</text>
+<text x="85.0" y="414" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">3</text>
+<rect x="150" y="364" width="150" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="225.0" y="391" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">계좌번호</text>
+<text x="225.0" y="414" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">16</text>
+<rect x="300" y="364" width="130" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="365.0" y="391" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">금액</text>
+<text x="365.0" y="414" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">13</text>
+<rect x="430" y="364" width="130" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="495.0" y="391" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">적요</text>
+<text x="495.0" y="414" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">20</text>
+<rect x="560" y="364" width="180" height="64" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="650.0" y="391" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">이용기관 거래번호</text>
+<text x="650.0" y="414" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">20</text>
+<text x="20" y="454" font-size="16" fill="#0f172a" xml:space="preserve">v0.1 은 앞의 네 칸(3 + 16 + 13 + 20 = 52)까지였다.</text>
+<text x="20" y="477" font-size="16" fill="#0f172a" xml:space="preserve">출금은 접수 때 만든 T… 번호, 1원인증은 어댑터가 만든 V… 번호</text>
+<text x="20" y="520" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">결과조회 INQ 요청 개별부 — 20바이트 (새 업무)</text>
+<rect x="20" y="534" width="400" height="64" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="220.0" y="561" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">이용기관 거래번호</text>
+<text x="220.0" y="584" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">20</text>
+<text x="440" y="564" font-size="16" fill="#0f172a" xml:space="preserve">"이 거래번호의 이체,</text>
+<text x="440" y="587" font-size="16" fill="#0f172a" xml:space="preserve">처리했나요?"</text>
+<text x="20" y="640" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">결과조회 INQ 응답 개별부 — 24바이트</text>
+<rect x="20" y="654" width="400" height="64" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="220.0" y="681" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">이용기관 거래번호</text>
+<text x="220.0" y="704" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">20</text>
+<rect x="420" y="654" width="180" height="64" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="510.0" y="681" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">처리결과</text>
+<text x="510.0" y="704" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">4</text>
+<text x="20" y="744" font-size="16" fill="#047857" xml:space="preserve">처리결과: 원래 이체의 결과다. 0000 = 처리됨, 2001 = 원거래 없음</text>
+<text x="20" y="767" font-size="16" fill="#047857" xml:space="preserve">공통부 응답코드(조회 전문의 성공 여부)와 다른 칸이다</text>
+<text x="20" y="816" font-size="16" fill="#64748b" xml:space="preserve">근거: bank-transfer docs/protocol.md §3 · §4 (v0.2, 2026-10-21),</text>
+<text x="20" y="840" font-size="16" fill="#64748b" xml:space="preserve">BankMessageSerializer</text>
+</svg>

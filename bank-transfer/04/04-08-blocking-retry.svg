@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 860" width="760" height="860" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>은행 연결이 없을 때의 임시 재시도: 1초부터 두 배씩 5번 다시 시도한 뒤 오프셋을 커밋하고 넘어간다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="860" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">은행 연결이 없을 때의 임시 재시도: 1초부터 두 배씩</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">5번 다시 시도한 뒤 오프셋을 커밋하고 넘어간다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">왼쪽 = 경과 시간 (시도 자체에 걸리는 시간은 뺐다), 가운데 = 시도,</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">파랑 = 같은 메시지를 다시 처리, 빨강 = 포기</text>
+<text x="70" y="170" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="end" xml:space="preserve">0초</text>
+<rect x="90" y="140" width="650" height="48" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="102" y="170" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">시도 1: NotSent → RECEIVED, RetryLaterException</text>
+<line x1="140" y1="188" x2="140" y2="218" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<text x="156" y="209" font-size="16" fill="#1d4ed8" xml:space="preserve">1초 기다림</text>
+<text x="70" y="248" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="end" xml:space="preserve">1초</text>
+<rect x="90" y="218" width="650" height="48" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="102" y="248" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">재시도 1: 여전히 연결 없음</text>
+<line x1="140" y1="266" x2="140" y2="296" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<text x="156" y="287" font-size="16" fill="#1d4ed8" xml:space="preserve">2초 기다림</text>
+<text x="70" y="326" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="end" xml:space="preserve">3초</text>
+<rect x="90" y="296" width="650" height="48" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="102" y="326" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">재시도 2</text>
+<line x1="140" y1="344" x2="140" y2="374" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<text x="156" y="365" font-size="16" fill="#1d4ed8" xml:space="preserve">4초 기다림</text>
+<text x="70" y="404" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="end" xml:space="preserve">7초</text>
+<rect x="90" y="374" width="650" height="48" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="102" y="404" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">재시도 3</text>
+<line x1="140" y1="422" x2="140" y2="452" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<text x="156" y="443" font-size="16" fill="#1d4ed8" xml:space="preserve">8초 기다림</text>
+<text x="70" y="482" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="end" xml:space="preserve">15초</text>
+<rect x="90" y="452" width="650" height="48" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="102" y="482" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">재시도 4</text>
+<line x1="140" y1="500" x2="140" y2="530" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<text x="156" y="521" font-size="16" fill="#1d4ed8" xml:space="preserve">10초 기다림 (상한)</text>
+<text x="70" y="560" font-size="16" fill="#0f172a" font-weight="700" font-family="Consolas, D2Coding, monospace" text-anchor="end" xml:space="preserve">25초</text>
+<rect x="90" y="530" width="650" height="48" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="102" y="560" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">재시도 5: 여전히 실패</text>
+<line x1="140" y1="578" x2="140" y2="608" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<rect x="90" y="608" width="650" height="112" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="102" y="634" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">포기: 로그를 남기고 다음 메시지로 넘어간다</text>
+<text x="102" y="657" font-size="16" fill="#0f172a" xml:space="preserve">commitRecovered = true → 넘긴 메시지의 오프셋도 커밋한다</text>
+<text x="102" y="680" font-size="16" fill="#0f172a" xml:space="preserve">(기본값이면 커밋하지 않아, 재시작 뒤 다시 올지 말지가</text>
+<text x="102" y="703" font-size="16" fill="#0f172a" xml:space="preserve">그때그때 달라진다)</text>
+<rect x="20" y="736" width="720" height="88" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="32" y="762" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">이체는 RECEIVED 로 남는다 (은행에 간 적 없음, 돈은 안 움직였다)</text>
+<text x="32" y="785" font-size="16" fill="#0f172a" xml:space="preserve">약 25초 동안 같은 파티션의 다음 메시지는 기다린다. P3-3 에서</text>
+<text x="32" y="808" font-size="16" fill="#0f172a" xml:space="preserve">재시도 토픽 + DLT 로 바꿔 뒤 메시지가 막히지 않게 한다</text>
+</svg>

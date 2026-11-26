@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 900" width="760" height="900" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>같은 신호가 두 번 왔을 때: 조건부 UPDATE 가 1건인 쪽만 은행에 보내고, 0건인 쪽은 ack 만 한다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="900" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">같은 신호가 두 번 왔을 때: UPDATE 가 1건인 쪽만</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">은행에 보내고, 0건인 쪽은 ack 만 한다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">위에서 아래로 시간이 흐른다. 같은 이체 7d0c… 의 신호가</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">offset 0 과 1 에 들어 있다 (그림 4-2 의 결과)</text>
+<rect x="15" y="140" width="220" height="60" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="125" y="165" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">컨슈머</text>
+<text x="125" y="189" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">offset 0 처리</text>
+<line x1="125" y1="200" x2="125" y2="610" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 4"/>
+<rect x="270" y="140" width="220" height="60" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="380" y="165" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">MySQL</text>
+<text x="380" y="189" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">transfer</text>
+<line x1="380" y1="200" x2="380" y2="770" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 4"/>
+<rect x="525" y="140" width="220" height="60" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="635" y="165" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">컨슈머</text>
+<text x="635" y="189" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">offset 1 (같은 신호)</text>
+<line x1="635" y1="200" x2="635" y2="770" stroke="#cbd5e1" stroke-width="2" stroke-dasharray="4 4"/>
+<line x1="129" y1="290" x2="376" y2="290" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<text x="252.5" y="258" font-size="16" fill="#047857" text-anchor="middle" xml:space="preserve">UPDATE … SET SENDING</text>
+<text x="252.5" y="281" font-size="16" fill="#047857" text-anchor="middle" xml:space="preserve">WHERE status = 'RECEIVED'</text>
+<circle cx="105" cy="290" r="13" fill="#047857"/><text x="105" y="296" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">①</text>
+<text x="252.5" y="314" font-size="16" fill="#047857" font-weight="700" text-anchor="middle" xml:space="preserve">→ 1건 바뀜</text>
+<text x="394" y="300" font-size="16" fill="#334155" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">RECEIVED → SENDING</text>
+<rect x="20" y="352" width="230" height="88" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="378" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② 은행 이체 전문</text>
+<text x="32" y="401" font-size="16" fill="#0f172a" xml:space="preserve">트랜잭션 밖, 응답 0000</text>
+<text x="32" y="424" font-size="16" fill="#0f172a" xml:space="preserve">모의 은행 입금 1건</text>
+<line x1="129" y1="490" x2="376" y2="490" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<text x="252.5" y="458" font-size="16" fill="#047857" text-anchor="middle" xml:space="preserve">UPDATE SENDING</text>
+<text x="252.5" y="481" font-size="16" fill="#047857" text-anchor="middle" xml:space="preserve">→ COMPLETED, 0000</text>
+<circle cx="105" cy="490" r="13" fill="#047857"/><text x="105" y="496" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">③</text>
+<text x="394" y="500" font-size="16" fill="#334155" font-weight="700" font-family="Consolas, D2Coding, monospace" xml:space="preserve">SENDING → COMPLETED</text>
+<text x="125" y="560" font-size="16" fill="#047857" font-weight="700" text-anchor="middle" xml:space="preserve">④ ack → 오프셋 커밋</text>
+<line x1="631" y1="640" x2="384" y2="640" stroke="#c2410c" stroke-width="2.2" marker-end="url(#mo)"/>
+<text x="507.5" y="608" font-size="16" fill="#c2410c" text-anchor="middle" xml:space="preserve">UPDATE … SET SENDING</text>
+<text x="507.5" y="631" font-size="16" fill="#c2410c" text-anchor="middle" xml:space="preserve">WHERE status = 'RECEIVED'</text>
+<circle cx="655" cy="640" r="13" fill="#c2410c"/><text x="655" y="646" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">⑤</text>
+<text x="507.5" y="664" font-size="16" fill="#c2410c" font-weight="700" text-anchor="middle" xml:space="preserve">→ 0건 (지금은 COMPLETED)</text>
+<rect x="470" y="690" width="270" height="64" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="482" y="716" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑥ ALREADY_HANDLED</text>
+<text x="482" y="739" font-size="16" fill="#0f172a" xml:space="preserve">은행 안 부름, ack 만</text>
+<rect x="20" y="790" width="720" height="88" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="816" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">결과: 은행 입금 1건, transfer = COMPLETED</text>
+<text x="32" y="839" font-size="16" fill="#0f172a" xml:space="preserve">두 컨슈머가 ①과 ⑤를 같은 순간에 보내도 MySQL 이 같은 행의</text>
+<text x="32" y="862" font-size="16" fill="#0f172a" xml:space="preserve">UPDATE 를 한 번에 하나씩 실행하므로 1건은 한쪽만 얻는다</text>
+</svg>

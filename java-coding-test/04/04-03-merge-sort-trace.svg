@@ -1,0 +1,133 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 892" width="760" height="892" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 4-3. 병합 정렬 [5, 2, 4, 1, 3] — 반으로 나누고 네 번 병합해 [1, 2, 3, 4, 5] 가 되기까지</title>
+  <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker></defs>
+  <rect width="760" height="892" fill="#ffffff"/>
+  <text x="24" y="40" font-size="22" fill="#0f172a" font-weight="700">병합 정렬 [5, 2, 4, 1, 3] — 반으로 나누고</text>
+  <text x="24" y="70" font-size="22" fill="#0f172a" font-weight="700">네 번 병합해 [1, 2, 3, 4, 5] 가 되기까지</text>
+  <text x="24" y="104" font-size="16" fill="#475569">파랑 = 나누기 (mid = (lo + hi) &gt;&gt;&gt; 1), 초록 = 병합 결과</text>
+  <text x="24" y="144" font-size="18" fill="#1d4ed8" font-weight="700">나누기</text>
+  <rect x="250" y="164" width="44" height="36" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="272.0" y="188.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">5</text>
+  <rect x="294" y="164" width="44" height="36" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="316.0" y="188.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">2</text>
+  <rect x="338" y="164" width="44" height="36" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="360.0" y="188.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">4</text>
+  <rect x="382" y="164" width="44" height="36" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="404.0" y="188.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">1</text>
+  <rect x="426" y="164" width="44" height="36" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="448.0" y="188.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">3</text>
+  <text x="480" y="188" font-size="16" fill="#475569" font-family="Consolas, D2Coding, monospace">[0,5)</text>
+  <rect x="80" y="234" width="44" height="36" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="102.0" y="258.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">5</text>
+  <rect x="124" y="234" width="44" height="36" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="146.0" y="258.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">2</text>
+  <text x="178" y="258" font-size="16" fill="#475569" font-family="Consolas, D2Coding, monospace">[0,2)</text>
+  <rect x="420" y="234" width="44" height="36" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="442.0" y="258.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">4</text>
+  <rect x="464" y="234" width="44" height="36" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="486.0" y="258.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">1</text>
+  <rect x="508" y="234" width="44" height="36" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="530.0" y="258.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">3</text>
+  <text x="562" y="258" font-size="16" fill="#475569" font-family="Consolas, D2Coding, monospace">[2,5)</text>
+  <line x1="320" y1="200" x2="150" y2="232" stroke="#1d4ed8" stroke-width="1.6" marker-end="url(#ar)"/>
+  <line x1="400" y1="200" x2="470" y2="232" stroke="#1d4ed8" stroke-width="1.6" marker-end="url(#ar)"/>
+  <rect x="30" y="304" width="44" height="36" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="52.0" y="328.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">5</text>
+  <text x="84" y="328" font-size="16" fill="#475569" font-family="Consolas, D2Coding, monospace">[0,1)</text>
+  <rect x="150" y="304" width="44" height="36" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="172.0" y="328.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">2</text>
+  <text x="204" y="328" font-size="16" fill="#475569" font-family="Consolas, D2Coding, monospace">[1,2)</text>
+  <rect x="380" y="304" width="44" height="36" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="402.0" y="328.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">4</text>
+  <text x="434" y="328" font-size="16" fill="#475569" font-family="Consolas, D2Coding, monospace">[2,3)</text>
+  <rect x="520" y="304" width="44" height="36" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="542.0" y="328.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">1</text>
+  <rect x="564" y="304" width="44" height="36" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="586.0" y="328.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">3</text>
+  <text x="618" y="328" font-size="16" fill="#475569" font-family="Consolas, D2Coding, monospace">[3,5)</text>
+  <line x1="110" y1="270" x2="60" y2="302" stroke="#1d4ed8" stroke-width="1.6" marker-end="url(#ar)"/>
+  <line x1="140" y1="270" x2="170" y2="302" stroke="#1d4ed8" stroke-width="1.6" marker-end="url(#ar)"/>
+  <line x1="450" y1="270" x2="405" y2="302" stroke="#1d4ed8" stroke-width="1.6" marker-end="url(#ar)"/>
+  <line x1="500" y1="270" x2="560" y2="302" stroke="#1d4ed8" stroke-width="1.6" marker-end="url(#ar)"/>
+  <rect x="470" y="374" width="44" height="36" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="492.0" y="398.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">1</text>
+  <text x="524" y="398" font-size="16" fill="#475569" font-family="Consolas, D2Coding, monospace">[3,4)</text>
+  <rect x="600" y="374" width="44" height="36" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="622.0" y="398.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">3</text>
+  <text x="654" y="398" font-size="16" fill="#475569" font-family="Consolas, D2Coding, monospace">[4,5)</text>
+  <line x1="540" y1="340" x2="495" y2="372" stroke="#1d4ed8" stroke-width="1.6" marker-end="url(#ar)"/>
+  <line x1="560" y1="340" x2="620" y2="372" stroke="#1d4ed8" stroke-width="1.6" marker-end="url(#ar)"/>
+  <line x1="24" y1="426" x2="736" y2="426" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="24" y="454" font-size="18" fill="#047857" font-weight="700">병합 (번호 = 데이터 흐름 표의 순서)</text>
+  <circle cx="38" cy="492" r="13" fill="#047857"/>
+  <text x="38" y="498" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle">3</text>
+  <rect x="64" y="474" width="40" height="36" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="84.0" y="498.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">5</text>
+  <text x="120" y="498" font-size="18" fill="#334155" font-weight="700">+</text>
+  <rect x="140" y="474" width="40" height="36" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="160.0" y="498.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">2</text>
+  <line x1="190" y1="492" x2="224" y2="492" stroke="#334155" stroke-width="2" marker-end="url(#ar)"/>
+  <rect x="234" y="474" width="40" height="36" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2.2"/>
+  <text x="254.0" y="498.0" font-size="16" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">2</text>
+  <rect x="274" y="474" width="40" height="36" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2.2"/>
+  <text x="294.0" y="498.0" font-size="16" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">5</text>
+  <text x="64" y="534" font-size="16" fill="#334155">2 를 먼저 꺼내고, 남은 5 를 붙인다</text>
+  <circle cx="38" cy="576" r="13" fill="#047857"/>
+  <text x="38" y="582" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle">4</text>
+  <rect x="64" y="558" width="40" height="36" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="84.0" y="582.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">1</text>
+  <text x="120" y="582" font-size="18" fill="#334155" font-weight="700">+</text>
+  <rect x="140" y="558" width="40" height="36" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="160.0" y="582.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">3</text>
+  <line x1="190" y1="576" x2="224" y2="576" stroke="#334155" stroke-width="2" marker-end="url(#ar)"/>
+  <rect x="234" y="558" width="40" height="36" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2.2"/>
+  <text x="254.0" y="582.0" font-size="16" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">1</text>
+  <rect x="274" y="558" width="40" height="36" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2.2"/>
+  <text x="294.0" y="582.0" font-size="16" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">3</text>
+  <text x="64" y="618" font-size="16" fill="#334155">1 을 꺼내고 남은 3 을 붙인다 (자리 그대로)</text>
+  <circle cx="38" cy="660" r="13" fill="#047857"/>
+  <text x="38" y="666" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle">5</text>
+  <rect x="64" y="642" width="40" height="36" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="84.0" y="666.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">4</text>
+  <text x="120" y="666" font-size="18" fill="#334155" font-weight="700">+</text>
+  <rect x="140" y="642" width="40" height="36" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="160.0" y="666.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">1</text>
+  <rect x="180" y="642" width="40" height="36" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="200.0" y="666.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">3</text>
+  <line x1="230" y1="660" x2="264" y2="660" stroke="#334155" stroke-width="2" marker-end="url(#ar)"/>
+  <rect x="274" y="642" width="40" height="36" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2.2"/>
+  <text x="294.0" y="666.0" font-size="16" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">1</text>
+  <rect x="314" y="642" width="40" height="36" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2.2"/>
+  <text x="334.0" y="666.0" font-size="16" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">3</text>
+  <rect x="354" y="642" width="40" height="36" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2.2"/>
+  <text x="374.0" y="666.0" font-size="16" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">4</text>
+  <text x="64" y="702" font-size="16" fill="#334155">오른쪽의 1, 3 을 꺼내고 남은 4 를 붙인다</text>
+  <circle cx="38" cy="744" r="13" fill="#047857"/>
+  <text x="38" y="750" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle">6</text>
+  <rect x="64" y="726" width="40" height="36" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="84.0" y="750.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">2</text>
+  <rect x="104" y="726" width="40" height="36" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="124.0" y="750.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">5</text>
+  <text x="160" y="750" font-size="18" fill="#334155" font-weight="700">+</text>
+  <rect x="180" y="726" width="40" height="36" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="200.0" y="750.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">1</text>
+  <rect x="220" y="726" width="40" height="36" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="240.0" y="750.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">3</text>
+  <rect x="260" y="726" width="40" height="36" rx="0" fill="#f8fafc" stroke="#94a3b8" stroke-width="1.2"/>
+  <text x="280.0" y="750.0" font-size="16" fill="#334155" text-anchor="middle" font-family="Consolas, D2Coding, monospace">4</text>
+  <line x1="310" y1="744" x2="344" y2="744" stroke="#334155" stroke-width="2" marker-end="url(#ar)"/>
+  <rect x="354" y="726" width="40" height="36" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2.2"/>
+  <text x="374.0" y="750.0" font-size="16" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">1</text>
+  <rect x="394" y="726" width="40" height="36" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2.2"/>
+  <text x="414.0" y="750.0" font-size="16" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">2</text>
+  <rect x="434" y="726" width="40" height="36" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2.2"/>
+  <text x="454.0" y="750.0" font-size="16" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">3</text>
+  <rect x="474" y="726" width="40" height="36" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2.2"/>
+  <text x="494.0" y="750.0" font-size="16" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">4</text>
+  <rect x="514" y="726" width="40" height="36" rx="0" fill="#ecfdf5" stroke="#047857" stroke-width="2.2"/>
+  <text x="534.0" y="750.0" font-size="16" fill="#047857" font-weight="700" text-anchor="middle" font-family="Consolas, D2Coding, monospace">5</text>
+  <text x="64" y="786" font-size="16" fill="#334155">1, 2, 3, 4 를 번갈아 꺼내고 남은 5 를 붙인다</text>
+  <rect x="24" y="810" width="712" height="62" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.4"/>
+  <text x="44" y="836" font-size="17" fill="#047857" font-weight="700">병합 4번으로 a = [1, 2, 3, 4, 5]</text>
+  <text x="44" y="860" font-size="16" fill="#334155">a[i] &lt;= a[j] 라서 같은 값이면 왼쪽 것이 먼저 나간다 (안정).</text>
+</svg>

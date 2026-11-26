@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 788" width="760" height="788" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+  <title>그림 4-1. Arrays.sort 가 배열 타입에 따라 고르는 정렬 알고리즘 (JDK 21 소스 기준)</title>
+  <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker></defs>
+  <rect width="760" height="788" fill="#ffffff"/>
+  <text x="24" y="40" font-size="22" fill="#0f172a" font-weight="700">Arrays.sort 가 배열 타입에 따라 고르는</text>
+  <text x="24" y="70" font-size="22" fill="#0f172a" font-weight="700">정렬 알고리즘 (JDK 21 소스 기준)</text>
+  <text x="24" y="104" font-size="16" fill="#475569">파랑 = 기본형 배열의 경로, 초록 = 객체 배열과 List 의 경로</text>
+  <rect x="200" y="130" width="360" height="48" rx="10" fill="#f1f5f9" stroke="#475569" stroke-width="1.6"/>
+  <text x="380" y="161" font-size="18" fill="#0f172a" font-weight="700" text-anchor="middle">Arrays.sort(배열) 호출</text>
+  <line x1="300" y1="178" x2="200" y2="216" stroke="#334155" stroke-width="2" marker-end="url(#ar)"/>
+  <line x1="460" y1="178" x2="560" y2="216" stroke="#334155" stroke-width="2" marker-end="url(#ar)"/>
+  <rect x="24" y="220" width="344" height="92" rx="10" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.8"/>
+  <text x="42" y="250" font-size="18" fill="#1d4ed8" font-weight="700">기본형 배열</text>
+  <text x="42" y="276" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">int[], long[], double[] …</text>
+  <text x="42" y="300" font-size="16" fill="#1d4ed8" font-weight="700" font-family="Consolas, D2Coding, monospace">→ DualPivotQuicksort</text>
+  <rect x="392" y="220" width="344" height="92" rx="10" fill="#ecfdf5" stroke="#047857" stroke-width="1.8"/>
+  <text x="410" y="250" font-size="18" fill="#047857" font-weight="700">객체 배열, List</text>
+  <text x="410" y="276" font-size="16" fill="#334155" font-family="Consolas, D2Coding, monospace">Integer[], T[] + cmp, list</text>
+  <text x="410" y="300" font-size="16" fill="#047857" font-weight="700" font-family="Consolas, D2Coding, monospace">→ TimSort</text>
+  <rect x="24" y="330" width="344" height="66" rx="8" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.3"/>
+  <circle cx="48" cy="352" r="13" fill="#1d4ed8"/>
+  <text x="48" y="358" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle">1</text>
+  <text x="70" y="358" font-size="16" fill="#334155" font-weight="700">구간 44개 미만 (맨 왼쪽)</text>
+  <text x="70" y="383" font-size="16" fill="#334155">→ 삽입 정렬</text>
+  <rect x="24" y="408" width="344" height="66" rx="8" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.3"/>
+  <circle cx="48" cy="430" r="13" fill="#1d4ed8"/>
+  <text x="48" y="436" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle">2</text>
+  <text x="70" y="436" font-size="16" fill="#334155" font-weight="700">run 이 적다 (전체, 4,096 초과)</text>
+  <text x="70" y="461" font-size="16" fill="#334155">→ run 병합 (tryMergeRuns)</text>
+  <rect x="24" y="486" width="344" height="66" rx="8" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.3"/>
+  <circle cx="48" cy="508" r="13" fill="#1d4ed8"/>
+  <text x="48" y="514" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle">3</text>
+  <text x="70" y="514" font-size="16" fill="#334155" font-weight="700">재귀 깊이 64 단계 초과</text>
+  <text x="70" y="539" font-size="16" fill="#334155">→ 힙 정렬 (최악 방지)</text>
+  <rect x="24" y="564" width="344" height="66" rx="8" fill="#ffffff" stroke="#1d4ed8" stroke-width="1.3"/>
+  <circle cx="48" cy="586" r="13" fill="#1d4ed8"/>
+  <text x="48" y="592" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle">4</text>
+  <text x="70" y="592" font-size="16" fill="#334155" font-weight="700">그 밖</text>
+  <text x="70" y="617" font-size="16" fill="#334155">→ 피벗 2개로 세 구간 나눔</text>
+  <rect x="392" y="330" width="344" height="66" rx="8" fill="#ffffff" stroke="#047857" stroke-width="1.3"/>
+  <circle cx="416" cy="352" r="13" fill="#047857"/>
+  <text x="416" y="358" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle">1</text>
+  <text x="438" y="358" font-size="16" fill="#334155" font-weight="700">원소 32개 미만</text>
+  <text x="438" y="383" font-size="16" fill="#334155">→ 이진 삽입 정렬</text>
+  <rect x="392" y="408" width="344" height="66" rx="8" fill="#ffffff" stroke="#047857" stroke-width="1.3"/>
+  <circle cx="416" cy="430" r="13" fill="#047857"/>
+  <text x="416" y="436" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle">2</text>
+  <text x="438" y="436" font-size="16" fill="#334155" font-weight="700">앞에서부터 run 찾기</text>
+  <text x="438" y="461" font-size="16" fill="#334155">→ 내림차순 run 은 뒤집기</text>
+  <rect x="392" y="486" width="344" height="66" rx="8" fill="#ffffff" stroke="#047857" stroke-width="1.3"/>
+  <circle cx="416" cy="508" r="13" fill="#047857"/>
+  <text x="416" y="514" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle">3</text>
+  <text x="438" y="514" font-size="16" fill="#334155" font-weight="700">짧은 run</text>
+  <text x="438" y="539" font-size="16" fill="#334155">→ 삽입 정렬로 늘리기</text>
+  <rect x="392" y="564" width="344" height="66" rx="8" fill="#ffffff" stroke="#047857" stroke-width="1.3"/>
+  <circle cx="416" cy="586" r="13" fill="#047857"/>
+  <text x="416" y="592" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle">4</text>
+  <text x="438" y="592" font-size="16" fill="#334155" font-weight="700">run 끼리 병합</text>
+  <text x="438" y="617" font-size="16" fill="#334155">→ 7번 연속 이기면 galloping</text>
+  <rect x="24" y="648" width="344" height="62" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.4"/>
+  <text x="42" y="674" font-size="16" fill="#1d4ed8" font-weight="700">안정 정렬 아님</text>
+  <text x="42" y="698" font-size="16" fill="#334155">추가 메모리 거의 없음</text>
+  <rect x="392" y="648" width="344" height="62" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.4"/>
+  <text x="410" y="674" font-size="16" fill="#047857" font-weight="700">안정 정렬</text>
+  <text x="410" y="698" font-size="16" fill="#334155">추가 메모리 최대 n/2</text>
+  <text x="24" y="744" font-size="16" fill="#475569">byte[] 는 64개, char[]·short[] 는 1,750개를 넘으면 계수 정렬.</text>
+  <text x="24" y="768" font-size="16" fill="#475569">숫자 44, 4,096, 64, 32, 7 은 모두 JDK 21 소스의 상수 값이다.</text>
+</svg>

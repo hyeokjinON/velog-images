@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 780" width="760" height="780" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>응답이 사라진 30,000원 출금: 다시 보내면 두 번 나가고, 물어보면 한 번으로 끝난다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="780" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">응답이 사라진 30,000원 출금: 다시 보내면</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">두 번 나가고, 물어보면 한 번으로 끝난다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">예를 들어 꾸민 장면이다 (시각은 설명용). 왼쪽 빨강 = 버린 방식,</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">오른쪽 초록 = 이 단계가 만든 방식. 같은 높이가 같은 순간이다</text>
+<rect x="20" y="146" width="720" height="88" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="172" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">09:00:01 컨슈머가 30,000원 이체 전문을 보낸다</text>
+<text x="32" y="195" font-size="16" fill="#0f172a" xml:space="preserve">은행은 입금을 처리했다. 그런데 응답 전문이 돌아오는 길에</text>
+<text x="32" y="218" font-size="16" fill="#0f172a" xml:space="preserve">사라진다 (모의 은행의 9990000000002 계좌가 이렇게 동작한다)</text>
+<line x1="196" y1="234" x2="196" y2="262" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<line x1="564" y1="234" x2="564" y2="262" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="20" y="262" width="352" height="498" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="34" y="292" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">A. 다시 보내면 (버린 방식)</text>
+<rect x="34" y="310" width="324" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="46" y="336" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">09:00:04 3초 무응답</text>
+<text x="46" y="359" font-size="16" fill="#0f172a" xml:space="preserve">실패로 보고 같은 이체를</text>
+<text x="46" y="382" font-size="16" fill="#0f172a" xml:space="preserve">한 번 더 보낸다</text>
+<line x1="196" y1="398" x2="196" y2="426" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="34" y="426" width="324" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="46" y="452" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">09:00:05 은행</text>
+<text x="46" y="475" font-size="16" fill="#0f172a" xml:space="preserve">두 번째 전문도 새 거래로</text>
+<text x="46" y="498" font-size="16" fill="#0f172a" xml:space="preserve">처리한다</text>
+<line x1="196" y1="514" x2="196" y2="542" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<rect x="34" y="542" width="324" height="88" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="46" y="568" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">결과: 입금 2건, 60,000원</text>
+<text x="46" y="591" font-size="16" fill="#0f172a" xml:space="preserve">은행에서는 두 번 나갔고</text>
+<text x="46" y="614" font-size="16" fill="#0f172a" xml:space="preserve">우리 기록은 1건이다</text>
+<rect x="388" y="262" width="352" height="498" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="402" y="292" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">B. 물어보면 (이 글의 방식)</text>
+<rect x="402" y="310" width="324" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="414" y="336" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">09:00:04 3초 무응답</text>
+<text x="414" y="359" font-size="16" fill="#0f172a" xml:space="preserve">UNKNOWN 으로 적는다</text>
+<text x="414" y="382" font-size="16" fill="#0f172a" xml:space="preserve">다시 보내지 않는다</text>
+<line x1="564" y1="398" x2="564" y2="426" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="402" y="426" width="324" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="414" y="452" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">09:00:35 정리 작업</text>
+<text x="414" y="475" font-size="16" fill="#0f172a" xml:space="preserve">거래번호로 "처리됐나요?"</text>
+<text x="414" y="498" font-size="16" fill="#0f172a" xml:space="preserve">은행: 처리결과 0000</text>
+<line x1="564" y1="514" x2="564" y2="542" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="402" y="542" width="324" height="88" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="414" y="568" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">결과: 입금 1건, COMPLETED</text>
+<text x="414" y="591" font-size="16" fill="#0f172a" xml:space="preserve">사용자는 약 35초 동안</text>
+<text x="414" y="614" font-size="16" fill="#0f172a" xml:space="preserve">"처리 중" 을 본다</text>
+<text x="34" y="680" font-size="16" fill="#b91c1c" font-weight="700" xml:space="preserve">"모른다" 를 "실패했다" 로</text>
+<text x="34" y="704" font-size="16" fill="#b91c1c" font-weight="700" xml:space="preserve">바꿔 읽은 것이 사고의 원인이다</text>
+<text x="402" y="680" font-size="16" fill="#0f172a" xml:space="preserve">대가는 시간이다. 정상 응답이면</text>
+<text x="402" y="704" font-size="16" fill="#0f172a" xml:space="preserve">1 ~ 2초, 응답을 잃으면</text>
+<text x="402" y="728" font-size="16" fill="#0f172a" xml:space="preserve">30초대에 확정된다</text>
+</svg>

@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 820" width="760" height="820" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>정리 작업이 10초마다 도는 동안 한 이체에 일어나는 일: sending_at 이 30초 지나야 묻는다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="820" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">정리 작업이 10초마다 도는 동안 한 이체에 일어나는 일:</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">sending_at 이 30초 지나야 묻는다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">예시 출금: sending_at 09:00:01, 09:00:04 에 UNKNOWN 으로 기록.</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">틱 시각은 설명용이다. 기준 시각 = 틱 시각 − 30초</text>
+<rect x="20" y="146" width="720" height="64" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="172" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">대상 조건 (② 단계)</text>
+<text x="32" y="195" font-size="16" fill="#0f172a" xml:space="preserve">status = UNKNOWN 이고 sending_at &lt; 기준 시각, 시도 &lt; 10</text>
+<text x="30" y="236" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">틱 시각</text>
+<text x="210" y="236" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">기준 시각</text>
+<text x="410" y="236" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">이 이체는?</text>
+<rect x="20" y="252" width="170" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="105" y="291" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">09:00:05</text>
+<rect x="200" y="252" width="200" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="300" y="291" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">08:59:35</text>
+<rect x="410" y="252" width="330" height="64" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="422" y="278" font-size="16" fill="#0f172a" xml:space="preserve">09:00:01 이 기준보다 늦다</text>
+<text x="422" y="301" font-size="16" fill="#0f172a" xml:space="preserve">→ 묻지 않는다</text>
+<rect x="20" y="332" width="170" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="105" y="371" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">09:00:15</text>
+<rect x="200" y="332" width="200" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="300" y="371" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">08:59:45</text>
+<rect x="410" y="332" width="330" height="64" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="422" y="358" font-size="16" fill="#0f172a" xml:space="preserve">09:00:01 이 기준보다 늦다</text>
+<text x="422" y="381" font-size="16" fill="#0f172a" xml:space="preserve">→ 묻지 않는다</text>
+<rect x="20" y="412" width="170" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="105" y="451" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">09:00:25</text>
+<rect x="200" y="412" width="200" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="300" y="451" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">08:59:55</text>
+<rect x="410" y="412" width="330" height="64" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="422" y="438" font-size="16" fill="#0f172a" xml:space="preserve">09:00:01 이 기준보다 늦다</text>
+<text x="422" y="461" font-size="16" fill="#0f172a" xml:space="preserve">→ 묻지 않는다</text>
+<rect x="20" y="492" width="170" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="105" y="531" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">09:00:35</text>
+<rect x="200" y="492" width="200" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="300" y="531" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" text-anchor="middle" xml:space="preserve">09:00:05</text>
+<rect x="410" y="492" width="330" height="64" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="422" y="518" font-size="16" fill="#0f172a" xml:space="preserve">09:00:01 이 기준보다 이르다</text>
+<text x="422" y="541" font-size="16" fill="#0f172a" xml:space="preserve">→ INQ → 0000 → COMPLETED</text>
+<rect x="20" y="576" width="720" height="64" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="602" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">확정 시각 = sending_at 뒤 34초</text>
+<text x="32" y="625" font-size="16" fill="#0f172a" xml:space="preserve">손 확인 5건은 32 ~ 38초 (30초 유예 + 10초 주기)</text>
+<rect x="20" y="660" width="720" height="88" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="686" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">같은 틱의 ① 단계도 같은 기준 시각을 쓴다</text>
+<text x="32" y="709" font-size="16" fill="#0f172a" xml:space="preserve">SENDING 이고 sending_at 이 기준보다 이르면 UNKNOWN 으로 바꾸고,</text>
+<text x="32" y="732" font-size="16" fill="#0f172a" xml:space="preserve">이미 기준보다 오래됐으므로 같은 틱의 ② 에서 바로 묻는다</text>
+<text x="20" y="782" font-size="16" fill="#64748b" xml:space="preserve">근거: TransferReconciler.reconcile() 의 cutoff, findUnknownForInquiry (PR #7)</text>
+</svg>
