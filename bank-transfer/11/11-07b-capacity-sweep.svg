@@ -1,0 +1,64 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 970" width="760" height="970" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>용량 탐색: 상한을 키우면 128 부터 평평해지고, 그다음은 DB 커넥션 풀이 처리량을 움직인다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="970" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">용량 탐색: 상한 128 부터 평평해지고,</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">그다음은 DB 커넥션 풀이 움직인다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">coroutine, 은행 지연 100ms, N 20,000, 칸마다 3회 중앙값 (건/s).</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">점선 = 리틀의 법칙 예상 (상한 ÷ 0.1초, 150 이 최대)</text>
+<text x="20" y="150" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">① 은행 호출 상한 (Hikari 20)</text>
+<line x1="90" y1="440.0" x2="740" y2="440.0" stroke="#e2e8f0" stroke-width="1"/>
+<text x="80" y="446.0" font-size="16" fill="#475569" text-anchor="end" xml:space="preserve">0</text>
+<line x1="90" y1="365.7142857142857" x2="740" y2="365.7142857142857" stroke="#e2e8f0" stroke-width="1"/>
+<text x="80" y="371.7142857142857" font-size="16" fill="#475569" text-anchor="end" xml:space="preserve">200</text>
+<line x1="90" y1="291.42857142857144" x2="740" y2="291.42857142857144" stroke="#e2e8f0" stroke-width="1"/>
+<text x="80" y="297.42857142857144" font-size="16" fill="#475569" text-anchor="end" xml:space="preserve">400</text>
+<line x1="90" y1="217.14285714285714" x2="740" y2="217.14285714285714" stroke="#e2e8f0" stroke-width="1"/>
+<text x="80" y="223.14285714285714" font-size="16" fill="#475569" text-anchor="end" xml:space="preserve">600</text>
+<rect x="124.0" y="392.8285714285714" width="80" height="47.17142857142857" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="164.0" y="420.8285714285714" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">127</text>
+<text x="164.0" y="466" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">16</text>
+<line x1="116.0" y1="380.57142857142856" x2="212.0" y2="380.57142857142856" stroke="#334155" stroke-width="2.4" stroke-dasharray="6 4"/>
+<text x="208.0" y="374.57142857142856" font-size="16" fill="#475569" xml:space="preserve">160</text>
+<rect x="252.0" y="347.8857142857143" width="80" height="92.11428571428571" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="292.0" y="375.8857142857143" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">248</text>
+<text x="292.0" y="466" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">32</text>
+<line x1="244.0" y1="321.1428571428571" x2="340.0" y2="321.1428571428571" stroke="#334155" stroke-width="2.4" stroke-dasharray="6 4"/>
+<text x="336.0" y="315.1428571428571" font-size="16" fill="#475569" xml:space="preserve">320</text>
+<rect x="380.0" y="289.2" width="80" height="150.8" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="420.0" y="317.2" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">406</text>
+<text x="420.0" y="466" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">64</text>
+<line x1="372.0" y1="202.28571428571428" x2="468.0" y2="202.28571428571428" stroke="#334155" stroke-width="2.4" stroke-dasharray="6 4"/>
+<text x="464.0" y="196.28571428571428" font-size="16" fill="#475569" xml:space="preserve">640</text>
+<rect x="508.0" y="281.4" width="80" height="158.6" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="548.0" y="309.4" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">427</text>
+<text x="548.0" y="466" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">128</text>
+<text x="548.0" y="184" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">예상 1280 ↑</text>
+<rect x="636.0" y="281.0285714285714" width="80" height="158.9714285714286" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="676.0" y="309.0285714285714" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">428</text>
+<text x="676.0" y="466" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">256</text>
+<text x="676.0" y="184" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">예상 1500 ↑</text>
+<text x="20" y="500" font-size="16" fill="#475569" xml:space="preserve">64 → 128 은 +5%, 128 → 256 은 +0.1%. CPU 는 최대 55% 로 80% 에 닿지 않았다</text>
+<text x="20" y="560" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">② Hikari 커넥션 풀 (상한 256)</text>
+<line x1="90" y1="850.0" x2="740" y2="850.0" stroke="#e2e8f0" stroke-width="1"/>
+<text x="80" y="856.0" font-size="16" fill="#475569" text-anchor="end" xml:space="preserve">0</text>
+<line x1="90" y1="775.7142857142857" x2="740" y2="775.7142857142857" stroke="#e2e8f0" stroke-width="1"/>
+<text x="80" y="781.7142857142857" font-size="16" fill="#475569" text-anchor="end" xml:space="preserve">200</text>
+<line x1="90" y1="701.4285714285714" x2="740" y2="701.4285714285714" stroke="#e2e8f0" stroke-width="1"/>
+<text x="80" y="707.4285714285714" font-size="16" fill="#475569" text-anchor="end" xml:space="preserve">400</text>
+<line x1="90" y1="627.1428571428571" x2="740" y2="627.1428571428571" stroke="#e2e8f0" stroke-width="1"/>
+<text x="80" y="633.1428571428571" font-size="16" fill="#475569" text-anchor="end" xml:space="preserve">600</text>
+<rect x="166.66666666666669" y="745.2571428571429" width="80" height="104.74285714285715" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="206.66666666666669" y="773.2571428571429" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">282</text>
+<text x="206.66666666666669" y="876" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">Hikari 10</text>
+<text x="206.66666666666669" y="900" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">MySQL CPU 60%</text>
+<rect x="380.00000000000006" y="691.0285714285715" width="80" height="158.9714285714286" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="420.00000000000006" y="719.0285714285715" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">428</text>
+<text x="420.00000000000006" y="876" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">Hikari 20</text>
+<text x="420.00000000000006" y="900" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">MySQL CPU 87%</text>
+<rect x="593.3333333333334" y="677.2857142857142" width="80" height="172.71428571428572" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="633.3333333333334" y="705.2857142857142" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">465</text>
+<text x="633.3333333333334" y="876" font-size="16" fill="#0f172a" text-anchor="middle" xml:space="preserve">Hikari 40</text>
+<text x="633.3333333333334" y="900" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">MySQL CPU 101%</text>
+<text x="20" y="934" font-size="16" fill="#475569" xml:space="preserve">10 → 20 은 +51% (풀이 한계), 20 → 40 은 +8.8% (그 너머는 MySQL 로 추정)</text>
+</svg>

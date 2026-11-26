@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 800" width="760" height="800" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>은행 동시 호출이 150 에서 멈추는 이유: 컨슈머 3개 × poll 50건</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="800" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">은행 동시 호출이 150 에서 멈추는 이유:</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">컨슈머 3개 × 한 번에 가져오는 50건</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">비동기 ack 는 이전 poll 의 50건이 모두 커밋돼야 다음 poll 을 한다.</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">실험 ② 와 용량 탐색(상한 256)에서 정확히 150 이었다</text>
+<rect x="20" y="140" width="230" height="96" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="166" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">컨슈머 C-1</text>
+<text x="32" y="189" font-size="16" fill="#0f172a" xml:space="preserve">poll 50건</text>
+<text x="32" y="212" font-size="16" fill="#0f172a" xml:space="preserve">모두 끝나야 다음 50건</text>
+<line x1="135" y1="236" x2="135" y2="276" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="265" y="140" width="230" height="96" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="277" y="166" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">컨슈머 C-2</text>
+<text x="277" y="189" font-size="16" fill="#0f172a" xml:space="preserve">poll 50건</text>
+<text x="277" y="212" font-size="16" fill="#0f172a" xml:space="preserve">모두 끝나야 다음 50건</text>
+<line x1="380" y1="236" x2="380" y2="276" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="510" y="140" width="230" height="96" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="522" y="166" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">컨슈머 C-3</text>
+<text x="522" y="189" font-size="16" fill="#0f172a" xml:space="preserve">poll 50건</text>
+<text x="522" y="212" font-size="16" fill="#0f172a" xml:space="preserve">모두 끝나야 다음 50건</text>
+<line x1="625" y1="236" x2="625" y2="276" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="278" width="720" height="64" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="32" y="304" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">처리 중인 레코드 최대 150건 (= 3 × 50)</text>
+<text x="32" y="327" font-size="16" fill="#0f172a" xml:space="preserve">51번째 레코드는 C-1 의 50건이 다 ack 될 때까지 Kafka 에 남는다</text>
+<line x1="380" y1="342" x2="380" y2="380" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="382" width="720" height="64" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="408" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">은행 호출 자리 256개 (Semaphore)</text>
+<text x="32" y="431" font-size="16" fill="#0f172a" xml:space="preserve">자리는 남지만, 자리를 달라는 코루틴이 150개뿐이다</text>
+<line x1="380" y1="446" x2="380" y2="484" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="486" width="720" height="64" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="512" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">은행 최대 동시 = 150</text>
+<text x="32" y="535" font-size="16" fill="#0f172a" xml:space="preserve">모의 은행 로그: peak pending responses: 150 (Hikari 10 · 20 · 40 모두)</text>
+<rect x="20" y="580" width="720" height="186" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="606" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">그래서</text>
+<text x="32" y="632" font-size="16" fill="#0f172a" xml:space="preserve">지금 설정에서 상한을 150 넘게 주는 것은 쓸모가 없다.</text>
+<text x="32" y="658" font-size="16" fill="#0f172a" xml:space="preserve">다만 은행 지연 100ms 에서는 150 보다 DB 가 먼저 막혔다</text>
+<text x="32" y="684" font-size="16" fill="#0f172a" xml:space="preserve">(상한 128 은 427.1, 256 은 427.6건/s 로 같다).</text>
+<text x="32" y="710" font-size="16" fill="#0f172a" xml:space="preserve">150 천장이 먼저 오는 것은 은행 지연이 약 330ms</text>
+<text x="32" y="736" font-size="16" fill="#0f172a" xml:space="preserve">(= 150 ÷ 450건/s)를 넘을 때다 (계산, 측정 안 함)</text>
+</svg>

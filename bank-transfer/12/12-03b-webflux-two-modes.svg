@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 798" width="760" height="798" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>WebFlux 두 판: 코루틴과 Reactor 는 같은 일을 다른 문법으로 하고, 둘 다 저장만 이벤트 루프 밖으로 넘긴다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="798" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">WebFlux 두 판: 같은 일을 다른 문법으로,</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">저장만 이벤트 루프 밖으로 넘긴다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">초록 = 스레드 없이 대기, 파랑 = 이벤트 루프에서 짧은 일,</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">흰색 = 블로킹을 허용하는 스레드에서 저장</text>
+<rect x="20" y="148" width="350" height="66" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="174" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">WebFlux 코루틴</text>
+<text x="32" y="197" font-size="16" fill="#0f172a" xml:space="preserve">suspend fun · await()</text>
+<text x="20" y="242" font-size="16" fill="#475569" font-weight="700" xml:space="preserve">① 요청 받음</text>
+<rect x="20" y="252" width="350" height="88" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="278" font-size="16" fill="#0f172a" xml:space="preserve">HTTP 이벤트 루프</text>
+<text x="32" y="301" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">reactor-http-nio-N</text>
+<text x="32" y="324" font-size="16" fill="#0f172a" xml:space="preserve">가 요청을 받는다</text>
+<line x1="195" y1="340" x2="195" y2="360" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<text x="20" y="366" font-size="16" fill="#475569" font-weight="700" xml:space="preserve">② 은행 대기 (두 번)</text>
+<rect x="20" y="376" width="350" height="88" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="402" font-size="16" fill="#0f172a" xml:space="preserve">await() 에서 코루틴이 멈춘다</text>
+<text x="32" y="425" font-size="16" fill="#0f172a" xml:space="preserve">기다리는 동안 스레드 없음</text>
+<text x="32" y="448" font-size="16" fill="#0f172a" xml:space="preserve">끊기면 코루틴이 취소된다</text>
+<line x1="195" y1="464" x2="195" y2="484" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<text x="20" y="490" font-size="16" fill="#475569" font-weight="700" xml:space="preserve">③ 응답 해석</text>
+<rect x="20" y="500" width="350" height="88" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="526" font-size="16" fill="#0f172a" xml:space="preserve">게이트웨이 이벤트 루프에서</text>
+<text x="32" y="549" font-size="16" fill="#0f172a" xml:space="preserve">이어서 이름 비교 · 초안</text>
+<text x="32" y="572" font-size="16" fill="#0f172a" xml:space="preserve">(짧은 계산이라 루프에서 해도 됨)</text>
+<line x1="195" y1="588" x2="195" y2="608" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<text x="20" y="614" font-size="16" fill="#475569" font-weight="700" xml:space="preserve">④ 저장 (JDBC)</text>
+<rect x="20" y="624" width="350" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="650" font-size="16" fill="#0f172a" xml:space="preserve">withContext(io) 안에서 저장</text>
+<text x="32" y="673" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">DefaultDispatcher-worker-N</text>
+<text x="32" y="696" font-size="16" fill="#0f172a" xml:space="preserve">Dispatchers.IO 최대 64</text>
+<rect x="390" y="148" width="350" height="66" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="402" y="174" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">WebFlux Reactor</text>
+<text x="402" y="197" font-size="16" fill="#0f172a" xml:space="preserve">Mono 연산자 체인</text>
+<text x="390" y="242" font-size="16" fill="#475569" font-weight="700" xml:space="preserve">① 요청 받음</text>
+<rect x="390" y="252" width="350" height="88" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="402" y="278" font-size="16" fill="#0f172a" xml:space="preserve">HTTP 이벤트 루프</text>
+<text x="402" y="301" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">reactor-http-nio-N</text>
+<text x="402" y="324" font-size="16" fill="#0f172a" xml:space="preserve">가 요청을 받는다</text>
+<line x1="565" y1="340" x2="565" y2="360" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<text x="390" y="366" font-size="16" fill="#475569" font-weight="700" xml:space="preserve">② 은행 대기 (두 번)</text>
+<rect x="390" y="376" width="350" height="88" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="402" y="402" font-size="16" fill="#0f172a" xml:space="preserve">Mono.fromFuture 로 기다린다</text>
+<text x="402" y="425" font-size="16" fill="#0f172a" xml:space="preserve">기다리는 동안 스레드 없음</text>
+<text x="402" y="448" font-size="16" fill="#0f172a" xml:space="preserve">끊기면 구독이 취소된다</text>
+<line x1="565" y1="464" x2="565" y2="484" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<text x="390" y="490" font-size="16" fill="#475569" font-weight="700" xml:space="preserve">③ 응답 해석</text>
+<rect x="390" y="500" width="350" height="88" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="402" y="526" font-size="16" fill="#0f172a" xml:space="preserve">게이트웨이 이벤트 루프에서</text>
+<text x="402" y="549" font-size="16" fill="#0f172a" xml:space="preserve">map 으로 이름 비교 · 초안</text>
+<text x="402" y="572" font-size="16" fill="#0f172a" xml:space="preserve">flatMap 으로 1원 이체</text>
+<line x1="565" y1="588" x2="565" y2="608" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<text x="390" y="614" font-size="16" fill="#475569" font-weight="700" xml:space="preserve">④ 저장 (JDBC)</text>
+<rect x="390" y="624" width="350" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="402" y="650" font-size="16" fill="#0f172a" xml:space="preserve">publishOn(boundedElastic())</text>
+<text x="402" y="673" font-size="16" fill="#0f172a" xml:space="preserve">아래 map 이 boundedElastic-N</text>
+<text x="402" y="696" font-size="16" fill="#0f172a" xml:space="preserve">에서 저장한다</text>
+<text x="20" y="746" font-size="16" fill="#64748b" xml:space="preserve">await ↔ fromFuture, withContext(io) ↔ publishOn(boundedElastic()),</text>
+<text x="20" y="770" font-size="16" fill="#64748b" xml:space="preserve">catch (CancellationException) ↔ doOnCancel 이 짝이다.</text>
+</svg>

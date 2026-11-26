@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 711" width="760" height="711" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>VERIFIED 의 함정: 인증을 마친 행도 expires_at 은 지나 있어서, 만료 시각만 보고 지우면 출금이 422 가 된다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="711" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">VERIFIED 의 함정: 인증을 마친 행도</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">expires_at 은 이미 지나 있다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">날짜와 시각은 설명용 예시다 (KST). 인증 코드 입력 시한은 5분이다.</text>
+<rect x="20" y="127" width="720" height="90" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="153" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① 10-01 10:00 1원인증 요청 → 행 1개, status = SENT</text>
+<text x="32" y="176" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">   expires_at = 10-01 10:05 (코드 입력 시한)</text>
+<text x="32" y="199" font-size="16" fill="#0f172a" xml:space="preserve">1원이 들어간 계좌의 적요에서 코드를 본다</text>
+<line x1="380" y1="217" x2="380" y2="251" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<rect x="20" y="253" width="720" height="90" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="279" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② 10-01 10:02 코드를 맞게 입력 → status = VERIFIED</text>
+<text x="32" y="302" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">   expires_at 은 10-01 10:05 그대로 남는다</text>
+<text x="32" y="325" font-size="16" fill="#0f172a" xml:space="preserve">이후 출금 접수는 이 VERIFIED 행이 있는지만 본다</text>
+<line x1="380" y1="343" x2="380" y2="377" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="379" width="720" height="90" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="405" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ 11-04 06:30 보존 배치 (인증 보관 30일)</text>
+<text x="32" y="428" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">   cutoff = 11-04 00:00 − 30일 = 10-05 00:00</text>
+<text x="32" y="451" font-size="16" fill="#0f172a" xml:space="preserve">이 행의 expires_at(10-01 10:05)은 cutoff 보다 이르다</text>
+<line x1="200" y1="469" x2="200" y2="507" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<line x1="560" y1="469" x2="560" y2="507" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="20" y="509" width="345" height="182" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="535" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">(A) expires_at 만 본다</text>
+<text x="32" y="558" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">expires_at &lt; :cutoff</text>
+<text x="32" y="581" font-size="16" fill="#0f172a" xml:space="preserve">→ VERIFIED 행도 걸린다</text>
+<text x="32" y="604" font-size="16" fill="#0f172a" xml:space="preserve">→ 행이 지워진다</text>
+<text x="32" y="627" font-size="16" fill="#0f172a" xml:space="preserve">④ 다음 출금 접수:</text>
+<text x="32" y="650" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">422 ACCOUNT_NOT_VERIFIED</text>
+<text x="32" y="673" font-size="16" fill="#0f172a" xml:space="preserve">인증한 사용자 전부가 막힌다</text>
+<rect x="395" y="509" width="345" height="182" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="407" y="535" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">(B) 상태 목록을 함께 본다</text>
+<text x="407" y="558" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">status IN ('SENT',</text>
+<text x="407" y="581" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">  'EXPIRED','LOCKED')</text>
+<text x="407" y="604" font-size="16" fill="#0f172a" xml:space="preserve">→ VERIFIED 는 목록에 없다</text>
+<text x="407" y="627" font-size="16" fill="#0f172a" xml:space="preserve">→ 행이 남는다</text>
+<text x="407" y="650" font-size="16" fill="#0f172a" xml:space="preserve">④ 다음 출금 접수:</text>
+<text x="407" y="673" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">202 RECEIVED</text>
+</svg>

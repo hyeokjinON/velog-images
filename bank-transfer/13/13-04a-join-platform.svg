@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 618" width="760" height="618" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>가상 스레드를 끈 블로킹 판: Tomcat 스레드 200개가 join() 에서 잠들어 201번째 요청부터 줄을 선다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="618" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">끈 판: Tomcat 스레드 200개가 join() 에서 잠든다</text>
+<text x="20" y="68" font-size="16" fill="#475569" xml:space="preserve">빨강 = 일 못 하고 잠든 스레드, 주황 = 줄 선 요청</text>
+<text x="20" y="91" font-size="16" fill="#475569" xml:space="preserve">은행 0.5초 × 2번 ≈ 1초, 초당 400건 도착</text>
+<rect x="20" y="120" width="120" height="42" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="147" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">스레드 1</text>
+<rect x="150" y="120" width="590" height="42" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="162" y="147" font-size="16" fill="#0f172a" xml:space="preserve">① 성명조회 → join() → OS 스레드째 잠듦</text>
+<rect x="20" y="172" width="120" height="42" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="199" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">스레드 2</text>
+<rect x="150" y="172" width="590" height="42" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="162" y="199" font-size="16" fill="#0f172a" xml:space="preserve">잠듦 (은행 응답 대기)</text>
+<rect x="20" y="224" width="120" height="42" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="251" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">스레드 3</text>
+<rect x="150" y="224" width="590" height="42" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="162" y="251" font-size="16" fill="#0f172a" xml:space="preserve">잠듦 (은행 응답 대기)</text>
+<text x="80" y="306" font-size="20" fill="#475569" text-anchor="middle" xml:space="preserve">⋮</text>
+<rect x="20" y="328" width="120" height="42" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="355" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">스레드 200</text>
+<rect x="150" y="328" width="590" height="42" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="162" y="355" font-size="16" fill="#0f172a" xml:space="preserve">잠듦 — 200개 모두 대기 중</text>
+<rect x="20" y="396" width="720" height="68" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="32" y="422" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② 201번째 요청부터는 Tomcat 연결 큐에서 기다린다</text>
+<text x="32" y="445" font-size="16" fill="#0f172a" xml:space="preserve">10초 안에 스레드를 못 받으면 k6 가 시간 초과로 끊는다</text>
+<rect x="20" y="484" width="720" height="114" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="510" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ 천장 = 200 ÷ 1.02초 ≈ 196건/s</text>
+<text x="32" y="533" font-size="16" fill="#0f172a" xml:space="preserve">초당 400건이 오면 큐가 끝없이 길어진다</text>
+<text x="32" y="556" font-size="16" fill="#0f172a" xml:space="preserve">결과: 59.0건/s, 시간 초과 4,849건, p99 9,967ms</text>
+<text x="32" y="579" font-size="16" fill="#0f172a" xml:space="preserve">(도착률을 고정한 열린 모델이라 못 받은 요청이 쌓인다)</text>
+</svg>

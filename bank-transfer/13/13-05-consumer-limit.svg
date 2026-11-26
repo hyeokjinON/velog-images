@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 556" width="760" height="556" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>컨슈머가 그대로인 이유: 리스너 3개가 한 건씩 처리하면 스레드가 가상이어도 은행을 동시에 기다리는 수는 3이다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="556" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">컨슈머: 가상 스레드는 동시에 일을 만들지 않는다</text>
+<text x="20" y="68" font-size="16" fill="#475569" xml:space="preserve">주황 = 한 건 끝나야 다음 건, 초록 = 리스너 안에서 동시에 띄움</text>
+<text x="20" y="91" font-size="16" fill="#475569" xml:space="preserve">출금 컨슈머, 은행 지연 100ms, 밀린 메시지 1,500건</text>
+<text x="20" y="126" font-size="18" fill="#0f172a" font-weight="700" xml:space="preserve">블로킹 컨슈머 (끔 · 켬 모두 같은 구조)</text>
+<rect x="20" y="142" width="150" height="42" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="169" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">파티션 0</text>
+<line x1="170" y1="163" x2="214" y2="163" stroke="#c2410c" stroke-width="2.2" marker-end="url(#mo)"/>
+<rect x="216" y="142" width="220" height="42" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="228" y="169" font-size="16" fill="#0f172a" xml:space="preserve">리스너 0 (가상 스레드)</text>
+<line x1="436" y1="163" x2="480" y2="163" stroke="#c2410c" stroke-width="2.2" marker-end="url(#mo)"/>
+<rect x="20" y="194" width="150" height="42" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="221" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">파티션 1</text>
+<line x1="170" y1="215" x2="214" y2="215" stroke="#c2410c" stroke-width="2.2" marker-end="url(#mo)"/>
+<rect x="216" y="194" width="220" height="42" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="228" y="221" font-size="16" fill="#0f172a" xml:space="preserve">리스너 1 (가상 스레드)</text>
+<line x1="436" y1="215" x2="480" y2="215" stroke="#c2410c" stroke-width="2.2" marker-end="url(#mo)"/>
+<rect x="20" y="246" width="150" height="42" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="273" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">파티션 2</text>
+<line x1="170" y1="267" x2="214" y2="267" stroke="#c2410c" stroke-width="2.2" marker-end="url(#mo)"/>
+<rect x="216" y="246" width="220" height="42" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="228" y="273" font-size="16" fill="#0f172a" xml:space="preserve">리스너 2 (가상 스레드)</text>
+<line x1="436" y1="267" x2="480" y2="267" stroke="#c2410c" stroke-width="2.2" marker-end="url(#mo)"/>
+<rect x="482" y="142" width="258" height="146" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="494" y="168" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">모의 은행 100ms</text>
+<text x="494" y="191" font-size="16" fill="#0f172a" xml:space="preserve">최대 동시 3 → 3</text>
+<text x="494" y="214" font-size="16" fill="#0f172a" xml:space="preserve">(켜도 안 변한다)</text>
+<text x="494" y="237" font-size="16" fill="#0f172a" xml:space="preserve">한 건 끝나야</text>
+<text x="494" y="260" font-size="16" fill="#0f172a" xml:space="preserve">다음 건을 읽는다</text>
+<rect x="20" y="306" width="720" height="92" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="32" y="332" font-size="16" fill="#c2410c" font-weight="700" xml:space="preserve">20.7 → 20.6건/s (−0.5%)</text>
+<text x="32" y="355" font-size="16" fill="#0f172a" xml:space="preserve">리스너 하나가 한 건에 약 146ms (= 3 ÷ 20.6)</text>
+<text x="32" y="378" font-size="16" fill="#0f172a" xml:space="preserve">은행 100ms + DB + Kafka 커밋 · 다음 poll (추정)</text>
+<text x="20" y="428" font-size="18" fill="#0f172a" font-weight="700" xml:space="preserve">코루틴 컨슈머 (P6-1, 코드를 바꿔서 얻음)</text>
+<rect x="20" y="444" width="720" height="92" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="470" font-size="16" fill="#0f172a" xml:space="preserve">suspend 리스너 안에서 은행 호출을 상한 64까지 동시에 띄운다</text>
+<text x="32" y="493" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">387.3건/s (P6-1 값 인용, 이번에 다시 재지 않음)</text>
+<text x="32" y="516" font-size="16" fill="#0f172a" xml:space="preserve">차이는 스레드 종류가 아니라 동시에 보내는 수에서 난다</text>
+</svg>

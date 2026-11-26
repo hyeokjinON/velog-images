@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 770" width="760" height="770" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>버린 초안: SENDING 으로 바꾼 뒤 자리를 기다리면 환불한 뒤에 송금이 나간다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="770" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">버린 초안: SENDING 으로 바꾼 뒤 자리를 기다리면</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">환불한 뒤에 송금이 나간다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">예를 들어 출금 T2 가 은행이 느려 자리를 40초 기다린다 (꾸민 장면).</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">정리 작업은 30초 넘게 SENDING 인 출금을 결과를 모르는 출금으로 본다</text>
+<rect x="20" y="140" width="120" height="72" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="184" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">0초</text>
+<rect x="156" y="140" width="584" height="72" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="168" y="166" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① begin: T2 를 RECEIVED → SENDING</text>
+<text x="168" y="189" font-size="16" fill="#0f172a" xml:space="preserve">sending_at 이 0초로 적힌다</text>
+<line x1="448" y1="212" x2="448" y2="236" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="236" width="120" height="72" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="280" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">0 ~ 40초</text>
+<rect x="156" y="236" width="584" height="72" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="168" y="262" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② 자리 64개가 모두 차 있어 기다린다</text>
+<text x="168" y="285" font-size="16" fill="#0f172a" xml:space="preserve">행은 계속 SENDING 이다</text>
+<line x1="448" y1="308" x2="448" y2="332" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="332" width="120" height="72" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="376" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">30초 뒤</text>
+<rect x="156" y="332" width="584" height="72" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="168" y="358" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ 정리 작업: 30초 넘은 SENDING → UNKNOWN</text>
+<text x="168" y="381" font-size="16" fill="#0f172a" xml:space="preserve">결과조회 → 은행 답은 "미처리"</text>
+<line x1="448" y1="404" x2="448" y2="428" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="428" width="120" height="72" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="472" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">그다음</text>
+<rect x="156" y="428" width="584" height="72" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="168" y="454" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ FAILED + 환불</text>
+<text x="168" y="477" font-size="16" fill="#0f172a" xml:space="preserve">사용자 잔고가 돌아온다</text>
+<line x1="448" y1="500" x2="448" y2="524" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="524" width="120" height="72" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="568" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">40초</text>
+<rect x="156" y="524" width="584" height="72" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="168" y="550" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑤ 자리를 잡은 코루틴이 은행에 송금</text>
+<text x="168" y="573" font-size="16" fill="#0f172a" xml:space="preserve">은행은 완료(0000)로 답한다</text>
+<line x1="448" y1="596" x2="448" y2="624" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<rect x="20" y="624" width="720" height="110" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="650" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">결과: 환불과 송금이 둘 다 일어났다</text>
+<text x="32" y="673" font-size="16" fill="#0f172a" xml:space="preserve">finish 가 SENDING → COMPLETED 를 못 하고, 이미 FAILED 라</text>
+<text x="32" y="696" font-size="16" fill="#0f172a" xml:space="preserve">CONFLICT 로 끝난다 (리뷰에서 찾아 커밋 02e1b51 로 고쳤다)</text>
+</svg>

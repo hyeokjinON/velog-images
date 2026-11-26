@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 735" width="760" height="735" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>지울 행 2,500개를 1,000 · 1,000 · 500 으로 세 번에 나눠 커밋하는 tasklet 반복</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="735" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">지울 행 2,500개: tasklet 을 세 번 불러</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">1,000 · 1,000 · 500 으로 나눠 커밋한다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">호출 한 번 = DELETE 한 문장 = 트랜잭션 하나 (READ COMMITTED)</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">DataRetentionJobTest 의 '2,500행 + 묶음 1,000 → 3번 커밋'</text>
+<rect x="20" y="150" width="520" height="90" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="176" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① 호출 1: DELETE … LIMIT 1000</text>
+<text x="32" y="199" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">지운 수 1000 == 1000 → CONTINUABLE</text>
+<text x="32" y="222" font-size="16" fill="#0f172a" xml:space="preserve">커밋. 남은 대상 1,500행</text>
+<text x="560" y="190" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">누적 1,000건</text>
+<text x="560" y="216" font-size="15" fill="#475569" font-family="Consolas, D2Coding, monospace" xml:space="preserve">writeCount</text>
+<line x1="280" y1="240" x2="280" y2="276" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="20" y="276" width="520" height="90" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="302" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② 호출 2: DELETE … LIMIT 1000</text>
+<text x="32" y="325" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">지운 수 1000 == 1000 → CONTINUABLE</text>
+<text x="32" y="348" font-size="16" fill="#0f172a" xml:space="preserve">커밋. 남은 대상 500행</text>
+<text x="560" y="316" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">누적 2,000건</text>
+<text x="560" y="342" font-size="15" fill="#475569" font-family="Consolas, D2Coding, monospace" xml:space="preserve">writeCount</text>
+<line x1="280" y1="366" x2="280" y2="402" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="20" y="402" width="520" height="90" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="428" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ 호출 3: DELETE … LIMIT 1000</text>
+<text x="32" y="451" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">지운 수 500 &lt; 1000 → FINISHED</text>
+<text x="32" y="474" font-size="16" fill="#0f172a" xml:space="preserve">커밋. 남은 대상 0행, 단계 끝</text>
+<text x="560" y="442" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">누적 2,500건</text>
+<text x="560" y="468" font-size="15" fill="#475569" font-family="Consolas, D2Coding, monospace" xml:space="preserve">writeCount</text>
+<line x1="280" y1="492" x2="280" y2="526" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="528" width="720" height="67" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="554" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ 다음 단계(purgeVerifications)가 같은 방식으로 돈다</text>
+<text x="32" y="577" font-size="16" fill="#0f172a" xml:space="preserve">단계 ① 의 건수 2,500 은 BATCH_STEP_EXECUTION 에 남는다</text>
+<rect x="20" y="625" width="720" height="90" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="651" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">대상이 정확히 2,000행(묶음의 배수)이면</text>
+<text x="32" y="674" font-size="16" fill="#0f172a" xml:space="preserve">호출 2 까지 CONTINUABLE 이라 호출 3 이 한 번 더 불린다.</text>
+<text x="32" y="697" font-size="16" fill="#0f172a" xml:space="preserve">호출 3 은 0건을 지우고 FINISHED 로 끝난다</text>
+</svg>

@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 1010" width="760" height="1010" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>코루틴 출금 한 건이 지나가는 스레드: await 뒤는 Netty 이벤트 루프에서 이어진다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="1010" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">코루틴 출금 한 건이 지나가는 스레드:</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">await 뒤는 Netty 이벤트 루프에서 이어진다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">왼쪽 = 그 단계가 도는 스레드, 오른쪽 = 하는 일.</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">실험 ③ 으로 확인한 것과, 그래서 DB 를 IO 스레드로 넘긴 것</text>
+<rect x="20" y="140" width="186" height="72" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="182" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">컨슈머 스레드</text>
+<rect x="222" y="140" width="518" height="72" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="234" y="166" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① poll 로 최대 50건을 가져와</text>
+<text x="234" y="189" font-size="16" fill="#0f172a" xml:space="preserve">레코드마다 suspend 리스너를 부른다 (Unconfined)</text>
+<line x1="480" y1="212" x2="480" y2="236" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="236" width="186" height="72" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="32" y="278" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">(스레드 없음)</text>
+<rect x="222" y="236" width="518" height="72" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="234" y="262" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② 은행 호출 자리를 기다린다</text>
+<text x="234" y="285" font-size="16" fill="#0f172a" xml:space="preserve">자리가 없으면 코루틴만 멈춘다, 행은 RECEIVED</text>
+<line x1="480" y1="308" x2="480" y2="332" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="332" width="186" height="72" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="374" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">IO 스레드</text>
+<rect x="222" y="332" width="518" height="72" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="234" y="358" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ withContext(IO) { begin }</text>
+<text x="234" y="381" font-size="16" fill="#0f172a" xml:space="preserve">조회 + RECEIVED → SENDING, 커밋 1번</text>
+<line x1="480" y1="404" x2="480" y2="428" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="428" width="186" height="72" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="470" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">IO 스레드</text>
+<rect x="222" y="428" width="518" height="72" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="234" y="454" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ 이체 전문을 쓰고 await</text>
+<text x="234" y="477" font-size="16" fill="#0f172a" xml:space="preserve">코루틴이 멈추고 스레드는 돌아간다</text>
+<line x1="480" y1="500" x2="480" y2="524" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="524" width="186" height="72" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="32" y="566" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">Netty 이벤트 루프</text>
+<rect x="222" y="524" width="518" height="72" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="234" y="550" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑤ 은행 응답이 future 를 완료한다</text>
+<text x="234" y="573" font-size="16" fill="#0f172a" xml:space="preserve">코루틴이 이 스레드에서 이어진다 (실험 ③)</text>
+<line x1="480" y1="596" x2="480" y2="620" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="620" width="186" height="72" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="662" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">IO 스레드</text>
+<rect x="222" y="620" width="518" height="72" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="234" y="646" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑥ 자리 반납 후 withContext(IO) { finish }</text>
+<text x="234" y="669" font-size="16" fill="#0f172a" xml:space="preserve">SENDING → COMPLETED, 커밋 1번</text>
+<line x1="480" y1="692" x2="480" y2="716" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="716" width="186" height="72" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="758" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">컨슈머 스레드</text>
+<rect x="222" y="716" width="518" height="72" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="234" y="742" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑦ 함수가 정상으로 끝나면</text>
+<text x="234" y="765" font-size="16" fill="#0f172a" xml:space="preserve">프레임워크가 오프셋을 커밋한다 (ack)</text>
+<rect x="20" y="816" width="720" height="110" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="842" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑤ 에서 바로 JDBC 를 부르면</text>
+<text x="32" y="865" font-size="16" fill="#0f172a" xml:space="preserve">게이트웨이의 이벤트 루프는 1개뿐이라, DB 를 기다리는 동안</text>
+<text x="32" y="888" font-size="16" fill="#0f172a" xml:space="preserve">그 회선의 모든 은행 응답이 멈춘다. 그래서 ③ ⑥ 을 IO 스레드로 넘겼다</text>
+<text x="20" y="956" font-size="16" fill="#475569" xml:space="preserve">테스트가 begin · finish 가 IO 쪽 스레드 이름에서 도는지 본다 (변이 검사로 확인)</text>
+</svg>

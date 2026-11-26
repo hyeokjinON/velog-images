@@ -1,0 +1,49 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 680" width="760" height="680" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>은행 지연 100ms 일 때 처음 300ms 동안 은행으로 나간 출금</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="680" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">은행 지연 100ms 일 때 처음 300ms 동안</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">은행으로 나간 출금 (예시, DB 시간은 뺐다)</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">막대 하나 = 은행 응답을 기다리는 100ms. 칸 안의 번호 = 출금 순서</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">주황 = blocking 스레드 3개, 초록 = coroutine (자리 64개)</text>
+<line x1="220.0" y1="166" x2="220.0" y2="470" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4 4"/>
+<text x="220.0" y="158" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">0ms</text>
+<line x1="385.0" y1="166" x2="385.0" y2="470" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4 4"/>
+<text x="385.0" y="158" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">100ms</text>
+<line x1="550.0" y1="166" x2="550.0" y2="470" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4 4"/>
+<text x="550.0" y="158" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">200ms</text>
+<line x1="715.0" y1="166" x2="715.0" y2="470" stroke="#cbd5e1" stroke-width="1" stroke-dasharray="4 4"/>
+<text x="715.0" y="158" font-size="16" fill="#475569" text-anchor="middle" xml:space="preserve">300ms</text>
+<text x="20" y="218.0" font-size="16" fill="#c2410c" font-weight="700" xml:space="preserve">blocking C-1</text>
+<rect x="222.0" y="186" width="161.0" height="52" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="302.5" y="218.0" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">#1</text>
+<rect x="387.0" y="186" width="161.0" height="52" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="467.5" y="218.0" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">#4</text>
+<rect x="552.0" y="186" width="161.0" height="52" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="632.5" y="218.0" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">#7</text>
+<text x="20" y="282.0" font-size="16" fill="#c2410c" font-weight="700" xml:space="preserve">blocking C-2</text>
+<rect x="222.0" y="250" width="161.0" height="52" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="302.5" y="282.0" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">#2</text>
+<rect x="387.0" y="250" width="161.0" height="52" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="467.5" y="282.0" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">#5</text>
+<rect x="552.0" y="250" width="161.0" height="52" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="632.5" y="282.0" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">#8</text>
+<text x="20" y="346.0" font-size="16" fill="#c2410c" font-weight="700" xml:space="preserve">blocking C-3</text>
+<rect x="222.0" y="314" width="161.0" height="52" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="302.5" y="346.0" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">#3</text>
+<rect x="387.0" y="314" width="161.0" height="52" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="467.5" y="346.0" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">#6</text>
+<rect x="552.0" y="314" width="161.0" height="52" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="632.5" y="346.0" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">#9</text>
+<text x="20" y="466.0" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">coroutine</text>
+<rect x="222.0" y="400" width="161.0" height="120" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="302.5" y="466.0" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">#1 ~ #64</text>
+<rect x="387.0" y="400" width="161.0" height="120" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="467.5" y="466.0" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">#65 ~ #128</text>
+<rect x="552.0" y="400" width="161.0" height="120" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="632.5" y="466.0" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">#129 ~ #150</text>
+<rect x="20" y="540" width="720" height="104" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="566" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">같은 300ms 에 blocking 은 9건, coroutine 은 150건</text>
+<text x="32" y="589" font-size="16" fill="#0f172a" xml:space="preserve">coroutine 은 자리 64개만큼씩 보낸다. 세 번째 묶음이 22건인 것은</text>
+<text x="32" y="612" font-size="16" fill="#0f172a" xml:space="preserve">컨슈머 3개 × 한 번에 가져오는 50건 = 150 에서 멈추기 때문이다 (§6)</text>
+</svg>

@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 950" width="760" height="950" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>코루틴 판 한 요청의 스레드 이동: await 뒤 코드는 은행 응답을 받은 게이트웨이 이벤트 루프에서 이어지고, 저장만 IO 스레드로 넘어간다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="950" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">코루틴 판 한 요청이 지나는 스레드:</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">저장만 이벤트 루프 밖으로 넘어간다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">파랑 = 이벤트 루프(여기서 JDBC 를 기다리면 안 됨),</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">초록 = 스레드 없이 대기, 흰색 = IO 스레드. 은행 지연 500ms</text>
+<rect x="60" y="150" width="680" height="86" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="72" y="176" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">HTTP 루프 reactor-http-nio-N</text>
+<text x="72" y="199" font-size="16" fill="#0f172a" xml:space="preserve">요청을 받아 suspend 핸들러를 부른다 (Unconfined)</text>
+<text x="72" y="222" font-size="16" fill="#0f172a" xml:space="preserve">성명조회 전문을 쓰고 await</text>
+<circle cx="32" cy="193" r="13" fill="#1d4ed8"/><text x="32" y="199" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">①</text>
+<line x1="400" y1="236" x2="400" y2="252" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="60" y="254" width="680" height="86" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="72" y="280" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">대기 0.5초: 스레드 없음</text>
+<text x="72" y="303" font-size="16" fill="#0f172a" xml:space="preserve">코루틴 상태만 메모리에 남는다</text>
+<text x="72" y="326" font-size="16" fill="#0f172a" xml:space="preserve">HTTP 루프는 다른 요청을 받는다</text>
+<circle cx="32" cy="297" r="13" fill="#047857"/><text x="32" y="303" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">②</text>
+<line x1="400" y1="340" x2="400" y2="356" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="60" y="358" width="680" height="86" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="72" y="384" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">게이트웨이 루프 multiThreadIoEventLoopGroup-4-1</text>
+<text x="72" y="407" font-size="16" fill="#0f172a" xml:space="preserve">응답이 future 를 완료 → 여기서 이어진다</text>
+<text x="72" y="430" font-size="16" fill="#0f172a" xml:space="preserve">이름 비교, 코드 초안, 1원 이체 전문 쓰고 await</text>
+<circle cx="32" cy="401" r="13" fill="#1d4ed8"/><text x="32" y="407" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">③</text>
+<line x1="400" y1="444" x2="400" y2="460" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="60" y="462" width="680" height="86" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="72" y="488" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">대기 0.5초: 스레드 없음</text>
+<text x="72" y="511" font-size="16" fill="#0f172a" xml:space="preserve">1원 이체 응답을 기다린다</text>
+<text x="72" y="534" font-size="16" fill="#0f172a" xml:space="preserve">이때 끊기면 경고(stage=transfer)를 남긴다</text>
+<circle cx="32" cy="505" r="13" fill="#047857"/><text x="32" y="511" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">④</text>
+<line x1="400" y1="548" x2="400" y2="564" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="60" y="566" width="680" height="86" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="72" y="592" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">IO 스레드 DefaultDispatcher-worker-N</text>
+<text x="72" y="615" font-size="16" fill="#0f172a" xml:space="preserve">withContext(io) 안에서 JDBC 저장</text>
+<text x="72" y="638" font-size="16" fill="#0f172a" xml:space="preserve">account_verification 1행 (SENT)</text>
+<circle cx="32" cy="609" r="13" fill="#334155"/><text x="32" y="615" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">⑤</text>
+<line x1="400" y1="652" x2="400" y2="668" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="60" y="670" width="680" height="86" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="72" y="696" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">HTTP 루프가 201 을 쓴다</text>
+<text x="72" y="719" font-size="16" fill="#0f172a" xml:space="preserve">본문: id, status SENT, expiresAt</text>
+<text x="72" y="742" font-size="16" fill="#0f172a" xml:space="preserve">한 요청 ≈ 1초, 스레드를 쓰는 건 짧은 계산뿐 (추정)</text>
+<circle cx="32" cy="713" r="13" fill="#1d4ed8"/><text x="32" y="719" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">⑥</text>
+<rect x="20" y="778" width="720" height="90" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="32" y="804" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">응답이 await 보다 먼저 와 있으면 (CI 에서 관찰)</text>
+<text x="32" y="827" font-size="16" fill="#0f172a" xml:space="preserve">③ 이 게이트웨이 루프가 아니라 ① 의 HTTP 루프에서 그대로 이어진다.</text>
+<text x="32" y="850" font-size="16" fill="#0f172a" xml:space="preserve">어느 쪽이든 이벤트 루프라 ⑤ 를 넘기는 이유는 같다.</text>
+<text x="20" y="898" font-size="16" fill="#64748b" xml:space="preserve">스레드 이름 끝의 N 은 번호다. 근거: WebFluxExperimentTest(E1),</text>
+<text x="20" y="922" font-size="16" fill="#64748b" xml:space="preserve">ADR-0013 결정 4, CoroutineVerificationFlow</text>
+</svg>

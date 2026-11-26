@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 732" width="760" height="732" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>변이 3: 잡 설정의 트랜잭션 속성 줄을 지우면, 잡의 실제 속성으로 트랜잭션을 여는 잠금 테스트가 함께 깨진다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="732" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">변이 3: 잡 설정 한 줄을 지우면</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">잠금 테스트도 함께 깨진다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">잠금 테스트는 격리 수준을 직접 적지 않고</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">잡의 실제 단계에서 트랜잭션 속성을 꺼내 쓴다</text>
+<rect x="20" y="150" width="720" height="90" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="176" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① 잡 설정 (DataRetentionJobConfiguration)</text>
+<text x="32" y="199" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">.transactionAttribute(purgeTransaction())</text>
+<text x="32" y="222" font-size="16" fill="#0f172a" xml:space="preserve">→ READ COMMITTED + 모든 예외에 롤백</text>
+<line x1="380" y1="240" x2="380" y2="278" stroke="#1d4ed8" stroke-width="2.2" marker-end="url(#mb)"/>
+<rect x="20" y="280" width="720" height="90" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="306" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② RetentionLockTest.stepTransaction()</text>
+<text x="32" y="329" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">ReflectionTestUtils.getField(step, "transactionAttribute")</text>
+<text x="32" y="352" font-size="16" fill="#0f172a" xml:space="preserve">잡의 purgeOutbox 단계에서 속성을 그대로 꺼낸다</text>
+<line x1="200" y1="370" x2="200" y2="408" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<line x1="560" y1="370" x2="560" y2="408" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<rect x="20" y="410" width="345" height="182" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="436" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">(A) 원래 코드</text>
+<text x="32" y="459" font-size="16" fill="#0f172a" xml:space="preserve">꺼낸 속성:</text>
+<text x="32" y="482" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">READ COMMITTED</text>
+<text x="32" y="505" font-size="16" fill="#0f172a" xml:space="preserve">INSERT 결과:</text>
+<text x="32" y="528" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">INSERTED</text>
+<text x="32" y="551" font-size="16" fill="#0f172a" xml:space="preserve">테스트 통과</text>
+<rect x="395" y="410" width="345" height="182" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="407" y="436" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">(B) 변이 3: ① 의 줄 삭제</text>
+<text x="407" y="459" font-size="16" fill="#0f172a" xml:space="preserve">꺼낸 속성: 격리 수준 -1</text>
+<text x="407" y="482" font-size="16" fill="#0f172a" xml:space="preserve">(DB 기본 = REPEATABLE READ)</text>
+<text x="407" y="505" font-size="16" fill="#0f172a" xml:space="preserve">INSERT 결과:</text>
+<text x="407" y="528" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">LOCK_WAIT_TIMEOUT</text>
+<text x="407" y="551" font-size="16" fill="#0f172a" xml:space="preserve">테스트 실패 → 변이를 잡았다</text>
+<rect x="20" y="622" width="720" height="90" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="648" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">테스트가 READ COMMITTED 를 직접 적었다면</text>
+<text x="32" y="671" font-size="16" fill="#0f172a" xml:space="preserve">잡 설정이 사라져도 테스트는 계속 READ COMMITTED 로 돌아</text>
+<text x="32" y="694" font-size="16" fill="#0f172a" xml:space="preserve">통과했을 것이다. 그러면 변이를 잡지 못한다</text>
+</svg>

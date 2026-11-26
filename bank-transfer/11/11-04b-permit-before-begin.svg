@@ -1,0 +1,42 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 770" width="760" height="770" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>채택: 자리를 먼저 잡고, begin 은 자리 안에서 한다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="770" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">채택: 자리를 먼저 잡고, begin 은 자리 안에서 한다</text>
+<text x="20" y="68" font-size="16" fill="#475569" xml:space="preserve">같은 장면을 지금 순서로 다시 본다.</text>
+<text x="20" y="91" font-size="16" fill="#475569" xml:space="preserve">자리를 기다리는 동안 T2 는 RECEIVED 이고 sending_at 이 없다</text>
+<rect x="20" y="140" width="120" height="72" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="184" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">0 ~ 40초</text>
+<rect x="156" y="140" width="584" height="72" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="168" y="166" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① 자리를 기다린다</text>
+<text x="168" y="189" font-size="16" fill="#0f172a" xml:space="preserve">T2 는 RECEIVED, sending_at 없음</text>
+<line x1="448" y1="212" x2="448" y2="236" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="236" width="120" height="72" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="280" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">30초 뒤</text>
+<rect x="156" y="236" width="584" height="72" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="168" y="262" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② 정리 작업: SENDING 이 아니라 대상이 아니다</text>
+<text x="168" y="285" font-size="16" fill="#0f172a" xml:space="preserve">아무것도 바꾸지 않는다</text>
+<line x1="448" y1="308" x2="448" y2="332" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="332" width="120" height="72" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="376" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">40초</text>
+<rect x="156" y="332" width="584" height="72" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="168" y="358" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ 자리를 잡은 뒤 begin: RECEIVED → SENDING</text>
+<text x="168" y="381" font-size="16" fill="#0f172a" xml:space="preserve">sending_at 이 40초로 적힌다</text>
+<line x1="448" y1="404" x2="448" y2="428" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="428" width="120" height="72" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="472" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">+100ms</text>
+<rect x="156" y="428" width="584" height="72" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="168" y="454" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ 은행 송금 → 완료(0000)</text>
+<text x="168" y="477" font-size="16" fill="#0f172a" xml:space="preserve">자리를 반납한다</text>
+<line x1="448" y1="500" x2="448" y2="524" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="524" width="120" height="72" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="568" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">그다음</text>
+<rect x="156" y="524" width="584" height="72" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="168" y="550" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑤ finish: SENDING → COMPLETED</text>
+<text x="168" y="573" font-size="16" fill="#0f172a" xml:space="preserve">자리 밖, IO 스레드에서</text>
+<line x1="448" y1="596" x2="448" y2="624" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="20" y="624" width="720" height="110" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="650" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">SENDING 인 시간 = begin 의 DB 호출 + 은행 호출 (수백 ms)</text>
+<text x="32" y="673" font-size="16" fill="#0f172a" xml:space="preserve">30초 기준에 걸릴 일이 없다. 테스트: 자리를 기다리는 동안 행은</text>
+<text x="32" y="696" font-size="16" fill="#0f172a" xml:space="preserve">RECEIVED 다 (withPermit 을 빼면 SENDING 이 나와 실패한다)</text>
+</svg>

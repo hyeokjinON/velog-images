@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 680" width="760" height="680" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>대조 실험: 동시에 3건이면 blocking 과 coroutine 의 차이는 자리 하나를 쥐는 시간뿐이다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="680" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">대조 실험: 동시에 3건이면 남는 차이는</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">한 건이 자리를 쥐는 시간뿐이다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">은행 지연 100ms. 길이는 3 ÷ 처리량으로 거꾸로 계산한 평균이다 (추정).</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">주황 = blocking 한 스레드, 파랑 = coroutine 자리 3개 중 하나</text>
+<text x="20" y="160" font-size="16" fill="#c2410c" font-weight="700" xml:space="preserve">blocking: 한 건이 끝나야 다음 건 — 약 144ms</text>
+<rect x="40.0" y="178" width="539.8" height="56" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="311.4" y="212" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">begin · 은행 100ms · 응답 (p50 117.5)</text>
+<rect x="582.8" y="178" width="116.6" height="56" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="642.5999999999999" y="212" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">26ms</text>
+<text x="20" y="266" font-size="16" fill="#475569" xml:space="preserve">26ms = finish 커밋, Kafka 오프셋 커밋, 다음 레코드로 넘어가기</text>
+<text x="20" y="289" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">→ 3 ÷ 0.144초 = 20.9건/s</text>
+<text x="20" y="346" font-size="16" fill="#1d4ed8" font-weight="700" xml:space="preserve">coroutine 상한 3: 자리는 begin 부터 은행 응답까지 — 약 123ms</text>
+<rect x="40" y="364" width="562.8" height="56" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="320.59999999999997" y="398" font-size="16" fill="#0f172a" font-weight="700" text-anchor="middle" xml:space="preserve">begin · 은행 100ms · 응답</text>
+<rect x="605.8" y="364" width="119.6" height="56" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="665.5999999999999" y="398" font-size="16" fill="#475569" font-weight="700" text-anchor="middle" xml:space="preserve">자리 밖</text>
+<text x="20" y="452" font-size="16" fill="#475569" xml:space="preserve">finish · ack 는 자리를 반납한 뒤 한다. 그동안 다음 건이</text>
+<text x="20" y="475" font-size="16" fill="#475569" xml:space="preserve">그 자리로 begin 하고 은행을 기다린다</text>
+<text x="20" y="498" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">→ 3 ÷ 0.123초 = 24.4건/s</text>
+<rect x="20" y="530" width="720" height="128" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="556" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">읽는 법</text>
+<text x="32" y="579" font-size="16" fill="#0f172a" xml:space="preserve">같은 동시성 3 에서 차이는 +17% 뿐이고, 그 몫은 약 21ms 다.</text>
+<text x="32" y="602" font-size="16" fill="#0f172a" xml:space="preserve">자리를 64개로 열면 387.3건/s — 18배 차이의 거의 전부는</text>
+<text x="32" y="625" font-size="16" fill="#0f172a" xml:space="preserve">동시에 기다리는 수에서 나왔다 (p50 은 118.0 대 117.5ms 로 같다)</text>
+</svg>

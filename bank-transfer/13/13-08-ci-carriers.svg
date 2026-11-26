@@ -1,0 +1,54 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 750" width="760" height="750" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>로컬 16코어와 CI 4코어: 캐리어가 적으면 Kafka 컨슈머 시작 로그의 pinning 이 겹쳐 CI 에서만 깨진다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="750" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">로컬은 통과, CI 는 실패: 차이는 캐리어 수</text>
+<text x="20" y="68" font-size="16" fill="#475569" xml:space="preserve">초록 = 비어 있는 캐리어, 빨강 = 로그 잠금을 기다리며 묶인 캐리어</text>
+<text x="20" y="91" font-size="16" fill="#475569" xml:space="preserve">칸 수는 설명용이다. 캐리어 수 = 논리 코어 수</text>
+<text x="20" y="134" font-size="18" fill="#0f172a" font-weight="700" xml:space="preserve">① 로컬 PC: 캐리어 16개</text>
+<rect x="20" y="148" width="40" height="34" rx="4" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<rect x="64" y="148" width="40" height="34" rx="4" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<rect x="108" y="148" width="40" height="34" rx="4" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<rect x="152" y="148" width="40" height="34" rx="4" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<rect x="196" y="148" width="40" height="34" rx="4" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<rect x="240" y="148" width="40" height="34" rx="4" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<rect x="284" y="148" width="40" height="34" rx="4" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<rect x="328" y="148" width="40" height="34" rx="4" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<rect x="372" y="148" width="40" height="34" rx="4" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<rect x="416" y="148" width="40" height="34" rx="4" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<rect x="460" y="148" width="40" height="34" rx="4" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<rect x="504" y="148" width="40" height="34" rx="4" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<rect x="548" y="148" width="40" height="34" rx="4" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<rect x="592" y="148" width="40" height="34" rx="4" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<rect x="636" y="148" width="40" height="34" rx="4" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<rect x="680" y="148" width="40" height="34" rx="4" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<rect x="20" y="196" width="720" height="68" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="222" font-size="16" fill="#0f172a" xml:space="preserve">리스너 일부가 로그 잠금을 기다려도 빈 캐리어가 남는다</text>
+<text x="32" y="245" font-size="16" fill="#0f172a" xml:space="preserve">잠금을 쥔 쪽이 곧 끝난다 → 테스트 통과</text>
+<text x="20" y="304" font-size="18" fill="#0f172a" font-weight="700" xml:space="preserve">② GitHub Actions: 캐리어 4개</text>
+<rect x="20" y="318" width="40" height="34" rx="4" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<rect x="64" y="318" width="40" height="34" rx="4" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<rect x="108" y="318" width="40" height="34" rx="4" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<rect x="152" y="318" width="40" height="34" rx="4" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<rect x="20" y="366" width="720" height="68" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="392" font-size="16" fill="#0f172a" xml:space="preserve">리스너 15개가 시작하며 몰리면 4개가 금방 다 찬다</text>
+<text x="32" y="415" font-size="16" fill="#0f172a" xml:space="preserve">V2 가 pinning 1건(2ms) 감지, 한 번은 3시간 멈춤</text>
+<rect x="20" y="464" width="100" height="42" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="491" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">재현</text>
+<rect x="130" y="464" width="610" height="42" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="142" y="491" font-size="15" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">-Djdk.virtualThreadScheduler.parallelism=4</text>
+<rect x="20" y="516" width="100" height="42" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="543" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">원인</text>
+<rect x="130" y="516" width="610" height="42" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="142" y="543" font-size="16" fill="#0f172a" xml:space="preserve">Kafka 시작 · 합류 · 오프셋 로그가 잠금 대기</text>
+<rect x="20" y="568" width="100" height="42" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="595" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">수정</text>
+<rect x="130" y="568" width="610" height="42" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="142" y="595" font-size="16" fill="#0f172a" xml:space="preserve">녹화 전에 프로듀서 · 리스너를 안정시킨다</text>
+<rect x="20" y="620" width="100" height="42" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="647" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">대비</text>
+<rect x="130" y="620" width="610" height="42" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="142" y="647" font-size="16" fill="#0f172a" xml:space="preserve">컨텍스트 닫기 · 30분 제한 · 자동 덤프</text>
+<text x="20" y="696" font-size="16" fill="#64748b" xml:space="preserve">수정 뒤 캐리어 4개로 10번 모두 통과</text>
+<text x="20" y="720" font-size="16" fill="#64748b" xml:space="preserve">(프로듀서만 미리 만들면 10번 중 3번 실패).</text>
+</svg>

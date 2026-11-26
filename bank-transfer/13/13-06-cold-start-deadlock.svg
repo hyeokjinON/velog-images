@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 782" width="760" height="782" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>냉시동 교착: 모니터를 쥔 1개와 입장을 기다리는 15개가 캐리어 16개를 모두 묶고, 락을 기다리는 4개는 올라탈 캐리어가 없다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="782" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">냉시동 교착: 캐리어 16개가 모두 묶였다</text>
+<text x="20" y="68" font-size="16" fill="#475569" xml:space="preserve">빨강 = 스레드 덤프로 확인, 주황 점선 = 추정인 마지막 고리</text>
+<text x="20" y="91" font-size="16" fill="#475569" xml:space="preserve">막 뜬 앱(Java 21)에 동시 요청이 몰린 직후</text>
+<rect x="20" y="120" width="720" height="300" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="36" y="148" font-size="17" fill="#0f172a" font-weight="700" xml:space="preserve">캐리어 16개 — 전부 사용 중</text>
+<circle cx="50" cy="194" r="13" fill="#b91c1c"/><text x="50" y="200" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">①</text>
+<rect x="76" y="164" width="648" height="114" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="88" y="190" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">가상 스레드 1개: 모니터를 먼저 쥔 쪽</text>
+<text x="88" y="213" font-size="16" fill="#0f172a" xml:space="preserve">Jackson SerializerCache 의 synchronized 안에서</text>
+<text x="88" y="236" font-size="16" fill="#0f172a" xml:space="preserve">Kotlin 리플렉션 락(ReentrantLock)을 기다린다</text>
+<text x="88" y="259" font-size="16" fill="#0f172a" xml:space="preserve">parkOnCarrierThread → 캐리어째 멈춤</text>
+<circle cx="50" cy="322" r="13" fill="#b91c1c"/><text x="50" y="328" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">②</text>
+<rect x="76" y="292" width="648" height="114" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="88" y="318" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">가상 스레드 15개: 같은 모니터 입장 대기</text>
+<text x="88" y="341" font-size="16" fill="#0f172a" xml:space="preserve">① 이 모니터를 놓기를 기다린다</text>
+<text x="88" y="364" font-size="16" fill="#0f172a" xml:space="preserve">기다리면서 캐리어를 붙잡는다 (Java 21)</text>
+<text x="88" y="387" font-size="16" fill="#0f172a" xml:space="preserve">JFR VirtualThreadPinned 이벤트는 안 생긴다</text>
+<line x1="400" y1="278" x2="400" y2="292" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<circle cx="50" cy="500" r="13" fill="#b91c1c"/><text x="50" y="506" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">③</text>
+<rect x="76" y="460" width="664" height="90" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="88" y="486" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">가상 스레드 4개: ① 과 같은 Kotlin 락을 기다린다</text>
+<text x="88" y="509" font-size="16" fill="#0f172a" xml:space="preserve">캐리어에서 내려와(unmount) park 중</text>
+<text x="88" y="532" font-size="16" fill="#0f172a" xml:space="preserve">tomcat-handler-8 · 9 · 10 · 16</text>
+<circle cx="50" cy="620" r="13" fill="#c2410c"/><text x="50" y="626" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">④</text>
+<rect x="76" y="580" width="664" height="90" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6" stroke-dasharray="7 5"/>
+<text x="88" y="606" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">마지막 고리 (추정)</text>
+<text x="88" y="629" font-size="16" fill="#0f172a" xml:space="preserve">락이 넘어가도 다음 대기자는 먼저 캐리어에 올라타야 한다</text>
+<text x="88" y="652" font-size="16" fill="#0f172a" xml:space="preserve">빈 캐리어가 0개 → 아무도 진행하지 못한다</text>
+<line x1="400" y1="550" x2="400" y2="578" stroke="#c2410c" stroke-width="2.2" stroke-dasharray="7 5" marker-end="url(#mo)"/>
+<text x="20" y="704" font-size="16" fill="#64748b" xml:space="preserve">증상: 201 응답 0건, 1원 94건 · 행 28건 뒤 진행 없음.</text>
+<text x="20" y="728" font-size="16" fill="#64748b" xml:space="preserve">확인 도구: jcmd &lt;PID&gt; Thread.dump_to_file -format=text</text>
+<text x="20" y="752" font-size="16" fill="#64748b" xml:space="preserve">데운 앱은 직렬화기가 이미 캐시돼 이 블록에 오래 머물지 않는다.</text>
+</svg>

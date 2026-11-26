@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 806" width="760" height="806" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>MVC 비동기가 초당 800건에서 무너진 곳: 은행 응답 뒤처리가 앱 실행기 8스레드에서 줄을 서고, 64로 늘리면 800건을 다 받는다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="806" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">초당 800건에서 MVC 비동기가 막힌 곳:</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">은행 응답 뒤처리를 도는 앱 실행기 8스레드</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">주황 = 숨은 천장, 초록 = 넘어간 판. 은행 지연 500ms,</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">800건/s 칸은 판마다 1회 측정</text>
+<rect x="20" y="150" width="720" height="66" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="176" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① Tomcat 스레드는 future 를 돌려주고 곧바로 놓인다</text>
+<text x="32" y="199" font-size="16" fill="#0f172a" xml:space="preserve">은행을 기다리는 동안 Tomcat 은 막히지 않는다</text>
+<line x1="380" y1="216" x2="380" y2="240" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="242" width="720" height="90" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="32" y="268" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② 은행 응답이 오면 thenApplyAsync(..., applicationTaskExecutor)</text>
+<text x="32" y="291" font-size="16" fill="#0f172a" xml:space="preserve">응답 해석과 DB 저장이 앱 실행기로 넘어간다</text>
+<text x="32" y="314" font-size="16" fill="#0f172a" xml:space="preserve">Spring Boot 기본: core 8스레드, 큐 무제한 → 8개에서 늘지 않는다</text>
+<line x1="380" y1="332" x2="380" y2="356" stroke="#c2410c" stroke-width="2.2" marker-end="url(#mo)"/>
+<rect x="20" y="358" width="720" height="104" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="34" y="386" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ 실행기 큐: 뒤처리가 8개씩만 빠진다</text>
+<rect x="34" y="402" width="24" height="24" rx="3" fill="#fed7aa" stroke="#c2410c"/>
+<rect x="64" y="402" width="24" height="24" rx="3" fill="#fed7aa" stroke="#c2410c"/>
+<rect x="94" y="402" width="24" height="24" rx="3" fill="#fed7aa" stroke="#c2410c"/>
+<rect x="124" y="402" width="24" height="24" rx="3" fill="#fed7aa" stroke="#c2410c"/>
+<rect x="154" y="402" width="24" height="24" rx="3" fill="#fed7aa" stroke="#c2410c"/>
+<rect x="184" y="402" width="24" height="24" rx="3" fill="#fed7aa" stroke="#c2410c"/>
+<rect x="214" y="402" width="24" height="24" rx="3" fill="#fed7aa" stroke="#c2410c"/>
+<rect x="244" y="402" width="24" height="24" rx="3" fill="#fed7aa" stroke="#c2410c"/>
+<rect x="274" y="402" width="24" height="24" rx="3" fill="#fed7aa" stroke="#c2410c"/>
+<rect x="304" y="402" width="24" height="24" rx="3" fill="#fed7aa" stroke="#c2410c"/>
+<rect x="334" y="402" width="24" height="24" rx="3" fill="#fed7aa" stroke="#c2410c"/>
+<rect x="364" y="402" width="24" height="24" rx="3" fill="#fed7aa" stroke="#c2410c"/>
+<rect x="394" y="402" width="24" height="24" rx="3" fill="#fed7aa" stroke="#c2410c"/>
+<rect x="424" y="402" width="24" height="24" rx="3" fill="#fed7aa" stroke="#c2410c"/>
+<text x="470" y="420" font-size="16" fill="#c2410c" font-weight="700" xml:space="preserve">…</text>
+<rect x="500" y="402" width="22" height="24" rx="3" fill="#c2410c"/>
+<rect x="528" y="402" width="22" height="24" rx="3" fill="#c2410c"/>
+<rect x="556" y="402" width="22" height="24" rx="3" fill="#c2410c"/>
+<rect x="584" y="402" width="22" height="24" rx="3" fill="#c2410c"/>
+<rect x="612" y="402" width="22" height="24" rx="3" fill="#c2410c"/>
+<rect x="640" y="402" width="22" height="24" rx="3" fill="#c2410c"/>
+<rect x="668" y="402" width="22" height="24" rx="3" fill="#c2410c"/>
+<rect x="696" y="402" width="22" height="24" rx="3" fill="#c2410c"/>
+<text x="34" y="450" font-size="16" fill="#475569" xml:space="preserve">줄 선 뒤처리</text>
+<text x="500" y="450" font-size="16" fill="#475569" xml:space="preserve">실행기 스레드 8개</text>
+<text x="20" y="484" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ 초당 800건 도착에서 201 처리량 (괄호 = p99)</text>
+<text x="20" y="520" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">MVC 비동기 (8)</text>
+<rect x="230" y="500" width="220.9" height="28" rx="4" fill="#c2410c" opacity="0.85"/>
+<text x="460.905" y="520" font-size="16" fill="#c2410c" font-weight="700" xml:space="preserve">490.9 (4.3초)</text>
+<text x="20" y="572" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">MVC 비동기 (64)</text>
+<rect x="230" y="552" width="360.0" height="28" rx="4" fill="#047857" opacity="0.85"/>
+<text x="600.0" y="572" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">800.0 (1.7초)</text>
+<text x="20" y="624" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">WebFlux 코루틴</text>
+<rect x="230" y="604" width="360.0" height="28" rx="4" fill="#047857" opacity="0.85"/>
+<text x="600.0" y="624" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">800.0 (1.2초)</text>
+<text x="20" y="676" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">WebFlux Reactor</text>
+<rect x="230" y="656" width="360.0" height="28" rx="4" fill="#047857" opacity="0.85"/>
+<text x="600.0" y="676" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">800.0 (1.2초)</text>
+<line x1="230" y1="492" x2="230" y2="704" stroke="#334155" stroke-width="1.4"/>
+<text x="20" y="730" font-size="16" fill="#64748b" xml:space="preserve">(64) = --spring.task.execution.pool.core-size=64 로 같은 칸을 한 번 더 잰 것.</text>
+<text x="20" y="754" font-size="16" fill="#64748b" xml:space="preserve">코루틴은 Dispatchers.IO(64), Reactor 는 boundedElastic 이 같은 일을 맡았다.</text>
+<text x="20" y="778" font-size="16" fill="#64748b" xml:space="preserve">근거: docs/perf/p6-2-web-reactive.md §9</text>
+</svg>

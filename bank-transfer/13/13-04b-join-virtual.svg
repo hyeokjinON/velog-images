@@ -1,0 +1,32 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 672" width="760" height="672" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>가상 스레드를 켠 블로킹 판: join() 에서 캐리어를 내려놓아 캐리어 16개가 약 410개의 기다림을 돌린다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="672" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">켠 판: join() 에서 캐리어를 내려놓는다</text>
+<text x="20" y="68" font-size="16" fill="#475569" xml:space="preserve">초록 = 일하는 캐리어, 파랑 = 가상 스레드</text>
+<text x="20" y="91" font-size="16" fill="#475569" xml:space="preserve">코드는 같다. join() 아래의 park 처리만 달라진다</text>
+<circle cx="34" cy="150" r="13" fill="#1d4ed8"/><text x="34" y="156" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">①</text>
+<rect x="60" y="120" width="680" height="68" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="72" y="146" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">mount: 가상 스레드가 빈 캐리어에 올라탄다</text>
+<text x="72" y="169" font-size="16" fill="#0f172a" xml:space="preserve">요청마다 새 가상 스레드 하나, 성명조회를 보낸다</text>
+<circle cx="34" cy="232" r="13" fill="#1d4ed8"/><text x="34" y="238" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">②</text>
+<rect x="60" y="202" width="680" height="68" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="72" y="228" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">park → unmount: join() 에서 기다린다</text>
+<text x="72" y="251" font-size="16" fill="#0f172a" xml:space="preserve">스택을 힙에 맡기고 캐리어에서 내려온다</text>
+<circle cx="34" cy="314" r="13" fill="#047857"/><text x="34" y="320" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">③</text>
+<rect x="60" y="284" width="680" height="68" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="72" y="310" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">같은 캐리어가 다른 요청의 가상 스레드를 돌린다</text>
+<text x="72" y="333" font-size="16" fill="#0f172a" xml:space="preserve">캐리어(실제 OS 스레드)는 논리 코어 수 16개</text>
+<circle cx="34" cy="396" r="13" fill="#1d4ed8"/><text x="34" y="402" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">④</text>
+<rect x="60" y="366" width="680" height="68" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="72" y="392" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">은행 응답 → unpark → 빈 캐리어에 다시 mount</text>
+<text x="72" y="415" font-size="16" fill="#0f172a" xml:space="preserve">1원 이체도 같은 방식으로 기다린다</text>
+<rect x="20" y="454" width="720" height="114" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="480" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">결과: 400.0건/s, 시간 초과 0, p99 1,033ms</text>
+<text x="32" y="503" font-size="16" fill="#0f172a" xml:space="preserve">동시에 기다리는 요청 ≈ 400 × 1.02초 ≈ 410개 (추정)</text>
+<text x="32" y="526" font-size="16" fill="#0f172a" xml:space="preserve">플랫폼 스레드 최대는 42개로 일정 (≈ 기본 26 + 캐리어 16)</text>
+<text x="32" y="549" font-size="16" fill="#0f172a" xml:space="preserve">천장이 스레드 수에서 CPU · DB · 은행으로 옮겨 간다</text>
+<rect x="20" y="584" width="720" height="68" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="610" font-size="16" fill="#0f172a" xml:space="preserve">단, Java 21 은 synchronized 안에서 기다리면</text>
+<text x="32" y="633" font-size="16" fill="#0f172a" xml:space="preserve">캐리어를 놓지 못한다 (pinning) — 5절의 교착</text>
+</svg>

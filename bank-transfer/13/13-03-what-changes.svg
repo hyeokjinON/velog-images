@@ -1,0 +1,36 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 666" width="760" height="666" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>설정 한 줄이 바꾸는 네 곳과 그대로인 곳, 함께 사라지는 과부하 보호</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="666" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">설정 한 줄이 바꾸는 곳과 그대로인 곳</text>
+<text x="20" y="68" font-size="16" fill="#475569" xml:space="preserve">초록 = 가상 스레드로 바뀜 (실험 V1 이 isVirtual 로 확인)</text>
+<text x="20" y="91" font-size="16" fill="#475569" xml:space="preserve">회색 = 그대로 (추정), 빨강 = 함께 사라지는 보호 장치</text>
+<rect x="20" y="120" width="720" height="68" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="146" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">application.yml</text>
+<text x="32" y="169" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">spring.threads.virtual.enabled: false → true</text>
+<line x1="380" y1="188" x2="380" y2="220" stroke="#047857" stroke-width="2.2" marker-end="url(#mg)"/>
+<rect x="20" y="222" width="180" height="42" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="249" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">Tomcat 요청</text>
+<rect x="210" y="222" width="530" height="42" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="222" y="249" font-size="16" fill="#0f172a" xml:space="preserve">풀(최대 200) → 요청마다 가상 스레드</text>
+<rect x="20" y="274" width="180" height="42" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="301" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">앱 실행기</text>
+<rect x="210" y="274" width="530" height="42" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="222" y="301" font-size="16" fill="#0f172a" xml:space="preserve">풀(코어 8) → 작업마다 가상 스레드</text>
+<rect x="20" y="326" width="180" height="42" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="353" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">@Scheduled</text>
+<rect x="210" y="326" width="530" height="42" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="222" y="353" font-size="16" fill="#0f172a" xml:space="preserve">스케줄러 스레드 → 가상 스레드</text>
+<rect x="20" y="378" width="180" height="42" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="405" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">Kafka 리스너</text>
+<rect x="210" y="378" width="530" height="42" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="222" y="405" font-size="16" fill="#0f172a" xml:space="preserve">플랫폼 스레드 → 가상 스레드</text>
+<rect x="20" y="444" width="720" height="68" rx="8" fill="#ffffff" stroke="#94a3b8" stroke-width="1.6"/>
+<text x="32" y="470" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">그대로 (추정)</text>
+<text x="32" y="493" font-size="16" fill="#0f172a" xml:space="preserve">Netty 은행 게이트웨이 이벤트 루프 · Hikari · Kafka 내부 스레드</text>
+<rect x="20" y="532" width="720" height="114" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="558" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">함께 사라지는 것: 풀 크기가 막아 주던 과부하 보호</text>
+<text x="32" y="581" font-size="16" fill="#0f172a" xml:space="preserve">Tomcat 200, 실행기 8 이 더 이상 천장이 아니다</text>
+<text x="32" y="604" font-size="16" fill="#0f172a" xml:space="preserve">남는 한도는 Hikari 20 · 은행 시간 초과 3초 · CPU 뿐</text>
+<text x="32" y="627" font-size="16" fill="#0f172a" xml:space="preserve">켤 때는 동시 호출 상한(세마포어)을 함께 정한다</text>
+</svg>

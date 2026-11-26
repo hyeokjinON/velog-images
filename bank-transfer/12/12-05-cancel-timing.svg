@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 742" width="760" height="742" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>클라이언트가 끊긴 시점별로 남는 것: WebFlux 두 판은 취소되고, 1원 이체를 기다리던 중이면 1원은 나갔을 수 있다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="742" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">클라이언트가 응답 전에 끊으면:</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">끊긴 시점마다 은행과 DB 에 남는 것</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">WebFlux 코루틴 · Reactor 두 판 (끊김 테스트로 고정)</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">초록 = 흔적 없음, 주황 = 1원만 나감, 회색 = 행 있음</text>
+<rect x="60" y="150" width="680" height="86" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="72" y="176" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">성명조회를 기다리는 중에 끊김</text>
+<text x="72" y="199" font-size="16" fill="#0f172a" xml:space="preserve">취소. 1원 안 나감, 행 없음, 경고 없음</text>
+<text x="72" y="222" font-size="16" fill="#0f172a" xml:space="preserve">다시 누르면 처음부터 정상</text>
+<circle cx="32" cy="193" r="13" fill="#047857"/><text x="32" y="199" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">①</text>
+<line x1="400" y1="236" x2="400" y2="252" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="60" y="254" width="680" height="86" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="72" y="280" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">1원 이체를 기다리는 중에 끊김</text>
+<text x="72" y="303" font-size="16" fill="#0f172a" xml:space="preserve">취소. 1원은 나갔을 수 있음, 행 없음</text>
+<text x="72" y="326" font-size="16" fill="#0f172a" xml:space="preserve">경고 로그: stage=transfer, 계좌 끝 4자리만</text>
+<circle cx="32" cy="297" r="13" fill="#c2410c"/><text x="32" y="303" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">②</text>
+<line x1="400" y1="340" x2="400" y2="356" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="60" y="358" width="680" height="86" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="72" y="384" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">1원 응답을 받은 뒤, 저장 시작 전 (틈)</text>
+<text x="72" y="407" font-size="16" fill="#0f172a" xml:space="preserve">1원은 나감, 행 없음, 경고도 없음</text>
+<text x="72" y="430" font-size="16" fill="#0f172a" xml:space="preserve">이번 측정에서는 한 번도 없었다</text>
+<circle cx="32" cy="401" r="13" fill="#c2410c"/><text x="32" y="407" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">③</text>
+<line x1="400" y1="444" x2="400" y2="460" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="60" y="462" width="680" height="86" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="72" y="488" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">저장(JDBC) 중에 끊김</text>
+<text x="72" y="511" font-size="16" fill="#0f172a" xml:space="preserve">JDBC 는 끝까지 간다: 행 있음</text>
+<text x="72" y="534" font-size="16" fill="#0f172a" xml:space="preserve">사용자만 201 을 못 받는다</text>
+<circle cx="32" cy="505" r="13" fill="#334155"/><text x="32" y="511" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">④</text>
+<rect x="20" y="572" width="720" height="112" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="598" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">비교: MVC 비동기는 끊겨도 끝까지 간다</text>
+<text x="32" y="621" font-size="16" fill="#0f172a" xml:space="preserve">future 가 1원 이체와 저장을 마저 해서 1원 · 행이 모두 남는다.</text>
+<text x="32" y="644" font-size="16" fill="#0f172a" xml:space="preserve">응답을 못 받은 사용자는 인증 건 id 를 모르니 그 행을 쓸 수 없다.</text>
+<text x="32" y="667" font-size="16" fill="#0f172a" xml:space="preserve">그래서 WebFlux 판은 취소되게 두었다 (대가: 최악에 1원 두 번).</text>
+<text x="20" y="714" font-size="16" fill="#64748b" xml:space="preserve">근거: 실험 E2 · E3, VerificationSuite 끊김 테스트, ADR-0013 결정 5</text>
+</svg>

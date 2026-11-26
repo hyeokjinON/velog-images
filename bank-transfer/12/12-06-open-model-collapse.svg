@@ -1,0 +1,33 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 614" width="760" height="614" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>열린 모델에서 블로킹이 무너지는 순서: 천장 200건/s 위로 400건/s 가 오면 큐가 쌓이고, 10초에 끊긴 요청도 DB 에는 저장된다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="614" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">400건/s 가 오면 블로킹이 무너지는 순서</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">(은행 지연 500ms, 요청 하나 ≈ 1초)</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">빨강 = 무너지는 단계, 주황 = 끊김 비용.</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">숫자는 3회 중앙값, ④ 의 행 수는 1회차 값</text>
+<rect x="60" y="150" width="680" height="86" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="72" y="176" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">천장 = Tomcat 스레드 200 ÷ 1초 = 200건/s</text>
+<text x="72" y="199" font-size="16" fill="#0f172a" xml:space="preserve">그런데 도착은 초당 400건이다</text>
+<text x="72" y="222" font-size="16" fill="#0f172a" xml:space="preserve">(k6 constant-arrival-rate: 앱이 느려도 계속 보낸다)</text>
+<circle cx="32" cy="193" r="13" fill="#b91c1c"/><text x="32" y="199" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">①</text>
+<line x1="400" y1="236" x2="400" y2="252" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<rect x="60" y="254" width="680" height="86" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="72" y="280" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">못 받은 요청이 Tomcat 연결 큐에 쌓인다</text>
+<text x="72" y="303" font-size="16" fill="#0f172a" xml:space="preserve">초마다 약 200건씩 줄이 길어진다 (추정)</text>
+<text x="72" y="326" font-size="16" fill="#0f172a" xml:space="preserve">p50 8.4초: 사용자는 화면이 멈춘 것처럼 본다</text>
+<circle cx="32" cy="297" r="13" fill="#b91c1c"/><text x="32" y="303" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">②</text>
+<line x1="400" y1="340" x2="400" y2="356" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<rect x="60" y="358" width="680" height="86" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="72" y="384" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">10초를 넘긴 요청을 k6 가 끊는다</text>
+<text x="72" y="407" font-size="16" fill="#0f172a" xml:space="preserve">시간 초과 4,999건 → 201 로 세지 못한다</text>
+<text x="72" y="430" font-size="16" fill="#0f172a" xml:space="preserve">그래서 처리량이 53.5건/s 로 떨어진다</text>
+<circle cx="32" cy="401" r="13" fill="#b91c1c"/><text x="32" y="407" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">③</text>
+<line x1="400" y1="444" x2="400" y2="460" stroke="#b91c1c" stroke-width="2.2" marker-end="url(#mr)"/>
+<rect x="60" y="462" width="680" height="86" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="72" y="488" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">그런데 MVC 는 끊겨도 끝까지 저장한다</text>
+<text x="72" y="511" font-size="16" fill="#0f172a" xml:space="preserve">DB 행 9,568 = 201 4,603 + 끊긴 뒤 저장 4,965</text>
+<text x="72" y="534" font-size="16" fill="#0f172a" xml:space="preserve">다시 누르면 1원이 두 번 나간다 (추정)</text>
+<circle cx="32" cy="505" r="13" fill="#c2410c"/><text x="32" y="511" font-size="16" fill="#ffffff" font-weight="700" text-anchor="middle" xml:space="preserve">④</text>
+<text x="20" y="586" font-size="16" fill="#64748b" xml:space="preserve">근거: docs/perf/p6-2-web-reactive.md §5-2 · §6 · §7-1</text>
+</svg>

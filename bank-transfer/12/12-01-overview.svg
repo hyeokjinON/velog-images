@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 880" width="760" height="880" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>1원인증 한 건은 은행을 두 번 기다린다: 기다리는 동안 스레드를 잡는 판만 초당 400건에서 무너졌다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="880" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">1원인증 한 건은 은행을 두 번 기다린다:</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">그동안 스레드를 잡는 판만 400건/s 에서 무너졌다</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">빨강 = 기다리는 동안 스레드를 잡음, 초록 = 놓음,</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">주황 = 놓았지만 뒤처리 풀이 작음. 수치는 은행 지연 500ms 기준</text>
+<rect x="20" y="148" width="720" height="112" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="174" font-size="16" fill="#0f172a" xml:space="preserve">① 사용자가 1원인증을 누른다 (POST /api/v1/account-verifications)</text>
+<text x="32" y="197" font-size="16" fill="#0f172a" xml:space="preserve">② 성명조회: 은행에 예금주 이름을 묻고 0.5초 기다린다</text>
+<text x="32" y="220" font-size="16" fill="#0f172a" xml:space="preserve">③ 1원 이체: 적요에 코드를 실어 1원을 보내고 0.5초 기다린다</text>
+<text x="32" y="243" font-size="16" fill="#0f172a" xml:space="preserve">④ 인증 건을 DB 에 저장(JDBC)하고 201 을 돌려준다</text>
+<line x1="380" y1="260" x2="380" y2="292" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<text x="392" y="284" font-size="16" fill="#475569" xml:space="preserve">같은 요청을 네 가지 방법으로 기다려 본다</text>
+<rect x="20" y="294" width="720" height="92" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="320" font-size="16" fill="#b91c1c" font-weight="700" xml:space="preserve">MVC 블로킹 (대조군)</text>
+<text x="32" y="343" font-size="16" fill="#0f172a" xml:space="preserve">Tomcat 스레드가 join() 으로 끝까지 잡는다</text>
+<text x="32" y="366" font-size="16" fill="#0f172a" xml:space="preserve">400건/s → 53.5건/s, 시간 초과 4,999건</text>
+<rect x="20" y="402" width="720" height="92" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="32" y="428" font-size="16" fill="#c2410c" font-weight="700" xml:space="preserve">MVC 비동기 (지금 운영 기본)</text>
+<text x="32" y="451" font-size="16" fill="#0f172a" xml:space="preserve">Tomcat 스레드는 놓고, 뒤처리는 앱 실행기 8스레드</text>
+<text x="32" y="474" font-size="16" fill="#0f172a" xml:space="preserve">400건/s → 400.0, 800건/s → 490.9</text>
+<rect x="20" y="510" width="720" height="92" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="536" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">WebFlux 코루틴 (별도 앱)</text>
+<text x="32" y="559" font-size="16" fill="#0f172a" xml:space="preserve">suspend · await, 저장만 IO 디스패처</text>
+<text x="32" y="582" font-size="16" fill="#0f172a" xml:space="preserve">400건/s → 400.0, 800건/s → 800.0</text>
+<rect x="20" y="618" width="720" height="92" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="644" font-size="16" fill="#047857" font-weight="700" xml:space="preserve">WebFlux Reactor (별도 앱)</text>
+<text x="32" y="667" font-size="16" fill="#0f172a" xml:space="preserve">Mono.fromFuture, 저장만 boundedElastic</text>
+<text x="32" y="690" font-size="16" fill="#0f172a" xml:space="preserve">400건/s → 400.0, 800건/s → 800.0</text>
+<rect x="20" y="732" width="720" height="66" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="758" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">차이를 만든 것은 WebFlux 가 아니라</text>
+<text x="32" y="781" font-size="16" fill="#0f172a" xml:space="preserve">은행을 기다리는 동안 스레드를 잡느냐 놓느냐였다</text>
+<text x="20" y="828" font-size="16" fill="#64748b" xml:space="preserve">한 PC 의 상대 비교, 운영 수치 아님. 3회 중앙값 (800건/s 는 1회).</text>
+<text x="20" y="852" font-size="16" fill="#64748b" xml:space="preserve">근거: bank-transfer PR #21 · #22, docs/perf/p6-2-web-reactive.md</text>
+</svg>

@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 900" width="760" height="900" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>측정 한 회: 발행과 처리를 나누고 DB 시각으로 잰다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="900" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">측정 한 회: 발행과 처리를 나누고</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">DB 시각으로 잰다 (load/consumer/run.sh)</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">은행 장애가 끝나 밀린 N건을 비우는 상황을 흉내 낸다.</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">API 기동 시간과 발행 속도가 처리량에 섞이지 않는다</text>
+<rect x="20" y="140" width="720" height="68" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="166" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⓪ 사전 확인 (읽기 전용)</text>
+<text x="32" y="189" font-size="16" fill="#0f172a" xml:space="preserve">측정 사용자 밖의 미발행 아웃박스 · 처리 중 출금이 있나</text>
+<text x="560" y="228" font-size="16" fill="#b91c1c" font-weight="700" xml:space="preserve">있으면 시작하지 않는다</text>
+<line x1="380" y1="208" x2="380" y2="232" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="232" width="720" height="68" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="258" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">① 정리 · 시드</text>
+<text x="32" y="281" font-size="16" fill="#0f172a" xml:space="preserve">측정 사용자 100명, RECEIVED 출금 N건, 미발행 아웃박스 N행</text>
+<line x1="380" y1="300" x2="380" y2="324" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="324" width="720" height="68" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="350" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">② 측정 그룹 오프셋을 토픽 끝으로</text>
+<text x="32" y="373" font-size="16" fill="#0f172a" xml:space="preserve">원래 · 재시도 · DLT 토픽 모두</text>
+<line x1="380" y1="392" x2="380" y2="416" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="416" width="720" height="68" rx="8" fill="#eff6ff" stroke="#1d4ed8" stroke-width="1.6"/>
+<text x="32" y="442" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">③ 발행만</text>
+<text x="32" y="465" font-size="16" fill="#0f172a" xml:space="preserve">API(리스너 끔)를 띄워 미발행이 0 이 되면 내린다</text>
+<line x1="380" y1="484" x2="380" y2="508" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="508" width="720" height="68" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="534" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">④ 처리만</text>
+<text x="32" y="557" font-size="16" fill="#0f172a" xml:space="preserve">모의 은행(지연 d) + API(모드 · 상한 · Hikari) — 1초마다 CPU 표본</text>
+<line x1="380" y1="576" x2="380" y2="600" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="600" width="720" height="68" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="626" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑤ RECEIVED · SENDING 이 0건이 되면 계산</text>
+<text x="32" y="649" font-size="16" fill="#0f172a" xml:space="preserve">처리량 = N ÷ (마지막 updated_at − 첫 sending_at)</text>
+<line x1="380" y1="668" x2="380" y2="692" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<rect x="20" y="692" width="720" height="68" rx="8" fill="#f8fafc" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="718" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">⑥ 정확성 확인</text>
+<text x="32" y="741" font-size="16" fill="#0f172a" xml:space="preserve">모두 COMPLETED, 거래번호마다 은행 1번, 잔고 = 원장 합</text>
+<rect x="20" y="788" width="720" height="80" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="32" y="814" font-size="16" fill="#0f172a" font-weight="700" xml:space="preserve">통과하면 raw/p6-1/이름.json, 실패하면 .invalid (표에서 빠짐)</text>
+<text x="32" y="837" font-size="16" fill="#0f172a" xml:space="preserve">49회 모두 통과했다. 빠른데 틀리면 의미가 없다</text>
+</svg>

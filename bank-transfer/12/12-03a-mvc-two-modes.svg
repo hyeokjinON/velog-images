@@ -1,0 +1,63 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 798" width="760" height="798" font-family="Malgun Gothic, Apple SD Gothic Neo, sans-serif">
+<title>MVC 두 판: 블로킹은 Tomcat 스레드가 은행 대기 내내 잡혀 있고, 비동기는 스레드를 놓지만 뒤처리가 앱 실행기 8스레드를 거친다</title>
+<defs><marker id="mg" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#047857"/></marker><marker id="mb" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#1d4ed8"/></marker><marker id="mr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#b91c1c"/></marker><marker id="mo" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c2410c"/></marker><marker id="ms" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#334155"/></marker><marker id="mx" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#94a3b8"/></marker></defs>
+<rect width="760" height="798" fill="#ffffff"/>
+<text x="20" y="34" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">MVC 두 판: 은행을 기다리는 동안</text>
+<text x="20" y="62" font-size="21" fill="#0f172a" font-weight="700" xml:space="preserve">Tomcat 스레드를 잡느냐 놓느냐</text>
+<text x="20" y="96" font-size="16" fill="#475569" xml:space="preserve">빨강 = 스레드를 잡고 있음, 초록 = 스레드 없이 대기,</text>
+<text x="20" y="119" font-size="16" fill="#475569" xml:space="preserve">주황 = 작은 풀(기본 8)을 거침, 흰색 = 짧은 일</text>
+<rect x="20" y="148" width="350" height="66" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="174" font-size="16" fill="#b91c1c" font-weight="700" xml:space="preserve">MVC 블로킹 (대조군)</text>
+<text x="32" y="197" font-size="16" fill="#0f172a" xml:space="preserve">컨트롤러가 future.join()</text>
+<text x="20" y="242" font-size="16" fill="#475569" font-weight="700" xml:space="preserve">① 요청 받음</text>
+<rect x="20" y="252" width="350" height="88" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="278" font-size="16" fill="#0f172a" xml:space="preserve">Tomcat 스레드</text>
+<text x="32" y="301" font-size="16" fill="#0f172a" font-family="Consolas, D2Coding, monospace" xml:space="preserve">http-nio-8080-exec-N</text>
+<text x="32" y="324" font-size="16" fill="#0f172a" xml:space="preserve">한 개가 요청을 받는다</text>
+<line x1="195" y1="340" x2="195" y2="360" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<text x="20" y="366" font-size="16" fill="#475569" font-weight="700" xml:space="preserve">② 은행 대기 (두 번)</text>
+<rect x="20" y="376" width="350" height="88" rx="8" fill="#fef2f2" stroke="#b91c1c" stroke-width="1.6"/>
+<text x="32" y="402" font-size="16" fill="#0f172a" xml:space="preserve">같은 스레드가 끝까지 기다린다</text>
+<text x="32" y="425" font-size="16" fill="#0f172a" xml:space="preserve">1초 동안 이 스레드는 쉰다</text>
+<text x="32" y="448" font-size="16" fill="#0f172a" xml:space="preserve">동시 요청 수 = 스레드 200</text>
+<line x1="195" y1="464" x2="195" y2="484" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<text x="20" y="490" font-size="16" fill="#475569" font-weight="700" xml:space="preserve">③ 응답 해석</text>
+<rect x="20" y="500" width="350" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="526" font-size="16" fill="#0f172a" xml:space="preserve">응답을 앱 실행기(task-N)가</text>
+<text x="32" y="549" font-size="16" fill="#0f172a" xml:space="preserve">해석하는 동안에도</text>
+<text x="32" y="572" font-size="16" fill="#0f172a" xml:space="preserve">Tomcat 스레드는 join 에서 대기</text>
+<line x1="195" y1="588" x2="195" y2="608" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<text x="20" y="614" font-size="16" fill="#475569" font-weight="700" xml:space="preserve">④ 저장 (JDBC)</text>
+<rect x="20" y="624" width="350" height="88" rx="8" fill="#ffffff" stroke="#334155" stroke-width="1.6"/>
+<text x="32" y="650" font-size="16" fill="#0f172a" xml:space="preserve">앱 실행기가 저장한 뒤</text>
+<text x="32" y="673" font-size="16" fill="#0f172a" xml:space="preserve">join 이 풀려 201 을 쓴다</text>
+<text x="32" y="696" font-size="16" fill="#0f172a" xml:space="preserve">그제야 스레드가 풀로 돌아간다</text>
+<rect x="390" y="148" width="350" height="66" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="402" y="174" font-size="16" fill="#c2410c" font-weight="700" xml:space="preserve">MVC 비동기 (운영 기본)</text>
+<text x="402" y="197" font-size="16" fill="#0f172a" xml:space="preserve">컨트롤러가 future 를 반환</text>
+<text x="390" y="242" font-size="16" fill="#475569" font-weight="700" xml:space="preserve">① 요청 받음</text>
+<rect x="390" y="252" width="350" height="88" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="402" y="278" font-size="16" fill="#0f172a" xml:space="preserve">Tomcat 스레드가 받고</text>
+<text x="402" y="301" font-size="16" fill="#0f172a" xml:space="preserve">CompletableFuture 를 돌려주면</text>
+<text x="402" y="324" font-size="16" fill="#0f172a" xml:space="preserve">곧바로 풀로 돌아간다</text>
+<line x1="565" y1="340" x2="565" y2="360" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<text x="390" y="366" font-size="16" fill="#475569" font-weight="700" xml:space="preserve">② 은행 대기 (두 번)</text>
+<rect x="390" y="376" width="350" height="88" rx="8" fill="#ecfdf5" stroke="#047857" stroke-width="1.6"/>
+<text x="402" y="402" font-size="16" fill="#0f172a" xml:space="preserve">기다리는 동안 스레드 없음</text>
+<text x="402" y="425" font-size="16" fill="#0f172a" xml:space="preserve">은행 응답이 future 를 완료</text>
+<text x="402" y="448" font-size="16" fill="#0f172a" xml:space="preserve">(게이트웨이 이벤트 루프)</text>
+<line x1="565" y1="464" x2="565" y2="484" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<text x="390" y="490" font-size="16" fill="#475569" font-weight="700" xml:space="preserve">③ 응답 해석</text>
+<rect x="390" y="500" width="350" height="88" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="402" y="526" font-size="16" fill="#0f172a" xml:space="preserve">thenApplyAsync 로 넘겨</text>
+<text x="402" y="549" font-size="16" fill="#0f172a" xml:space="preserve">앱 실행기 task-N 이 해석</text>
+<text x="402" y="572" font-size="16" fill="#0f172a" xml:space="preserve">기본 8스레드, 큐 무제한</text>
+<line x1="565" y1="588" x2="565" y2="608" stroke="#334155" stroke-width="2.2" marker-end="url(#ms)"/>
+<text x="390" y="614" font-size="16" fill="#475569" font-weight="700" xml:space="preserve">④ 저장 (JDBC)</text>
+<rect x="390" y="624" width="350" height="88" rx="8" fill="#fff7ed" stroke="#c2410c" stroke-width="1.6"/>
+<text x="402" y="650" font-size="16" fill="#0f172a" xml:space="preserve">같은 앱 실행기가 저장</text>
+<text x="402" y="673" font-size="16" fill="#0f172a" xml:space="preserve">끝나면 Tomcat 스레드가</text>
+<text x="402" y="696" font-size="16" fill="#0f172a" xml:space="preserve">다시 잡아 201 을 쓴다</text>
+<text x="20" y="746" font-size="16" fill="#64748b" xml:space="preserve">두 판의 코드 차이는 join() 한 줄이다. 블로킹 판도 해석 · 저장은 앱 실행기가</text>
+<text x="20" y="770" font-size="16" fill="#64748b" xml:space="preserve">하지만, 그동안 Tomcat 스레드가 join 에서 놓이지 않는다.</text>
+</svg>
